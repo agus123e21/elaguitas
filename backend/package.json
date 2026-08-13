@@ -1,0 +1,30 @@
+{
+  "name": "agua-backend",
+  "version": "0.1.0",
+  "description": "API REST para la plataforma de venta y reparto de agua en bidones",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "db:migrate": "node db/runMigrations.js",
+    "db:seed": "node db/runSeeds.js",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "db:create": "node db/createDatabase.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

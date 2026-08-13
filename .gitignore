@@ -1,0 +1,30 @@
+# Node
+node_modules/
+npm-debug.log*
+*.log
+
+# Env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Build
+dist/
+build/
+*.tsbuildinfo
+
+# Supabase / Capacitor
+supabase/.branches
+supabase/.temp
+android/
+ios/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
