@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { query } from '../../config/db.js';
 import { asyncHandler } from '../../utils/asyncHandler.js';
 import { validateMiddleware, validators } from '../../utils/validate.js';
 import { requireClient, requireAdmin, requireDriver, requireAnyRole } from '../../middlewares/auth.js';
@@ -66,16 +67,24 @@ router.post(
 
 router.post(
   '/preview',
-  requireClient,
+  requireAnyRole,
   validateMiddleware({
     addressId: validators.number,
     items: (v) => Array.isArray(v) && v.length > 0 && v.every((i) => !validateItem(i)),
     promotionCode: validators.optionalString,
   }),
   asyncHandler(async (req, res) => {
-    const customerId = await getCustomerIdByUserId(req.user.id);
-    if (!customerId) {
-      return res.status(403).json({ error: { code: 403, message: 'No sos cliente registrado' } });
+    let customerId = req.body.customerId;
+    if (req.user.role === 'CLIENT') {
+      customerId = await getCustomerIdByUserId(req.user.id);
+      if (!customerId) {
+        return res.status(403).json({ error: { code: 403, message: 'No sos cliente registrado' } });
+      }
+    } else {
+      if (!customerId) {
+        const c = await query('SELECT id FROM customers LIMIT 1');
+        customerId = c.rows[0]?.id;
+      }
     }
     const preview = await previewOrder({ customerId, ...req.body });
     res.json({ preview });

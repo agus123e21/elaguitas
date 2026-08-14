@@ -20,8 +20,9 @@ async function request(path, { method = 'GET', body, token, headers = {} } = {})
     },
   };
 
-  if (token) {
-    options.headers.Authorization = `Bearer ${token}`;
+  const activeToken = token || localStorage.getItem('token');
+  if (activeToken) {
+    options.headers.Authorization = `Bearer ${activeToken}`;
   }
 
   if (body !== undefined) {
