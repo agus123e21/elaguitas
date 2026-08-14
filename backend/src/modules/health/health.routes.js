@@ -8,11 +8,13 @@ router.get(
   '/health',
   asyncHandler(async (req, res) => {
     let db = 'disconnected';
+    let dbError = null;
     try {
       await checkConnection();
       db = 'connected';
-    } catch {
+    } catch (err) {
       db = 'unreachable';
+      dbError = err.message;
     }
 
     const healthy = db === 'connected';
@@ -22,6 +24,7 @@ router.get(
       uptime: process.uptime(),
       timestamp: new Date().toISOString(),
       db,
+      error: dbError,
     });
   })
 );
