@@ -98,13 +98,25 @@ router.get(
 
 router.get(
   '/:id',
-  requireClient,
   asyncHandler(async (req, res) => {
+    const id = Number(req.params.id);
+    if (req.user.role === 'ADMIN') {
+      const order = await getOrderById(id);
+      return res.json({ order });
+    }
+    if (req.user.role === 'DRIVER') {
+      const driverId = await getDriverIdByUserId(req.user.id);
+      if (!driverId) {
+        return res.status(403).json({ error: { code: 403, message: 'No sos repartidor registrado' } });
+      }
+      const order = await getOrderById(id, { scopes: { driverId } });
+      return res.json({ order });
+    }
     const customerId = await getCustomerIdByUserId(req.user.id);
     if (!customerId) {
       return res.status(403).json({ error: { code: 403, message: 'No sos cliente registrado' } });
     }
-    const order = await getOrderById(Number(req.params.id), { scopes: { customerId } });
+    const order = await getOrderById(id, { scopes: { customerId } });
     res.json({ order });
   })
 );

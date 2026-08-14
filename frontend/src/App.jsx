@@ -15,6 +15,7 @@ import MyOrders from './pages/MyOrders.jsx'
 import OrderDetail from './pages/OrderDetail.jsx'
 import MyAddresses from './pages/MyAddresses.jsx'
 import Containers from './pages/Containers.jsx'
+import DriverOrders from './pages/DriverOrders.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminZones from './pages/admin/AdminZones.jsx'
 import AdminContainers from './pages/admin/AdminContainers.jsx'
@@ -71,6 +72,14 @@ export default function App() {
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
                 <Containers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/repartos"
+            element={
+              <ProtectedRoute roles={['DRIVER']}>
+                <DriverOrders />
               </ProtectedRoute>
             }
           />

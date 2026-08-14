@@ -15,6 +15,11 @@ export async function getMyOrders(token) {
   return data.orders
 }
 
+export async function getOrdersByStatus(status, token) {
+  const data = await api.get(`/orders?status=${status}`, { token })
+  return data.orders
+}
+
 export async function getOrder(id, token) {
   const data = await api.get(`/orders/${id}`, { token })
   return data.order
