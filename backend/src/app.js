@@ -3,7 +3,9 @@ import cors from 'cors';
 import morgan from 'morgan';
 import env from './config/env.js';
 import { notFoundHandler, errorHandler } from './middlewares/error.js';
+import { authenticate, requireAdmin, requireDriver } from './middlewares/auth.js';
 import healthRoutes from './modules/health/health.routes.js';
+import authRoutes from './modules/auth/auth.routes.js';
 
 const app = express();
 
@@ -24,6 +26,19 @@ if (!env.isProduction) {
 }
 
 app.use('/api', healthRoutes);
+app.use('/api/auth', authRoutes);
+
+app.use('/api/client', authenticate, (req, res) => {
+  res.json({ role: req.user.role, message: 'Área de cliente' });
+});
+
+app.use('/api/driver', authenticate, requireDriver, (req, res) => {
+  res.json({ role: req.user.role, message: 'Área de repartidor' });
+});
+
+app.use('/api/admin', authenticate, requireAdmin, (req, res) => {
+  res.json({ role: req.user.role, message: 'Área de administrador' });
+});
 
 app.get('/', (req, res) => {
   res.json({
