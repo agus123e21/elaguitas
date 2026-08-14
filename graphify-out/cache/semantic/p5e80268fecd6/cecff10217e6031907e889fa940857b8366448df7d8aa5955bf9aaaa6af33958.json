@@ -1,0 +1,1 @@
+{"nodes": [{"id": "agents_skills_spec_driven_development_skill", "label": "Spec-Driven Development Skill", "file_type": "document", "source_file": ".agents/skills/spec-driven-development/SKILL.md", "rationale": "Enforces a gated workflow (Specify -> Plan -> Tasks -> Implement) and capability mapping for complex features."}], "edges": [], "hyperedges": []}

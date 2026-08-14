@@ -17,51 +17,94 @@ export default function Home() {
 
   return (
     <div className="page">
+      {/* Hero Banner Mobile First */}
       <section className="hero">
-        <h1>Agua</h1>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.2)', padding: '0.2rem 0.65rem', borderRadius: 'var(--radius-pill)', fontSize: '0.78rem', fontWeight: 700, marginBottom: '0.85rem' }}>
+          <span>💧</span> AGUA PURIFICADA A DOMICILIO
+        </div>
+
+        <h1>El Agüitas</h1>
         <p>
-          Plataforma de venta y reparto de agua en bidones. Pedí online y coordiná la entrega a
-          domicilio.
+          Reparto programado y pedidos de bidones de agua directamente en tu puerta. Rápido, fresco y con control de envases.
         </p>
+
         {user ? (
-          <p>
-            Hola, {user.name} <span className="navbar__role">{user.role}</span>
-          </p>
+          <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', marginTop: '1.25rem' }}>
+            {user.role === 'ADMIN' && (
+              <Link className="btn btn-primary" to="/admin">
+                🛡️ Consola Administrador
+              </Link>
+            )}
+            {user.role === 'DRIVER' && (
+              <Link className="btn btn-primary" to="/repartos">
+                🚚 Hoja de Repartos
+              </Link>
+            )}
+            <Link className="btn btn-outline" to="/productos">
+              💧 Ver Catálogo
+            </Link>
+          </div>
         ) : (
-          <p>
-            <Link className="btn btn-primary" to="/login">Ingresá</Link>{' '}
-            <Link className="btn btn-outline" to="/register">Creá una cuenta</Link>
-          </p>
+          <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap', marginTop: '1.25rem' }}>
+            <Link className="btn btn-primary" to="/login">
+              Ingresar al Sistema
+            </Link>
+            <Link className="btn btn-outline" to="/productos">
+              Explorar Catálogo
+            </Link>
+          </div>
         )}
       </section>
 
-      <div className="grid grid--cards">
-        <Link className="card" to="/productos">
-          <h3>Productos</h3>
-          <p className="muted">Bidones y packs disponibles para entrega a domicilio.</p>
+      {/* Accesos Rápidos en Cuadrícula Mobile */}
+      <div className="grid grid--cards" style={{ marginBottom: '1.5rem' }}>
+        <Link className="card" to="/productos" style={{ textDecoration: 'none' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '0.4rem' }}>💧</div>
+          <h3 style={{ margin: 0, color: 'var(--text)' }}>Catálogo de Productos</h3>
+          <p className="muted" style={{ margin: '0.25rem 0 0' }}>
+            Bidones de 20L, 12L, 6L y packs en 2 columnas con stock inmediato.
+          </p>
         </Link>
-        <Link className="card" to="/promociones">
-          <h3>Promociones</h3>
-          <p className="muted">Descuentos, packs y envío gratis por tiempo limitado.</p>
+
+        <Link className="card" to="/repartos" style={{ textDecoration: 'none' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '0.4rem' }}>🚚</div>
+          <h3 style={{ margin: 0, color: 'var(--text)' }}>Hoja de Ruta Repartidor</h3>
+          <p className="muted" style={{ margin: '0.25rem 0 0' }}>
+            Navegación GPS con Google Maps y contacto 1-tap por WhatsApp.
+          </p>
         </Link>
-        {user && (
-          <Link className="card" to={user.role === 'CLIENT' ? '/cliente' : user.role === 'DRIVER' ? '/repartidor' : '/admin'}>
-            <h3>Mi área</h3>
-            <p className="muted">Pedidos, direcciones, suscripciones y más.</p>
-          </Link>
-        )}
+
+        <Link className="card" to="/admin" style={{ textDecoration: 'none' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '0.4rem' }}>🛡️</div>
+          <h3 style={{ margin: 0, color: 'var(--text)' }}>Consola y Base de Datos</h3>
+          <p className="muted" style={{ margin: '0.25rem 0 0' }}>
+            Despacho de pedidos, creación de usuarios y telemetría de Supabase.
+          </p>
+        </Link>
       </div>
 
-      <section className="card">
-        <h2 className="card__title">Estado del sistema</h2>
+      {/* Estado del Backend y Base de Datos */}
+      <section className="card" style={{ padding: '1.25rem' }}>
+        <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+          <span>⚡</span> Estado de Conexión del Sistema
+        </h3>
         {error && <p className="alert alert--error">Error de conexión con el backend: {error}</p>}
-        {!error && !health && <p className="muted">Consultando API…</p>}
+        {!error && !health && <p className="muted">Consultando API y Supabase…</p>}
         {health && (
-          <ul>
-            <li>API: <strong>{health.status}</strong></li>
-            <li>Base de datos: <strong>{health.db}</strong></li>
-            <li>Servicio: {health.service}</li>
-          </ul>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+            <div>
+              <span className="muted">API REST: </span>
+              <strong style={{ color: health.status === 'ok' ? 'var(--success)' : 'var(--danger)' }}>
+                {health.status === 'ok' ? '🟢 Operativa' : '🔴 Degradada'}
+              </strong>
+            </div>
+            <div>
+              <span className="muted">Base de Datos: </span>
+              <strong style={{ color: health.db === 'connected' ? 'var(--success)' : 'var(--danger)' }}>
+                {health.db === 'connected' ? '🟢 Supabase Conectado' : '🔴 Desconectado'}
+              </strong>
+            </div>
+          </div>
         )}
       </section>
     </div>
