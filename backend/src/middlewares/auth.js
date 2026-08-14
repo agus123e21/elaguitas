@@ -35,8 +35,7 @@ export function authorize(...roles) {
   };
 }
 
-export const requireClient = (req, res, next) =>
-  authorize('CLIENT', 'ADMIN')(req, res, next);
-
-export const requireAdmin = authorize('ADMIN');
-export const requireDriver = authorize('DRIVER', 'ADMIN');
+export const requireClient = [authenticate, authorize('CLIENT', 'ADMIN')];
+export const requireAdmin = [authenticate, authorize('ADMIN')];
+export const requireDriver = [authenticate, authorize('DRIVER', 'ADMIN')];
+export const requireAnyRole = [authenticate, authorize('CLIENT', 'DRIVER', 'ADMIN')];
