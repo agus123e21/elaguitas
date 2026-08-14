@@ -34,9 +34,7 @@ export default function AdminDashboard() {
   const [loadingOrders, setLoadingOrders] = useState(false)
   const [newOrderModal, setNewOrderModal] = useState(false)
   const [newOrderForm, setNewOrderForm] = useState({
-    customerId: '',
     addressStreet: '',
-    addressCity: 'Ciudad',
     productId: '',
     quantity: 1,
     paymentMethod: 'CASH',
@@ -157,7 +155,6 @@ export default function AdminDashboard() {
       const selectedProd = products.find((p) => Number(p.id) === Number(newOrderForm.productId)) || products[0]
       if (!selectedProd) throw new Error('Seleccioná un producto válido')
 
-      // Address handling: if admin creates order, use address 1 or create payload
       await createOrder(
         {
           addressId: 1,
@@ -217,36 +214,36 @@ export default function AdminDashboard() {
   })
 
   return (
-    <div className="page" style={{ maxWidth: 1120 }}>
-      {/* Header Principal */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <h1 style={{ fontSize: '1.75rem', margin: 0 }}>🛡️ Consola de Control & Dev</h1>
-            <span style={{ background: '#fef3c7', color: '#92400e', padding: '0.2rem 0.6rem', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700 }}>
-              ADMIN
-            </span>
+    <div className="page" style={{ maxWidth: 840 }}>
+      {/* Header Mobile First */}
+      <div style={{ marginBottom: '1.25rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+              <h1 style={{ fontSize: '1.6rem', margin: 0 }}>🛡️ Consola de Control</h1>
+              <span style={{ background: '#fef3c7', color: '#92400e', padding: '0.15rem 0.5rem', borderRadius: 'var(--radius-pill)', fontSize: '0.72rem', fontWeight: 800 }}>
+                ADMIN
+              </span>
+            </div>
+            <p className="muted" style={{ margin: '0.2rem 0 0', fontSize: '0.85rem' }}>
+              Gestión operativa de pedidos, usuarios y base de datos.
+            </p>
           </div>
-          <p className="muted" style={{ margin: '0.2rem 0 0', fontSize: '0.9rem' }}>
-            Panel unificado de despacho, gestión de usuarios de la DB y monitor del sistema.
-          </p>
-        </div>
 
-        {/* Botones de Acción Primaria */}
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
+          {/* Botón de Acción Principal en la parte superior */}
           {activeTab === 'orders' && (
-            <button className="btn btn-primary btn-sm" onClick={() => setNewOrderModal(true)}>
+            <button className="btn btn-primary" style={{ minHeight: '44px' }} onClick={() => setNewOrderModal(true)}>
               ➕ Nuevo Pedido
             </button>
           )}
           {activeTab === 'users' && (
-            <button className="btn btn-primary btn-sm" onClick={() => setNewUserModal(true)}>
+            <button className="btn btn-primary" style={{ minHeight: '44px' }} onClick={() => setNewUserModal(true)}>
               ➕ Crear Usuario
             </button>
           )}
           {activeTab === 'system' && (
             <button className="btn btn-outline btn-sm" onClick={loadSystemData} disabled={loadingSystem}>
-              🔄 {loadingSystem ? 'Consultando…' : 'Refrescar DB & Logs'}
+              🔄 {loadingSystem ? 'Consultando…' : 'Refrescar'}
             </button>
           )}
         </div>
@@ -254,36 +251,32 @@ export default function AdminDashboard() {
 
       {/* Alertas */}
       {error && (
-        <div className="alert alert--error" style={{ marginBottom: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span>{error}</span>
-          <button className="btn btn-ghost btn-sm" onClick={() => setError(null)}>✕</button>
+        <div className="alert alert--error" style={{ marginBottom: '1rem' }}>
+          <span>⚠️ {error}</span>
         </div>
       )}
       {successMsg && (
-        <div className="alert" style={{ background: '#eaf7ed', color: 'var(--success)', borderColor: 'var(--success)', marginBottom: '1rem' }}>
-          {successMsg}
+        <div className="alert alert--success" style={{ marginBottom: '1rem' }}>
+          <span>✅ {successMsg}</span>
         </div>
       )}
 
-      {/* Pestañas de Navegación de la Consola */}
-      <div className="tabs" style={{ marginBottom: '1.5rem', borderBottom: '2px solid var(--border)' }}>
+      {/* Segmented Control / Tabs Táctiles */}
+      <div className="tabs" style={{ marginBottom: '1.25rem' }}>
         <button
           className={`tabs__btn ${activeTab === 'orders' ? 'tabs__btn--active' : ''}`}
-          style={{ fontSize: '0.95rem', fontWeight: 600, padding: '0.6rem 1.25rem' }}
           onClick={() => setActiveTab('orders')}
         >
-          📦 Despacho de Pedidos ({orders.length})
+          📦 Despacho ({orders.length})
         </button>
         <button
           className={`tabs__btn ${activeTab === 'users' ? 'tabs__btn--active' : ''}`}
-          style={{ fontSize: '0.95rem', fontWeight: 600, padding: '0.6rem 1.25rem' }}
           onClick={() => setActiveTab('users')}
         >
-          👥 Gestión de Usuarios
+          👥 Usuarios ({users.length})
         </button>
         <button
           className={`tabs__btn ${activeTab === 'system' ? 'tabs__btn--active' : ''}`}
-          style={{ fontSize: '0.95rem', fontWeight: 600, padding: '0.6rem 1.25rem' }}
           onClick={() => setActiveTab('system')}
         >
           ⚡ Base de Datos & Logs
@@ -295,25 +288,25 @@ export default function AdminDashboard() {
           ======================================================== */}
       {activeTab === 'orders' && (
         <div>
-          {/* Métricas Rápidas */}
-          <div className="grid grid--stats" style={{ marginBottom: '1.5rem' }}>
-            <div className="card kpi">
+          {/* Métricas Rápidas en Cuadrícula Mobile */}
+          <div className="grid grid--stats" style={{ marginBottom: '1.25rem' }}>
+            <div className="kpi">
               <div className="kpi__value">{orders.length}</div>
               <div className="kpi__label">Total Pedidos</div>
             </div>
-            <div className="card kpi">
+            <div className="kpi">
               <div className="kpi__value" style={{ color: 'var(--warning)' }}>
                 {orders.filter((o) => o.status === 'PENDING' || o.status === 'CONFIRMED').length}
               </div>
               <div className="kpi__label">Pendientes</div>
             </div>
-            <div className="card kpi">
+            <div className="kpi">
               <div className="kpi__value" style={{ color: 'var(--primary)' }}>
                 {orders.filter((o) => o.status === 'OUT_FOR_DELIVERY').length}
               </div>
               <div className="kpi__label">En Reparto</div>
             </div>
-            <div className="card kpi">
+            <div className="kpi">
               <div className="kpi__value" style={{ color: 'var(--success)' }}>
                 {orders.filter((o) => o.status === 'DELIVERED').length}
               </div>
@@ -321,84 +314,87 @@ export default function AdminDashboard() {
             </div>
           </div>
 
-          {/* Filtros de Pedidos */}
-          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+          {/* Filtros de Estado */}
+          <div className="tabs" style={{ marginBottom: '1rem' }}>
             {['', 'PENDING', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED'].map((st) => (
               <button
                 key={st}
-                className={`btn btn-sm ${orderFilter === st ? 'btn-primary' : 'btn-outline'}`}
+                className={`tabs__btn ${orderFilter === st ? 'tabs__btn--active' : ''}`}
+                style={{ fontSize: '0.82rem', padding: '0.4rem 0.85rem' }}
                 onClick={() => setOrderFilter(st)}
               >
-                {st ? STATUS_LABELS[st] : 'Todos los Pedidos'}
+                {st ? STATUS_LABELS[st] : 'Todos'}
               </button>
             ))}
           </div>
 
-          {/* Tabla / Lista de Pedidos */}
+          {/* Lista de Pedidos */}
           {loadingOrders ? (
             <p className="muted">Cargando pedidos…</p>
           ) : filteredOrders.length === 0 ? (
-            <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
-              <p className="muted">No hay pedidos con el filtro seleccionado.</p>
+            <div className="card" style={{ textAlign: 'center', padding: '2.5rem 1rem' }}>
+              <p className="muted" style={{ margin: 0 }}>No hay pedidos con el filtro seleccionado.</p>
             </div>
           ) : (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {filteredOrders.map((o) => (
-                <div key={o.id} className="card" style={{ padding: '1rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div key={o.id} className="card" style={{ padding: '1.15rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem', flexWrap: 'wrap', gap: '0.4rem' }}>
                     <div>
-                      <strong>Pedido #{o.id}</strong> · <span className="muted">{new Date(o.created_at).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}</span>
-                      <h3 style={{ margin: '0.2rem 0 0', fontSize: '1.05rem' }}>{o.customer_name} ({o.customer_phone || 'Sin tel.'})</h3>
+                      <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted)' }}>ORDEN #{o.id}</span>
+                      <h3 style={{ margin: '0.1rem 0 0', fontSize: '1.15rem' }}>{o.customer_name}</h3>
                     </div>
                     <span className={`badge badge--${o.status}`}>{STATUS_LABELS[o.status] || o.status}</span>
                   </div>
 
-                  <div style={{ background: 'var(--bg)', padding: '0.6rem 0.8rem', borderRadius: '6px', fontSize: '0.88rem' }}>
-                    <p style={{ margin: 0 }}>📍 <strong>{o.street}</strong> {o.city ? `(${o.city})` : ''}</p>
+                  <div style={{ background: 'var(--bg)', padding: '0.65rem 0.85rem', borderRadius: 'var(--radius-sm)', fontSize: '0.88rem', marginBottom: '0.75rem' }}>
+                    <p style={{ margin: 0, fontWeight: 600 }}>📍 {o.street} {o.city ? `(${o.city})` : ''}</p>
                     {o.notes && <p className="muted" style={{ margin: '0.2rem 0 0', fontSize: '0.8rem' }}>Nota: {o.notes}</p>}
                     {o.items && o.items.length > 0 && (
-                      <p style={{ margin: '0.35rem 0 0', color: 'var(--primary-dark)', fontWeight: 600 }}>
+                      <p style={{ margin: '0.35rem 0 0', color: 'var(--primary-dark)', fontWeight: 700 }}>
                         💧 {o.items.map((it) => `${it.quantity}x ${it.productName || 'Bidón'}`).join(', ')}
                       </p>
                     )}
                   </div>
 
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                     <div>
-                      <span className="muted" style={{ fontSize: '0.85rem' }}>Total: </span>
-                      <strong style={{ fontSize: '1.05rem', color: 'var(--primary)' }}>{fmtMoney(o.total)}</strong>
-                      <span className="muted" style={{ fontSize: '0.8rem' }}> ({o.payment_method === 'CASH' ? 'Efectivo' : 'Transferencia'})</span>
+                      <span className="muted" style={{ fontSize: '0.82rem' }}>Total: </span>
+                      <strong style={{ fontSize: '1.15rem', color: 'var(--primary)', fontVariantNumeric: 'tabular-nums' }}>
+                        {fmtMoney(o.total)}
+                      </strong>
                     </div>
 
-                    {/* Asignación de Repartidor */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <label style={{ fontSize: '0.82rem', fontWeight: 600 }} className="muted">Repartidor:</label>
+                    {/* Selector de Repartidor */}
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                       <select
-                        className="input"
-                        style={{ height: '34px', padding: '0.2rem 0.6rem', fontSize: '0.85rem', width: 'auto' }}
+                        className="select"
+                        style={{ minHeight: '38px', padding: '0.2rem 0.6rem', fontSize: '0.85rem', width: 'auto' }}
                         value={o.driver_id || ''}
                         onChange={(e) => handleAssignDriver(o.id, e.target.value)}
                       >
                         <option value="">-- Sin Asignar --</option>
                         {drivers.map((d) => (
                           <option key={d.driver_id || d.id} value={d.driver_id || d.id}>
-                            🚚 {d.name} ({d.vehicle || 'Repartidor'})
+                            🚚 {d.name}
                           </option>
                         ))}
                       </select>
-
-                      {/* Botón de Cambio de Estado Rápido */}
-                      {o.status === 'PENDING' && (
-                        <button className="btn btn-outline btn-sm" onClick={() => handleOrderStatus(o.id, 'OUT_FOR_DELIVERY')}>
-                          🚀 Despachar
-                        </button>
-                      )}
-                      {o.status === 'OUT_FOR_DELIVERY' && (
-                        <button className="btn btn-primary btn-sm" style={{ background: 'var(--success)', borderColor: 'var(--success)' }} onClick={() => handleOrderStatus(o.id, 'DELIVERED')}>
-                          ✅ Entregado
-                        </button>
-                      )}
                     </div>
+                  </div>
+
+                  {/* Acciones de Estado */}
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    {o.status === 'PENDING' && (
+                      <button className="btn btn-primary btn-block btn-sm" onClick={() => handleOrderStatus(o.id, 'OUT_FOR_DELIVERY')}>
+                        🚀 Despachar (A Reparto)
+                      </button>
+                    )}
+                    {o.status === 'OUT_FOR_DELIVERY' && (
+                      <button className="btn btn-success btn-block btn-sm" onClick={() => handleOrderStatus(o.id, 'DELIVERED')}>
+                        ✅ Marcar Entregado
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}
@@ -413,59 +409,42 @@ export default function AdminDashboard() {
       {activeTab === 'users' && (
         <div>
           {loadingUsers ? (
-            <p className="muted">Cargando usuarios de la base de datos…</p>
+            <p className="muted">Cargando usuarios…</p>
           ) : (
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', background: '#fff', borderRadius: '8px', overflow: 'hidden', boxShadow: 'var(--shadow)' }}>
-                <thead>
-                  <tr style={{ background: 'var(--bg)', textAlign: 'left', borderBottom: '2px solid var(--border)' }}>
-                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.85rem' }}>Usuario</th>
-                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.85rem' }}>Email</th>
-                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.85rem' }}>Rol en DB</th>
-                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.85rem' }}>Teléfono / Datos</th>
-                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.85rem' }}>Estado</th>
-                    <th style={{ padding: '0.75rem 1rem', fontSize: '0.85rem', textAlign: 'right' }}>Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {users.map((u) => {
-                    const badge = ROLE_BADGES[u.role] || ROLE_BADGES.CLIENT
-                    return (
-                      <tr key={u.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                        <td style={{ padding: '0.75rem 1rem' }}>
-                          <strong>{u.name}</strong>
-                          {u.id === currentUser?.id && <span style={{ fontSize: '0.75rem', color: 'var(--primary)', marginLeft: '0.4rem' }}>(Tú)</span>}
-                        </td>
-                        <td style={{ padding: '0.75rem 1rem', fontFamily: 'monospace', fontSize: '0.85rem' }}>{u.email}</td>
-                        <td style={{ padding: '0.75rem 1rem' }}>
-                          <span style={{ background: badge.bg, color: badge.text, padding: '0.2rem 0.55rem', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 700 }}>
-                            {badge.label}
-                          </span>
-                        </td>
-                        <td style={{ padding: '0.75rem 1rem', fontSize: '0.85rem' }}>
-                          {u.phone || '—'} {u.vehicle ? `· 🚗 ${u.vehicle}` : ''}
-                        </td>
-                        <td style={{ padding: '0.75rem 1rem' }}>
-                          <span style={{ color: u.active ? 'var(--success)' : 'var(--danger)', fontWeight: 600, fontSize: '0.82rem' }}>
-                            {u.active ? '● Activo' : '○ Inactivo'}
-                          </span>
-                        </td>
-                        <td style={{ padding: '0.75rem 1rem', textAlign: 'right' }}>
-                          {u.id !== currentUser?.id && (
-                            <button
-                              className={`btn btn-sm ${u.active ? 'btn-ghost' : 'btn-outline'}`}
-                              style={{ fontSize: '0.78rem', padding: '0.2rem 0.5rem' }}
-                              onClick={() => handleToggleUserActive(u)}
-                            >
-                              {u.active ? 'Desactivar' : 'Activar'}
-                            </button>
-                          )}
-                        </td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {users.map((u) => {
+                const badge = ROLE_BADGES[u.role] || ROLE_BADGES.CLIENT
+                return (
+                  <div key={u.id} className="card" style={{ padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <strong style={{ fontSize: '1.05rem' }}>{u.name}</strong>
+                        <span style={{ background: badge.bg, color: badge.text, padding: '0.15rem 0.5rem', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 700 }}>
+                          {badge.label}
+                        </span>
+                      </div>
+                      <p className="muted" style={{ margin: '0.15rem 0 0', fontSize: '0.85rem', fontFamily: 'monospace' }}>
+                        {u.email} {u.phone ? `· 📞 ${u.phone}` : ''}
+                      </p>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ color: u.active ? 'var(--success)' : 'var(--danger)', fontWeight: 600, fontSize: '0.8rem' }}>
+                        {u.active ? '● Activo' : '○ Inactivo'}
+                      </span>
+                      {u.id !== currentUser?.id && (
+                        <button
+                          className={`btn btn-sm ${u.active ? 'btn-ghost' : 'btn-outline'}`}
+                          style={{ minHeight: '34px', fontSize: '0.78rem' }}
+                          onClick={() => handleToggleUserActive(u)}
+                        >
+                          {u.active ? 'Desactivar' : 'Activar'}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           )}
         </div>
@@ -475,93 +454,80 @@ export default function AdminDashboard() {
           PESTAÑA 3: MONITOR DE BASE DE DATOS Y LOGS
           ======================================================== */}
       {activeTab === 'system' && (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {/* Banner de Estado de Conexión a Supabase */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {/* Tarjeta de Estado de Supabase */}
           <div className="card" style={{ padding: '1.25rem', borderLeft: sysStatus?.database?.connected ? '6px solid var(--success)' : '6px solid var(--danger)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
               <div>
-                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase' }}>ESTADO DE BASE DE DATOS</span>
-                <h2 style={{ fontSize: '1.4rem', margin: '0.2rem 0 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  {sysStatus?.database?.connected ? '🟢 Conexión Activa con Supabase' : '🔴 Sin Conexión a Base de Datos'}
+                <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase' }}>ESTADO SUPABASE</span>
+                <h2 style={{ fontSize: '1.3rem', margin: '0.2rem 0 0' }}>
+                  {sysStatus?.database?.connected ? '🟢 Conexión Activa' : '🔴 Desconectado'}
                 </h2>
-                <p className="muted" style={{ margin: '0.25rem 0 0', fontSize: '0.85rem' }}>
-                  Base de Datos: <strong>{sysStatus?.database?.database || 'postgres'}</strong> · Latencia: <strong>{sysStatus?.database?.latencyMs} ms</strong>
+                <p className="muted" style={{ margin: '0.2rem 0 0', fontSize: '0.85rem' }}>
+                  Base: <strong>{sysStatus?.database?.database || 'postgres'}</strong> · Latencia: <strong>{sysStatus?.database?.latencyMs} ms</strong>
                 </p>
-                {sysStatus?.database?.version && (
-                  <p className="muted" style={{ margin: '0.1rem 0 0', fontSize: '0.78rem' }}>{sysStatus?.database?.version}</p>
-                )}
               </div>
-              <span className="badge" style={{ background: '#eaf7ed', color: 'var(--success)' }}>
-                PostgreSQL OK
-              </span>
+              <span className="badge badge--success">PostgreSQL OK</span>
             </div>
 
-            {/* Contadores de Tablas */}
             {sysStatus?.database?.tables && (
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '0.75rem', marginTop: '1.25rem' }}>
-                <div style={{ background: 'var(--bg)', padding: '0.65rem', borderRadius: '6px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>{sysStatus.database.tables.users}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>Usuarios</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '0.5rem', marginTop: '1rem' }}>
+                <div style={{ background: 'var(--bg)', padding: '0.5rem', borderRadius: '6px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)' }}>{sysStatus.database.tables.users}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>Usuarios</div>
                 </div>
-                <div style={{ background: 'var(--bg)', padding: '0.65rem', borderRadius: '6px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>{sysStatus.database.tables.deliveryDrivers}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>Repartidores</div>
+                <div style={{ background: 'var(--bg)', padding: '0.5rem', borderRadius: '6px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)' }}>{sysStatus.database.tables.deliveryDrivers}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>Repartidores</div>
                 </div>
-                <div style={{ background: 'var(--bg)', padding: '0.65rem', borderRadius: '6px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>{sysStatus.database.tables.orders}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>Pedidos</div>
+                <div style={{ background: 'var(--bg)', padding: '0.5rem', borderRadius: '6px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)' }}>{sysStatus.database.tables.orders}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>Pedidos</div>
                 </div>
-                <div style={{ background: 'var(--bg)', padding: '0.65rem', borderRadius: '6px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>{sysStatus.database.tables.products}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>Productos</div>
-                </div>
-                <div style={{ background: 'var(--bg)', padding: '0.65rem', borderRadius: '6px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)' }}>{sysStatus.database.tables.deliveryZones}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--muted)' }}>Zonas</div>
+                <div style={{ background: 'var(--bg)', padding: '0.5rem', borderRadius: '6px', textAlign: 'center' }}>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--primary)' }}>{sysStatus.database.tables.products}</div>
+                  <div style={{ fontSize: '0.72rem', color: 'var(--muted)' }}>Productos</div>
                 </div>
               </div>
             )}
           </div>
 
-          {/* Visor de Logs del Sistema */}
+          {/* Visor de Logs */}
           <div className="card" style={{ padding: '1.25rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem', flexWrap: 'wrap', gap: '0.5rem' }}>
               <div>
-                <h3 style={{ margin: 0, fontSize: '1.1rem' }}>📜 Registro de Eventos & Logs de la API</h3>
-                <p className="muted" style={{ margin: '0.15rem 0 0', fontSize: '0.8rem' }}>Últimas acciones y eventos de auditoría en memoria</p>
+                <h3 style={{ margin: 0, fontSize: '1.05rem' }}>📜 Eventos de API en Vivo</h3>
+                <p className="muted" style={{ margin: '0.1rem 0 0', fontSize: '0.78rem' }}>Auditoría en memoria</p>
               </div>
-              <div style={{ display: 'flex', gap: '0.4rem' }}>
+              <div style={{ display: 'flex', gap: '0.35rem' }}>
                 <select
-                  className="input"
-                  style={{ height: '32px', padding: '0.1rem 0.5rem', fontSize: '0.8rem', width: 'auto' }}
+                  className="select"
+                  style={{ minHeight: '34px', padding: '0.1rem 0.5rem', fontSize: '0.78rem', width: 'auto' }}
                   value={logFilter}
                   onChange={(e) => setLogFilter(e.target.value)}
                 >
-                  <option value="">Todos los niveles</option>
+                  <option value="">Todos</option>
                   <option value="INFO">INFO</option>
                   <option value="WARN">WARN</option>
                   <option value="ERROR">ERROR</option>
                 </select>
-                <button className="btn btn-ghost btn-sm" style={{ fontSize: '0.8rem' }} onClick={handleClearLogs}>
+                <button className="btn btn-ghost btn-sm" onClick={handleClearLogs} style={{ minHeight: '34px', fontSize: '0.78rem' }}>
                   Limpiar
                 </button>
               </div>
             </div>
 
             {logs.length === 0 ? (
-              <p className="muted" style={{ fontSize: '0.85rem' }}>No hay registros de log recientes.</p>
+              <p className="muted" style={{ fontSize: '0.85rem' }}>Sin logs recientes.</p>
             ) : (
-              <div style={{ background: '#1c2733', color: '#e0f2fe', borderRadius: '8px', padding: '0.75rem 1rem', maxHeight: '340px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.78rem' }}>
+              <div style={{ background: '#0f172a', color: '#e0f2fe', borderRadius: 'var(--radius-sm)', padding: '0.75rem', maxHeight: '280px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.75rem' }}>
                 {logs.map((l) => (
-                  <div key={l.id} style={{ padding: '0.3rem 0', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', gap: '0.6rem' }}>
-                    <span style={{ color: '#94a3b8' }}>{new Date(l.timestamp).toLocaleTimeString()}</span>
-                    <span style={{
-                      fontWeight: 700,
-                      color: l.level === 'ERROR' ? '#f87171' : l.level === 'WARN' ? '#fbbf24' : '#38bdf8',
-                    }}>
+                  <div key={l.id} style={{ padding: '0.25rem 0', borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', gap: '0.5rem' }}>
+                    <span style={{ color: '#64748b' }}>{new Date(l.timestamp).toLocaleTimeString()}</span>
+                    <span style={{ fontWeight: 700, color: l.level === 'ERROR' ? '#f87171' : l.level === 'WARN' ? '#fbbf24' : '#38bdf8' }}>
                       [{l.level}]
                     </span>
-                    <span style={{ color: '#f1f5f9', fontWeight: 600 }}>{l.action}</span>
+                    <span style={{ color: '#f8fafc' }}>{l.action}</span>
                     <span style={{ color: '#94a3b8', flex: 1, wordBreak: 'break-all' }}>{JSON.stringify(l.details)}</span>
                   </div>
                 ))}
@@ -571,18 +537,19 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      {/* Modal Crear Pedido */}
+      {/* Modal Mobile Bottom Sheet: Crear Pedido */}
       {newOrderModal && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem', zIndex: 1000 }}>
-          <div className="card" style={{ maxWidth: 480, width: '100%', padding: '1.5rem', background: '#fff' }}>
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.65)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', zIndex: 1000 }}>
+          <div className="card" style={{ maxWidth: 540, width: '100%', padding: '1.5rem', background: '#fff', borderRadius: '24px 24px 0 0', margin: 0, maxHeight: '90vh', overflowY: 'auto' }}>
+            <div style={{ width: '40px', height: '4px', background: 'var(--border)', borderRadius: '2px', margin: '0 auto 1.25rem' }} />
             <h2 style={{ fontSize: '1.3rem', marginTop: 0 }}>➕ Crear y Despachar Pedido</h2>
-            <form onSubmit={handleCreateOrder}>
+            <form onSubmit={handleCreateOrder} className="form">
               <div className="form-group">
                 <label className="form-label">Dirección de Entrega:</label>
                 <input
                   className="input"
                   required
-                  placeholder="ej: Av. San Martín 1234, Dpto 2B"
+                  placeholder="ej: Av. Corrientes 1234"
                   value={newOrderForm.addressStreet}
                   onChange={(e) => setNewOrderForm({ ...newOrderForm, addressStreet: e.target.value })}
                 />
@@ -592,14 +559,12 @@ export default function AdminDashboard() {
                 <div className="form-group">
                   <label className="form-label">Producto:</label>
                   <select
-                    className="input"
+                    className="select"
                     value={newOrderForm.productId}
                     onChange={(e) => setNewOrderForm({ ...newOrderForm, productId: e.target.value })}
                   >
                     {products.map((p) => (
-                      <option key={p.id} value={p.id}>
-                        {p.name} ({fmtMoney(p.price)})
-                      </option>
+                      <option key={p.id} value={p.id}>{p.name} ({fmtMoney(p.price)})</option>
                     ))}
                   </select>
                 </div>
@@ -616,17 +581,15 @@ export default function AdminDashboard() {
               </div>
 
               <div className="form-group">
-                <label className="form-label">Asignar a Repartidor:</label>
+                <label className="form-label">Asignar Repartidor:</label>
                 <select
-                  className="input"
+                  className="select"
                   value={newOrderForm.driverId}
                   onChange={(e) => setNewOrderForm({ ...newOrderForm, driverId: e.target.value })}
                 >
-                  <option value="">-- Dejar sin asignar --</option>
+                  <option value="">-- Sin Asignar --</option>
                   {drivers.map((d) => (
-                    <option key={d.driver_id || d.id} value={d.driver_id || d.id}>
-                      🚚 {d.name} ({d.vehicle || 'Repartidor'})
-                    </option>
+                    <option key={d.driver_id || d.id} value={d.driver_id || d.id}>🚚 {d.name}</option>
                   ))}
                 </select>
               </div>
@@ -634,30 +597,30 @@ export default function AdminDashboard() {
               <div className="form-group">
                 <label className="form-label">Método de Pago:</label>
                 <select
-                  className="input"
+                  className="select"
                   value={newOrderForm.paymentMethod}
                   onChange={(e) => setNewOrderForm({ ...newOrderForm, paymentMethod: e.target.value })}
                 >
                   <option value="CASH">Efectivo al recibir</option>
-                  <option value="TRANSFER">Transferencia bancaria</option>
+                  <option value="TRANSFER">Transferencia</option>
                 </select>
               </div>
 
               <div className="form-group">
-                <label className="form-label">Notas adicionales:</label>
+                <label className="form-label">Notas:</label>
                 <input
                   className="input"
-                  placeholder="ej: Tocar timbre blanco, dejar en recepción"
+                  placeholder="ej: Timbre blanco"
                   value={newOrderForm.notes}
                   onChange={(e) => setNewOrderForm({ ...newOrderForm, notes: e.target.value })}
                 />
               </div>
 
-              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.25rem' }}>
-                <button type="button" className="btn btn-ghost btn-block" onClick={() => setNewOrderModal(false)}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.75rem' }}>
+                <button type="button" className="btn btn-ghost" style={{ minHeight: '48px' }} onClick={() => setNewOrderModal(false)}>
                   Cancelar
                 </button>
-                <button type="submit" className="btn btn-primary btn-block">
+                <button type="submit" className="btn btn-primary" style={{ minHeight: '48px', fontWeight: 700 }}>
                   Crear Pedido
                 </button>
               </div>
@@ -666,18 +629,19 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      {/* Modal Crear Usuario */}
+      {/* Modal Mobile Bottom Sheet: Crear Usuario */}
       {newUserModal && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem', zIndex: 1000 }}>
-          <div className="card" style={{ maxWidth: 460, width: '100%', padding: '1.5rem', background: '#fff' }}>
-            <h2 style={{ fontSize: '1.3rem', marginTop: 0 }}>➕ Crear Nuevo Usuario en la DB</h2>
-            <form onSubmit={handleCreateUser}>
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(15, 23, 42, 0.65)', backdropFilter: 'blur(4px)', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', zIndex: 1000 }}>
+          <div className="card" style={{ maxWidth: 540, width: '100%', padding: '1.5rem', background: '#fff', borderRadius: '24px 24px 0 0', margin: 0, maxHeight: '90vh', overflowY: 'auto' }}>
+            <div style={{ width: '40px', height: '4px', background: 'var(--border)', borderRadius: '2px', margin: '0 auto 1.25rem' }} />
+            <h2 style={{ fontSize: '1.3rem', marginTop: 0 }}>➕ Crear Usuario en Supabase</h2>
+            <form onSubmit={handleCreateUser} className="form">
               <div className="form-group">
                 <label className="form-label">Nombre Completo:</label>
                 <input
                   className="input"
                   required
-                  placeholder="ej: Carlos Repartidor"
+                  placeholder="ej: Marcos Repartidor"
                   value={newUserForm.name}
                   onChange={(e) => setNewUserForm({ ...newUserForm, name: e.target.value })}
                 />
@@ -689,7 +653,7 @@ export default function AdminDashboard() {
                   className="input"
                   type="email"
                   required
-                  placeholder="ej: carlos@agua.com"
+                  placeholder="ej: marcos@agua.com"
                   value={newUserForm.email}
                   onChange={(e) => setNewUserForm({ ...newUserForm, email: e.target.value })}
                 />
@@ -710,7 +674,7 @@ export default function AdminDashboard() {
               <div className="form-group">
                 <label className="form-label">Rol del Usuario:</label>
                 <select
-                  className="input"
+                  className="select"
                   value={newUserForm.role}
                   onChange={(e) => setNewUserForm({ ...newUserForm, role: e.target.value })}
                 >
@@ -730,23 +694,11 @@ export default function AdminDashboard() {
                 />
               </div>
 
-              {newUserForm.role === 'DRIVER' && (
-                <div className="form-group">
-                  <label className="form-label">Vehículo / Zona:</label>
-                  <input
-                    className="input"
-                    placeholder="ej: Camioneta Renault Kangoo"
-                    value={newUserForm.vehicle}
-                    onChange={(e) => setNewUserForm({ ...newUserForm, vehicle: e.target.value })}
-                  />
-                </div>
-              )}
-
-              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.25rem' }}>
-                <button type="button" className="btn btn-ghost btn-block" onClick={() => setNewUserModal(false)}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.75rem' }}>
+                <button type="button" className="btn btn-ghost" style={{ minHeight: '48px' }} onClick={() => setNewUserModal(false)}>
                   Cancelar
                 </button>
-                <button type="submit" className="btn btn-primary btn-block">
+                <button type="submit" className="btn btn-primary" style={{ minHeight: '48px', fontWeight: 700 }}>
                   Guardar en DB
                 </button>
               </div>

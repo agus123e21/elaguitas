@@ -38,12 +38,12 @@ export default function DriverOrders() {
 
   // Count stats
   const stats = useMemo(() => {
-    return {
-      total: orders.length,
-      out: orders.filter((o) => o.status === 'OUT_FOR_DELIVERY').length,
-      pending: orders.filter((o) => o.status === 'PENDING' || o.status === 'CONFIRMED' || o.status === 'PREPARING').length,
-      delivered: orders.filter((o) => o.status === 'DELIVERED').length,
-    }
+    const total = orders.length
+    const delivered = orders.filter((o) => o.status === 'DELIVERED').length
+    const out = orders.filter((o) => o.status === 'OUT_FOR_DELIVERY').length
+    const pending = orders.filter((o) => o.status === 'PENDING' || o.status === 'CONFIRMED' || o.status === 'PREPARING').length
+    const progressPercent = total > 0 ? Math.round((delivered / total) * 100) : 0
+    return { total, delivered, out, pending, progressPercent }
   }, [orders])
 
   async function handleStartDelivery(orderId) {
@@ -91,58 +91,94 @@ export default function DriverOrders() {
   ]
 
   return (
-    <div className="page" style={{ maxWidth: 680, paddingBottom: '5rem' }}>
-      {/* Header del Repartidor */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-        <div>
-          <h1 style={{ fontSize: '1.5rem', margin: 0 }}>🚚 Hoja de Ruta</h1>
-          <p className="muted" style={{ margin: '0.2rem 0 0', fontSize: '0.85rem' }}>
-            Repartidor: <strong>{user?.name || 'Asignado'}</strong>
-          </p>
+    <div className="page" style={{ maxWidth: 640 }}>
+      {/* Header Mobile con Saludo y Vehículo */}
+      <div style={{ marginBottom: '1.25rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <div>
+            <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              PANEL OPERATIVO
+            </span>
+            <h1 style={{ fontSize: '1.55rem', margin: '0.1rem 0 0', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span>🚚</span> {user?.name || 'Repartidor'}
+            </h1>
+          </div>
+          <button
+            className="btn btn-outline btn-sm"
+            onClick={load}
+            disabled={loading}
+            style={{ borderRadius: 'var(--radius-pill)', minHeight: '36px' }}
+          >
+            🔄 {loading ? 'Cargando…' : 'Actualizar'}
+          </button>
         </div>
-        <button className="btn btn-outline btn-sm" onClick={load} disabled={loading}>
-          🔄 {loading ? 'Actualizando…' : 'Refrescar'}
-        </button>
+
+        {/* Barra de Progreso de Entregas del Día (Peak-End Rule) */}
+        <div style={{ background: '#ffffff', padding: '0.85rem 1rem', borderRadius: 'var(--radius)', border: '1px solid var(--border)', marginTop: '0.85rem', boxShadow: 'var(--shadow-xs)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem', fontSize: '0.82rem', fontWeight: 600 }}>
+            <span className="muted">Progreso de entregas:</span>
+            <span style={{ color: 'var(--primary)' }}>
+              {stats.delivered} de {stats.total} completadas ({stats.progressPercent}%)
+            </span>
+          </div>
+          <div style={{ height: '8px', background: 'var(--border)', borderRadius: '4px', overflow: 'hidden' }}>
+            <div
+              style={{
+                height: '100%',
+                width: `${stats.progressPercent}%`,
+                background: 'linear-gradient(90deg, var(--primary), var(--accent))',
+                borderRadius: '4px',
+                transition: 'width 0.4s ease',
+              }}
+            />
+          </div>
+        </div>
       </div>
 
       {error && (
         <div className="alert alert--error" style={{ marginBottom: '1rem' }}>
-          {error}
+          <span>⚠️ {error}</span>
         </div>
       )}
 
-      {/* Selector de Pestañas / Filtros */}
-      <div className="tabs" style={{ marginBottom: '1.25rem', overflowX: 'auto', display: 'flex', gap: '0.35rem' }}>
+      {/* Selector Táctil de Pestañas (Filtros en Píldora) */}
+      <div className="tabs" style={{ marginBottom: '1.25rem' }}>
         {tabs.map((t) => (
           <button
             key={t.label}
             className={`tabs__btn ${filter === t.value ? 'tabs__btn--active' : ''}`}
-            style={{ fontSize: '0.85rem', padding: '0.45rem 0.8rem', whiteSpace: 'nowrap' }}
             onClick={() => setFilter(t.value)}
           >
-            {t.label}
+            {t.label} {t.count > 0 && <span style={{ opacity: 0.85, marginLeft: '3px' }}>({t.count})</span>}
           </button>
         ))}
       </div>
 
+      {/* Estados de Carga y Vacío */}
       {loading && orders.length === 0 && (
-        <div className="card" style={{ textAlign: 'center', padding: '2rem' }}>
-          <p className="muted">Cargando tus pedidos asignados…</p>
+        <div className="card" style={{ textAlign: 'center', padding: '2.5rem 1rem' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>⏳</div>
+          <p className="muted" style={{ margin: 0 }}>Cargando tu hoja de ruta…</p>
         </div>
       )}
 
       {!loading && orders.length === 0 && (
-        <div className="card" style={{ textAlign: 'center', padding: '2.5rem 1rem' }}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>📦</div>
-          <p style={{ fontWeight: 600, margin: 0 }}>No hay pedidos en esta sección</p>
-          <p className="muted" style={{ fontSize: '0.85rem', margin: '0.25rem 0 0' }}>
-            {filter ? 'Probá cambiando el filtro o refrescando la lista.' : 'No tenés entregas asignadas actualmente.'}
+        <div className="card" style={{ textAlign: 'center', padding: '3rem 1.25rem' }}>
+          <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>📦</div>
+          <h3 style={{ margin: 0 }}>Sin pedidos pendientes aquí</h3>
+          <p className="muted" style={{ margin: '0.35rem 0 1.25rem' }}>
+            {filter ? 'No hay entregas con este filtro.' : '¡Todo entregado por el momento!'}
           </p>
+          {filter && (
+            <button className="btn btn-outline btn-sm" onClick={() => setFilter('')}>
+              Ver todos los pedidos
+            </button>
+          )}
         </div>
       )}
 
-      {/* Lista de Pedidos */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {/* Lista de Tarjetas de Entrega (Mobile-First Touch Cards) */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
         {orders.map((o) => {
           const isOut = o.status === 'OUT_FOR_DELIVERY'
           const isDelivered = o.status === 'DELIVERED'
@@ -152,45 +188,56 @@ export default function DriverOrders() {
               key={o.id}
               className={`card order order--${o.status}`}
               style={{
-                padding: '1.15rem',
-                borderLeft: isOut ? '5px solid var(--primary)' : isDelivered ? '5px solid var(--success)' : '5px solid var(--border)',
-                background: isOut ? '#fcfdfe' : '#ffffff',
+                padding: '1.25rem',
+                borderLeft: isOut
+                  ? '6px solid var(--primary)'
+                  : isDelivered
+                  ? '6px solid var(--success)'
+                  : '6px solid var(--border)',
+                background: isOut ? '#fdfefe' : '#ffffff',
+                boxShadow: isOut ? 'var(--shadow-md)' : 'var(--shadow)',
               }}
             >
               {/* Header de la tarjeta */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.65rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                 <div>
-                  <span style={{ fontSize: '0.78rem', color: 'var(--muted)', fontWeight: 600 }}>ORDEN #{o.id}</span>
-                  <h2 style={{ fontSize: '1.2rem', margin: '0.1rem 0 0', color: 'var(--text)' }}>
-                    {o.customer_name || 'Cliente sin nombre'}
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase' }}>
+                    ENTREGA #{o.id}
+                  </span>
+                  <h2 style={{ fontSize: '1.25rem', margin: '0.15rem 0 0', color: 'var(--text)' }}>
+                    {o.customer_name || 'Cliente'}
                   </h2>
                 </div>
-                <span className={`badge badge--${o.status}`} style={{ fontSize: '0.75rem', padding: '0.25rem 0.6rem' }}>
+                <span className={`badge badge--${o.status}`}>
                   {STATUS_LABELS[o.status] || o.status}
                 </span>
               </div>
 
-              {/* Dirección y Destino */}
-              <div style={{ background: 'var(--bg)', padding: '0.65rem 0.85rem', borderRadius: '8px', marginBottom: '0.85rem' }}>
-                <p style={{ margin: 0, fontWeight: 600, fontSize: '0.95rem' }}>
+              {/* Bloque de Destino y Dirección */}
+              <div style={{ background: 'var(--bg)', padding: '0.75rem 0.95rem', borderRadius: 'var(--radius-sm)', marginBottom: '0.9rem' }}>
+                <p style={{ margin: 0, fontWeight: 700, fontSize: '0.98rem', color: 'var(--text)' }}>
                   📍 {o.street || 'Dirección no especificada'}
                 </p>
-                {o.city && <p className="muted" style={{ margin: '0.15rem 0 0', fontSize: '0.8rem' }}>{o.city}</p>}
-                {o.notes && (
-                  <p style={{ margin: '0.35rem 0 0', fontSize: '0.8rem', color: 'var(--primary-dark)', background: '#fff', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>
-                    📝 <em>{o.notes}</em>
+                {o.city && (
+                  <p className="muted" style={{ margin: '0.15rem 0 0', fontSize: '0.82rem' }}>
+                    {o.city}
                   </p>
+                )}
+                {o.notes && (
+                  <div style={{ marginTop: '0.45rem', padding: '0.35rem 0.6rem', background: '#fff', borderRadius: '6px', border: '1px solid var(--border)', fontSize: '0.82rem', color: 'var(--primary-dark)' }}>
+                    📝 <strong>Nota:</strong> {o.notes}
+                  </div>
                 )}
               </div>
 
-              {/* Botones de Integración Móvil: Google Maps & WhatsApp */}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '0.85rem' }}>
+              {/* Botones de Acción Rápida (Thumb Zone: Maps & WhatsApp) */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '0.95rem' }}>
                 <a
                   href={getMapsUrl(o)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline btn-sm"
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', fontSize: '0.85rem', fontWeight: 600 }}
+                  className="btn btn-outline"
+                  style={{ minHeight: '46px', fontSize: '0.88rem', fontWeight: 700, borderColor: '#93c5fd' }}
                 >
                   🗺️ Google Maps
                 </a>
@@ -200,23 +247,23 @@ export default function DriverOrders() {
                     href={getWhatsAppUrl(o)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-outline btn-sm"
-                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', fontSize: '0.85rem', fontWeight: 600, borderColor: '#25D366', color: '#128C7E' }}
+                    className="btn btn-outline"
+                    style={{ minHeight: '46px', fontSize: '0.88rem', fontWeight: 700, borderColor: '#86efac', color: '#15803d' }}
                   >
                     💬 WhatsApp
                   </a>
                 ) : (
-                  <button className="btn btn-outline btn-sm" disabled style={{ fontSize: '0.85rem' }}>
+                  <button className="btn btn-outline" disabled style={{ minHeight: '46px', fontSize: '0.88rem' }}>
                     💬 Sin teléfono
                   </button>
                 )}
               </div>
 
-              {/* Productos / Items a entregar */}
+              {/* Lista de Bidones / Productos a entregar */}
               {o.items && Array.isArray(o.items) && o.items.length > 0 && (
-                <div style={{ marginBottom: '0.85rem', paddingBottom: '0.65rem', borderBottom: '1px solid var(--border)' }}>
-                  <p style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', margin: '0 0 0.35rem' }}>
-                    Productos a Entregar:
+                <div style={{ marginBottom: '0.9rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border)' }}>
+                  <p style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', margin: '0 0 0.4rem' }}>
+                    Carga a entregar:
                   </p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
                     {o.items.map((it, idx) => (
@@ -225,10 +272,10 @@ export default function DriverOrders() {
                         style={{
                           background: 'var(--primary-light)',
                           color: 'var(--primary-dark)',
-                          fontSize: '0.82rem',
-                          fontWeight: 600,
-                          padding: '0.2rem 0.55rem',
-                          borderRadius: '6px',
+                          fontSize: '0.85rem',
+                          fontWeight: 700,
+                          padding: '0.3rem 0.65rem',
+                          borderRadius: '8px',
                         }}
                       >
                         💧 {it.quantity}x {it.productName || it.product_name || 'Bidón'}
@@ -239,21 +286,20 @@ export default function DriverOrders() {
               )}
 
               {/* Total y Método de Pago */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-                <span className="muted" style={{ fontSize: '0.85rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.95rem' }}>
+                <span className="muted" style={{ fontSize: '0.88rem' }}>
                   Cobro: <strong style={{ color: 'var(--text)' }}>{o.payment_method === 'CASH' ? '💵 Efectivo' : '💳 Transferencia'}</strong>
                 </span>
-                <span style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)' }}>
+                <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)', fontVariantNumeric: 'tabular-nums' }}>
                   {fmtMoney(o.total)}
                 </span>
               </div>
 
-              {/* Acciones de Cambio de Estado */}
-              <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
+              {/* Botones de Transición de Estado (48px Touch Target) */}
+              <div style={{ marginTop: '0.25rem' }}>
                 {o.status !== 'OUT_FOR_DELIVERY' && o.status !== 'DELIVERED' && o.status !== 'CANCELLED' && (
                   <button
-                    className="btn btn-primary btn-block btn-sm"
-                    style={{ height: '38px', fontWeight: 600 }}
+                    className="btn btn-primary btn-block btn-touch-large"
                     disabled={completingId === o.id}
                     onClick={() => handleStartDelivery(o.id)}
                   >
@@ -263,8 +309,7 @@ export default function DriverOrders() {
 
                 {o.status === 'OUT_FOR_DELIVERY' && (
                   <button
-                    className="btn btn-primary btn-block btn-sm"
-                    style={{ height: '40px', fontWeight: 600, background: 'var(--success)', borderColor: 'var(--success)' }}
+                    className="btn btn-success btn-block btn-touch-large"
                     disabled={completingId === o.id}
                     onClick={() => setDeliveredModal({ open: true, order: o, returnedContainers: o.containers_delivered || 1, notes: '' })}
                   >
@@ -273,8 +318,8 @@ export default function DriverOrders() {
                 )}
 
                 {isDelivered && (
-                  <div style={{ width: '100%', textAlign: 'center', padding: '0.4rem', background: '#eaf7ed', color: 'var(--success)', borderRadius: '6px', fontWeight: 600, fontSize: '0.85rem' }}>
-                    ✔️ Pedido entregado y cobrado
+                  <div style={{ width: '100%', textAlign: 'center', padding: '0.65rem', background: '#dcfce7', color: 'var(--success)', borderRadius: 'var(--radius-sm)', fontWeight: 700, fontSize: '0.9rem' }}>
+                    ✔️ Entregado y cobrado
                   </div>
                 )}
               </div>
@@ -283,34 +328,54 @@ export default function DriverOrders() {
         })}
       </div>
 
-      {/* Modal de Confirmación de Entrega */}
+      {/* Modal Mobile para Confirmación de Entrega */}
       {deliveredModal.open && (
         <div style={{
           position: 'fixed',
           inset: 0,
-          background: 'rgba(0,0,0,0.5)',
+          background: 'rgba(15, 23, 42, 0.65)',
+          backdropFilter: 'blur(4px)',
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-end',
           justifyContent: 'center',
-          padding: '1rem',
+          padding: '0',
           zIndex: 1000,
         }}>
-          <div className="card" style={{ maxWidth: 420, width: '100%', padding: '1.5rem', background: '#fff' }}>
-            <h2 style={{ fontSize: '1.25rem', marginTop: 0 }}>Confirmar Entrega #{deliveredModal.order?.id}</h2>
-            <p className="muted" style={{ fontSize: '0.85rem' }}>
+          <div
+            className="card"
+            style={{
+              maxWidth: 520,
+              width: '100%',
+              padding: '1.5rem',
+              background: '#ffffff',
+              borderRadius: '24px 24px 0 0',
+              margin: 0,
+              boxShadow: 'var(--shadow-lg)',
+              animation: 'slideUp 0.25s ease-out',
+            }}
+          >
+            <div style={{ width: '40px', height: '4px', background: 'var(--border)', borderRadius: '2px', margin: '0 auto 1.25rem' }} />
+            
+            <h2 style={{ fontSize: '1.35rem', marginTop: 0, marginBottom: '0.25rem' }}>
+              Confirmar Entrega #{deliveredModal.order?.id}
+            </h2>
+            <p className="muted" style={{ margin: '0 0 1rem', fontSize: '0.9rem' }}>
               Cliente: <strong>{deliveredModal.order?.customer_name}</strong>
             </p>
 
-            <div style={{ margin: '1rem 0', padding: '0.75rem', background: 'var(--bg)', borderRadius: '8px' }}>
-              <p style={{ margin: 0, fontSize: '0.9rem' }}>
-                Monto a cobrar: <strong>{fmtMoney(deliveredModal.order?.total)}</strong>
-              </p>
-              <p className="muted" style={{ margin: '0.2rem 0 0', fontSize: '0.8rem' }}>
-                Método: {deliveredModal.order?.payment_method}
+            <div style={{ margin: '0.75rem 0 1.25rem', padding: '0.85rem', background: 'var(--bg)', borderRadius: 'var(--radius-sm)' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="muted">Monto total a cobrar:</span>
+                <strong style={{ fontSize: '1.2rem', color: 'var(--primary)' }}>
+                  {fmtMoney(deliveredModal.order?.total)}
+                </strong>
+              </div>
+              <p className="muted" style={{ margin: '0.25rem 0 0', fontSize: '0.82rem' }}>
+                Método: {deliveredModal.order?.payment_method === 'CASH' ? 'Efectivo' : 'Transferencia'}
               </p>
             </div>
 
-            <div className="form-group">
+            <div className="form-group" style={{ marginBottom: '1.25rem' }}>
               <label className="form-label">Envases vacíos retirados:</label>
               <input
                 className="input"
@@ -321,16 +386,19 @@ export default function DriverOrders() {
               />
             </div>
 
-            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1.25rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
               <button
-                className="btn btn-ghost btn-block"
+                type="button"
+                className="btn btn-ghost"
+                style={{ minHeight: '48px' }}
                 onClick={() => setDeliveredModal({ open: false, order: null, returnedContainers: 0, notes: '' })}
               >
                 Cancelar
               </button>
               <button
-                className="btn btn-primary btn-block"
-                style={{ background: 'var(--success)', borderColor: 'var(--success)' }}
+                type="button"
+                className="btn btn-success"
+                style={{ minHeight: '48px', fontWeight: 700 }}
                 disabled={completingId === deliveredModal.order?.id}
                 onClick={handleConfirmDelivered}
               >
