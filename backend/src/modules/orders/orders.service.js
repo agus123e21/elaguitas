@@ -95,10 +95,24 @@ export async function listOrders({ customerId, driverId, status, role, limit = 1
 
   const { rows } = await pool.query(
     `SELECT o.id, o.status, o.subtotal, o.delivery_fee, o.discount, o.total,
-            o.payment_method, o.created_at, o.containers_delivered, o.containers_returned,
-            a.street, a.city,
-            c.name AS customer_name,
-            d.name AS driver_name
+            o.payment_method, o.created_at, o.containers_delivered, o.containers_returned, o.notes,
+            o.driver_id,
+            a.street, a.city, a.lat, a.lng,
+            c.name AS customer_name, c.phone AS customer_phone, c.email AS customer_email,
+            d.name AS driver_name,
+            COALESCE(
+              (SELECT json_agg(json_build_object(
+                'id', oi.id,
+                'productId', oi.product_id,
+                'productName', p.name,
+                'quantity', oi.quantity,
+                'unitPrice', oi.unit_price,
+                'subtotal', oi.subtotal
+              ))
+               FROM order_items oi
+               JOIN products p ON p.id = oi.product_id
+              WHERE oi.order_id = o.id), '[]'::json
+            ) AS items
        FROM orders o
        JOIN addresses a ON a.id = o.address_id
        JOIN customers cu ON cu.id = o.customer_id

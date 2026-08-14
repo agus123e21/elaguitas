@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import Navbar from './components/Navbar.jsx'
@@ -106,12 +106,27 @@ export default function App() {
           <Route
             path="/repartos"
             element={
-              <ProtectedRoute roles={['DRIVER']}>
+              <ProtectedRoute roles={['DRIVER', 'ADMIN']}>
                 <Page><DriverOrders /></Page>
               </ProtectedRoute>
             }
           />
-          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route
+            path="/driver"
+            element={
+              <ProtectedRoute roles={['DRIVER', 'ADMIN']}>
+                <Page><DriverOrders /></Page>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <Page><AdminDashboard /></Page>
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin/dashboard"
             element={

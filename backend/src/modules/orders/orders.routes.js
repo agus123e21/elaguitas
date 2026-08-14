@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { asyncHandler } from '../../utils/asyncHandler.js';
 import { validateMiddleware, validators } from '../../utils/validate.js';
-import { requireClient, requireAdmin, requireDriver } from '../../middlewares/auth.js';
+import { requireClient, requireAdmin, requireDriver, requireAnyRole } from '../../middlewares/auth.js';
 import {
   createOrder,
   previewOrder,
@@ -41,15 +41,26 @@ function validateItem(item) {
 
 router.post(
   '/',
-  requireClient,
+  requireAnyRole,
   validateMiddleware(orderRules),
   asyncHandler(async (req, res) => {
-    const customerId = await getCustomerIdByUserId(req.user.id);
-    if (!customerId) {
-      return res.status(403).json({ error: { code: 403, message: 'No sos cliente registrado' } });
+    let customerId = req.body.customerId;
+    if (req.user.role === 'CLIENT') {
+      customerId = await getCustomerIdByUserId(req.user.id);
+      if (!customerId) {
+        return res.status(403).json({ error: { code: 403, message: 'No sos cliente registrado' } });
+      }
+    } else if (req.user.role === 'ADMIN') {
+      if (!customerId) {
+        const c = await pool.query('SELECT id FROM customers LIMIT 1');
+        customerId = c.rows[0]?.id;
+      }
     }
     const order = await createOrder({ customerId, ...req.body });
-    res.status(201).json({ order });
+    if (req.body.driverId) {
+      await assignDriver(order.id, req.body.driverId);
+    }
+    res.status(201).json({ order: await getOrderById(order.id) });
   })
 );
 

@@ -22,6 +22,7 @@ import subscriptionsRoutes from './modules/subscriptions/subscriptions.routes.js
 import promotionsRoutes from './modules/promotions/promotions.routes.js';
 import notificationsRoutes from './modules/notifications/notifications.routes.js';
 import cronRoutes from './modules/cron/cron.routes.js';
+import systemRoutes from './modules/system/system.routes.js';
 
 const app = express();
 
@@ -92,6 +93,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/subscriptions', subscriptionsRoutes);
 app.use('/api/promotions', promotionsRoutes);
 app.use('/api/notifications', notificationsRoutes);
+app.use('/api/system', systemRoutes);
 
 app.use('/api/client', requireClient, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de cliente' });

@@ -12,7 +12,8 @@ FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN delivery_drivers d ON d.user_id = (SELECT id FROM users WHERE email = 'repartidor@agua.com')
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-WHERE u.email = 'juan@cliente.com';
+WHERE u.email = 'juan@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id AND status = 'DELIVERED');
 
 -- Juan: pedido hoy en reparto
 INSERT INTO orders (customer_id, driver_id, address_id, status, subtotal, delivery_fee, discount, total, payment_method, containers_delivered, containers_returned, created_at)
@@ -21,7 +22,8 @@ FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN delivery_drivers d ON d.user_id = (SELECT id FROM users WHERE email = 'repartidor@agua.com')
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-WHERE u.email = 'juan@cliente.com';
+WHERE u.email = 'juan@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id AND status = 'OUT_FOR_DELIVERY');
 
 -- María: pedido pendiente
 INSERT INTO orders (customer_id, address_id, status, subtotal, delivery_fee, discount, total, payment_method, containers_delivered, containers_returned, created_at)
@@ -29,7 +31,8 @@ SELECT c.id, a.id, 'PENDING', 4400, 1500, 0, 5900, 'TRANSFER', 2, 0, NOW()
 FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-WHERE u.email = 'maria@cliente.com';
+WHERE u.email = 'maria@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id AND status = 'PENDING');
 
 -- Pedro: pedido confirmado
 INSERT INTO orders (customer_id, driver_id, address_id, status, subtotal, delivery_fee, discount, total, payment_method, containers_delivered, containers_returned, created_at)
@@ -38,7 +41,8 @@ FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN delivery_drivers d ON d.user_id = (SELECT id FROM users WHERE email = 'repartidor2@agua.com')
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-WHERE u.email = 'pedro@cliente.com';
+WHERE u.email = 'pedro@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id AND status = 'CONFIRMED');
 
 -- Pedro: pedido preparando
 INSERT INTO orders (customer_id, address_id, status, subtotal, delivery_fee, discount, total, payment_method, containers_delivered, containers_returned, created_at)
@@ -46,7 +50,8 @@ SELECT c.id, a.id, 'PREPARING', 2600, 2000, 0, 4600, 'CASH', 2, 1, NOW() - INTER
 FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-WHERE u.email = 'pedro@cliente.com';
+WHERE u.email = 'pedro@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id AND status = 'PREPARING');
 
 -- María: pedido cancelado
 INSERT INTO orders (customer_id, address_id, status, subtotal, delivery_fee, discount, total, payment_method, containers_delivered, containers_returned, created_at)
@@ -54,7 +59,8 @@ SELECT c.id, a.id, 'CANCELLED', 3000, 1500, 0, 4500, 'CARD', 1, 0, NOW() - INTER
 FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-WHERE u.email = 'maria@cliente.com';
+WHERE u.email = 'maria@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM orders WHERE customer_id = c.id AND status = 'CANCELLED');
 
 -- ---------- ORDER ITEMS ----------
 
@@ -64,7 +70,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN products p ON p.name = 'Bidón de agua 20L'
-WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED'
+  AND NOT EXISTS (SELECT 1 FROM order_items WHERE order_id = o.id);
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price, subtotal)
 SELECT o.id, p.id, 3, 3000, 9000
@@ -72,7 +79,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN products p ON p.name = 'Bidón de agua 20L'
-WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY'
+  AND NOT EXISTS (SELECT 1 FROM order_items WHERE order_id = o.id);
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price, subtotal)
 SELECT o.id, p.id, 2, 2200, 4400
@@ -80,7 +88,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN products p ON p.name = 'Bidón de agua 12L'
-WHERE u.email = 'maria@cliente.com' AND o.status = 'PENDING';
+WHERE u.email = 'maria@cliente.com' AND o.status = 'PENDING'
+  AND NOT EXISTS (SELECT 1 FROM order_items WHERE order_id = o.id);
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price, subtotal)
 SELECT o.id, p.id, 1, 13500, 13500
@@ -88,7 +97,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN products p ON p.name = 'Pack 5 bidones 20L'
-WHERE u.email = 'pedro@cliente.com' AND o.status = 'CONFIRMED';
+WHERE u.email = 'pedro@cliente.com' AND o.status = 'CONFIRMED'
+  AND NOT EXISTS (SELECT 1 FROM order_items WHERE order_id = o.id);
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price, subtotal)
 SELECT o.id, p.id, 2, 1300, 2600
@@ -96,7 +106,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN products p ON p.name = 'Bidón de agua 6L'
-WHERE u.email = 'pedro@cliente.com' AND o.status = 'PREPARING';
+WHERE u.email = 'pedro@cliente.com' AND o.status = 'PREPARING'
+  AND NOT EXISTS (SELECT 1 FROM order_items WHERE order_id = o.id);
 
 INSERT INTO order_items (order_id, product_id, quantity, unit_price, subtotal)
 SELECT o.id, p.id, 1, 3000, 3000
@@ -104,7 +115,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN products p ON p.name = 'Bidón de agua 20L'
-WHERE u.email = 'maria@cliente.com' AND o.status = 'CANCELLED';
+WHERE u.email = 'maria@cliente.com' AND o.status = 'CANCELLED'
+  AND NOT EXISTS (SELECT 1 FROM order_items WHERE order_id = o.id);
 
 -- ---------- PAGOS ----------
 
@@ -113,14 +125,16 @@ SELECT o.id, 'CASH', 'PAID', o.total, 'REC-0001', NOW() - INTERVAL '1 day'
 FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
-WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED'
+  AND NOT EXISTS (SELECT 1 FROM payments WHERE order_id = o.id);
 
 INSERT INTO payments (order_id, method, status, amount, reference, paid_at)
 SELECT o.id, 'CARD', 'PAID', o.total, 'REC-0002', NOW()
 FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
-WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY'
+  AND NOT EXISTS (SELECT 1 FROM payments WHERE order_id = o.id);
 
 -- ---------- ENTREGAS ----------
 
@@ -130,7 +144,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN delivery_drivers d ON d.user_id = (SELECT id FROM users WHERE email = 'repartidor@agua.com')
-WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED'
+ON CONFLICT (order_id) DO NOTHING;
 
 INSERT INTO deliveries (order_id, driver_id, status)
 SELECT o.id, d.id, 'IN_TRANSIT'
@@ -138,7 +153,8 @@ FROM orders o
 JOIN customers c ON c.id = o.customer_id
 JOIN users u ON u.id = c.user_id
 JOIN delivery_drivers d ON d.user_id = (SELECT id FROM users WHERE email = 'repartidor@agua.com')
-WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY'
+ON CONFLICT (order_id) DO NOTHING;
 
 -- ---------- BIDONES: movimientos ----------
 
@@ -147,55 +163,28 @@ SELECT c.id, o.id, 'DELIVERED', 2, 'Entrega de 2 bidones', NOW() - INTERVAL '1 d
 FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN orders o ON o.customer_id = c.id
-WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED'
+  AND NOT EXISTS (SELECT 1 FROM container_movements WHERE order_id = o.id AND type = 'DELIVERED');
 
 INSERT INTO container_movements (customer_id, order_id, type, quantity, notes, created_at)
 SELECT c.id, o.id, 'RETURNED', 1, 'Retiro de 1 bidón', NOW() - INTERVAL '1 day'
 FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN orders o ON o.customer_id = c.id
-WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED';
-
-INSERT INTO container_movements (customer_id, order_id, type, quantity, notes, created_at)
-SELECT c.id, o.id, 'DELIVERED', 3, 'Entrega de 3 bidones', NOW()
-FROM customers c
-JOIN users u ON u.id = c.user_id
-JOIN orders o ON o.customer_id = c.id
-WHERE u.email = 'juan@cliente.com' AND o.status = 'OUT_FOR_DELIVERY';
-
-INSERT INTO container_movements (customer_id, order_id, type, quantity, notes, created_at)
-SELECT c.id, o.id, 'DELIVERED', 5, 'Entrega pack 5 bidones', NOW() - INTERVAL '3 hours'
-FROM customers c
-JOIN users u ON u.id = c.user_id
-JOIN orders o ON o.customer_id = c.id
-WHERE u.email = 'pedro@cliente.com' AND o.status = 'CONFIRMED';
-
--- Inventario físico de bidones en manos de clientes
-INSERT INTO containers (status, customer_id)
-SELECT 'WITH_CUSTOMER', c.id
-FROM customers c
-JOIN users u ON u.id = c.user_id
-WHERE u.email = 'juan@cliente.com';
-
-INSERT INTO containers (status, customer_id)
-SELECT 'WITH_CUSTOMER', c.id
-FROM customers c
-JOIN users u ON u.id = c.user_id
-WHERE u.email = 'pedro@cliente.com';
+WHERE u.email = 'juan@cliente.com' AND o.status = 'DELIVERED'
+  AND NOT EXISTS (SELECT 1 FROM container_movements WHERE order_id = o.id AND type = 'RETURNED');
 
 -- ---------- NOTIFICACIONES ----------
 
 INSERT INTO notifications (user_id, type, title, message, read)
 SELECT u.id, 'ORDER', 'Pedido entregado', 'Tu pedido fue entregado. ¡Gracias por comprar!', FALSE
-FROM users u WHERE u.email = 'juan@cliente.com';
+FROM users u WHERE u.email = 'juan@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM notifications WHERE user_id = u.id AND title = 'Pedido entregado');
 
 INSERT INTO notifications (user_id, type, title, message, read)
 SELECT u.id, 'ORDER', 'Pedido en reparto', 'Tu pedido salió a reparto. Vas a recibirlo en breve.', FALSE
-FROM users u WHERE u.email = 'juan@cliente.com';
-
-INSERT INTO notifications (user_id, type, title, message, read)
-SELECT u.id, 'ORDER', 'Pedido confirmado', 'Tu pedido fue confirmado y está en preparación.', TRUE
-FROM users u WHERE u.email = 'pedro@cliente.com';
+FROM users u WHERE u.email = 'juan@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM notifications WHERE user_id = u.id AND title = 'Pedido en reparto');
 
 -- ---------- SUSCRIPCIONES ----------
 
@@ -205,12 +194,5 @@ FROM customers c
 JOIN users u ON u.id = c.user_id
 JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
 JOIN products p ON p.name = 'Bidón de agua 20L'
-WHERE u.email = 'maria@cliente.com';
-
-INSERT INTO subscriptions (customer_id, address_id, product_id, quantity, frequency_days, status, next_delivery_date)
-SELECT c.id, a.id, p.id, 3, 15, 'ACTIVE', CURRENT_DATE + 15
-FROM customers c
-JOIN users u ON u.id = c.user_id
-JOIN addresses a ON a.customer_id = c.id AND a.is_primary = TRUE
-JOIN products p ON p.name = 'Bidón de agua 12L'
-WHERE u.email = 'juan@cliente.com';
+WHERE u.email = 'maria@cliente.com'
+  AND NOT EXISTS (SELECT 1 FROM subscriptions WHERE customer_id = c.id);
