@@ -74,6 +74,19 @@
       "norm_label": "apierror"
     },
     {
+      "label": "ApiError",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_api_apierror",
+      "community": 2,
+      "community_name": "api.js",
+      "norm_label": "apierror"
+    },
+    {
       "label": "ExampleInstrumentedTest",
       "file_type": "code",
       "source_file": "frontend/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java",
@@ -113,19 +126,6 @@
       "norm_label": "mainactivity"
     },
     {
-      "label": "ApiError",
-      "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_api_apierror",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "apierror"
-    },
-    {
       "label": "Checkout()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Checkout.jsx",
@@ -160,18 +160,6 @@
       "community": 11,
       "community_name": "Checkout.jsx",
       "norm_label": "handlequicklogin()"
-    },
-    {
-      "label": "handleSubmit()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L126",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_checkout_checkout_handlesubmit",
-      "community": 11,
-      "community_name": "Checkout.jsx",
-      "norm_label": "handlesubmit()"
     },
     {
       "label": "selectedAddress()",
@@ -342,18 +330,6 @@
       "norm_label": "updateaddress()"
     },
     {
-      "label": "createOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_createorder",
-      "community": 11,
-      "community_name": "Checkout.jsx",
-      "norm_label": "createorder()"
-    },
-    {
       "label": "previewOrder()",
       "file_type": "code",
       "source_file": "frontend/src/services/orders.js",
@@ -393,7 +369,7 @@
       "label": "assignDriver()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L394",
+      "source_location": "L408",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_assigndriver",
@@ -405,7 +381,7 @@
       "label": "changeOrderStatus()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L330",
+      "source_location": "L344",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_changeorderstatus",
@@ -417,7 +393,7 @@
       "label": "createOrder()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L209",
+      "source_location": "L223",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_createorder",
@@ -441,7 +417,7 @@
       "label": "getDriverIdByUserId()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L18",
+      "source_location": "L25",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getdriveridbyuserid",
@@ -453,7 +429,7 @@
       "label": "getOrderById()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L23",
+      "source_location": "L37",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getorderbyid",
@@ -465,7 +441,7 @@
       "label": "getOrderItems()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L59",
+      "source_location": "L73",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getorderitems",
@@ -477,7 +453,7 @@
       "label": "listOrders()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L72",
+      "source_location": "L86",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_listorders",
@@ -489,7 +465,7 @@
       "label": "loadAddressForCustomer()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L164",
+      "source_location": "L178",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_loadaddressforcustomer",
@@ -501,7 +477,7 @@
       "label": "loadLines()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L131",
+      "source_location": "L145",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_loadlines",
@@ -513,7 +489,7 @@
       "label": "previewOrder()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L178",
+      "source_location": "L192",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_previeworder",
@@ -525,7 +501,7 @@
       "label": "repeatOrder()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L313",
+      "source_location": "L327",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_repeatorder",
@@ -566,7 +542,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "adminpromotions()"
     },
     {
@@ -578,7 +554,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handledelete",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "handledelete()"
     },
     {
@@ -590,7 +566,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handleedit",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "handleedit()"
     },
     {
@@ -602,7 +578,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handlesubmit",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "handlesubmit()"
     },
     {
@@ -614,7 +590,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handletoggleactive",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "handletoggleactive()"
     },
     {
@@ -626,7 +602,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_load",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "load()"
     },
     {
@@ -638,7 +614,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_promotions_promotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "promotions()"
     },
     {
@@ -650,7 +626,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_createpromotion",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "createpromotion()"
     },
     {
@@ -662,7 +638,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_deletepromotion",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "deletepromotion()"
     },
     {
@@ -674,7 +650,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_getallpromotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "getallpromotions()"
     },
     {
@@ -686,7 +662,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_getpromotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "getpromotions()"
     },
     {
@@ -698,92 +674,92 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_updatepromotion",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "updatepromotion()"
     },
     {
-      "label": "AdminOrders()",
+      "label": "MySubscriptions()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L19",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L16",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "adminorders()"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "mysubscriptions()"
     },
     {
-      "label": "handleAssign()",
+      "label": "handleChange()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L39",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L42",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders_handleassign",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlechange",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "handleassign()"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handlechange()"
     },
     {
-      "label": "handleStatus()",
+      "label": "handleCreate()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L35",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L32",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders_handlestatus",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlecreate",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "handlestatus()"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handlecreate()"
     },
     {
       "label": "load()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L26",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L24",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders_load",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_load",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
+      "community_name": "MySubscriptions.jsx",
       "norm_label": "load()"
     },
     {
-      "label": "fmtMoney()",
+      "label": "createSubscription()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L17",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L8",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_fmtmoney",
+      "id": "frontend_src_services_subscriptions_createsubscription",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "fmtmoney()"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "createsubscription()"
     },
     {
-      "label": "assignDriver()",
+      "label": "getMySubscriptions()",
       "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L38",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L3",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_orders_assigndriver",
+      "id": "frontend_src_services_subscriptions_getmysubscriptions",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "assigndriver()"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "getmysubscriptions()"
     },
     {
-      "label": "getOrdersByStatus()",
+      "label": "updateSubscription()",
       "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L18",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L13",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_orders_getordersbystatus",
+      "id": "frontend_src_services_subscriptions_updatesubscription",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "getordersbystatus()"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "updatesubscription()"
     },
     {
       "label": "ForgotPassword()",
@@ -1286,7 +1262,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "adminproducts()"
     },
     {
@@ -1298,7 +1274,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleimage",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "handleimage()"
     },
     {
@@ -1310,7 +1286,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleremove",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "handleremove()"
     },
     {
@@ -1322,7 +1298,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_handlesubmit",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "handlesubmit()"
     },
     {
@@ -1334,7 +1310,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_load",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "load()"
     },
     {
@@ -1346,7 +1322,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_startedit",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "startedit()"
     },
     {
@@ -1358,116 +1334,44 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_toggleactive",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "toggleactive()"
     },
     {
-      "label": "Catalog()",
+      "label": ".constructor()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L9",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_catalog_catalog",
+      "id": "frontend_src_services_api_apierror_constructor",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "catalog()"
+      "community_name": "api.js",
+      "norm_label": ".constructor()"
     },
     {
-      "label": "getItemInCart()",
+      "label": "request()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L36",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_catalog_catalog_getitemincart",
+      "id": "frontend_src_services_api_request",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "getitemincart()"
+      "community_name": "api.js",
+      "norm_label": "request()"
     },
     {
-      "label": "handleAdd()",
+      "label": "getDashboard()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L31",
+      "source_file": "frontend/src/services/dashboard.js",
+      "source_location": "L3",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_catalog_catalog_handleadd",
+      "id": "frontend_src_services_dashboard_getdashboard",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "handleadd()"
-    },
-    {
-      "label": "showToast()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L26",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_catalog_catalog_showtoast",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "showtoast()"
-    },
-    {
-      "label": "fmtMoney()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L7",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_catalog_fmtmoney",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "fmtmoney()"
-    },
-    {
-      "label": "MySubscriptions()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L16",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "mysubscriptions()"
-    },
-    {
-      "label": "handleChange()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L42",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlechange",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "handlechange()"
-    },
-    {
-      "label": "handleCreate()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L32",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlecreate",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "handlecreate()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L24",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_load",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "load()"
+      "community_name": "api.js",
+      "norm_label": "getdashboard()"
     },
     {
       "label": "createProduct()",
@@ -1478,7 +1382,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_createproduct",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "createproduct()"
     },
     {
@@ -1490,7 +1394,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_deleteproduct",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "deleteproduct()"
     },
     {
@@ -1502,20 +1406,8 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_getproduct",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "getproduct()"
-    },
-    {
-      "label": "getProducts()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_getproducts",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "getproducts()"
     },
     {
       "label": "patchProduct()",
@@ -1526,7 +1418,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_patchproduct",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "patchproduct()"
     },
     {
@@ -1538,7 +1430,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_updateproduct",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "updateproduct()"
     },
     {
@@ -1550,44 +1442,20 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_uploadproductimage",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "uploadproductimage()"
     },
     {
-      "label": "createSubscription()",
+      "label": "getZones()",
       "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_subscriptions_createsubscription",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "createsubscription()"
-    },
-    {
-      "label": "getMySubscriptions()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
+      "source_file": "frontend/src/services/zones.js",
       "source_location": "L3",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_subscriptions_getmysubscriptions",
+      "id": "frontend_src_services_zones_getzones",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "getmysubscriptions()"
-    },
-    {
-      "label": "updateSubscription()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_subscriptions_updatesubscription",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "updatesubscription()"
+      "community_name": "api.js",
+      "norm_label": "getzones()"
     },
     {
       "label": "ensureMigrationsTable()",
@@ -1770,78 +1638,6 @@
       "norm_label": ".addition_iscorrect()"
     },
     {
-      "label": "formatPrice()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_formatprice",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "formatprice()"
-    },
-    {
-      "label": "MyOrders()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_myorders",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "myorders()"
-    },
-    {
-      "label": "handleRepeat()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L34",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_myorders_handlerepeat",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "handlerepeat()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L28",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_myorders_load",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "load()"
-    },
-    {
-      "label": "getMyOrders()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_getmyorders",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "getmyorders()"
-    },
-    {
-      "label": "repeatOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L28",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_repeatorder",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "repeatorder()"
-    },
-    {
       "label": "App()",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -1938,6 +1734,18 @@
       "norm_label": "useauth()"
     },
     {
+      "label": "Containers()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers_containers",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "containers()"
+    },
+    {
       "label": "Home()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Home.jsx",
@@ -2020,6 +1828,30 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "handlesubmit()"
+    },
+    {
+      "label": "getContainerMovements()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainermovements",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "getcontainermovements()"
+    },
+    {
+      "label": "getContainerSummary()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainersummary",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "getcontainersummary()"
     },
     {
       "label": "Notifications()",
@@ -2262,66 +2094,6 @@
       "norm_label": "signtoken()"
     },
     {
-      "label": "AdminContainers()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L18",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "admincontainers()"
-    },
-    {
-      "label": "handleAdjust()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L45",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleadjust",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handleadjust()"
-    },
-    {
-      "label": "handleRegister()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L35",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleregister",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handleregister()"
-    },
-    {
-      "label": "handleStatus()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L55",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handlestatus",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handlestatus()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L26",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_load",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "load()"
-    },
-    {
       "label": "AdminDashboard()",
       "file_type": "code",
       "source_file": "frontend/src/pages/admin/AdminDashboard.jsx",
@@ -2466,124 +2238,352 @@
       "norm_label": "fmtmoney()"
     },
     {
-      "label": "Containers()",
+      "label": "AdminOrders()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L11",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L19",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_containers_containers",
+      "id": "frontend_src_pages_admin_adminorders_adminorders",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "containers()"
+      "norm_label": "adminorders()"
     },
     {
-      "label": ".constructor()",
+      "label": "handleAssign()",
       "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L6",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L39",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_api_apierror_constructor",
+      "id": "frontend_src_pages_admin_adminorders_adminorders_handleassign",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": ".constructor()"
+      "norm_label": "handleassign()"
     },
     {
-      "label": "request()",
+      "label": "handleStatus()",
       "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L35",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminorders_adminorders_handlestatus",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handlestatus()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminorders_adminorders_load",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "fmtMoney()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L17",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminorders_fmtmoney",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "fmtmoney()"
+    },
+    {
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Checkout.jsx",
+      "source_location": "L126",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_checkout_checkout_handlesubmit",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handlesubmit()"
+    },
+    {
+      "label": "DriverOrders()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "driverorders()"
+    },
+    {
+      "label": "getMapsUrl()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L115",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_getmapsurl",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getmapsurl()"
+    },
+    {
+      "label": "getWhatsAppUrl()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L120",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_getwhatsappurl",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getwhatsappurl()"
+    },
+    {
+      "label": "handleConfirmDelivered()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L100",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handleconfirmdelivered()"
+    },
+    {
+      "label": "handleStatusChange()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L83",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_handlestatuschange",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handlestatuschange()"
+    },
+    {
+      "label": "handleTakeOrder()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L69",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_handletakeorder",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handletakeorder()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L31",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_load",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "showSuccess()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_showsuccess",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "showsuccess()"
+    },
+    {
+      "label": "fmtMoney()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
       "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_api_request",
+      "id": "frontend_src_pages_driverorders_fmtmoney",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "request()"
+      "norm_label": "fmtmoney()"
     },
     {
-      "label": "adjustContainers()",
+      "label": "formatPrice()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L27",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_adjustcontainers",
+      "id": "frontend_src_pages_myorders_formatprice",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "adjustcontainers()"
+      "norm_label": "formatprice()"
     },
     {
-      "label": "getContainerMovements()",
+      "label": "MyOrders()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_myorders_myorders",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "myorders()"
+    },
+    {
+      "label": "handleRepeat()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L34",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_myorders_myorders_handlerepeat",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handlerepeat()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L28",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_myorders_myorders_load",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "formatPrice()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_formatprice",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "formatprice()"
+    },
+    {
+      "label": "OrderDetail()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_orderdetail",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "orderdetail()"
+    },
+    {
+      "label": "assignDriver()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L38",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_assigndriver",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "assigndriver()"
+    },
+    {
+      "label": "changeOrderStatus()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L33",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_changeorderstatus",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "changeorderstatus()"
+    },
+    {
+      "label": "createOrder()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
       "source_location": "L8",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainermovements",
+      "id": "frontend_src_services_orders_createorder",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "getcontainermovements()"
+      "norm_label": "createorder()"
     },
     {
-      "label": "getContainerSummary()",
+      "label": "getMyOrders()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainersummary",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "getcontainersummary()"
-    },
-    {
-      "label": "getInventory()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/services/orders.js",
       "source_location": "L13",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_getinventory",
+      "id": "frontend_src_services_orders_getmyorders",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "getinventory()"
+      "norm_label": "getmyorders()"
     },
     {
-      "label": "registerContainers()",
+      "label": "getOrder()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_getorder",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getorder()"
+    },
+    {
+      "label": "getOrdersByStatus()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
       "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_registercontainers",
+      "id": "frontend_src_services_orders_getordersbystatus",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "registercontainers()"
+      "norm_label": "getordersbystatus()"
     },
     {
-      "label": "updateContainerStatus()",
+      "label": "repeatOrder()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L22",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L28",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_updatecontainerstatus",
+      "id": "frontend_src_services_orders_repeatorder",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "updatecontainerstatus()"
+      "norm_label": "repeatorder()"
     },
     {
-      "label": "getDashboard()",
+      "label": "takeOrder()",
       "file_type": "code",
-      "source_file": "frontend/src/services/dashboard.js",
-      "source_location": "L3",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L43",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_dashboard_getdashboard",
+      "id": "frontend_src_services_orders_takeorder",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "getdashboard()"
+      "norm_label": "takeorder()"
     },
     {
       "label": "clearSystemLogs()",
@@ -2658,18 +2658,6 @@
       "norm_label": "updateuser()"
     },
     {
-      "label": "getZones()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_zones_getzones",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "getzones()"
-    },
-    {
       "label": "authenticate()",
       "file_type": "code",
       "source_file": "backend/src/middlewares/auth.js",
@@ -2738,7 +2726,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_cartprovider",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "cartprovider()"
     },
     {
@@ -2750,7 +2738,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_loadcart",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "loadcart()"
     },
     {
@@ -2762,7 +2750,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_usecart",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "usecart()"
     },
     {
@@ -2774,7 +2762,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_cart_cart",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "cart()"
     },
     {
@@ -2786,8 +2774,80 @@
       "_origin": "ast",
       "id": "frontend_src_pages_cart_formatprice",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "formatprice()"
+    },
+    {
+      "label": "Catalog()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "catalog()"
+    },
+    {
+      "label": "getItemInCart()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L36",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog_getitemincart",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "getitemincart()"
+    },
+    {
+      "label": "handleAdd()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L31",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog_handleadd",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "handleadd()"
+    },
+    {
+      "label": "showToast()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog_showtoast",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "showtoast()"
+    },
+    {
+      "label": "fmtMoney()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_fmtmoney",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "fmtmoney()"
+    },
+    {
+      "label": "getProducts()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_getproducts",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "getproducts()"
     },
     {
       "label": "AdminZones()",
@@ -2874,136 +2934,112 @@
       "norm_label": "updatezone()"
     },
     {
-      "label": "formatPrice()",
+      "label": "AdminContainers()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L6",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_formatprice",
-      "community": 81,
-      "community_name": "OrderDetail.jsx",
-      "norm_label": "formatprice()"
-    },
-    {
-      "label": "OrderDetail()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_orderdetail",
-      "community": 81,
-      "community_name": "OrderDetail.jsx",
-      "norm_label": "orderdetail()"
-    },
-    {
-      "label": "getOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_getorder",
-      "community": 81,
-      "community_name": "OrderDetail.jsx",
-      "norm_label": "getorder()"
-    },
-    {
-      "label": "DriverOrders()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L16",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "driverorders()"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "admincontainers()"
     },
     {
-      "label": "getMapsUrl()",
+      "label": "handleAdjust()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L75",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L45",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_getmapsurl",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleadjust",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "getmapsurl()"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "handleadjust()"
     },
     {
-      "label": "getWhatsAppUrl()",
+      "label": "handleRegister()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L80",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L35",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_getwhatsappurl",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleregister",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "getwhatsappurl()"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "handleregister()"
     },
     {
-      "label": "handleConfirmDelivered()",
+      "label": "handleStatus()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L61",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L55",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handlestatus",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "handleconfirmdelivered()"
-    },
-    {
-      "label": "handleStartDelivery()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L49",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_handlestartdelivery",
-      "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "handlestartdelivery()"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "handlestatus()"
     },
     {
       "label": "load()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L25",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L26",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_load",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_load",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
+      "community_name": "AdminContainers.jsx",
       "norm_label": "load()"
     },
     {
-      "label": "fmtMoney()",
+      "label": "adjustContainers()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L14",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L27",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_fmtmoney",
+      "id": "frontend_src_services_containers_adjustcontainers",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "fmtmoney()"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "adjustcontainers()"
     },
     {
-      "label": "changeOrderStatus()",
+      "label": "getInventory()",
       "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L33",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L13",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_orders_changeorderstatus",
+      "id": "frontend_src_services_containers_getinventory",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "changeorderstatus()"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "getinventory()"
+    },
+    {
+      "label": "registerContainers()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_registercontainers",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "registercontainers()"
+    },
+    {
+      "label": "updateContainerStatus()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L22",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_updatecontainerstatus",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "updatecontainerstatus()"
     },
     {
       "label": "code-review-and-quality/SKILL.md",
@@ -4348,17 +4384,6 @@
       "norm_label": "base"
     },
     {
-      "label": "AdminPromotions",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "frontend_src_app_adminpromotions",
-      "community": 13,
-      "community_name": "Promotion Management",
-      "norm_label": "adminpromotions"
-    },
-    {
       "label": "Promotions",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -4366,52 +4391,8 @@
       "_origin": "ast",
       "id": "frontend_src_app_promotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "promotions"
-    },
-    {
-      "label": "AdminPromotions.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions",
-      "community": 13,
-      "community_name": "Promotion Management",
-      "norm_label": "adminpromotions.jsx"
-    },
-    {
-      "label": "empty",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions_empty",
-      "community": 13,
-      "community_name": "Promotion Management",
-      "norm_label": "empty"
-    },
-    {
-      "label": "TYPE_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions_type_labels",
-      "community": 13,
-      "community_name": "Promotion Management",
-      "norm_label": "type_labels"
-    },
-    {
-      "label": "TYPES",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions_types",
-      "community": 13,
-      "community_name": "Promotion Management",
-      "norm_label": "types"
     },
     {
       "label": "Promotions.jsx",
@@ -4421,7 +4402,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_promotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "promotions.jsx"
     },
     {
@@ -4432,7 +4413,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_promotions_type_labels",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "type_labels"
     },
     {
@@ -4443,96 +4424,63 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions",
       "community": 13,
-      "community_name": "Promotion Management",
+      "community_name": "promotions.js",
       "norm_label": "promotions.js"
     },
     {
-      "label": "AdminOrders",
+      "label": "MySubscriptions",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L29",
+      "source_location": "L21",
       "_origin": "ast",
-      "id": "frontend_src_app_adminorders",
+      "id": "frontend_src_app_mysubscriptions",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "adminorders"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "mysubscriptions"
     },
     {
-      "label": "AdminOrders.jsx",
+      "label": "MySubscriptions.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders",
+      "id": "frontend_src_pages_mysubscriptions",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "adminorders.jsx"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "mysubscriptions.jsx"
     },
     {
-      "label": "STATUS_FLOW",
+      "label": "FREQUENCIES",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L15",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L7",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_status_flow",
+      "id": "frontend_src_pages_mysubscriptions_frequencies",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
-      "norm_label": "status_flow"
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "frequencies"
     },
     {
       "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L6",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_status_labels",
+      "id": "frontend_src_pages_mysubscriptions_status_labels",
       "community": 14,
-      "community_name": "AdminOrders.jsx",
+      "community_name": "MySubscriptions.jsx",
       "norm_label": "status_labels"
     },
     {
-      "label": "ForgotPassword",
+      "label": "subscriptions.js",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "frontend_src_app_forgotpassword",
-      "community": 15,
-      "community_name": "services/auth.js",
-      "norm_label": "forgotpassword"
-    },
-    {
-      "label": "ResetPassword",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "frontend_src_app_resetpassword",
-      "community": 15,
-      "community_name": "services/auth.js",
-      "norm_label": "resetpassword"
-    },
-    {
-      "label": "ForgotPassword.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/ForgotPassword.jsx",
+      "source_file": "frontend/src/services/subscriptions.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_forgotpassword",
-      "community": 15,
-      "community_name": "services/auth.js",
-      "norm_label": "forgotpassword.jsx"
-    },
-    {
-      "label": "ResetPassword.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/ResetPassword.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_resetpassword",
-      "community": 15,
-      "community_name": "services/auth.js",
-      "norm_label": "resetpassword.jsx"
+      "id": "frontend_src_services_subscriptions",
+      "community": 14,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "subscriptions.js"
     },
     {
       "label": "services/auth.js",
@@ -5015,30 +4963,8 @@
       "_origin": "ast",
       "id": "frontend_src_app_adminproducts",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "adminproducts"
-    },
-    {
-      "label": "Catalog",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_app_catalog",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "catalog"
-    },
-    {
-      "label": "MySubscriptions",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "frontend_src_app_mysubscriptions",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "mysubscriptions"
     },
     {
       "label": "AdminProducts.jsx",
@@ -5048,7 +4974,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "adminproducts.jsx"
     },
     {
@@ -5059,52 +4985,41 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_emptyform",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "emptyform"
     },
     {
-      "label": "Catalog.jsx",
+      "label": "api.js",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_file": "frontend/src/services/api.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_catalog",
+      "id": "frontend_src_services_api",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "catalog.jsx"
+      "community_name": "api.js",
+      "norm_label": "api.js"
     },
     {
-      "label": "MySubscriptions.jsx",
+      "label": "api",
       "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "frontend_src_services_api_api",
+      "community": 2,
+      "community_name": "api.js",
+      "norm_label": "api"
+    },
+    {
+      "label": "dashboard.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/dashboard.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions",
+      "id": "frontend_src_services_dashboard",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "mysubscriptions.jsx"
-    },
-    {
-      "label": "FREQUENCIES",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_frequencies",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "frequencies"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_status_labels",
-      "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "status_labels"
+      "community_name": "api.js",
+      "norm_label": "dashboard.js"
     },
     {
       "label": "products.js",
@@ -5114,19 +5029,19 @@
       "_origin": "ast",
       "id": "frontend_src_services_products",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
+      "community_name": "api.js",
       "norm_label": "products.js"
     },
     {
-      "label": "subscriptions.js",
+      "label": "zones.js",
       "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
+      "source_file": "frontend/src/services/zones.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_services_subscriptions",
+      "id": "frontend_src_services_zones",
       "community": 2,
-      "community_name": "MySubscriptions.jsx",
-      "norm_label": "subscriptions.js"
+      "community_name": "api.js",
+      "norm_label": "zones.js"
     },
     {
       "label": "runMigrations.js",
@@ -5888,50 +5803,6 @@
       "norm_label": "org.junit.test"
     },
     {
-      "label": "MyOrders",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "frontend_src_app_myorders",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "myorders"
-    },
-    {
-      "label": "MyOrders.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "myorders.jsx"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_status_labels",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "status_labels"
-    },
-    {
-      "label": "orders.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_orders",
-      "community": 26,
-      "community_name": "orders.js",
-      "norm_label": "orders.js"
-    },
-    {
       "label": ".oxlintrc.json",
       "file_type": "code",
       "source_file": "frontend/.oxlintrc.json",
@@ -6306,6 +6177,17 @@
       "norm_label": "app.jsx"
     },
     {
+      "label": "AdminPromotions",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "frontend_src_app_adminpromotions",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "adminpromotions"
+    },
+    {
       "label": "Checkout",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -6315,6 +6197,39 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "checkout"
+    },
+    {
+      "label": "Containers",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "frontend_src_app_containers",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "containers"
+    },
+    {
+      "label": "DriverOrders",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "frontend_src_app_driverorders",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "driverorders"
+    },
+    {
+      "label": "ForgotPassword",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_src_app_forgotpassword",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "forgotpassword"
     },
     {
       "label": "Home",
@@ -6359,6 +6274,17 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "register"
+    },
+    {
+      "label": "ResetPassword",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "frontend_src_app_resetpassword",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "resetpassword"
     },
     {
       "label": "Footer.jsx",
@@ -6427,6 +6353,105 @@
       "norm_label": "main.jsx"
     },
     {
+      "label": "AdminPromotions.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "adminpromotions.jsx"
+    },
+    {
+      "label": "empty",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions_empty",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "empty"
+    },
+    {
+      "label": "TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions_type_labels",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "type_labels"
+    },
+    {
+      "label": "TYPES",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions_types",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "types"
+    },
+    {
+      "label": "Containers.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "containers.jsx"
+    },
+    {
+      "label": "TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers_type_labels",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "type_labels"
+    },
+    {
+      "label": "DriverOrders.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "driverorders.jsx"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_status_labels",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "status_labels"
+    },
+    {
+      "label": "ForgotPassword.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/ForgotPassword.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_forgotpassword",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "forgotpassword.jsx"
+    },
+    {
       "label": "Home.jsx",
       "file_type": "code",
       "source_file": "frontend/src/pages/Home.jsx",
@@ -6469,6 +6494,17 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "register.jsx"
+    },
+    {
+      "label": "ResetPassword.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/ResetPassword.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_resetpassword",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "resetpassword.jsx"
     },
     {
       "label": "react",
@@ -7650,17 +7686,6 @@
       "norm_label": "working with agents"
     },
     {
-      "label": "AdminContainers",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L27",
-      "_origin": "ast",
-      "id": "frontend_src_app_admincontainers",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "admincontainers"
-    },
-    {
       "label": "AdminDashboard",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -7672,37 +7697,37 @@
       "norm_label": "admindashboard"
     },
     {
-      "label": "Containers",
+      "label": "AdminOrders",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L20",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "frontend_src_app_containers",
+      "id": "frontend_src_app_adminorders",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "containers"
+      "norm_label": "adminorders"
     },
     {
-      "label": "AdminContainers.jsx",
+      "label": "MyOrders",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L1",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L17",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers",
+      "id": "frontend_src_app_myorders",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "admincontainers.jsx"
+      "norm_label": "myorders"
     },
     {
-      "label": "STATUS_LABELS",
+      "label": "OrderDetail",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L11",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L18",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_status_labels",
+      "id": "frontend_src_app_orderdetail",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "status_labels"
+      "norm_label": "orderdetail"
     },
     {
       "label": "AdminDashboard.jsx",
@@ -7738,70 +7763,92 @@
       "norm_label": "status_labels"
     },
     {
-      "label": "Containers.jsx",
+      "label": "AdminOrders.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_containers",
+      "id": "frontend_src_pages_admin_adminorders",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "containers.jsx"
+      "norm_label": "adminorders.jsx"
     },
     {
-      "label": "TYPE_LABELS",
+      "label": "STATUS_FLOW",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L5",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L15",
       "_origin": "ast",
-      "id": "frontend_src_pages_containers_type_labels",
+      "id": "frontend_src_pages_admin_adminorders_status_flow",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "type_labels"
+      "norm_label": "status_flow"
     },
     {
-      "label": "api.js",
+      "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminorders_status_labels",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "status_labels"
+    },
+    {
+      "label": "MyOrders.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_services_api",
+      "id": "frontend_src_pages_myorders",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "api.js"
+      "norm_label": "myorders.jsx"
     },
     {
-      "label": "api",
+      "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L55",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "frontend_src_services_api_api",
+      "id": "frontend_src_pages_myorders_status_labels",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "api"
+      "norm_label": "status_labels"
     },
     {
-      "label": "containers.js",
+      "label": "OrderDetail.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_services_containers",
+      "id": "frontend_src_pages_orderdetail",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "containers.js"
+      "norm_label": "orderdetail.jsx"
     },
     {
-      "label": "dashboard.js",
+      "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/services/dashboard.js",
-      "source_location": "L1",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "frontend_src_services_dashboard",
+      "id": "frontend_src_pages_orderdetail_status_labels",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "dashboard.js"
+      "norm_label": "status_labels"
+    },
+    {
+      "label": "orders.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_orders",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "orders.js"
     },
     {
       "label": "system.js",
@@ -7824,17 +7871,6 @@
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "users.js"
-    },
-    {
-      "label": "zones.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_zones",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "zones.js"
     },
     {
       "label": "industry-conventions.md",
@@ -10858,8 +10894,19 @@
       "_origin": "ast",
       "id": "frontend_src_app_cart",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "cart"
+    },
+    {
+      "label": "Catalog",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_src_app_catalog",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "catalog"
     },
     {
       "label": "CartContext.jsx",
@@ -10869,7 +10916,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "cartcontext.jsx"
     },
     {
@@ -10880,7 +10927,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_cartcontext",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "cartcontext"
     },
     {
@@ -10891,8 +10938,19 @@
       "_origin": "ast",
       "id": "frontend_src_pages_cart",
       "community": 73,
-      "community_name": "CartContext.jsx",
+      "community_name": "Catalog.jsx",
       "norm_label": "cart.jsx"
+    },
+    {
+      "label": "Catalog.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog",
+      "community": 73,
+      "community_name": "Catalog.jsx",
+      "norm_label": "catalog.jsx"
     },
     {
       "label": "refinement-criteria.md",
@@ -11797,70 +11855,48 @@
       "norm_label": "workflow: graphify"
     },
     {
-      "label": "OrderDetail",
+      "label": "AdminContainers",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L18",
+      "source_location": "L27",
       "_origin": "ast",
-      "id": "frontend_src_app_orderdetail",
-      "community": 81,
-      "community_name": "OrderDetail.jsx",
-      "norm_label": "orderdetail"
+      "id": "frontend_src_app_admincontainers",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "admincontainers"
     },
     {
-      "label": "OrderDetail.jsx",
+      "label": "AdminContainers.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail",
-      "community": 81,
-      "community_name": "OrderDetail.jsx",
-      "norm_label": "orderdetail.jsx"
+      "id": "frontend_src_pages_admin_admincontainers",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "admincontainers.jsx"
     },
     {
       "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L14",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L11",
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_status_labels",
-      "community": 81,
-      "community_name": "OrderDetail.jsx",
+      "id": "frontend_src_pages_admin_admincontainers_status_labels",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
       "norm_label": "status_labels"
     },
     {
-      "label": "DriverOrders",
+      "label": "containers.js",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "frontend_src_app_driverorders",
-      "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "driverorders"
-    },
-    {
-      "label": "DriverOrders.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_file": "frontend/src/services/containers.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_driverorders",
+      "id": "frontend_src_services_containers",
       "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "driverorders.jsx"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_status_labels",
-      "community": 9,
-      "community_name": "DriverOrders.jsx",
-      "norm_label": "status_labels"
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "containers.js"
     },
     {
       "label": "Icon Library",
@@ -12588,7 +12624,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L395",
+      "source_location": "L409",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_assigndriver",
@@ -12600,7 +12636,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L331",
+      "source_location": "L345",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_changeorderstatus",
@@ -12612,7 +12648,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L332",
+      "source_location": "L346",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_changeorderstatus",
@@ -12624,7 +12660,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L217",
+      "source_location": "L231",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_createorder",
@@ -12636,7 +12672,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L218",
+      "source_location": "L232",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_createorder",
@@ -12649,7 +12685,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L225",
+      "source_location": "L239",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_createorder",
@@ -12661,7 +12697,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L231",
+      "source_location": "L245",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_createorder",
@@ -12672,7 +12708,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L304",
+      "source_location": "L318",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_createorder",
@@ -12684,7 +12720,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L54",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_getorderbyid",
@@ -12696,7 +12732,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L87",
+      "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_listorders",
@@ -12708,7 +12744,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L182",
+      "source_location": "L196",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_previeworder",
@@ -12720,7 +12756,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L183",
+      "source_location": "L197",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_previeworder",
@@ -12733,7 +12769,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L189",
+      "source_location": "L203",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_previeworder",
@@ -12745,7 +12781,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L190",
+      "source_location": "L204",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_previeworder",
@@ -12756,7 +12792,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L314",
+      "source_location": "L328",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_repeatorder",
@@ -12768,7 +12804,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L319",
+      "source_location": "L333",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service_repeatorder",
@@ -13920,7 +13956,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L294",
+      "source_location": "L344",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders_driverorders",
@@ -13933,7 +13969,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L65",
+      "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
@@ -13944,7 +13980,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L67",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
+      "target": "frontend_src_pages_driverorders_driverorders_showsuccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
@@ -13957,10 +14005,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L52",
+      "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "frontend_src_pages_driverorders_driverorders_handlestartdelivery",
+      "source": "frontend_src_pages_driverorders_driverorders_handlestatuschange",
       "target": "frontend_src_services_orders_changeorderstatus"
     },
     {
@@ -13968,12 +14016,72 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L53",
+      "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "frontend_src_pages_driverorders_driverorders_handlestartdelivery",
+      "source": "frontend_src_pages_driverorders_driverorders_handlestatuschange",
+      "target": "frontend_src_pages_driverorders_driverorders_showsuccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders_handlestatuschange",
       "target": "frontend_src_pages_driverorders_driverorders_load",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L72",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders_handletakeorder",
+      "target": "frontend_src_services_orders_takeorder"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders_handletakeorder",
+      "target": "frontend_src_pages_driverorders_driverorders_showsuccess",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders_handletakeorder",
+      "target": "frontend_src_pages_driverorders_driverorders_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders_load",
+      "target": "frontend_src_services_orders_getmyorders"
     },
     {
       "relation": "calls",
@@ -14712,31 +14820,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_pages_driverorders_driverorders",
-      "target": "frontend_src_pages_driverorders_driverorders_load",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_pages_driverorders_driverorders",
-      "target": "frontend_src_pages_driverorders_driverorders_handlestartdelivery",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L75",
+      "source_location": "L115",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders_driverorders",
@@ -14748,11 +14832,47 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L80",
+      "source_location": "L120",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders_driverorders",
       "target": "frontend_src_pages_driverorders_driverorders_getwhatsappurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders",
+      "target": "frontend_src_pages_driverorders_driverorders_load",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders",
+      "target": "frontend_src_pages_driverorders_driverorders_handletakeorder",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders",
+      "target": "frontend_src_pages_driverorders_driverorders_handlestatuschange",
       "confidence_score": 1.0
     },
     {
@@ -18219,7 +18339,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders",
-      "target": "frontend_src_services_orders_getordersbystatus",
+      "target": "frontend_src_services_orders_takeorder",
       "confidence_score": 1.0
     },
     {
@@ -27160,7 +27280,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L131",
+      "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27171,7 +27291,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L164",
+      "source_location": "L178",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27182,7 +27302,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L178",
+      "source_location": "L192",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27193,18 +27313,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_modules_orders_orders_service",
-      "target": "backend_src_modules_orders_orders_service_getdriveridbyuserid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L209",
+      "source_location": "L223",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27215,18 +27324,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
-      "target": "backend_src_modules_orders_orders_service_getorderbyid",
+      "target": "backend_src_modules_orders_orders_service_getdriveridbyuserid",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L313",
+      "source_location": "L327",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27237,7 +27346,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L330",
+      "source_location": "L344",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27248,7 +27357,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L394",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_modules_orders_orders_service",
+      "target": "backend_src_modules_orders_orders_service_getorderbyid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/orders/orders.service.js",
+      "source_location": "L408",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -27270,17 +27390,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L59",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_modules_orders_orders_service",
-      "target": "backend_src_modules_orders_orders_service_getorderitems",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/modules/orders/orders.service.js",
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
@@ -27292,7 +27401,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.service.js",
-      "source_location": "L72",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_modules_orders_orders_service",
+      "target": "backend_src_modules_orders_orders_service_getorderitems",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/orders/orders.service.js",
+      "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_service",
@@ -29052,11 +29172,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L61",
+      "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_driverorders_driverorders",
       "target": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_driverorders_driverorders",
+      "target": "frontend_src_pages_driverorders_driverorders_showsuccess",
       "confidence_score": 1.0
     },
     {
@@ -29750,6 +29881,17 @@
       "_origin": "ast",
       "source": "frontend_src_services_orders",
       "target": "frontend_src_services_orders_assigndriver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_services_orders",
+      "target": "frontend_src_services_orders_takeorder",
       "confidence_score": 1.0
     },
     {
@@ -31313,5 +31455,5 @@
       "source_file": "frontend/public/icons.svg"
     }
   ],
-  "built_at_commit": "7d032c4748bb0d032f63d0799973702603db8174"
+  "built_at_commit": "a0a48fa93fdbbaa545abae1bb7778e09fda9e563"
 }

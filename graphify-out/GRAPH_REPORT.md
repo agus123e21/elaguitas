@@ -1,23 +1,23 @@
 # Graph Report - elaguitas  (2026-08-14)
 
 ## Corpus Check
-- 151 files · ~94,252 words
+- 154 files · ~96,096 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1091 nodes · 1662 edges · 80 communities (63 shown, 17 thin omitted)
+- 1113 nodes · 1682 edges · 83 communities (65 shown, 18 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 30 edges (avg confidence: 0.58)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a0a48fa9`
+- Built from commit: `8ba8d67c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Code Review and Quality
 - Frontend Mobile Framework
-- api.js
+- AdminProducts.jsx
 - App.jsx
 - Notifications.jsx
 - auth.routes.js
@@ -28,7 +28,7 @@
 - dependencies
 - Checkout.jsx
 - orders.service.js
-- promotions.js
+- AdminPromotions.jsx
 - MySubscriptions.jsx
 - services/auth.js
 - db.js
@@ -40,7 +40,8 @@
 - subscriptions.service.js
 - API and Interface Design
 - Promotion Routes and Services
-- Android Unit Tests
+- 💧 El Agüitas - Contexto Maestro & Memoria del Proyecto
+- Workflow /termine: Documentación Integral y Actualización de Contexto
 - Social Media Icons
 - .oxlintrc.json
 - Browser Testing with DevTools
@@ -87,6 +88,8 @@
 - React + Vite
 - rules/graphify.md
 - workflows/graphify.md
+- Containers.jsx
+- /termine Workflow
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 41 edges
@@ -121,7 +124,7 @@
 - **Android Launcher Assets** — frontend_android_app_src_main_res_mipmap_xxhdpi_ic_launcher, frontend_android_app_src_main_res_mipmap_xxhdpi_ic_launcher_foreground, frontend_android_app_src_main_res_mipmap_xxhdpi_ic_launcher_round [EXTRACTED 1.00]
 - **Social Media Icons** — frontend_public_icons_bluesky_icon, frontend_public_icons_discord_icon, frontend_public_icons_github_icon, frontend_public_icons_x_icon [INFERRED 0.90]
 
-## Communities (80 total, 17 thin omitted)
+## Communities (83 total, 18 thin omitted)
 
 ### Community 0 - "Code Review and Quality"
 Cohesion: 0.07
@@ -131,13 +134,13 @@ Nodes (29): 1. Correctness, 2. Readability & Simplicity, 3. Architecture, 4. Sec
 Cohesion: 0.06
 Nodes (35): @capacitor/android, @capacitor/cli, @capacitor/core, dependencies, @capacitor/android, @capacitor/core, react, react-dom (+27 more)
 
-### Community 2 - "api.js"
-Cohesion: 0.13
-Nodes (15): AdminProducts, AdminProducts(), handleImage(), handleRemove(), handleSubmit(), load(), toggleActive(), emptyForm (+7 more)
+### Community 2 - "AdminProducts.jsx"
+Cohesion: 0.23
+Nodes (13): AdminProducts, AdminProducts(), handleImage(), handleRemove(), handleSubmit(), load(), toggleActive(), emptyForm (+5 more)
 
 ### Community 3 - "App.jsx"
-Cohesion: 0.08
-Nodes (29): AdminPromotions, App(), Checkout, Containers, DriverOrders, ForgotPassword, Home, Login (+21 more)
+Cohesion: 0.10
+Nodes (21): App(), Checkout, Home, Login, NotFound, OrderDetail, Register, Footer() (+13 more)
 
 ### Community 4 - "Notifications.jsx"
 Cohesion: 0.38
@@ -149,7 +152,7 @@ Nodes (16): assertValidEnv(), env, loginRules, registerRules, findUserByEmail(),
 
 ### Community 6 - "AdminDashboard.jsx"
 Cohesion: 0.06
-Nodes (55): AdminDashboard, AdminOrders, MyOrders, OrderDetail, AdminDashboard(), handleAssignDriver(), handleClearLogs(), handleCreateOrder() (+47 more)
+Nodes (54): AdminDashboard, AdminOrders, DriverOrders, MyOrders, AdminDashboard(), handleAssignDriver(), handleClearLogs(), handleCreateOrder() (+46 more)
 
 ### Community 7 - "app.js"
 Cohesion: 0.13
@@ -175,17 +178,17 @@ Nodes (17): MyAddresses, Checkout(), handleNewAddress(), formatPrice(), emptyFor
 Cohesion: 0.19
 Nodes (19): itemRules, orderRules, assertOrderStatus(), assignDriver(), changeOrderStatus(), createOrder(), getCustomerIdByUserId(), getDriverIdByUserId() (+11 more)
 
-### Community 13 - "promotions.js"
-Cohesion: 0.20
-Nodes (13): Promotions, AdminPromotions(), handleDelete(), handleSubmit(), handleToggleActive(), load(), Promotions(), TYPE_LABELS (+5 more)
+### Community 13 - "AdminPromotions.jsx"
+Cohesion: 0.16
+Nodes (17): AdminPromotions, Promotions, AdminPromotions(), handleDelete(), handleSubmit(), handleToggleActive(), load(), empty (+9 more)
 
 ### Community 14 - "MySubscriptions.jsx"
 Cohesion: 0.29
 Nodes (10): MySubscriptions, FREQUENCIES, MySubscriptions(), handleChange(), handleCreate(), load(), STATUS_LABELS, createSubscription() (+2 more)
 
 ### Community 15 - "services/auth.js"
-Cohesion: 0.17
-Nodes (12): ForgotPassword(), handleSubmit(), ResetPassword(), handleSubmit(), clearSession(), forgotPassword(), getStoredToken(), login() (+4 more)
+Cohesion: 0.15
+Nodes (14): ForgotPassword, ResetPassword, ForgotPassword(), handleSubmit(), ResetPassword(), handleSubmit(), clearSession(), forgotPassword() (+6 more)
 
 ### Community 16 - "db.js"
 Cohesion: 0.12
@@ -223,9 +226,13 @@ Nodes (24): 1. Contract First, 2. Consistent Error Semantics, 3. Validate at Bou
 Cohesion: 0.36
 Nodes (7): promotionRules, router, createPromotion(), deletePromotion(), getPromotionById(), listPromotions(), updatePromotion()
 
-### Community 25 - "Android Unit Tests"
-Cohesion: 0.36
-Nodes (4): ExampleInstrumentedTest, ExampleUnitTest, org.junit.runner.RunWith, org.junit.Test
+### Community 25 - "💧 El Agüitas - Contexto Maestro & Memoria del Proyecto"
+Cohesion: 0.12
+Nodes (15): 🏗️ 1. Arquitectura del Sistema (Fullstack Monorepo), 🔑 2. Variables de Entorno de Producción (Vercel & Local), 👥 3. Matriz de Roles y Cuentas de Acceso en Supabase, 📱 4. Reglas Estrictas de Diseño Mobile-First, 📜 5. Historial Detallado de Sesiones & Cambios, 🔮 6. Próximos Pasos Recomendados, 📁 Archivos Creados y Modificados:, 🐛 Bugs Resueltos Durante la Sesión: (+7 more)
+
+### Community 26 - "Workflow /termine: Documentación Integral y Actualización de Contexto"
+Cohesion: 0.29
+Nodes (6): 1. Identificar al Autor / Desarrollador, 2. Analizar y Consolidar el Trabajo de la Sesión, 3. Actualizar `CONTEXT.md` en la Raíz del Proyecto, 4. Mantener la Integridad del Grafo Semántico (Graphify), 5. Reportar al Usuario, Workflow /termine: Documentación Integral y Actualización de Contexto
 
 ### Community 27 - "Social Media Icons"
 Cohesion: 0.29
@@ -332,7 +339,7 @@ Cohesion: 0.22
 Nodes (8): Analogous Inspiration, Constraint-Based Ideation, First Principles Thinking, How Might We (HMW), Ideation Frameworks Reference, Jobs to Be Done (JTBD), Pre-mortem, SCAMPER
 
 ### Community 76 - "AdminZones.jsx"
-Cohesion: 0.36
+Cohesion: 0.31
 Nodes (8): AdminZones, AdminZones(), handleSubmit(), handleToggle(), load(), formatPrice(), createZone(), updateZone()
 
 ### Community 77 - "El Agüitas - Operational & Domain Guidelines"
@@ -343,25 +350,29 @@ Nodes (5): 1. Project Architecture (Fullstack Monorepo), 2. Core User Roles & Ro
 Cohesion: 0.50
 Nodes (3): Expanding the Oxlint configuration, React Compiler, React + Vite
 
+### Community 81 - "Containers.jsx"
+Cohesion: 0.47
+Nodes (5): Containers, Containers(), TYPE_LABELS, getContainerMovements(), getContainerSummary()
+
 ## Knowledge Gaps
-- **518 isolated node(s):** `idea-refine.sh script`, `__dirname`, `MIGRATIONS_DIR`, `__dirname`, `SEEDS_DIR` (+513 more)
+- **532 isolated node(s):** `idea-refine.sh script`, `__dirname`, `MIGRATIONS_DIR`, `__dirname`, `SEEDS_DIR` (+527 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useAuth()` connect `App.jsx` to `api.js`, `Notifications.jsx`, `AdminDashboard.jsx`, `AdminContainers.jsx`, `Catalog.jsx`, `Checkout.jsx`, `AdminZones.jsx`, `promotions.js`, `MySubscriptions.jsx`?**
+- **Why does `useAuth()` connect `App.jsx` to `AdminProducts.jsx`, `Notifications.jsx`, `AdminDashboard.jsx`, `AdminContainers.jsx`, `Catalog.jsx`, `Checkout.jsx`, `AdminZones.jsx`, `AdminPromotions.jsx`, `MySubscriptions.jsx`, `Containers.jsx`?**
   _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Why does `react` connect `App.jsx` to `api.js`, `Notifications.jsx`, `AdminDashboard.jsx`, `Catalog.jsx`, `AdminContainers.jsx`, `Checkout.jsx`, `AdminZones.jsx`, `promotions.js`, `MySubscriptions.jsx`, `.oxlintrc.json`?**
+- **Why does `react` connect `App.jsx` to `AdminProducts.jsx`, `Notifications.jsx`, `AdminDashboard.jsx`, `Catalog.jsx`, `AdminContainers.jsx`, `Checkout.jsx`, `AdminZones.jsx`, `AdminPromotions.jsx`, `MySubscriptions.jsx`, `services/auth.js`, `Containers.jsx`, `.oxlintrc.json`?**
   _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `AdminProducts()` connect `api.js` to `App.jsx`?**
+- **Why does `AdminProducts()` connect `AdminProducts.jsx` to `App.jsx`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **What connects `idea-refine.sh script`, `__dirname`, `MIGRATIONS_DIR` to the rest of the system?**
-  _518 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _532 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code Review and Quality` be split into smaller, more focused modules?**
   _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `Frontend Mobile Framework` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
-- **Should `api.js` be split into smaller, more focused modules?**
-  _Cohesion score 0.13230769230769232 - nodes in this community are weakly interconnected._
+- **Should `App.jsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.10384068278805121 - nodes in this community are weakly interconnected._

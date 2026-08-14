@@ -74,19 +74,6 @@
       "norm_label": "apierror"
     },
     {
-      "label": "ApiError",
-      "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L5",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_api_apierror",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "apierror"
-    },
-    {
       "label": "ExampleInstrumentedTest",
       "file_type": "code",
       "source_file": "frontend/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java",
@@ -96,7 +83,7 @@
       "_origin": "ast",
       "id": "frontend_android_app_src_androidtest_java_com_getcapacitor_myapp_exampleinstrumentedtest_exampleinstrumentedtest",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": "exampleinstrumentedtest"
     },
     {
@@ -109,7 +96,7 @@
       "_origin": "ast",
       "id": "frontend_android_app_src_test_java_com_getcapacitor_myapp_exampleunittest_exampleunittest",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": "exampleunittest"
     },
     {
@@ -124,6 +111,19 @@
       "community": 36,
       "community_name": "Android Activity Entry",
       "norm_label": "mainactivity"
+    },
+    {
+      "label": "ApiError",
+      "file_type": "code",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L5",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_api_apierror",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "apierror"
     },
     {
       "label": "Checkout()",
@@ -542,7 +542,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "adminpromotions()"
     },
     {
@@ -554,7 +554,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handledelete",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "handledelete()"
     },
     {
@@ -566,7 +566,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handleedit",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "handleedit()"
     },
     {
@@ -578,7 +578,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handlesubmit",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "handlesubmit()"
     },
     {
@@ -590,7 +590,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_handletoggleactive",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "handletoggleactive()"
     },
     {
@@ -602,7 +602,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminpromotions_adminpromotions_load",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "load()"
     },
     {
@@ -614,7 +614,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_promotions_promotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "promotions()"
     },
     {
@@ -626,7 +626,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_createpromotion",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "createpromotion()"
     },
     {
@@ -638,7 +638,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_deletepromotion",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "deletepromotion()"
     },
     {
@@ -650,7 +650,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_getallpromotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "getallpromotions()"
     },
     {
@@ -662,7 +662,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_getpromotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "getpromotions()"
     },
     {
@@ -674,7 +674,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions_updatepromotion",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "updatepromotion()"
     },
     {
@@ -1262,7 +1262,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "adminproducts()"
     },
     {
@@ -1274,7 +1274,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleimage",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "handleimage()"
     },
     {
@@ -1286,7 +1286,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleremove",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "handleremove()"
     },
     {
@@ -1298,7 +1298,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_handlesubmit",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "handlesubmit()"
     },
     {
@@ -1310,7 +1310,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_load",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "load()"
     },
     {
@@ -1322,7 +1322,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_startedit",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "startedit()"
     },
     {
@@ -1334,44 +1334,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_adminproducts_toggleactive",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "toggleactive()"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_api_apierror_constructor",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": ".constructor()"
-    },
-    {
-      "label": "request()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_api_request",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "request()"
-    },
-    {
-      "label": "getDashboard()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/dashboard.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_dashboard_getdashboard",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "getdashboard()"
     },
     {
       "label": "createProduct()",
@@ -1382,7 +1346,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_createproduct",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "createproduct()"
     },
     {
@@ -1394,7 +1358,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_deleteproduct",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "deleteproduct()"
     },
     {
@@ -1406,7 +1370,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_getproduct",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "getproduct()"
     },
     {
@@ -1418,7 +1382,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_patchproduct",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "patchproduct()"
     },
     {
@@ -1430,7 +1394,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_updateproduct",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "updateproduct()"
     },
     {
@@ -1442,20 +1406,8 @@
       "_origin": "ast",
       "id": "frontend_src_services_products_uploadproductimage",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "uploadproductimage()"
-    },
-    {
-      "label": "getZones()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_zones_getzones",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "getzones()"
     },
     {
       "label": "ensureMigrationsTable()",
@@ -1622,7 +1574,7 @@
       "_origin": "ast",
       "id": "frontend_android_app_src_androidtest_java_com_getcapacitor_myapp_exampleinstrumentedtest_exampleinstrumentedtest_useappcontext",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": ".useappcontext()"
     },
     {
@@ -1634,7 +1586,7 @@
       "_origin": "ast",
       "id": "frontend_android_app_src_test_java_com_getcapacitor_myapp_exampleunittest_exampleunittest_addition_iscorrect",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": ".addition_iscorrect()"
     },
     {
@@ -1734,18 +1686,6 @@
       "norm_label": "useauth()"
     },
     {
-      "label": "Containers()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L11",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_containers_containers",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "containers()"
-    },
-    {
       "label": "Home()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Home.jsx",
@@ -1806,6 +1746,30 @@
       "norm_label": "notfound()"
     },
     {
+      "label": "formatPrice()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_formatprice",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "formatprice()"
+    },
+    {
+      "label": "OrderDetail()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_orderdetail",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "orderdetail()"
+    },
+    {
       "label": "Register()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Register.jsx",
@@ -1830,28 +1794,16 @@
       "norm_label": "handlesubmit()"
     },
     {
-      "label": "getContainerMovements()",
+      "label": "getOrder()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L8",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L23",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainermovements",
+      "id": "frontend_src_services_orders_getorder",
       "community": 3,
       "community_name": "App.jsx",
-      "norm_label": "getcontainermovements()"
-    },
-    {
-      "label": "getContainerSummary()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainersummary",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "getcontainersummary()"
+      "norm_label": "getorder()"
     },
     {
       "label": "Notifications()",
@@ -2466,28 +2418,40 @@
       "norm_label": "load()"
     },
     {
-      "label": "formatPrice()",
+      "label": ".constructor()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_file": "frontend/src/services/api.js",
       "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_formatprice",
+      "id": "frontend_src_services_api_apierror_constructor",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "formatprice()"
+      "norm_label": ".constructor()"
     },
     {
-      "label": "OrderDetail()",
+      "label": "request()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L23",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_orderdetail",
+      "id": "frontend_src_services_api_request",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "orderdetail()"
+      "norm_label": "request()"
+    },
+    {
+      "label": "getDashboard()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/dashboard.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_dashboard_getdashboard",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getdashboard()"
     },
     {
       "label": "assignDriver()",
@@ -2536,18 +2500,6 @@
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "getmyorders()"
-    },
-    {
-      "label": "getOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_getorder",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "getorder()"
     },
     {
       "label": "getOrdersByStatus()",
@@ -2922,6 +2874,18 @@
       "norm_label": "createzone()"
     },
     {
+      "label": "getZones()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/zones.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_zones_getzones",
+      "community": 76,
+      "community_name": "AdminZones.jsx",
+      "norm_label": "getzones()"
+    },
+    {
       "label": "updateZone()",
       "file_type": "code",
       "source_file": "frontend/src/services/zones.js",
@@ -2932,6 +2896,42 @@
       "community": 76,
       "community_name": "AdminZones.jsx",
       "norm_label": "updatezone()"
+    },
+    {
+      "label": "Containers()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers_containers",
+      "community": 81,
+      "community_name": "Containers.jsx",
+      "norm_label": "containers()"
+    },
+    {
+      "label": "getContainerMovements()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainermovements",
+      "community": 81,
+      "community_name": "Containers.jsx",
+      "norm_label": "getcontainermovements()"
+    },
+    {
+      "label": "getContainerSummary()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainersummary",
+      "community": 81,
+      "community_name": "Containers.jsx",
+      "norm_label": "getcontainersummary()"
     },
     {
       "label": "AdminContainers()",
@@ -4384,6 +4384,17 @@
       "norm_label": "base"
     },
     {
+      "label": "AdminPromotions",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "frontend_src_app_adminpromotions",
+      "community": 13,
+      "community_name": "AdminPromotions.jsx",
+      "norm_label": "adminpromotions"
+    },
+    {
       "label": "Promotions",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -4391,8 +4402,52 @@
       "_origin": "ast",
       "id": "frontend_src_app_promotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "promotions"
+    },
+    {
+      "label": "AdminPromotions.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions",
+      "community": 13,
+      "community_name": "AdminPromotions.jsx",
+      "norm_label": "adminpromotions.jsx"
+    },
+    {
+      "label": "empty",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions_empty",
+      "community": 13,
+      "community_name": "AdminPromotions.jsx",
+      "norm_label": "empty"
+    },
+    {
+      "label": "TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions_type_labels",
+      "community": 13,
+      "community_name": "AdminPromotions.jsx",
+      "norm_label": "type_labels"
+    },
+    {
+      "label": "TYPES",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminpromotions_types",
+      "community": 13,
+      "community_name": "AdminPromotions.jsx",
+      "norm_label": "types"
     },
     {
       "label": "Promotions.jsx",
@@ -4402,7 +4457,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_promotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "promotions.jsx"
     },
     {
@@ -4413,7 +4468,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_promotions_type_labels",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "type_labels"
     },
     {
@@ -4424,7 +4479,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_promotions",
       "community": 13,
-      "community_name": "promotions.js",
+      "community_name": "AdminPromotions.jsx",
       "norm_label": "promotions.js"
     },
     {
@@ -4481,6 +4536,50 @@
       "community": 14,
       "community_name": "MySubscriptions.jsx",
       "norm_label": "subscriptions.js"
+    },
+    {
+      "label": "ForgotPassword",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_src_app_forgotpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "forgotpassword"
+    },
+    {
+      "label": "ResetPassword",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "frontend_src_app_resetpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "resetpassword"
+    },
+    {
+      "label": "ForgotPassword.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/ForgotPassword.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_forgotpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "forgotpassword.jsx"
+    },
+    {
+      "label": "ResetPassword.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/ResetPassword.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_resetpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "resetpassword.jsx"
     },
     {
       "label": "services/auth.js",
@@ -4963,7 +5062,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_adminproducts",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "adminproducts"
     },
     {
@@ -4974,7 +5073,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "adminproducts.jsx"
     },
     {
@@ -4985,41 +5084,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminproducts_emptyform",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "emptyform"
-    },
-    {
-      "label": "api.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_api",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "api.js"
-    },
-    {
-      "label": "api",
-      "file_type": "code",
-      "source_file": "frontend/src/services/api.js",
-      "source_location": "L55",
-      "_origin": "ast",
-      "id": "frontend_src_services_api_api",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "api"
-    },
-    {
-      "label": "dashboard.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/dashboard.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_dashboard",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "dashboard.js"
     },
     {
       "label": "products.js",
@@ -5029,19 +5095,8 @@
       "_origin": "ast",
       "id": "frontend_src_services_products",
       "community": 2,
-      "community_name": "api.js",
+      "community_name": "AdminProducts.jsx",
       "norm_label": "products.js"
-    },
-    {
-      "label": "zones.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_zones",
-      "community": 2,
-      "community_name": "api.js",
-      "norm_label": "zones.js"
     },
     {
       "label": "runMigrations.js",
@@ -5766,7 +5821,7 @@
       "_origin": "ast",
       "id": "frontend_android_app_src_androidtest_java_com_getcapacitor_myapp_exampleinstrumentedtest",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": "exampleinstrumentedtest.java"
     },
     {
@@ -5777,7 +5832,7 @@
       "_origin": "ast",
       "id": "frontend_android_app_src_test_java_com_getcapacitor_myapp_exampleunittest",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": "exampleunittest.java"
     },
     {
@@ -5788,7 +5843,7 @@
       "_origin": "ast",
       "id": "org_junit_runner_runwith",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": "org.junit.runner.runwith"
     },
     {
@@ -5799,8 +5854,217 @@
       "_origin": "ast",
       "id": "org_junit_test",
       "community": 25,
-      "community_name": "Android Unit Tests",
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
       "norm_label": "org.junit.test"
+    },
+    {
+      "label": "CONTEXT.md",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "context",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "context.md"
+    },
+    {
+      "label": "\ud83c\udfd7\ufe0f 1. Arquitectura del Sistema (Fullstack Monorepo)",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "context_1_arquitectura_del_sistema_fullstack_monorepo",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83c\udfd7\ufe0f 1. arquitectura del sistema (fullstack monorepo)"
+    },
+    {
+      "label": "\ud83d\udd11 2. Variables de Entorno de Producci\u00f3n (Vercel & Local)",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "context_2_variables_de_entorno_de_producci\u00f3n_vercel_local",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udd11 2. variables de entorno de produccion (vercel & local)"
+    },
+    {
+      "label": "\ud83d\udc65 3. Matriz de Roles y Cuentas de Acceso en Supabase",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "context_3_matriz_de_roles_y_cuentas_de_acceso_en_supabase",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udc65 3. matriz de roles y cuentas de acceso en supabase"
+    },
+    {
+      "label": "\ud83d\udcf1 4. Reglas Estrictas de Dise\u00f1o Mobile-First",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "context_4_reglas_estrictas_de_dise\u00f1o_mobile_first",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udcf1 4. reglas estrictas de diseno mobile-first"
+    },
+    {
+      "label": "\ud83d\udcdc 5. Historial Detallado de Sesiones & Cambios",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "context_5_historial_detallado_de_sesiones_cambios",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udcdc 5. historial detallado de sesiones & cambios"
+    },
+    {
+      "label": "\ud83d\udd2e 6. Pr\u00f3ximos Pasos Recomendados",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L101",
+      "_origin": "ast",
+      "id": "context_6_pr\u00f3ximos_pasos_recomendados",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udd2e 6. proximos pasos recomendados"
+    },
+    {
+      "label": "\ud83d\udcc1 Archivos Creados y Modificados:",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "context_archivos_creados_y_modificados",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udcc1 archivos creados y modificados:"
+    },
+    {
+      "label": "\ud83d\udc1b Bugs Resueltos Durante la Sesi\u00f3n:",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L92",
+      "_origin": "ast",
+      "id": "context_bugs_resueltos_durante_la_sesi\u00f3n",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udc1b bugs resueltos durante la sesion:"
+    },
+    {
+      "label": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\udca7 el aguitas - contexto maestro & memoria del proyecto"
+    },
+    {
+      "label": "\ud83c\udfaf Objetivos Completados:",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "context_objetivos_completados",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83c\udfaf objetivos completados:"
+    },
+    {
+      "label": "\ud83d\uddd3\ufe0f Sesi\u00f3n 2026-08-14 \u2014 Autor: **HugoAleOlguin**",
+      "file_type": "document",
+      "source_file": "CONTEXT.md",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "context_sesi\u00f3n_2026_08_14_autor_hugoaleolguin",
+      "community": 25,
+      "community_name": "\ud83d\udca7 El Ag\u00fcitas - Contexto Maestro & Memoria del Proyecto",
+      "norm_label": "\ud83d\uddd3\ufe0f sesion 2026-08-14 \u2014 autor: **hugoaleolguin**"
+    },
+    {
+      "label": "termine/SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "termine/skill.md"
+    },
+    {
+      "label": "1. Identificar al Autor / Desarrollador",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill_1_identificar_al_autor_desarrollador",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "1. identificar al autor / desarrollador"
+    },
+    {
+      "label": "2. Analizar y Consolidar el Trabajo de la Sesi\u00f3n",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill_2_analizar_y_consolidar_el_trabajo_de_la_sesi\u00f3n",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "2. analizar y consolidar el trabajo de la sesion"
+    },
+    {
+      "label": "3. Actualizar `CONTEXT.md` en la Ra\u00edz del Proyecto",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill_3_actualizar_context_md_en_la_ra\u00edz_del_proyecto",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "3. actualizar `context.md` en la raiz del proyecto"
+    },
+    {
+      "label": "4. Mantener la Integridad del Grafo Sem\u00e1ntico (Graphify)",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill_4_mantener_la_integridad_del_grafo_sem\u00e1ntico_graphify",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "4. mantener la integridad del grafo semantico (graphify)"
+    },
+    {
+      "label": "5. Reportar al Usuario",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill_5_reportar_al_usuario",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "5. reportar al usuario"
+    },
+    {
+      "label": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "file_type": "document",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "community": 26,
+      "community_name": "Workflow /termine: Documentaci\u00f3n Integral y Actualizaci\u00f3n de Contexto",
+      "norm_label": "workflow /termine: documentacion integral y actualizacion de contexto"
     },
     {
       "label": ".oxlintrc.json",
@@ -6177,17 +6441,6 @@
       "norm_label": "app.jsx"
     },
     {
-      "label": "AdminPromotions",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "frontend_src_app_adminpromotions",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "adminpromotions"
-    },
-    {
       "label": "Checkout",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -6197,39 +6450,6 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "checkout"
-    },
-    {
-      "label": "Containers",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "frontend_src_app_containers",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "containers"
-    },
-    {
-      "label": "DriverOrders",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "frontend_src_app_driverorders",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "driverorders"
-    },
-    {
-      "label": "ForgotPassword",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "frontend_src_app_forgotpassword",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "forgotpassword"
     },
     {
       "label": "Home",
@@ -6265,6 +6485,17 @@
       "norm_label": "notfound"
     },
     {
+      "label": "OrderDetail",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_src_app_orderdetail",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "orderdetail"
+    },
+    {
       "label": "Register",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -6274,17 +6505,6 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "register"
-    },
-    {
-      "label": "ResetPassword",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "frontend_src_app_resetpassword",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "resetpassword"
     },
     {
       "label": "Footer.jsx",
@@ -6353,105 +6573,6 @@
       "norm_label": "main.jsx"
     },
     {
-      "label": "AdminPromotions.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "adminpromotions.jsx"
-    },
-    {
-      "label": "empty",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions_empty",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "empty"
-    },
-    {
-      "label": "TYPE_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions_type_labels",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "type_labels"
-    },
-    {
-      "label": "TYPES",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminPromotions.jsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminpromotions_types",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "types"
-    },
-    {
-      "label": "Containers.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_containers",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "containers.jsx"
-    },
-    {
-      "label": "TYPE_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "frontend_src_pages_containers_type_labels",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "type_labels"
-    },
-    {
-      "label": "DriverOrders.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "driverorders.jsx"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_status_labels",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "status_labels"
-    },
-    {
-      "label": "ForgotPassword.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/ForgotPassword.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_forgotpassword",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "forgotpassword.jsx"
-    },
-    {
       "label": "Home.jsx",
       "file_type": "code",
       "source_file": "frontend/src/pages/Home.jsx",
@@ -6485,6 +6606,28 @@
       "norm_label": "notfound.jsx"
     },
     {
+      "label": "OrderDetail.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "orderdetail.jsx"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_status_labels",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "status_labels"
+    },
+    {
       "label": "Register.jsx",
       "file_type": "code",
       "source_file": "frontend/src/pages/Register.jsx",
@@ -6494,17 +6637,6 @@
       "community": 3,
       "community_name": "App.jsx",
       "norm_label": "register.jsx"
-    },
-    {
-      "label": "ResetPassword.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/ResetPassword.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_resetpassword",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "resetpassword.jsx"
     },
     {
       "label": "react",
@@ -7708,6 +7840,17 @@
       "norm_label": "adminorders"
     },
     {
+      "label": "DriverOrders",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "frontend_src_app_driverorders",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "driverorders"
+    },
+    {
       "label": "MyOrders",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -7717,17 +7860,6 @@
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "myorders"
-    },
-    {
-      "label": "OrderDetail",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "frontend_src_app_orderdetail",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "orderdetail"
     },
     {
       "label": "AdminDashboard.jsx",
@@ -7796,6 +7928,28 @@
       "norm_label": "status_labels"
     },
     {
+      "label": "DriverOrders.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "driverorders.jsx"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_status_labels",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "status_labels"
+    },
+    {
       "label": "MyOrders.jsx",
       "file_type": "code",
       "source_file": "frontend/src/pages/MyOrders.jsx",
@@ -7818,26 +7972,37 @@
       "norm_label": "status_labels"
     },
     {
-      "label": "OrderDetail.jsx",
+      "label": "api.js",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_file": "frontend/src/services/api.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail",
+      "id": "frontend_src_services_api",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "orderdetail.jsx"
+      "norm_label": "api.js"
     },
     {
-      "label": "STATUS_LABELS",
+      "label": "api",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L14",
+      "source_file": "frontend/src/services/api.js",
+      "source_location": "L55",
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_status_labels",
+      "id": "frontend_src_services_api_api",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "status_labels"
+      "norm_label": "api"
+    },
+    {
+      "label": "dashboard.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/dashboard.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_dashboard",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "dashboard.js"
     },
     {
       "label": "orders.js",
@@ -11206,6 +11371,17 @@
       "norm_label": "adminzones.jsx"
     },
     {
+      "label": "zones.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/zones.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_zones",
+      "community": 76,
+      "community_name": "AdminZones.jsx",
+      "norm_label": "zones.js"
+    },
+    {
       "label": "elaguitas-ops/SKILL.md",
       "file_type": "document",
       "source_file": ".agents/skills/elaguitas-ops/SKILL.md",
@@ -11853,6 +12029,72 @@
       "community": 80,
       "community_name": "workflows/graphify.md",
       "norm_label": "workflow: graphify"
+    },
+    {
+      "label": "Containers",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "frontend_src_app_containers",
+      "community": 81,
+      "community_name": "Containers.jsx",
+      "norm_label": "containers"
+    },
+    {
+      "label": "Containers.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers",
+      "community": 81,
+      "community_name": "Containers.jsx",
+      "norm_label": "containers.jsx"
+    },
+    {
+      "label": "TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers_type_labels",
+      "community": 81,
+      "community_name": "Containers.jsx",
+      "norm_label": "type_labels"
+    },
+    {
+      "label": "termine.md",
+      "file_type": "document",
+      "source_file": ".agents/workflows/termine.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_workflows_termine",
+      "community": 82,
+      "community_name": "/termine Workflow",
+      "norm_label": "termine.md"
+    },
+    {
+      "label": "Pasos de Ejecuci\u00f3n:",
+      "file_type": "document",
+      "source_file": ".agents/workflows/termine.md",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "agents_workflows_termine_pasos_de_ejecuci\u00f3n",
+      "community": 82,
+      "community_name": "/termine Workflow",
+      "norm_label": "pasos de ejecucion:"
+    },
+    {
+      "label": "/termine Workflow",
+      "file_type": "document",
+      "source_file": ".agents/workflows/termine.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "agents_workflows_termine_termine_workflow",
+      "community": 82,
+      "community_name": "/termine Workflow",
+      "norm_label": "/termine workflow"
     },
     {
       "label": "AdminContainers",
@@ -17380,6 +17622,18 @@
       "_origin": "ast",
       "source": "backend_test_validators_test",
       "target": "backend_src_utils_apierror_apierror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_android_app_src_androidtest_java_com_getcapacitor_myapp_exampleinstrumentedtest",
+      "target": "context",
       "confidence_score": 1.0
     },
     {
@@ -26245,12 +26499,100 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_skills_termine_skill",
+      "target": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "target": "agents_skills_termine_skill_1_identificar_al_autor_desarrollador",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "target": "agents_skills_termine_skill_2_analizar_y_consolidar_el_trabajo_de_la_sesi\u00f3n",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "target": "agents_skills_termine_skill_3_actualizar_context_md_en_la_ra\u00edz_del_proyecto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "target": "agents_skills_termine_skill_4_mantener_la_integridad_del_grafo_sem\u00e1ntico_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/termine/SKILL.md",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_skills_termine_skill_workflow_termine_documentaci\u00f3n_integral_y_actualizaci\u00f3n_de_contexto",
+      "target": "agents_skills_termine_skill_5_reportar_al_usuario",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": ".agents/workflows/graphify.md",
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "agents_workflows_graphify",
       "target": "agents_workflows_graphify_workflow_graphify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/termine.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_workflows_termine",
+      "target": "agents_workflows_termine_termine_workflow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/workflows/termine.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "agents_workflows_termine_termine_workflow",
+      "target": "agents_workflows_termine_pasos_de_ejecuci\u00f3n",
       "confidence_score": 1.0
     },
     {
@@ -27912,6 +28254,127 @@
       "_origin": "ast",
       "source": "backend_test_promotions_test",
       "target": "backend_test_promotions_test_base",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context",
+      "target": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_5_historial_detallado_de_sesiones_cambios",
+      "target": "context_sesi\u00f3n_2026_08_14_autor_hugoaleolguin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L101",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "target": "context_6_pr\u00f3ximos_pasos_recomendados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "target": "context_2_variables_de_entorno_de_producci\u00f3n_vercel_local",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "target": "context_3_matriz_de_roles_y_cuentas_de_acceso_en_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "target": "context_4_reglas_estrictas_de_dise\u00f1o_mobile_first",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "target": "context_5_historial_detallado_de_sesiones_cambios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_el_ag\u00fcitas_contexto_maestro_memoria_del_proyecto",
+      "target": "context_1_arquitectura_del_sistema_fullstack_monorepo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_sesi\u00f3n_2026_08_14_autor_hugoaleolguin",
+      "target": "context_objetivos_completados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_sesi\u00f3n_2026_08_14_autor_hugoaleolguin",
+      "target": "context_archivos_creados_y_modificados",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "CONTEXT.md",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "context_sesi\u00f3n_2026_08_14_autor_hugoaleolguin",
+      "target": "context_bugs_resueltos_durante_la_sesi\u00f3n",
       "confidence_score": 1.0
     },
     {
@@ -31455,5 +31918,5 @@
       "source_file": "frontend/public/icons.svg"
     }
   ],
-  "built_at_commit": "a0a48fa93fdbbaa545abae1bb7778e09fda9e563"
+  "built_at_commit": "8ba8d67c378e652d84f9c037d8d917cb57b571c3"
 }
