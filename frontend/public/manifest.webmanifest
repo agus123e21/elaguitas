@@ -1,0 +1,19 @@
+{
+  "name": "Agua - Venta y reparto de bidones",
+  "short_name": "Agua",
+  "description": "Pedí agua en bidones y recibila en tu casa.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a73e8",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
