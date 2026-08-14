@@ -14,6 +14,7 @@ import addressesRoutes from './modules/addresses/addresses.routes.js';
 import zonesRoutes from './modules/zones/zones.routes.js';
 import containersRoutes from './modules/containers/containers.routes.js';
 import usersRoutes from './modules/users/users.routes.js';
+import dashboardRoutes from './modules/dashboard/dashboard.routes.js';
 
 const app = express();
 
@@ -45,6 +46,7 @@ app.use('/api/addresses', addressesRoutes);
 app.use('/api/zones', zonesRoutes);
 app.use('/api/containers', containersRoutes);
 app.use('/api/users', usersRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 app.use('/api/client', requireClient, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de cliente' });

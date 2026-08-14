@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import Navbar from './components/Navbar.jsx'
@@ -18,6 +18,7 @@ import Containers from './pages/Containers.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminZones from './pages/admin/AdminZones.jsx'
 import AdminContainers from './pages/admin/AdminContainers.jsx'
+import AdminDashboard from './pages/admin/AdminDashboard.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -70,6 +71,15 @@ export default function App() {
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
                 <Containers />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <AdminDashboard />
               </ProtectedRoute>
             }
           />
