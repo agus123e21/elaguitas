@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import env from './config/env.js';
@@ -25,6 +27,24 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.disable('x-powered-by');
 
+app.use(helmet());
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 300,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: { code: 429, message: 'Demasiadas solicitudes, intentá más tarde' } },
+});
+
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: { code: 429, message: 'Demasiados intentos de acceso, intentá más tarde' } },
+});
+
 app.use(
   cors({
     origin: env.isProduction ? env.frontendUrl : true,
@@ -41,8 +61,9 @@ if (!env.isProduction) {
   app.use(morgan('dev'));
 }
 
+app.use('/api', apiLimiter);
 app.use('/api', healthRoutes);
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/products', productsRoutes);
 app.use('/api/orders', requireAnyRole, ordersRoutes);
 app.use('/api/addresses', addressesRoutes);
