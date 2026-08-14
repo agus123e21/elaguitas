@@ -57,23 +57,27 @@ export default function AdminContainers() {
   }
 
   return (
-    <main style={{ maxWidth: 1000, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 1000 }}>
       <h1>Gestión de bidones</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      <form onSubmit={handleRegister} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+      <form onSubmit={handleRegister} className="form-inline card">
+        <label className="form-label">Registrar bidones en stock</label>
         <input
+          className="input"
+          style={{ width: 100 }}
           type="number"
           min="1"
           max="500"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
         />
-        <button type="submit">Registrar bidones</button>
+        <button className="btn btn-primary btn-sm" type="submit">Registrar</button>
       </form>
 
-      <form onSubmit={handleAdjust} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-        <select required value={adjust.customerId} onChange={(e) => setAdjust({ ...adjust, customerId: e.target.value })}>
+      <form onSubmit={handleAdjust} className="form-inline card">
+        <label className="form-label">Registrar movimiento por cliente</label>
+        <select className="select" style={{ maxWidth: 260 }} required value={adjust.customerId} onChange={(e) => setAdjust({ ...adjust, customerId: e.target.value })}>
           <option value="">Cliente</option>
           {clients.map((c) => (
             <option key={c.id} value={c.id}>
@@ -81,45 +85,51 @@ export default function AdminContainers() {
             </option>
           ))}
         </select>
-        <select value={adjust.type} onChange={(e) => setAdjust({ ...adjust, type: e.target.value })}>
+        <select className="select" value={adjust.type} onChange={(e) => setAdjust({ ...adjust, type: e.target.value })}>
           <option value="DELIVERED">Entrega</option>
           <option value="RETURNED">Devolución</option>
           <option value="ADJUSTED">Ajuste</option>
         </select>
         <input
+          className="input"
+          style={{ width: 100 }}
           type="number"
           min="1"
           value={adjust.quantity}
           onChange={(e) => setAdjust({ ...adjust, quantity: e.target.value })}
         />
-        <input placeholder="Nota" value={adjust.notes} onChange={(e) => setAdjust({ ...adjust, notes: e.target.value })} />
-        <button type="submit">Registrar movimiento</button>
+        <input className="input" style={{ flex: 1, minWidth: 140 }} placeholder="Nota" value={adjust.notes} onChange={(e) => setAdjust({ ...adjust, notes: e.target.value })} />
+        <button className="btn btn-primary btn-sm" type="submit">Registrar movimiento</button>
       </form>
 
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ textAlign: 'left', borderBottom: '2px solid #ddd' }}>
-            <th>ID</th>
-            <th>Estado</th>
-            <th>Cliente</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {containers.map((c) => (
-            <tr key={c.id} style={{ borderBottom: '1px solid #eee' }}>
-              <td>#{c.id}</td>
-              <td>{STATUS_LABELS[c.status] || c.status}</td>
-              <td>{c.customer_name || '-'}</td>
-              <td>
-                <button onClick={() => handleStatus(c, 'IN_STOCK')}>Stock</button>{' '}
-                <button onClick={() => handleStatus(c, 'DAMAGED')}>Dañado</button>{' '}
-                <button onClick={() => handleStatus(c, 'RETIRED')}>Retirado</button>
-              </td>
+      <div className="table-wrap card">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Estado</th>
+              <th>Cliente</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+          </thead>
+          <tbody>
+            {containers.map((c) => (
+              <tr key={c.id}>
+                <td>#{c.id}</td>
+                <td><span className={`badge ${c.status === 'IN_STOCK' ? 'badge--success' : c.status === 'DAMAGED' ? 'badge--pending' : 'badge--inactive'}`}>{STATUS_LABELS[c.status] || c.status}</span></td>
+                <td>{c.customer_name || '-'}</td>
+                <td>
+                  <div className="form-inline">
+                    <button className="btn btn-outline btn-sm" onClick={() => handleStatus(c, 'IN_STOCK')}>Stock</button>
+                    <button className="btn btn-ghost btn-sm" onClick={() => handleStatus(c, 'DAMAGED')}>Dañado</button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleStatus(c, 'RETIRED')}>Retirado</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }

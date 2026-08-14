@@ -80,24 +80,29 @@ export default function AdminProducts() {
   }
 
   return (
-    <main style={{ maxWidth: 1000, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 1000 }}>
       <h1>Gestión de productos</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '0.5rem', maxWidth: 600, marginBottom: '2rem' }}>
+      <form onSubmit={handleSubmit} className="form card" style={{ maxWidth: 600 }}>
+        <h2 className="card__title">{editingId ? `Editar producto #${editingId}` : 'Nuevo producto'}</h2>
         <input
+          className="input"
           placeholder="Nombre"
           required
           value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
         />
         <input
+          className="input"
           placeholder="Descripción"
           value={form.description}
           onChange={(e) => setForm({ ...form, description: e.target.value })}
         />
-        <div style={{ display: 'flex', gap: '0.5rem' }}>
+        <div className="form-inline">
           <input
+            className="input"
+            style={{ flex: 1, minWidth: 160 }}
             placeholder="Precio"
             type="number"
             required
@@ -106,6 +111,8 @@ export default function AdminProducts() {
             onChange={(e) => setForm({ ...form, price: e.target.value })}
           />
           <input
+            className="input"
+            style={{ flex: 1, minWidth: 160 }}
             placeholder="Stock"
             type="number"
             required
@@ -114,39 +121,43 @@ export default function AdminProducts() {
             onChange={(e) => setForm({ ...form, stock: e.target.value })}
           />
         </div>
-        <button type="submit">{editingId ? 'Guardar cambios' : 'Crear producto'}</button>
+        <button className="btn btn-primary btn-sm" type="submit">{editingId ? 'Guardar cambios' : 'Crear producto'}</button>
       </form>
 
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ textAlign: 'left', borderBottom: '2px solid #ddd' }}>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((p) => (
-            <tr key={p.id} style={{ borderBottom: '1px solid #eee' }}>
-              <td>{p.name}</td>
-              <td>${p.price}</td>
-              <td>{p.stock}</td>
-              <td>{p.active ? 'Activo' : 'Inactivo'}</td>
-              <td>
-                <button onClick={() => startEdit(p)}>Editar</button>{' '}
-                <button onClick={() => toggleActive(p)}>{p.active ? 'Desactivar' : 'Activar'}</button>{' '}
-                <button onClick={() => handleRemove(p)}>Eliminar</button>{' '}
-                <label style={{ cursor: 'pointer', fontSize: '0.9rem' }}>
-                  Imagen
-                  <input type="file" accept="image/*" hidden onChange={(e) => handleImage(e, p)} />
-                </label>
-              </td>
+      <div className="table-wrap card">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Estado</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+          </thead>
+          <tbody>
+            {products.map((p) => (
+              <tr key={p.id}>
+                <td>{p.name}</td>
+                <td>${p.price}</td>
+                <td>{p.stock}</td>
+                <td><span className={`badge ${p.active ? 'badge--success' : 'badge--inactive'}`}>{p.active ? 'Activo' : 'Inactivo'}</span></td>
+                <td>
+                  <div className="form-inline">
+                    <button className="btn btn-outline btn-sm" onClick={() => startEdit(p)}>Editar</button>
+                    <button className="btn btn-ghost btn-sm" onClick={() => toggleActive(p)}>{p.active ? 'Desactivar' : 'Activar'}</button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleRemove(p)}>Eliminar</button>
+                    <label className="btn btn-outline btn-sm" style={{ cursor: 'pointer' }}>
+                      Imagen
+                      <input type="file" accept="image/*" hidden onChange={(e) => handleImage(e, p)} />
+                    </label>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }

@@ -45,58 +45,52 @@ export default function DriverOrders() {
   ]
 
   return (
-    <main style={{ maxWidth: 860, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 860 }}>
       <h1>Mis repartos</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+      <div className="tabs">
         {tabs.map((t) => (
           <button
             key={t.label}
+            className={`tabs__btn ${filter === t.value ? 'tabs__btn--active' : ''}`}
             onClick={() => setFilter(t.value)}
-            style={
-              filter === t.value
-                ? { fontWeight: 700, background: '#1a73e8', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: 6, cursor: 'pointer' }
-                : { background: '#fff', border: '1px solid #ddd', padding: '0.5rem 1rem', borderRadius: 6, cursor: 'pointer' }
-            }
           >
             {t.label}
           </button>
         ))}
       </div>
 
-      {loading && <p>Cargando…</p>}
+      {loading && <p className="muted">Cargando…</p>}
 
-      {orders.length === 0 && !loading && <p>No hay pedidos.</p>}
+      {orders.length === 0 && !loading && <p className="muted">No hay pedidos.</p>}
 
       {orders.map((o) => (
-        <div key={o.id} style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', marginBottom: '1rem' }}>
+        <div key={o.id} className={`card order order--${o.status}`}>
           <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
             <strong>Pedido #{o.id}</strong>
-            <span>{STATUS_LABELS[o.status] || o.status}</span>
+            <span className={`badge badge--${o.status}`}>{STATUS_LABELS[o.status] || o.status}</span>
           </div>
-          <p style={{ margin: '0.4rem 0' }}>
+          <p>
             {o.customer_name} · {o.street}, {o.city}
           </p>
-          <p style={{ margin: '0.2rem 0', color: '#555' }}>
+          <p className="muted text-sm">
             Total {fmtMoney(o.total)} · {o.payment_method}
             {o.containers_delivered > 0 ? ` · +${o.containers_delivered} bidones` : ''}
             {o.containers_returned > 0 ? ` · -${o.containers_returned} bidones` : ''}
-          </p>
-          <p style={{ margin: '0.2rem 0', color: '#555', fontSize: '0.85rem' }}>
-            Creado {new Date(o.created_at).toLocaleString('es-AR')}
+            · Creado {new Date(o.created_at).toLocaleString('es-AR')}
           </p>
 
           {o.status !== 'DELIVERED' && o.status !== 'CANCELLED' && (
-            <div style={{ marginTop: '0.5rem', display: 'flex', gap: '0.5rem' }}>
+            <div className="form-inline">
               {o.status !== 'OUT_FOR_DELIVERY' && (
-                <button onClick={() => handleStatus(o.id, 'OUT_FOR_DELIVERY')}>Iniciar reparto</button>
+                <button className="btn btn-outline btn-sm" onClick={() => handleStatus(o.id, 'OUT_FOR_DELIVERY')}>Iniciar reparto</button>
               )}
-              <button onClick={() => handleStatus(o.id, 'DELIVERED')}>Marcar entregado</button>
+              <button className="btn btn-primary btn-sm" onClick={() => handleStatus(o.id, 'DELIVERED')}>Marcar entregado</button>
             </div>
           )}
         </div>
       ))}
-    </main>
+    </div>
   )
 }

@@ -19,37 +19,37 @@ export default function ForgotPassword() {
   }
 
   return (
-    <main style={pageStyle}>
+    <div className="page" style={{ maxWidth: 420 }}>
       <h1>Recuperar contraseña</h1>
       {sent ? (
-        <p>
-          Si el email existe, vas a recibir un enlace para restablecer tu contraseña.{' '}
-          <Link to="/login">Volver al login</Link>
-        </p>
+        <div className="card">
+          <p className="text-success">
+            Si el email existe, vas a recibir un enlace para restablecer tu contraseña.
+          </p>
+          <Link className="btn btn-outline" to="/login">Volver al login</Link>
+        </div>
       ) : (
         <>
-          {error && <p style={errorStyle}>{error}</p>}
-          <form onSubmit={handleSubmit} style={formStyle}>
-            <label>
-              Email
+          {error && <p className="alert alert--error">{error}</p>}
+          <form className="form card" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label className="form-label" htmlFor="email">Email</label>
               <input
+                className="input"
+                id="email"
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </label>
-            <button type="submit">Enviar enlace</button>
+            </div>
+            <button className="btn btn-primary btn-block" type="submit">Enviar enlace</button>
           </form>
-          <p>
+          <p className="muted">
             <Link to="/login">Volver al login</Link>
           </p>
         </>
       )}
-    </main>
+    </div>
   )
 }
-
-const pageStyle = { maxWidth: 400, margin: '3rem auto', padding: '0 1rem', fontFamily: 'sans-serif' }
-const formStyle = { display: 'flex', flexDirection: 'column', gap: '1rem' }
-const errorStyle = { color: '#c0392b' }

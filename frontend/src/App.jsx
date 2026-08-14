@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import Navbar from './components/Navbar.jsx'
+import Footer from './components/Footer.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 
 const Home = lazy(() => import('./pages/Home.jsx'))
@@ -38,8 +39,7 @@ export default function App() {
     <AuthProvider>
       <CartProvider>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Page><Home /></Page>} />
+        <Routes>          <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/productos" element={<Page><Catalog /></Page>} />
           <Route path="/carrito" element={<Page><Cart /></Page>} />
           <Route path="/login" element={<Page><Login /></Page>} />
@@ -162,6 +162,7 @@ export default function App() {
           />
           <Route path="*" element={<Page><NotFound /></Page>} />
         </Routes>
+        <Footer />
       </CartProvider>
     </AuthProvider>
   )

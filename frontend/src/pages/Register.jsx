@@ -20,53 +20,57 @@ export default function Register() {
   }
 
   return (
-    <main style={pageStyle}>
+    <div className="page" style={{ maxWidth: 420 }}>
       <h1>Crear cuenta</h1>
-      {error && <p style={errorStyle}>{error}</p>}
-      <form onSubmit={handleSubmit} style={formStyle}>
-        <label>
-          Nombre
+      {error && <p className="alert alert--error">{error}</p>}
+      <form className="form card" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="form-label" htmlFor="name">Nombre</label>
           <input
+            className="input"
+            id="name"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
-        </label>
-        <label>
-          Email
+        </div>
+        <div className="form-group">
+          <label className="form-label" htmlFor="email">Email</label>
           <input
+            className="input"
+            id="email"
             type="email"
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
-        </label>
-        <label>
-          Teléfono
+        </div>
+        <div className="form-group">
+          <label className="form-label" htmlFor="phone">Teléfono</label>
           <input
+            className="input"
+            id="phone"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
           />
-        </label>
-        <label>
-          Contraseña (mínimo 6 caracteres)
+        </div>
+        <div className="form-group">
+          <label className="form-label" htmlFor="password">Contraseña (mínimo 6 caracteres)</label>
           <input
+            className="input"
+            id="password"
             type="password"
             required
             minLength={6}
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
-        </label>
-        <button type="submit">Registrarme</button>
+        </div>
+        <button className="btn btn-primary btn-block" type="submit">Registrarme</button>
       </form>
-      <p>
+      <p className="muted">
         ¿Ya tenés cuenta? <Link to="/login">Ingresá</Link>
       </p>
-    </main>
+    </div>
   )
 }
-
-const pageStyle = { maxWidth: 400, margin: '3rem auto', padding: '0 1rem', fontFamily: 'sans-serif' }
-const formStyle = { display: 'flex', flexDirection: 'column', gap: '1rem' }
-const errorStyle = { color: '#c0392b' }

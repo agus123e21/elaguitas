@@ -36,28 +36,35 @@ export default function MyOrders() {
   }
 
   return (
-    <main style={{ maxWidth: 720, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 720 }}>
       <h1>Mis pedidos</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
-      {orders.length === 0 && <p>No hiciste pedidos todavía. <Link to="/productos">Ver productos</Link></p>}
+      {error && <p className="alert alert--error">{error}</p>}
+      {orders.length === 0 && (
+        <p className="muted">
+          No hiciste pedidos todavía. <Link to="/productos">Ver productos</Link>
+        </p>
+      )}
       {orders.map((o) => (
-        <div key={o.id} style={{ border: '1px solid #ddd', borderRadius: 8, padding: '0.75rem', marginBottom: '0.75rem' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div key={o.id} className={`card order order--${o.status}`}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
             <strong>Pedido #{o.id}</strong>
-            <span>{new Date(o.created_at).toLocaleString('es-AR')}</span>
+            <span className={`badge badge--${o.status}`}>{STATUS_LABELS[o.status] || o.status}</span>
           </div>
-          <p style={{ margin: '0.25rem 0' }}>
-            {o.street} — {STATUS_LABELS[o.status] || o.status}
+          <p className="muted">
+            {o.street}
           </p>
-          <p style={{ margin: '0.25rem 0' }}>
+          <p className="muted text-sm">
             {o.containers_delivered > 0 && `${o.containers_delivered} bidones entregados `}
             {o.containers_returned > 0 && `${o.containers_returned} retirados `}
+            · {new Date(o.created_at).toLocaleString('es-AR')}
           </p>
-          <p style={{ fontWeight: 700, margin: '0.25rem 0' }}>{formatPrice(o.total)}</p>
-          <Link to={`/pedidos/${o.id}`}>Ver detalle</Link>{' '}
-          <button onClick={() => handleRepeat(o.id)}>Repetir pedido</button>
+          <p style={{ fontWeight: 700 }}>{formatPrice(o.total)}</p>
+          <div className="form-inline">
+            <Link className="btn btn-outline btn-sm" to={`/pedidos/${o.id}`}>Ver detalle</Link>
+            <button className="btn btn-ghost btn-sm" onClick={() => handleRepeat(o.id)}>Repetir pedido</button>
+          </div>
         </div>
       ))}
-    </main>
+    </div>
   )
 }
