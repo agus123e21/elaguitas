@@ -34,3 +34,8 @@ export async function changeOrderStatus(id, status, token) {
   const data = await api.patch(`/orders/${id}/status`, { status }, { token })
   return data.order
 }
+
+export async function assignDriver(id, driverId, token) {
+  const data = await api.post(`/orders/${id}/assign-driver`, { driverId }, { token })
+  return data.order
+}

@@ -65,6 +65,11 @@ export default function Navbar() {
             )}
           </Link>
         )}
+        {user && user.role === 'ADMIN' && <Link to="/admin/pedidos">Pedidos</Link>}
+        {user && user.role === 'ADMIN' && <Link to="/admin/productos">Productos</Link>}
+        {user && user.role === 'ADMIN' && <Link to="/admin/zonas">Zonas</Link>}
+        {user && user.role === 'ADMIN' && <Link to="/admin/bidones">Bidones</Link>}
+        {user && user.role === 'ADMIN' && <Link to="/admin/promociones">Promociones</Link>}
         {user && user.role === 'ADMIN' && <Link to="/admin">Panel</Link>}
         {user && (
           <span style={{ opacity: 0.7 }}>

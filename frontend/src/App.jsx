@@ -25,6 +25,7 @@ const AdminProducts = lazy(() => import('./pages/admin/AdminProducts.jsx'))
 const AdminZones = lazy(() => import('./pages/admin/AdminZones.jsx'))
 const AdminContainers = lazy(() => import('./pages/admin/AdminContainers.jsx'))
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard.jsx'))
+const AdminOrders = lazy(() => import('./pages/admin/AdminOrders.jsx'))
 const AdminPromotions = lazy(() => import('./pages/admin/AdminPromotions.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
@@ -116,6 +117,14 @@ export default function App() {
             element={
               <ProtectedRoute roles={['ADMIN']}>
                 <Page><AdminDashboard /></Page>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/pedidos"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <Page><AdminOrders /></Page>
               </ProtectedRoute>
             }
           />
