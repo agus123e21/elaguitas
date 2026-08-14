@@ -21,3 +21,45 @@ button {
   font: inherit;
   cursor: pointer;
 }
+
+img {
+  max-width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .navbar nav {
+    gap: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media print {
+  .navbar {
+    display: none;
+  }
+}

@@ -30,15 +30,7 @@ export default function Navbar() {
   }, [user])
 
   return (
-    <header
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0.75rem 1rem',
-        borderBottom: '1px solid #ddd',
-      }}
-    >
+    <header className="navbar">
       <Link to="/" style={{ fontWeight: 700, textDecoration: 'none', color: 'inherit' }}>
         Agua
       </Link>
