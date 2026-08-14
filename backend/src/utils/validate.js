@@ -18,8 +18,14 @@ export const validators = {
   number(value) {
     return typeof value === 'number' && Number.isFinite(value);
   },
+  optionalNumber(value) {
+    return value === undefined || value === null || (typeof value === 'number' && Number.isFinite(value));
+  },
   positiveNumber(value) {
     return typeof value === 'number' && Number.isFinite(value) && value >= 0;
+  },
+  optionalPositiveNumber(value) {
+    return value === undefined || value === null || (typeof value === 'number' && Number.isFinite(value) && value >= 0);
   },
   integer(value) {
     return Number.isInteger(value);
@@ -27,8 +33,14 @@ export const validators = {
   boolean(value) {
     return typeof value === 'boolean';
   },
+  optionalBoolean(value) {
+    return value === undefined || value === null || typeof value === 'boolean';
+  },
   enum(values) {
     return (value) => values.includes(value);
+  },
+  optionalEnum(values) {
+    return (value) => value === undefined || value === null || values.includes(value);
   },
   array(value) {
     return Array.isArray(value);

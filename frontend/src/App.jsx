@@ -16,11 +16,13 @@ import OrderDetail from './pages/OrderDetail.jsx'
 import MyAddresses from './pages/MyAddresses.jsx'
 import Containers from './pages/Containers.jsx'
 import MySubscriptions from './pages/MySubscriptions.jsx'
+import Promotions from './pages/Promotions.jsx'
 import DriverOrders from './pages/DriverOrders.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminZones from './pages/admin/AdminZones.jsx'
 import AdminContainers from './pages/admin/AdminContainers.jsx'
 import AdminDashboard from './pages/admin/AdminDashboard.jsx'
+import AdminPromotions from './pages/admin/AdminPromotions.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -84,6 +86,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/promociones" element={<Promotions />} />
           <Route
             path="/repartos"
             element={
@@ -122,6 +125,14 @@ export default function App() {
             element={
               <ProtectedRoute roles={['ADMIN']}>
                 <AdminContainers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/promociones"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <AdminPromotions />
               </ProtectedRoute>
             }
           />
