@@ -1,8 +1,10 @@
 import pg from 'pg';
 import env from './env.js';
 
+const dbUrl = process.env.DATABASE_URL || env.databaseUrl;
+
 const poolConfig = {
-  connectionString: env.databaseUrl || undefined,
+  connectionString: dbUrl || undefined,
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 10000,
@@ -10,9 +12,9 @@ const poolConfig = {
 
 // Habilitar SSL para conexiones remotas a Supabase / PostgreSQL cloud sin fallar por certs
 if (
-  env.databaseUrl &&
-  !env.databaseUrl.includes('localhost') &&
-  !env.databaseUrl.includes('127.0.0.1')
+  dbUrl &&
+  !dbUrl.includes('localhost') &&
+  !dbUrl.includes('127.0.0.1')
 ) {
   poolConfig.ssl = { rejectUnauthorized: false };
 }
@@ -24,11 +26,19 @@ pool.on('error', (err) => {
 });
 
 export async function query(text, params) {
+  const currentUrl = process.env.DATABASE_URL || env.databaseUrl;
+  if (!currentUrl) {
+    throw new Error('DATABASE_URL no configurada en las variables de entorno del servidor.');
+  }
   const result = await pool.query(text, params);
   return result;
 }
 
 export async function checkConnection() {
+  const currentUrl = process.env.DATABASE_URL || env.databaseUrl;
+  if (!currentUrl) {
+    throw new Error('DATABASE_URL no configurada en las variables de entorno del servidor.');
+  }
   const result = await pool.query('SELECT NOW() AS now, current_database() AS db');
   return result.rows[0];
 }
