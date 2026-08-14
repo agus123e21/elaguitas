@@ -13,7 +13,11 @@ import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
 import MyOrders from './pages/MyOrders.jsx'
 import OrderDetail from './pages/OrderDetail.jsx'
+import MyAddresses from './pages/MyAddresses.jsx'
+import Containers from './pages/Containers.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
+import AdminZones from './pages/admin/AdminZones.jsx'
+import AdminContainers from './pages/admin/AdminContainers.jsx'
 import NotFound from './pages/NotFound.jsx'
 
 export default function App() {
@@ -54,10 +58,42 @@ export default function App() {
             }
           />
           <Route
+            path="/direcciones"
+            element={
+              <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
+                <MyAddresses />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/bidones"
+            element={
+              <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
+                <Containers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/admin/productos"
             element={
               <ProtectedRoute roles={['ADMIN']}>
                 <AdminProducts />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/zonas"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <AdminZones />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/bidones"
+            element={
+              <ProtectedRoute roles={['ADMIN']}>
+                <AdminContainers />
               </ProtectedRoute>
             }
           />

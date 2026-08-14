@@ -12,6 +12,8 @@ import productsRoutes from './modules/products/products.routes.js';
 import ordersRoutes from './modules/orders/orders.routes.js';
 import addressesRoutes from './modules/addresses/addresses.routes.js';
 import zonesRoutes from './modules/zones/zones.routes.js';
+import containersRoutes from './modules/containers/containers.routes.js';
+import usersRoutes from './modules/users/users.routes.js';
 
 const app = express();
 
@@ -41,6 +43,8 @@ app.use('/api/products', productsRoutes);
 app.use('/api/orders', requireAnyRole, ordersRoutes);
 app.use('/api/addresses', addressesRoutes);
 app.use('/api/zones', zonesRoutes);
+app.use('/api/containers', containersRoutes);
+app.use('/api/users', usersRoutes);
 
 app.use('/api/client', requireClient, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de cliente' });
