@@ -10,6 +10,9 @@ import ForgotPassword from './pages/ForgotPassword.jsx'
 import ResetPassword from './pages/ResetPassword.jsx'
 import Catalog from './pages/Catalog.jsx'
 import Cart from './pages/Cart.jsx'
+import Checkout from './pages/Checkout.jsx'
+import MyOrders from './pages/MyOrders.jsx'
+import OrderDetail from './pages/OrderDetail.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import NotFound from './pages/NotFound.jsx'
 
@@ -27,10 +30,26 @@ export default function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/recuperar-password" element={<ResetPassword />} />
           <Route
-            path="/cliente"
+            path="/checkout"
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <p>Área de cliente</p>
+                <Checkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/pedidos"
+            element={
+              <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
+                <MyOrders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/pedidos/:id"
+            element={
+              <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
+                <OrderDetail />
               </ProtectedRoute>
             }
           />

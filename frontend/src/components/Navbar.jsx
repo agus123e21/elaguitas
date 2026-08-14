@@ -20,6 +20,7 @@ export default function Navbar() {
 
       <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         <Link to="/productos">Productos</Link>
+        {user && user.role === 'CLIENT' && <Link to="/pedidos">Mis pedidos</Link>}
         {user && user.role === 'ADMIN' && <Link to="/admin/productos">Admin</Link>}
         {user && (
           <span style={{ opacity: 0.7 }}>
