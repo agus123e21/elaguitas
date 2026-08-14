@@ -17,6 +17,7 @@ import usersRoutes from './modules/users/users.routes.js';
 import dashboardRoutes from './modules/dashboard/dashboard.routes.js';
 import subscriptionsRoutes from './modules/subscriptions/subscriptions.routes.js';
 import promotionsRoutes from './modules/promotions/promotions.routes.js';
+import notificationsRoutes from './modules/notifications/notifications.routes.js';
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.use('/api/users', usersRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/subscriptions', subscriptionsRoutes);
 app.use('/api/promotions', promotionsRoutes);
+app.use('/api/notifications', notificationsRoutes);
 
 app.use('/api/client', requireClient, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de cliente' });

@@ -17,6 +17,7 @@ import MyAddresses from './pages/MyAddresses.jsx'
 import Containers from './pages/Containers.jsx'
 import MySubscriptions from './pages/MySubscriptions.jsx'
 import Promotions from './pages/Promotions.jsx'
+import Notifications from './pages/Notifications.jsx'
 import DriverOrders from './pages/DriverOrders.jsx'
 import AdminProducts from './pages/admin/AdminProducts.jsx'
 import AdminZones from './pages/admin/AdminZones.jsx'
@@ -87,6 +88,14 @@ export default function App() {
             }
           />
           <Route path="/promociones" element={<Promotions />} />
+          <Route
+            path="/notificaciones"
+            element={
+              <ProtectedRoute roles={['CLIENT', 'DRIVER', 'ADMIN']}>
+                <Notifications />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/repartos"
             element={
