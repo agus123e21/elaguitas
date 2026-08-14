@@ -49,7 +49,9 @@ self.addEventListener('fetch', (event) => {
           return response
         })
         .catch(() => {
-          return new Response('', { status: 408, statusText: 'Network error' })
+          return caches.match(BASE + 'index.html').then((fallback) => {
+            return fallback || new Response('Offline', { status: 503, statusText: 'Service Unavailable' })
+          })
         })
     })
   )

@@ -20,12 +20,12 @@ async function request(path, { method = 'GET', body, token, headers = {} } = {})
     },
   };
 
-  const activeToken = token || localStorage.getItem('token');
+  const activeToken = token || localStorage.getItem('agua_token') || localStorage.getItem('token');
   if (activeToken) {
     options.headers.Authorization = `Bearer ${activeToken}`;
   }
 
-  if (body !== undefined) {
+  if (body !== undefined && body !== null) {
     options.body = JSON.stringify(body);
   }
 

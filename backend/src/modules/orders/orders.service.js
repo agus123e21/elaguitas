@@ -11,12 +11,26 @@ export function assertOrderStatus(status) {
 }
 
 export async function getCustomerIdByUserId(userId) {
-  const { rows } = await pool.query('SELECT id FROM customers WHERE user_id = $1', [userId]);
+  let { rows } = await pool.query('SELECT id FROM customers WHERE user_id = $1', [userId]);
+  if (rows.length === 0) {
+    const ins = await pool.query(
+      'INSERT INTO customers (user_id) VALUES ($1) ON CONFLICT (user_id) DO UPDATE SET user_id = EXCLUDED.user_id RETURNING id',
+      [userId]
+    );
+    return ins.rows[0]?.id ?? null;
+  }
   return rows[0]?.id ?? null;
 }
 
 export async function getDriverIdByUserId(userId) {
-  const { rows } = await pool.query('SELECT id FROM delivery_drivers WHERE user_id = $1', [userId]);
+  let { rows } = await pool.query('SELECT id FROM delivery_drivers WHERE user_id = $1', [userId]);
+  if (rows.length === 0) {
+    const ins = await pool.query(
+      'INSERT INTO delivery_drivers (user_id, is_available) VALUES ($1, TRUE) ON CONFLICT (user_id) DO UPDATE SET is_available = TRUE RETURNING id',
+      [userId]
+    );
+    return ins.rows[0]?.id ?? null;
+  }
   return rows[0]?.id ?? null;
 }
 

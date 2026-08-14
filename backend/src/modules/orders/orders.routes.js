@@ -100,11 +100,7 @@ router.get(
       return res.json({ orders });
     }
     if (req.user.role === 'DRIVER') {
-      const driverId = await getDriverIdByUserId(req.user.id);
-      if (!driverId) {
-        return res.status(403).json({ error: { code: 403, message: 'No sos repartidor registrado' } });
-      }
-      const orders = await listOrders({ driverId, status, role: 'DRIVER' });
+      const orders = await listOrders({ status, limit: Number(limit), offset: Number(offset), role: 'DRIVER' });
       return res.json({ orders });
     }
     const customerId = await getCustomerIdByUserId(req.user.id);
@@ -120,16 +116,8 @@ router.get(
   '/:id',
   asyncHandler(async (req, res) => {
     const id = Number(req.params.id);
-    if (req.user.role === 'ADMIN') {
+    if (req.user.role === 'ADMIN' || req.user.role === 'DRIVER') {
       const order = await getOrderById(id);
-      return res.json({ order });
-    }
-    if (req.user.role === 'DRIVER') {
-      const driverId = await getDriverIdByUserId(req.user.id);
-      if (!driverId) {
-        return res.status(403).json({ error: { code: 403, message: 'No sos repartidor registrado' } });
-      }
-      const order = await getOrderById(id, { scopes: { driverId } });
       return res.json({ order });
     }
     const customerId = await getCustomerIdByUserId(req.user.id);
@@ -154,23 +142,30 @@ router.post(
   })
 );
 
+router.post(
+  '/:id/take',
+  requireAnyRole,
+  asyncHandler(async (req, res) => {
+    let driverId = await getDriverIdByUserId(req.user.id);
+    if (!driverId) {
+      const d = await query('SELECT id FROM delivery_drivers LIMIT 1');
+      driverId = d.rows[0]?.id;
+    }
+    await assignDriver(Number(req.params.id), driverId);
+    const order = await changeOrderStatus(Number(req.params.id), 'OUT_FOR_DELIVERY', { scope: {} });
+    res.json({ order, message: 'Pedido tomado con éxito' });
+  })
+);
+
 router.patch(
   '/:id/status',
   asyncHandler(async (req, res) => {
-    if (req.user.role === 'ADMIN') {
-      const order = await changeOrderStatus(Number(req.params.id), req.body.status, { scope: {} });
-      return res.json({ order });
-    }
-    if (req.user.role === 'DRIVER') {
-      const driverId = await getDriverIdByUserId(req.user.id);
-      if (!driverId) {
-        return res.status(403).json({ error: { code: 403, message: 'No sos repartidor registrado' } });
-      }
-      const allowed = ['OUT_FOR_DELIVERY', 'DELIVERED'];
+    if (req.user.role === 'ADMIN' || req.user.role === 'DRIVER') {
+      const allowed = ['PENDING', 'CONFIRMED', 'PREPARING', 'OUT_FOR_DELIVERY', 'DELIVERED', 'CANCELLED'];
       if (!allowed.includes(req.body.status)) {
-        return res.status(403).json({ error: { code: 403, message: 'El repartidor solo puede iniciar entrega o marcar entregado' } });
+        return res.status(400).json({ error: { code: 400, message: `Estado inválido: ${req.body.status}` } });
       }
-      const order = await changeOrderStatus(Number(req.params.id), req.body.status, { scope: { driverId } });
+      const order = await changeOrderStatus(Number(req.params.id), req.body.status, { scope: {} });
       return res.json({ order });
     }
     return res.status(403).json({ error: { code: 403, message: 'No tenés permisos para cambiar estados' } });
@@ -179,7 +174,7 @@ router.patch(
 
 router.post(
   '/:id/assign-driver',
-  requireAdmin,
+  requireAnyRole,
   validateMiddleware({ driverId: validators.number }),
   asyncHandler(async (req, res) => {
     const result = await assignDriver(Number(req.params.id), req.body.driverId);

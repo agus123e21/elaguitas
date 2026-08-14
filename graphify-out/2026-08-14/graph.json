@@ -70,7 +70,7 @@
       "_origin": "ast",
       "id": "backend_src_utils_apierror_apierror",
       "community": 19,
-      "community_name": "addresses.routes.js",
+      "community_name": "containers.routes.js",
       "norm_label": "apierror"
     },
     {
@@ -141,7 +141,7 @@
       "label": "handleNewAddress()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L63",
+      "source_location": "L93",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_pages_checkout_checkout_handlenewaddress",
@@ -150,10 +150,34 @@
       "norm_label": "handlenewaddress()"
     },
     {
+      "label": "handleQuickLogin()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Checkout.jsx",
+      "source_location": "L114",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_checkout_checkout_handlequicklogin",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "handlequicklogin()"
+    },
+    {
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Checkout.jsx",
+      "source_location": "L126",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_checkout_checkout_handlesubmit",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "handlesubmit()"
+    },
+    {
       "label": "selectedAddress()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L59",
+      "source_location": "L89",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_pages_checkout_checkout_selectedaddress",
@@ -318,6 +342,18 @@
       "norm_label": "updateaddress()"
     },
     {
+      "label": "createOrder()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_createorder",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "createorder()"
+    },
+    {
       "label": "previewOrder()",
       "file_type": "code",
       "source_file": "frontend/src/services/orders.js",
@@ -333,7 +369,7 @@
       "label": "validateItem()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L34",
+      "source_location": "L35",
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_validateitem",
@@ -666,148 +702,88 @@
       "norm_label": "updatepromotion()"
     },
     {
-      "label": "AdminContainers()",
+      "label": "AdminOrders()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L18",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L19",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers",
+      "id": "frontend_src_pages_admin_adminorders_adminorders",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "admincontainers()"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "adminorders()"
     },
     {
-      "label": "handleAdjust()",
+      "label": "handleAssign()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L45",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L39",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleadjust",
+      "id": "frontend_src_pages_admin_adminorders_adminorders_handleassign",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "handleadjust()"
-    },
-    {
-      "label": "handleRegister()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L35",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleregister",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "handleregister()"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "handleassign()"
     },
     {
       "label": "handleStatus()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L55",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L35",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handlestatus",
+      "id": "frontend_src_pages_admin_adminorders_adminorders_handlestatus",
       "community": 14,
-      "community_name": "Container Inventory Management",
+      "community_name": "AdminOrders.jsx",
       "norm_label": "handlestatus()"
     },
     {
       "label": "load()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
       "source_location": "L26",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_admincontainers_load",
+      "id": "frontend_src_pages_admin_adminorders_adminorders_load",
       "community": 14,
-      "community_name": "Container Inventory Management",
+      "community_name": "AdminOrders.jsx",
       "norm_label": "load()"
     },
     {
-      "label": "Containers()",
+      "label": "fmtMoney()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L11",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L17",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_containers_containers",
+      "id": "frontend_src_pages_admin_adminorders_fmtmoney",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "containers()"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "fmtmoney()"
     },
     {
-      "label": "adjustContainers()",
+      "label": "assignDriver()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L27",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L38",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_adjustcontainers",
+      "id": "frontend_src_services_orders_assigndriver",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "adjustcontainers()"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "assigndriver()"
     },
     {
-      "label": "getContainerMovements()",
+      "label": "getOrdersByStatus()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainermovements",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "getcontainermovements()"
-    },
-    {
-      "label": "getContainerSummary()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainersummary",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "getcontainersummary()"
-    },
-    {
-      "label": "getInventory()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_getinventory",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "getinventory()"
-    },
-    {
-      "label": "registerContainers()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/services/orders.js",
       "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_registercontainers",
+      "id": "frontend_src_services_orders_getordersbystatus",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "registercontainers()"
-    },
-    {
-      "label": "updateContainerStatus()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L22",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_updatecontainerstatus",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "updatecontainerstatus()"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "getordersbystatus()"
     },
     {
       "label": "ForgotPassword()",
@@ -978,42 +954,6 @@
       "norm_label": "storesession()"
     },
     {
-      "label": "ensureMigrationsTable()",
-      "file_type": "code",
-      "source_file": "backend/db/runMigrations.js",
-      "source_location": "L9",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_db_runmigrations_ensuremigrationstable",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "ensuremigrationstable()"
-    },
-    {
-      "label": "getApplied()",
-      "file_type": "code",
-      "source_file": "backend/db/runMigrations.js",
-      "source_location": "L18",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_db_runmigrations_getapplied",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "getapplied()"
-    },
-    {
-      "label": "runMigrations()",
-      "file_type": "code",
-      "source_file": "backend/db/runMigrations.js",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_db_runmigrations_runmigrations",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "runmigrations()"
-    },
-    {
       "label": "runSeeds()",
       "file_type": "code",
       "source_file": "backend/db/runSeeds.js",
@@ -1048,6 +988,42 @@
       "community": 16,
       "community_name": "db.js",
       "norm_label": "query()"
+    },
+    {
+      "label": "getDashboard()",
+      "file_type": "code",
+      "source_file": "backend/src/modules/dashboard/dashboard.service.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_modules_dashboard_dashboard_service_getdashboard",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "getdashboard()"
+    },
+    {
+      "label": "asyncHandler()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/asyncHandler.js",
+      "source_location": "L1",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_asynchandler_asynchandler",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "asynchandler()"
+    },
+    {
+      "label": "logEvent()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logger.js",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_logger_logevent",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "logevent()"
     },
     {
       "label": "createProduct()",
@@ -1122,90 +1098,6 @@
       "norm_label": "updateproduct()"
     },
     {
-      "label": "MySubscriptions()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L16",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "mysubscriptions()"
-    },
-    {
-      "label": "handleChange()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L42",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlechange",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "handlechange()"
-    },
-    {
-      "label": "handleCreate()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L32",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlecreate",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "handlecreate()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L24",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_load",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "load()"
-    },
-    {
-      "label": "createSubscription()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_subscriptions_createsubscription",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "createsubscription()"
-    },
-    {
-      "label": "getMySubscriptions()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_subscriptions_getmysubscriptions",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "getmysubscriptions()"
-    },
-    {
-      "label": "updateSubscription()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_subscriptions_updatesubscription",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "updatesubscription()"
-    },
-    {
       "label": "createAddress()",
       "file_type": "code",
       "source_file": "backend/src/modules/addresses/addresses.service.js",
@@ -1213,7 +1105,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_service_createaddress",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "createaddress()"
     },
@@ -1225,7 +1117,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_service_deleteaddress",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "deleteaddress()"
     },
@@ -1237,7 +1129,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_service_getaddressbyid",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "getaddressbyid()"
     },
@@ -1249,7 +1141,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_service_listcustomeraddresses",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "listcustomeraddresses()"
     },
@@ -1261,225 +1153,9 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_service_updateaddress",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "updateaddress()"
-    },
-    {
-      "label": ".constructor()",
-      "file_type": "code",
-      "source_file": "backend/src/utils/ApiError.js",
-      "source_location": "L2",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_utils_apierror_apierror_constructor",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": ".constructor()"
-    },
-    {
-      "label": "createError()",
-      "file_type": "code",
-      "source_file": "backend/src/utils/ApiError.js",
-      "source_location": "L11",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_utils_apierror_createerror",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "createerror()"
-    },
-    {
-      "label": "logEvent()",
-      "file_type": "code",
-      "source_file": "backend/src/utils/logger.js",
-      "source_location": "L5",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_utils_logger_logevent",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "logevent()"
-    },
-    {
-      "label": "validate()",
-      "file_type": "code",
-      "source_file": "backend/src/utils/validate.js",
-      "source_location": "L50",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_utils_validate_validate",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "validate()"
-    },
-    {
-      "label": "validateMiddleware()",
-      "file_type": "code",
-      "source_file": "backend/src/utils/validate.js",
-      "source_location": "L60",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_utils_validate_validatemiddleware",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "validatemiddleware()"
-    },
-    {
-      "label": "AdminProducts()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "adminproducts()"
-    },
-    {
-      "label": "handleImage()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L70",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleimage",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "handleimage()"
-    },
-    {
-      "label": "handleRemove()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L64",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleremove",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "handleremove()"
-    },
-    {
-      "label": "handleSubmit()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L34",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts_handlesubmit",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "handlesubmit()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L21",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts_load",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "load()"
-    },
-    {
-      "label": "startEdit()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L49",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts_startedit",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "startedit()"
-    },
-    {
-      "label": "toggleActive()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L60",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_adminproducts_toggleactive",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "toggleactive()"
-    },
-    {
-      "label": "createProduct()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_createproduct",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "createproduct()"
-    },
-    {
-      "label": "deleteProduct()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L29",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_deleteproduct",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "deleteproduct()"
-    },
-    {
-      "label": "getProduct()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L9",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_getproduct",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "getproduct()"
-    },
-    {
-      "label": "patchProduct()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L24",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_patchproduct",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "patchproduct()"
-    },
-    {
-      "label": "updateProduct()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L19",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_updateproduct",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "updateproduct()"
-    },
-    {
-      "label": "uploadProductImage()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L34",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_uploadproductimage",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "uploadproductimage()"
     },
     {
       "label": "createMovement()",
@@ -1489,7 +1165,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service_createmovement",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "createmovement()"
     },
@@ -1501,7 +1177,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service_getcustomermovements",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "getcustomermovements()"
     },
@@ -1513,7 +1189,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service_getcustomersummary",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "getcustomersummary()"
     },
@@ -1525,7 +1201,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service_listinventory",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "listinventory()"
     },
@@ -1537,7 +1213,7 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service_registercontainers",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "registercontainers()"
     },
@@ -1549,21 +1225,405 @@
       "_callable": true,
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service_updatecontainerstatus",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "updatecontainerstatus()"
     },
     {
-      "label": "assertValidEnv()",
+      "label": ".constructor()",
       "file_type": "code",
-      "source_file": "backend/src/config/env.js",
+      "source_file": "backend/src/utils/ApiError.js",
+      "source_location": "L2",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_apierror_apierror_constructor",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": ".constructor()"
+    },
+    {
+      "label": "createError()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/ApiError.js",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_apierror_createerror",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "createerror()"
+    },
+    {
+      "label": "validate()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/validate.js",
+      "source_location": "L50",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_validate_validate",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "validate()"
+    },
+    {
+      "label": "validateMiddleware()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/validate.js",
+      "source_location": "L60",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_validate_validatemiddleware",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "validatemiddleware()"
+    },
+    {
+      "label": "AdminProducts()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
       "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "backend_src_config_env_assertvalidenv",
-      "community": 22,
-      "community_name": "subscriptions.service.js",
-      "norm_label": "assertvalidenv()"
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "adminproducts()"
+    },
+    {
+      "label": "handleImage()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L70",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleimage",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handleimage()"
+    },
+    {
+      "label": "handleRemove()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L64",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts_handleremove",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handleremove()"
+    },
+    {
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L34",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts_handlesubmit",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handlesubmit()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L21",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts_load",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "startEdit()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L49",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts_startedit",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "startedit()"
+    },
+    {
+      "label": "toggleActive()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L60",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_adminproducts_toggleactive",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "toggleactive()"
+    },
+    {
+      "label": "Catalog()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "catalog()"
+    },
+    {
+      "label": "getItemInCart()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L36",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog_getitemincart",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "getitemincart()"
+    },
+    {
+      "label": "handleAdd()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L31",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog_handleadd",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handleadd()"
+    },
+    {
+      "label": "showToast()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_catalog_showtoast",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "showtoast()"
+    },
+    {
+      "label": "fmtMoney()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L7",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog_fmtmoney",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "fmtmoney()"
+    },
+    {
+      "label": "MySubscriptions()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "mysubscriptions()"
+    },
+    {
+      "label": "handleChange()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L42",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlechange",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handlechange()"
+    },
+    {
+      "label": "handleCreate()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L32",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_handlecreate",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "handlecreate()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L24",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions_mysubscriptions_load",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "createProduct()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_createproduct",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "createproduct()"
+    },
+    {
+      "label": "deleteProduct()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L29",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_deleteproduct",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "deleteproduct()"
+    },
+    {
+      "label": "getProduct()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_getproduct",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "getproduct()"
+    },
+    {
+      "label": "getProducts()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_getproducts",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "getproducts()"
+    },
+    {
+      "label": "patchProduct()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L24",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_patchproduct",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "patchproduct()"
+    },
+    {
+      "label": "updateProduct()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L19",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_updateproduct",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "updateproduct()"
+    },
+    {
+      "label": "uploadProductImage()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L34",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_products_uploadproductimage",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "uploadproductimage()"
+    },
+    {
+      "label": "createSubscription()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_subscriptions_createsubscription",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "createsubscription()"
+    },
+    {
+      "label": "getMySubscriptions()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_subscriptions_getmysubscriptions",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "getmysubscriptions()"
+    },
+    {
+      "label": "updateSubscription()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_subscriptions_updatesubscription",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "updatesubscription()"
+    },
+    {
+      "label": "ensureMigrationsTable()",
+      "file_type": "code",
+      "source_file": "backend/db/runMigrations.js",
+      "source_location": "L9",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_db_runmigrations_ensuremigrationstable",
+      "community": 20,
+      "community_name": "runMigrations.js",
+      "norm_label": "ensuremigrationstable()"
+    },
+    {
+      "label": "getApplied()",
+      "file_type": "code",
+      "source_file": "backend/db/runMigrations.js",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_db_runmigrations_getapplied",
+      "community": 20,
+      "community_name": "runMigrations.js",
+      "norm_label": "getapplied()"
+    },
+    {
+      "label": "runMigrations()",
+      "file_type": "code",
+      "source_file": "backend/db/runMigrations.js",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_db_runmigrations_runmigrations",
+      "community": 20,
+      "community_name": "runMigrations.js",
+      "norm_label": "runmigrations()"
     },
     {
       "label": "assertFrequency()",
@@ -1614,18 +1674,6 @@
       "norm_label": "listsubscriptions()"
     },
     {
-      "label": "processDueSubscriptions()",
-      "file_type": "code",
-      "source_file": "backend/src/modules/subscriptions/subscriptions.service.js",
-      "source_location": "L106",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_modules_subscriptions_subscriptions_service_processduesubscriptions",
-      "community": 22,
-      "community_name": "subscriptions.service.js",
-      "norm_label": "processduesubscriptions()"
-    },
-    {
       "label": "updateSubscription()",
       "file_type": "code",
       "source_file": "backend/src/modules/subscriptions/subscriptions.service.js",
@@ -1636,18 +1684,6 @@
       "community": 22,
       "community_name": "subscriptions.service.js",
       "norm_label": "updatesubscription()"
-    },
-    {
-      "label": "runSubscriptionJob()",
-      "file_type": "code",
-      "source_file": "backend/src/server.js",
-      "source_location": "L11",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_server_runsubscriptionjob",
-      "community": 22,
-      "community_name": "subscriptions.service.js",
-      "norm_label": "runsubscriptionjob()"
     },
     {
       "label": "createPromotion()",
@@ -1742,7 +1778,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_myorders_formatprice",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "formatprice()"
     },
     {
@@ -1754,7 +1790,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_myorders_myorders",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "myorders()"
     },
     {
@@ -1766,7 +1802,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_myorders_myorders_handlerepeat",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "handlerepeat()"
     },
     {
@@ -1778,7 +1814,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_myorders_myorders_load",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "load()"
     },
     {
@@ -1790,7 +1826,7 @@
       "_origin": "ast",
       "id": "frontend_src_services_orders_getmyorders",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "getmyorders()"
     },
     {
@@ -1802,8 +1838,44 @@
       "_origin": "ast",
       "id": "frontend_src_services_orders_repeatorder",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "repeatorder()"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L37",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_app_app",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "app()"
+    },
+    {
+      "label": "Page()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L33",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_app_page",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "page()"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Footer.jsx",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_components_footer_footer",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "footer()"
     },
     {
       "label": "Navbar()",
@@ -1814,7 +1886,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_navbar_navbar",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "navbar()"
     },
     {
@@ -1826,7 +1898,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_navbar_navbar_handlelogout",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "handlelogout()"
     },
     {
@@ -1838,7 +1910,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_protectedroute_protectedroute",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "protectedroute()"
     },
     {
@@ -1850,7 +1922,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authprovider",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "authprovider()"
     },
     {
@@ -1862,7 +1934,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_useauth",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "useauth()"
     },
     {
@@ -1874,7 +1946,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_home_home",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "home()"
     },
     {
@@ -1886,7 +1958,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_login_login",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "login()"
     },
     {
@@ -1898,7 +1970,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_login_login_fillcredentials",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "fillcredentials()"
     },
     {
@@ -1910,32 +1982,20 @@
       "_origin": "ast",
       "id": "frontend_src_pages_login_login_handlesubmit",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "handlesubmit()"
     },
     {
-      "label": "formatPrice()",
+      "label": "NotFound()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L6",
+      "source_file": "frontend/src/pages/NotFound.jsx",
+      "source_location": "L3",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_formatprice",
+      "id": "frontend_src_pages_notfound_notfound",
       "community": 3,
-      "community_name": "useAuth",
-      "norm_label": "formatprice()"
-    },
-    {
-      "label": "OrderDetail()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_orderdetail",
-      "community": 3,
-      "community_name": "useAuth",
-      "norm_label": "orderdetail()"
+      "community_name": "App.jsx",
+      "norm_label": "notfound()"
     },
     {
       "label": "Register()",
@@ -1946,7 +2006,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_register_register",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "register()"
     },
     {
@@ -1958,20 +2018,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_register_register_handlesubmit",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "handlesubmit()"
-    },
-    {
-      "label": "getOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_getorder",
-      "community": 3,
-      "community_name": "useAuth",
-      "norm_label": "getorder()"
     },
     {
       "label": "Notifications()",
@@ -2058,40 +2106,16 @@
       "norm_label": "marknotificationread()"
     },
     {
-      "label": "authenticate()",
+      "label": "assertValidEnv()",
       "file_type": "code",
-      "source_file": "backend/src/middlewares/auth.js",
-      "source_location": "L4",
+      "source_file": "backend/src/config/env.js",
+      "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "backend_src_middlewares_auth_authenticate",
+      "id": "backend_src_config_env_assertvalidenv",
       "community": 5,
       "community_name": "auth.routes.js",
-      "norm_label": "authenticate()"
-    },
-    {
-      "label": "errorHandler()",
-      "file_type": "code",
-      "source_file": "backend/src/middlewares/error.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_middlewares_error_errorhandler",
-      "community": 5,
-      "community_name": "auth.routes.js",
-      "norm_label": "errorhandler()"
-    },
-    {
-      "label": "notFoundHandler()",
-      "file_type": "code",
-      "source_file": "backend/src/middlewares/error.js",
-      "source_location": "L4",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "backend_src_middlewares_error_notfoundhandler",
-      "community": 5,
-      "community_name": "auth.routes.js",
-      "norm_label": "notfoundhandler()"
+      "norm_label": "assertvalidenv()"
     },
     {
       "label": "findUserByEmail()",
@@ -2202,6 +2226,30 @@
       "norm_label": "signuser()"
     },
     {
+      "label": "processDueSubscriptions()",
+      "file_type": "code",
+      "source_file": "backend/src/modules/subscriptions/subscriptions.service.js",
+      "source_location": "L106",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_modules_subscriptions_subscriptions_service_processduesubscriptions",
+      "community": 5,
+      "community_name": "auth.routes.js",
+      "norm_label": "processduesubscriptions()"
+    },
+    {
+      "label": "runSubscriptionJob()",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_server_runsubscriptionjob",
+      "community": 5,
+      "community_name": "auth.routes.js",
+      "norm_label": "runsubscriptionjob()"
+    },
+    {
       "label": "signToken()",
       "file_type": "code",
       "source_file": "backend/src/utils/jwt.js",
@@ -2214,16 +2262,64 @@
       "norm_label": "signtoken()"
     },
     {
-      "label": "verifyToken()",
+      "label": "AdminContainers()",
       "file_type": "code",
-      "source_file": "backend/src/utils/jwt.js",
-      "source_location": "L8",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L18",
       "_callable": true,
       "_origin": "ast",
-      "id": "backend_src_utils_jwt_verifytoken",
-      "community": 5,
-      "community_name": "auth.routes.js",
-      "norm_label": "verifytoken()"
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "admincontainers()"
+    },
+    {
+      "label": "handleAdjust()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L45",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleadjust",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handleadjust()"
+    },
+    {
+      "label": "handleRegister()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L35",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handleregister",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handleregister()"
+    },
+    {
+      "label": "handleStatus()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L55",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_handlestatus",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "handlestatus()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_admincontainers_admincontainers_load",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "load()"
     },
     {
       "label": "AdminDashboard()",
@@ -2370,160 +2466,16 @@
       "norm_label": "fmtmoney()"
     },
     {
-      "label": "AdminOrders()",
+      "label": "Containers()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L19",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L11",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders",
+      "id": "frontend_src_pages_containers_containers",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "adminorders()"
-    },
-    {
-      "label": "handleAssign()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L39",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders_handleassign",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handleassign()"
-    },
-    {
-      "label": "handleStatus()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L35",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders_handlestatus",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handlestatus()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L26",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_adminorders_load",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "load()"
-    },
-    {
-      "label": "fmtMoney()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L17",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_fmtmoney",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "fmtmoney()"
-    },
-    {
-      "label": "handleSubmit()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L84",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_checkout_checkout_handlesubmit",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handlesubmit()"
-    },
-    {
-      "label": "DriverOrders()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L16",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "driverorders()"
-    },
-    {
-      "label": "getMapsUrl()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L75",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_getmapsurl",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "getmapsurl()"
-    },
-    {
-      "label": "getWhatsAppUrl()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L80",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_getwhatsappurl",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "getwhatsappurl()"
-    },
-    {
-      "label": "handleConfirmDelivered()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L61",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handleconfirmdelivered()"
-    },
-    {
-      "label": "handleStartDelivery()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L49",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_handlestartdelivery",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handlestartdelivery()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L25",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_driverorders_load",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "load()"
-    },
-    {
-      "label": "fmtMoney()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/DriverOrders.jsx",
-      "source_location": "L14",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_driverorders_fmtmoney",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "fmtmoney()"
+      "norm_label": "containers()"
     },
     {
       "label": ".constructor()",
@@ -2550,6 +2502,78 @@
       "norm_label": "request()"
     },
     {
+      "label": "adjustContainers()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L27",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_adjustcontainers",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "adjustcontainers()"
+    },
+    {
+      "label": "getContainerMovements()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainermovements",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getcontainermovements()"
+    },
+    {
+      "label": "getContainerSummary()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainersummary",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getcontainersummary()"
+    },
+    {
+      "label": "getInventory()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getinventory",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "getinventory()"
+    },
+    {
+      "label": "registerContainers()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L18",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_registercontainers",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "registercontainers()"
+    },
+    {
+      "label": "updateContainerStatus()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L22",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_updatecontainerstatus",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "updatecontainerstatus()"
+    },
+    {
       "label": "getDashboard()",
       "file_type": "code",
       "source_file": "frontend/src/services/dashboard.js",
@@ -2560,54 +2584,6 @@
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "getdashboard()"
-    },
-    {
-      "label": "assignDriver()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L38",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_assigndriver",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "assigndriver()"
-    },
-    {
-      "label": "changeOrderStatus()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L33",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_changeorderstatus",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "changeorderstatus()"
-    },
-    {
-      "label": "createOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_createorder",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "createorder()"
-    },
-    {
-      "label": "getOrdersByStatus()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L18",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_getordersbystatus",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "getordersbystatus()"
     },
     {
       "label": "clearSystemLogs()",
@@ -2694,6 +2670,18 @@
       "norm_label": "getzones()"
     },
     {
+      "label": "authenticate()",
+      "file_type": "code",
+      "source_file": "backend/src/middlewares/auth.js",
+      "source_location": "L4",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_middlewares_auth_authenticate",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "authenticate()"
+    },
+    {
       "label": "authorize()",
       "file_type": "code",
       "source_file": "backend/src/middlewares/auth.js",
@@ -2706,28 +2694,40 @@
       "norm_label": "authorize()"
     },
     {
-      "label": "getDashboard()",
+      "label": "errorHandler()",
       "file_type": "code",
-      "source_file": "backend/src/modules/dashboard/dashboard.service.js",
-      "source_location": "L3",
+      "source_file": "backend/src/middlewares/error.js",
+      "source_location": "L8",
       "_callable": true,
       "_origin": "ast",
-      "id": "backend_src_modules_dashboard_dashboard_service_getdashboard",
+      "id": "backend_src_middlewares_error_errorhandler",
       "community": 7,
       "community_name": "app.js",
-      "norm_label": "getdashboard()"
+      "norm_label": "errorhandler()"
     },
     {
-      "label": "asyncHandler()",
+      "label": "notFoundHandler()",
       "file_type": "code",
-      "source_file": "backend/src/utils/asyncHandler.js",
-      "source_location": "L1",
+      "source_file": "backend/src/middlewares/error.js",
+      "source_location": "L4",
       "_callable": true,
       "_origin": "ast",
-      "id": "backend_src_utils_asynchandler_asynchandler",
+      "id": "backend_src_middlewares_error_notfoundhandler",
       "community": 7,
       "community_name": "app.js",
-      "norm_label": "asynchandler()"
+      "norm_label": "notfoundhandler()"
+    },
+    {
+      "label": "verifyToken()",
+      "file_type": "code",
+      "source_file": "backend/src/utils/jwt.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "backend_src_utils_jwt_verifytoken",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "verifytoken()"
     },
     {
       "label": "CartProvider()",
@@ -2738,7 +2738,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_cartprovider",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "cartprovider()"
     },
     {
@@ -2750,7 +2750,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_loadcart",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "loadcart()"
     },
     {
@@ -2762,7 +2762,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_usecart",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "usecart()"
     },
     {
@@ -2774,7 +2774,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_cart_cart",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "cart()"
     },
     {
@@ -2786,56 +2786,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_cart_formatprice",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "formatprice()"
-    },
-    {
-      "label": "Catalog()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L9",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_catalog_catalog",
-      "community": 73,
-      "community_name": "Catalog.jsx",
-      "norm_label": "catalog()"
-    },
-    {
-      "label": "handleAddToCart()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L25",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_catalog_catalog_handleaddtocart",
-      "community": 73,
-      "community_name": "Catalog.jsx",
-      "norm_label": "handleaddtocart()"
-    },
-    {
-      "label": "fmtMoney()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L7",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_catalog_fmtmoney",
-      "community": 73,
-      "community_name": "Catalog.jsx",
-      "norm_label": "fmtmoney()"
-    },
-    {
-      "label": "getProducts()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_products_getproducts",
-      "community": 73,
-      "community_name": "Catalog.jsx",
-      "norm_label": "getproducts()"
     },
     {
       "label": "AdminZones()",
@@ -2922,52 +2874,136 @@
       "norm_label": "updatezone()"
     },
     {
-      "label": "App()",
+      "label": "formatPrice()",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L37",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_app_app",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "app()"
+      "id": "frontend_src_pages_orderdetail_formatprice",
+      "community": 81,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "formatprice()"
     },
     {
-      "label": "Page()",
+      "label": "OrderDetail()",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_orderdetail",
+      "community": 81,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "orderdetail()"
+    },
+    {
+      "label": "getOrder()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_getorder",
+      "community": 81,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "getorder()"
+    },
+    {
+      "label": "DriverOrders()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L16",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "driverorders()"
+    },
+    {
+      "label": "getMapsUrl()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L75",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_getmapsurl",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "getmapsurl()"
+    },
+    {
+      "label": "getWhatsAppUrl()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L80",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_getwhatsappurl",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "getwhatsappurl()"
+    },
+    {
+      "label": "handleConfirmDelivered()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L61",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_handleconfirmdelivered",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "handleconfirmdelivered()"
+    },
+    {
+      "label": "handleStartDelivery()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L49",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_handlestartdelivery",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "handlestartdelivery()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L25",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_driverorders_load",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "fmtMoney()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/DriverOrders.jsx",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_driverorders_fmtmoney",
+      "community": 9,
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "fmtmoney()"
+    },
+    {
+      "label": "changeOrderStatus()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
       "source_location": "L33",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_app_page",
+      "id": "frontend_src_services_orders_changeorderstatus",
       "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "page()"
-    },
-    {
-      "label": "Footer()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Footer.jsx",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_components_footer_footer",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "footer()"
-    },
-    {
-      "label": "NotFound()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/NotFound.jsx",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_notfound_notfound",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "notfound()"
+      "community_name": "DriverOrders.jsx",
+      "norm_label": "changeorderstatus()"
     },
     {
       "label": "code-review-and-quality/SKILL.md",
@@ -4249,7 +4285,7 @@
       "label": "itemRules",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_itemrules",
       "community": 12,
@@ -4260,7 +4296,7 @@
       "label": "orderRules",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_orderrules",
       "community": 12,
@@ -4411,81 +4447,92 @@
       "norm_label": "promotions.js"
     },
     {
-      "label": "AdminContainers",
+      "label": "AdminOrders",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L27",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "frontend_src_app_admincontainers",
+      "id": "frontend_src_app_adminorders",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "admincontainers"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "adminorders"
     },
     {
-      "label": "Containers",
+      "label": "AdminOrders.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "frontend_src_app_containers",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "containers"
-    },
-    {
-      "label": "AdminContainers.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers",
+      "id": "frontend_src_pages_admin_adminorders",
       "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "admincontainers.jsx"
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "adminorders.jsx"
+    },
+    {
+      "label": "STATUS_FLOW",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminorders_status_flow",
+      "community": 14,
+      "community_name": "AdminOrders.jsx",
+      "norm_label": "status_flow"
     },
     {
       "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
-      "source_location": "L11",
+      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_location": "L6",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_admincontainers_status_labels",
+      "id": "frontend_src_pages_admin_adminorders_status_labels",
       "community": 14,
-      "community_name": "Container Inventory Management",
+      "community_name": "AdminOrders.jsx",
       "norm_label": "status_labels"
     },
     {
-      "label": "Containers.jsx",
+      "label": "ForgotPassword",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L1",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L12",
       "_origin": "ast",
-      "id": "frontend_src_pages_containers",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "containers.jsx"
+      "id": "frontend_src_app_forgotpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "forgotpassword"
     },
     {
-      "label": "TYPE_LABELS",
+      "label": "ResetPassword",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L5",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L13",
       "_origin": "ast",
-      "id": "frontend_src_pages_containers_type_labels",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "type_labels"
+      "id": "frontend_src_app_resetpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "resetpassword"
     },
     {
-      "label": "containers.js",
+      "label": "ForgotPassword.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/pages/ForgotPassword.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_services_containers",
-      "community": 14,
-      "community_name": "Container Inventory Management",
-      "norm_label": "containers.js"
+      "id": "frontend_src_pages_forgotpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "forgotpassword.jsx"
+    },
+    {
+      "label": "ResetPassword.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/ResetPassword.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_resetpassword",
+      "community": 15,
+      "community_name": "services/auth.js",
+      "norm_label": "resetpassword.jsx"
     },
     {
       "label": "services/auth.js",
@@ -4497,39 +4544,6 @@
       "community": 15,
       "community_name": "services/auth.js",
       "norm_label": "services/auth.js"
-    },
-    {
-      "label": "runMigrations.js",
-      "file_type": "code",
-      "source_file": "backend/db/runMigrations.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_db_runmigrations",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "runmigrations.js"
-    },
-    {
-      "label": "__dirname",
-      "file_type": "code",
-      "source_file": "backend/db/runMigrations.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "backend_db_runmigrations_dirname",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "__dirname"
-    },
-    {
-      "label": "MIGRATIONS_DIR",
-      "file_type": "code",
-      "source_file": "backend/db/runMigrations.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "backend_db_runmigrations_migrations_dir",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "migrations_dir"
     },
     {
       "label": "runSeeds.js",
@@ -4596,6 +4610,182 @@
       "community": 16,
       "community_name": "db.js",
       "norm_label": "poolconfig"
+    },
+    {
+      "label": "requireAdmin",
+      "file_type": "code",
+      "source_file": "backend/src/middlewares/auth.js",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "backend_src_middlewares_auth_requireadmin",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "requireadmin"
+    },
+    {
+      "label": "cron.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/cron/cron.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_cron_cron_routes",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "cron.routes.js"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/cron/cron.routes.js",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "backend_src_modules_cron_cron_routes_router",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "dashboard.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_dashboard_dashboard_routes",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "dashboard.routes.js"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "backend_src_modules_dashboard_dashboard_routes_router",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "dashboard.service.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/dashboard/dashboard.service.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_dashboard_dashboard_service",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "dashboard.service.js"
+    },
+    {
+      "label": "health.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/health/health.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_health_health_routes",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "health.routes.js"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/health/health.routes.js",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "backend_src_modules_health_health_routes_router",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "system.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/system/system.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_system_system_routes",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "system.routes.js"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/system/system.routes.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "backend_src_modules_system_system_routes_router",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "users.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/users/users.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_users_users_routes",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "users.routes.js"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/users/users.routes.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_src_modules_users_users_routes_router",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "asyncHandler.js",
+      "file_type": "code",
+      "source_file": "backend/src/utils/asyncHandler.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_utils_asynchandler",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "asynchandler.js"
+    },
+    {
+      "label": "logger.js",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logger.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_utils_logger",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "logger.js"
+    },
+    {
+      "label": "logBuffer",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logger.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "backend_src_utils_logger_logbuffer",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "logbuffer"
+    },
+    {
+      "label": "logger",
+      "file_type": "code",
+      "source_file": "backend/src/utils/logger.js",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "backend_src_utils_logger_logger",
+      "community": 16,
+      "community_name": "db.js",
+      "norm_label": "logger"
     },
     {
       "label": "products.routes.js",
@@ -4686,68 +4876,13 @@
       "norm_label": "products.service.js"
     },
     {
-      "label": "MySubscriptions",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "frontend_src_app_mysubscriptions",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "mysubscriptions"
-    },
-    {
-      "label": "MySubscriptions.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "mysubscriptions.jsx"
-    },
-    {
-      "label": "FREQUENCIES",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_frequencies",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "frequencies"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MySubscriptions.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_pages_mysubscriptions_status_labels",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "status_labels"
-    },
-    {
-      "label": "subscriptions.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/subscriptions.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_subscriptions",
-      "community": 18,
-      "community_name": "Subscription Management",
-      "norm_label": "subscriptions.js"
-    },
-    {
       "label": "addresses.routes.js",
       "file_type": "code",
       "source_file": "backend/src/modules/addresses/addresses.routes.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_routes",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "addresses.routes.js"
     },
@@ -4758,7 +4893,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_routes_addressrules",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "addressrules"
     },
@@ -4769,7 +4904,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_routes_router",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "router"
     },
@@ -4780,141 +4915,9 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_modules_addresses_addresses_service",
-      "community": 19,
+      "community": 18,
       "community_name": "addresses.routes.js",
       "norm_label": "addresses.service.js"
-    },
-    {
-      "label": "users.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/users/users.routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_users_users_routes",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "users.routes.js"
-    },
-    {
-      "label": "ApiError.js",
-      "file_type": "code",
-      "source_file": "backend/src/utils/ApiError.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_utils_apierror",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "apierror.js"
-    },
-    {
-      "label": "logger.js",
-      "file_type": "code",
-      "source_file": "backend/src/utils/logger.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_utils_logger",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "logger.js"
-    },
-    {
-      "label": "logBuffer",
-      "file_type": "code",
-      "source_file": "backend/src/utils/logger.js",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "backend_src_utils_logger_logbuffer",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "logbuffer"
-    },
-    {
-      "label": "logger",
-      "file_type": "code",
-      "source_file": "backend/src/utils/logger.js",
-      "source_location": "L32",
-      "_origin": "ast",
-      "id": "backend_src_utils_logger_logger",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "logger"
-    },
-    {
-      "label": "validate.js",
-      "file_type": "code",
-      "source_file": "backend/src/utils/validate.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_utils_validate",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "validate.js"
-    },
-    {
-      "label": "validators",
-      "file_type": "code",
-      "source_file": "backend/src/utils/validate.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "backend_src_utils_validate_validators",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "validators"
-    },
-    {
-      "label": "validators.test.js",
-      "file_type": "code",
-      "source_file": "backend/test/validators.test.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_test_validators_test",
-      "community": 19,
-      "community_name": "addresses.routes.js",
-      "norm_label": "validators.test.js"
-    },
-    {
-      "label": "AdminProducts",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "frontend_src_app_adminproducts",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "adminproducts"
-    },
-    {
-      "label": "AdminProducts.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "adminproducts.jsx"
-    },
-    {
-      "label": "emptyForm",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminproducts_emptyform",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "emptyform"
-    },
-    {
-      "label": "products.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/products.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_products",
-      "community": 2,
-      "community_name": "AdminProducts.jsx",
-      "norm_label": "products.js"
     },
     {
       "label": "containers.routes.js",
@@ -4923,7 +4926,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_routes",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "containers.routes.js"
     },
@@ -4934,7 +4937,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_routes_router",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "router"
     },
@@ -4945,9 +4948,218 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_modules_containers_containers_service",
-      "community": 20,
+      "community": 19,
       "community_name": "containers.routes.js",
       "norm_label": "containers.service.js"
+    },
+    {
+      "label": "zones.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/zones/zones.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_zones_zones_routes",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "zones.routes.js"
+    },
+    {
+      "label": "ApiError.js",
+      "file_type": "code",
+      "source_file": "backend/src/utils/ApiError.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_utils_apierror",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "apierror.js"
+    },
+    {
+      "label": "validate.js",
+      "file_type": "code",
+      "source_file": "backend/src/utils/validate.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_utils_validate",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "validate.js"
+    },
+    {
+      "label": "validators",
+      "file_type": "code",
+      "source_file": "backend/src/utils/validate.js",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "backend_src_utils_validate_validators",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "validators"
+    },
+    {
+      "label": "validators.test.js",
+      "file_type": "code",
+      "source_file": "backend/test/validators.test.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_test_validators_test",
+      "community": 19,
+      "community_name": "containers.routes.js",
+      "norm_label": "validators.test.js"
+    },
+    {
+      "label": "AdminProducts",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "frontend_src_app_adminproducts",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "adminproducts"
+    },
+    {
+      "label": "Catalog",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_src_app_catalog",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "catalog"
+    },
+    {
+      "label": "MySubscriptions",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "frontend_src_app_mysubscriptions",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "mysubscriptions"
+    },
+    {
+      "label": "AdminProducts.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "adminproducts.jsx"
+    },
+    {
+      "label": "emptyForm",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminProducts.jsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminproducts_emptyform",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "emptyform"
+    },
+    {
+      "label": "Catalog.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_catalog",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "catalog.jsx"
+    },
+    {
+      "label": "MySubscriptions.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "mysubscriptions.jsx"
+    },
+    {
+      "label": "FREQUENCIES",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions_frequencies",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "frequencies"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/MySubscriptions.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_src_pages_mysubscriptions_status_labels",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "status_labels"
+    },
+    {
+      "label": "products.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/products.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_products",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "products.js"
+    },
+    {
+      "label": "subscriptions.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/subscriptions.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_subscriptions",
+      "community": 2,
+      "community_name": "MySubscriptions.jsx",
+      "norm_label": "subscriptions.js"
+    },
+    {
+      "label": "runMigrations.js",
+      "file_type": "code",
+      "source_file": "backend/db/runMigrations.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_db_runmigrations",
+      "community": 20,
+      "community_name": "runMigrations.js",
+      "norm_label": "runmigrations.js"
+    },
+    {
+      "label": "__dirname",
+      "file_type": "code",
+      "source_file": "backend/db/runMigrations.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "backend_db_runmigrations_dirname",
+      "community": 20,
+      "community_name": "runMigrations.js",
+      "norm_label": "__dirname"
+    },
+    {
+      "label": "MIGRATIONS_DIR",
+      "file_type": "code",
+      "source_file": "backend/db/runMigrations.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "backend_db_runmigrations_migrations_dir",
+      "community": 20,
+      "community_name": "runMigrations.js",
+      "norm_label": "migrations_dir"
     },
     {
       "label": "git-workflow-and-versioning/SKILL.md",
@@ -5311,17 +5523,6 @@
       "community": 22,
       "community_name": "subscriptions.service.js",
       "norm_label": "statuses"
-    },
-    {
-      "label": "server.js",
-      "file_type": "code",
-      "source_file": "backend/src/server.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_server",
-      "community": 22,
-      "community_name": "subscriptions.service.js",
-      "norm_label": "server.js"
     },
     {
       "label": "api-and-interface-design/SKILL.md",
@@ -5694,7 +5895,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_myorders",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "myorders"
     },
     {
@@ -5705,7 +5906,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_myorders",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "myorders.jsx"
     },
     {
@@ -5716,8 +5917,19 @@
       "_origin": "ast",
       "id": "frontend_src_pages_myorders_status_labels",
       "community": 26,
-      "community_name": "MyOrders.jsx",
+      "community_name": "orders.js",
       "norm_label": "status_labels"
+    },
+    {
+      "label": "orders.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_orders",
+      "community": 26,
+      "community_name": "orders.js",
+      "norm_label": "orders.js"
     },
     {
       "label": ".oxlintrc.json",
@@ -6083,6 +6295,28 @@
       "norm_label": "writing test plans for complex ui bugs"
     },
     {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_app",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "app.jsx"
+    },
+    {
+      "label": "Checkout",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_src_app_checkout",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "checkout"
+    },
+    {
       "label": "Home",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -6090,7 +6324,7 @@
       "_origin": "ast",
       "id": "frontend_src_app_home",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "home"
     },
     {
@@ -6101,19 +6335,41 @@
       "_origin": "ast",
       "id": "frontend_src_app_login",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "login"
     },
     {
-      "label": "OrderDetail",
+      "label": "NotFound",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L18",
+      "source_location": "L31",
       "_origin": "ast",
-      "id": "frontend_src_app_orderdetail",
+      "id": "frontend_src_app_notfound",
       "community": 3,
-      "community_name": "useAuth",
-      "norm_label": "orderdetail"
+      "community_name": "App.jsx",
+      "norm_label": "notfound"
+    },
+    {
+      "label": "Register",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "frontend_src_app_register",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "register"
+    },
+    {
+      "label": "Footer.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Footer.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_components_footer",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "footer.jsx"
     },
     {
       "label": "Navbar.jsx",
@@ -6123,7 +6379,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_navbar",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "navbar.jsx"
     },
     {
@@ -6134,7 +6390,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_protectedroute",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "protectedroute.jsx"
     },
     {
@@ -6145,7 +6401,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "authcontext.jsx"
     },
     {
@@ -6156,8 +6412,19 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authcontext",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "authcontext"
+    },
+    {
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_main",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "main.jsx"
     },
     {
       "label": "Home.jsx",
@@ -6167,7 +6434,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_home",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "home.jsx"
     },
     {
@@ -6178,30 +6445,41 @@
       "_origin": "ast",
       "id": "frontend_src_pages_login",
       "community": 3,
-      "community_name": "useAuth",
+      "community_name": "App.jsx",
       "norm_label": "login.jsx"
     },
     {
-      "label": "OrderDetail.jsx",
+      "label": "NotFound.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_file": "frontend/src/pages/NotFound.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail",
+      "id": "frontend_src_pages_notfound",
       "community": 3,
-      "community_name": "useAuth",
-      "norm_label": "orderdetail.jsx"
+      "community_name": "App.jsx",
+      "norm_label": "notfound.jsx"
     },
     {
-      "label": "STATUS_LABELS",
+      "label": "Register.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L14",
+      "source_file": "frontend/src/pages/Register.jsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_status_labels",
+      "id": "frontend_src_pages_register",
       "community": 3,
-      "community_name": "useAuth",
-      "norm_label": "status_labels"
+      "community_name": "App.jsx",
+      "norm_label": "register.jsx"
+    },
+    {
+      "label": "react",
+      "file_type": "concept",
+      "source_file": "frontend/.oxlintrc.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "ref_react",
+      "community": 3,
+      "community_name": "App.jsx",
+      "norm_label": "react"
     },
     {
       "label": "vercel.json",
@@ -6745,17 +7023,6 @@
       "norm_label": "env"
     },
     {
-      "label": "error.js",
-      "file_type": "code",
-      "source_file": "backend/src/middlewares/error.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_middlewares_error",
-      "community": 5,
-      "community_name": "auth.routes.js",
-      "norm_label": "error.js"
-    },
-    {
       "label": "auth.routes.js",
       "file_type": "code",
       "source_file": "backend/src/modules/auth/auth.routes.js",
@@ -6789,17 +7056,6 @@
       "norm_label": "registerrules"
     },
     {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/auth/auth.routes.js",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "backend_src_modules_auth_auth_routes_router",
-      "community": 5,
-      "community_name": "auth.routes.js",
-      "norm_label": "router"
-    },
-    {
       "label": "auth.service.js",
       "file_type": "code",
       "source_file": "backend/src/modules/auth/auth.service.js",
@@ -6809,6 +7065,17 @@
       "community": 5,
       "community_name": "auth.routes.js",
       "norm_label": "auth.service.js"
+    },
+    {
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "backend/src/server.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_server",
+      "community": 5,
+      "community_name": "auth.routes.js",
+      "norm_label": "server.js"
     },
     {
       "label": "jwt.js",
@@ -7383,6 +7650,17 @@
       "norm_label": "working with agents"
     },
     {
+      "label": "AdminContainers",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "frontend_src_app_admincontainers",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "admincontainers"
+    },
+    {
       "label": "AdminDashboard",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -7394,15 +7672,37 @@
       "norm_label": "admindashboard"
     },
     {
-      "label": "AdminOrders",
+      "label": "Containers",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L29",
+      "source_location": "L20",
       "_origin": "ast",
-      "id": "frontend_src_app_adminorders",
+      "id": "frontend_src_app_containers",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "adminorders"
+      "norm_label": "containers"
+    },
+    {
+      "label": "AdminContainers.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_admincontainers",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "admincontainers.jsx"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminContainers.jsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_admincontainers_status_labels",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "status_labels"
     },
     {
       "label": "AdminDashboard.jsx",
@@ -7438,37 +7738,26 @@
       "norm_label": "status_labels"
     },
     {
-      "label": "AdminOrders.jsx",
+      "label": "Containers.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
+      "source_file": "frontend/src/pages/Containers.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders",
+      "id": "frontend_src_pages_containers",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "adminorders.jsx"
+      "norm_label": "containers.jsx"
     },
     {
-      "label": "STATUS_FLOW",
+      "label": "TYPE_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L15",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L5",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_status_flow",
+      "id": "frontend_src_pages_containers_type_labels",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
-      "norm_label": "status_flow"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminOrders.jsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminorders_status_labels",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "status_labels"
+      "norm_label": "type_labels"
     },
     {
       "label": "api.js",
@@ -7485,12 +7774,23 @@
       "label": "api",
       "file_type": "code",
       "source_file": "frontend/src/services/api.js",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "frontend_src_services_api_api",
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "api"
+    },
+    {
+      "label": "containers.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_containers",
+      "community": 6,
+      "community_name": "AdminDashboard.jsx",
+      "norm_label": "containers.js"
     },
     {
       "label": "dashboard.js",
@@ -7502,17 +7802,6 @@
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "dashboard.js"
-    },
-    {
-      "label": "orders.js",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_services_orders",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "orders.js"
     },
     {
       "label": "system.js",
@@ -9957,17 +10246,6 @@
       "norm_label": "middlewares/auth.js"
     },
     {
-      "label": "requireAdmin",
-      "file_type": "code",
-      "source_file": "backend/src/middlewares/auth.js",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "backend_src_middlewares_auth_requireadmin",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "requireadmin"
-    },
-    {
       "label": "requireAnyRole",
       "file_type": "code",
       "source_file": "backend/src/middlewares/auth.js",
@@ -9990,78 +10268,23 @@
       "norm_label": "requiredriver"
     },
     {
-      "label": "cron.routes.js",
+      "label": "error.js",
       "file_type": "code",
-      "source_file": "backend/src/modules/cron/cron.routes.js",
+      "source_file": "backend/src/middlewares/error.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "backend_src_modules_cron_cron_routes",
+      "id": "backend_src_middlewares_error",
       "community": 7,
       "community_name": "app.js",
-      "norm_label": "cron.routes.js"
+      "norm_label": "error.js"
     },
     {
       "label": "router",
       "file_type": "code",
-      "source_file": "backend/src/modules/cron/cron.routes.js",
-      "source_location": "L5",
+      "source_file": "backend/src/modules/auth/auth.routes.js",
+      "source_location": "L16",
       "_origin": "ast",
-      "id": "backend_src_modules_cron_cron_routes_router",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "router"
-    },
-    {
-      "label": "dashboard.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_dashboard_dashboard_routes",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "dashboard.routes.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "backend_src_modules_dashboard_dashboard_routes_router",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "router"
-    },
-    {
-      "label": "dashboard.service.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/dashboard/dashboard.service.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_dashboard_dashboard_service",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "dashboard.service.js"
-    },
-    {
-      "label": "health.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/health/health.routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_health_health_routes",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "health.routes.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/health/health.routes.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "backend_src_modules_health_health_routes_router",
+      "id": "backend_src_modules_auth_auth_routes_router",
       "community": 7,
       "community_name": "app.js",
       "norm_label": "router"
@@ -10092,56 +10315,12 @@
       "label": "router",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_router",
       "community": 7,
       "community_name": "app.js",
       "norm_label": "router"
-    },
-    {
-      "label": "system.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/system/system.routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_system_system_routes",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "system.routes.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/system/system.routes.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "backend_src_modules_system_system_routes_router",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "router"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/users/users.routes.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "backend_src_modules_users_users_routes_router",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "router"
-    },
-    {
-      "label": "zones.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/zones/zones.routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_zones_zones_routes",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "zones.routes.js"
     },
     {
       "label": "router",
@@ -10153,17 +10332,6 @@
       "community": 7,
       "community_name": "app.js",
       "norm_label": "router"
-    },
-    {
-      "label": "asyncHandler.js",
-      "file_type": "code",
-      "source_file": "backend/src/utils/asyncHandler.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_utils_asynchandler",
-      "community": 7,
-      "community_name": "app.js",
-      "norm_label": "asynchandler.js"
     },
     {
       "label": "app.test.js",
@@ -10690,19 +10858,8 @@
       "_origin": "ast",
       "id": "frontend_src_app_cart",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "cart"
-    },
-    {
-      "label": "Catalog",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_app_catalog",
-      "community": 73,
-      "community_name": "Catalog.jsx",
-      "norm_label": "catalog"
     },
     {
       "label": "CartContext.jsx",
@@ -10712,7 +10869,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "cartcontext.jsx"
     },
     {
@@ -10723,7 +10880,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_cartcontext_cartcontext",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "cartcontext"
     },
     {
@@ -10734,19 +10891,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_cart",
       "community": 73,
-      "community_name": "Catalog.jsx",
+      "community_name": "CartContext.jsx",
       "norm_label": "cart.jsx"
-    },
-    {
-      "label": "Catalog.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_catalog",
-      "community": 73,
-      "community_name": "Catalog.jsx",
-      "norm_label": "catalog.jsx"
     },
     {
       "label": "refinement-criteria.md",
@@ -11651,26 +11797,37 @@
       "norm_label": "workflow: graphify"
     },
     {
-      "label": "App.jsx",
+      "label": "OrderDetail",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L1",
+      "source_location": "L18",
       "_origin": "ast",
-      "id": "frontend_src_app",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "app.jsx"
+      "id": "frontend_src_app_orderdetail",
+      "community": 81,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "orderdetail"
     },
     {
-      "label": "Checkout",
+      "label": "OrderDetail.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L16",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_app_checkout",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "checkout"
+      "id": "frontend_src_pages_orderdetail",
+      "community": 81,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "orderdetail.jsx"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_status_labels",
+      "community": 81,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "status_labels"
     },
     {
       "label": "DriverOrders",
@@ -11680,74 +11837,8 @@
       "_origin": "ast",
       "id": "frontend_src_app_driverorders",
       "community": 9,
-      "community_name": "App.jsx",
+      "community_name": "DriverOrders.jsx",
       "norm_label": "driverorders"
-    },
-    {
-      "label": "ForgotPassword",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "frontend_src_app_forgotpassword",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "forgotpassword"
-    },
-    {
-      "label": "NotFound",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "frontend_src_app_notfound",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "notfound"
-    },
-    {
-      "label": "Register",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "frontend_src_app_register",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "register"
-    },
-    {
-      "label": "ResetPassword",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "frontend_src_app_resetpassword",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "resetpassword"
-    },
-    {
-      "label": "Footer.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Footer.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_components_footer",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "footer.jsx"
-    },
-    {
-      "label": "main.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/main.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_main",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "main.jsx"
     },
     {
       "label": "DriverOrders.jsx",
@@ -11757,7 +11848,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_driverorders",
       "community": 9,
-      "community_name": "App.jsx",
+      "community_name": "DriverOrders.jsx",
       "norm_label": "driverorders.jsx"
     },
     {
@@ -11768,63 +11859,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_driverorders_status_labels",
       "community": 9,
-      "community_name": "App.jsx",
+      "community_name": "DriverOrders.jsx",
       "norm_label": "status_labels"
-    },
-    {
-      "label": "ForgotPassword.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/ForgotPassword.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_forgotpassword",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "forgotpassword.jsx"
-    },
-    {
-      "label": "NotFound.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/NotFound.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_notfound",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "notfound.jsx"
-    },
-    {
-      "label": "Register.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Register.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_register",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "register.jsx"
-    },
-    {
-      "label": "ResetPassword.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/ResetPassword.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_resetpassword",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "resetpassword.jsx"
-    },
-    {
-      "label": "react",
-      "file_type": "concept",
-      "source_file": "frontend/.oxlintrc.json",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "ref_react",
-      "community": 9,
-      "community_name": "App.jsx",
-      "norm_label": "react"
     },
     {
       "label": "Icon Library",
@@ -13703,8 +13739,20 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L116",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_catalog_catalog",
+      "target": "frontend_src_services_products_getproducts"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L200",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_catalog_catalog",
@@ -13715,24 +13763,12 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L19",
+      "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "frontend_src_pages_catalog_catalog",
-      "target": "frontend_src_services_products_getproducts"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L123",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_pages_checkout_checkout",
-      "target": "frontend_src_pages_checkout_formatprice",
+      "source": "frontend_src_pages_catalog_catalog_handleadd",
+      "target": "frontend_src_pages_catalog_catalog_showtoast",
       "confidence_score": 1.0
     },
     {
@@ -13763,9 +13799,21 @@
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/Checkout.jsx",
+      "source_location": "L280",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_checkout_checkout",
+      "target": "frontend_src_pages_checkout_formatprice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L35",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout",
@@ -13777,7 +13825,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L36",
+      "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout",
@@ -13789,7 +13837,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L47",
+      "source_location": "L76",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout",
@@ -13801,7 +13849,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L66",
+      "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout_handlenewaddress",
@@ -13813,7 +13861,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L89",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout_handlesubmit",
@@ -14616,11 +14664,23 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Catalog.jsx",
-      "source_location": "L25",
+      "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_catalog_catalog",
-      "target": "frontend_src_pages_catalog_catalog_handleaddtocart",
+      "target": "frontend_src_pages_catalog_catalog_handleadd",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_catalog_catalog",
+      "target": "frontend_src_pages_catalog_catalog_getitemincart",
       "confidence_score": 1.0
     },
     {
@@ -14628,7 +14688,19 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L59",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_checkout_checkout",
+      "target": "frontend_src_pages_checkout_checkout_handlequicklogin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/Checkout.jsx",
+      "source_location": "L89",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout",
@@ -16227,7 +16299,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
-      "target": "backend_src_utils_asynchandler_asynchandler",
+      "target": "backend_src_config_db_query",
       "confidence_score": 1.0
     },
     {
@@ -16236,6 +16308,18 @@
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
       "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_modules_orders_orders_routes",
+      "target": "backend_src_utils_asynchandler_asynchandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/orders/orders.routes.js",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16247,7 +16331,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16259,7 +16343,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16271,7 +16355,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16283,7 +16367,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16295,7 +16379,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16307,7 +16391,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16319,7 +16403,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16331,7 +16415,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16343,7 +16427,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16355,7 +16439,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16367,7 +16451,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16379,7 +16463,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16391,7 +16475,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -16403,7 +16487,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -19455,7 +19539,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
-      "target": "backend_src_utils_asynchandler",
+      "target": "backend_src_config_db",
       "confidence_score": 1.0
     },
     {
@@ -19467,7 +19551,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
-      "target": "backend_src_utils_validate",
+      "target": "backend_src_utils_asynchandler",
       "confidence_score": 1.0
     },
     {
@@ -19479,7 +19563,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
-      "target": "backend_src_middlewares_auth",
+      "target": "backend_src_utils_validate",
       "confidence_score": 1.0
     },
     {
@@ -19488,6 +19572,18 @@
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
       "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_modules_orders_orders_routes",
+      "target": "backend_src_middlewares_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/modules/orders/orders.routes.js",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -27009,7 +27105,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -27020,7 +27116,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -27031,7 +27127,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -27042,7 +27138,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
       "source": "backend_src_modules_orders_orders_routes",
@@ -28845,6 +28941,17 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "frontend/src/pages/Catalog.jsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_pages_catalog_catalog",
+      "target": "frontend_src_pages_catalog_catalog_showtoast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Checkout.jsx",
       "source_location": "L16",
       "weight": 1.0,
@@ -28868,22 +28975,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L63",
+      "source_location": "L126",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout",
-      "target": "frontend_src_pages_checkout_checkout_handlenewaddress",
+      "target": "frontend_src_pages_checkout_checkout_handlesubmit",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Checkout.jsx",
-      "source_location": "L84",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_checkout_checkout",
-      "target": "frontend_src_pages_checkout_checkout_handlesubmit",
+      "target": "frontend_src_pages_checkout_checkout_handlenewaddress",
       "confidence_score": 1.0
     },
     {
@@ -29341,7 +29448,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/api.js",
-      "source_location": "L54",
+      "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_api",
@@ -31206,5 +31313,5 @@
       "source_file": "frontend/public/icons.svg"
     }
   ],
-  "built_at_commit": "e8107d0af17abca5207e2d4bb6da4388c33774be"
+  "built_at_commit": "7d032c4748bb0d032f63d0799973702603db8174"
 }
