@@ -1,30 +1,36 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import Navbar from './components/Navbar.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
-import Home from './pages/Home.jsx'
-import Login from './pages/Login.jsx'
-import Register from './pages/Register.jsx'
-import ForgotPassword from './pages/ForgotPassword.jsx'
-import ResetPassword from './pages/ResetPassword.jsx'
-import Catalog from './pages/Catalog.jsx'
-import Cart from './pages/Cart.jsx'
-import Checkout from './pages/Checkout.jsx'
-import MyOrders from './pages/MyOrders.jsx'
-import OrderDetail from './pages/OrderDetail.jsx'
-import MyAddresses from './pages/MyAddresses.jsx'
-import Containers from './pages/Containers.jsx'
-import MySubscriptions from './pages/MySubscriptions.jsx'
-import Promotions from './pages/Promotions.jsx'
-import Notifications from './pages/Notifications.jsx'
-import DriverOrders from './pages/DriverOrders.jsx'
-import AdminProducts from './pages/admin/AdminProducts.jsx'
-import AdminZones from './pages/admin/AdminZones.jsx'
-import AdminContainers from './pages/admin/AdminContainers.jsx'
-import AdminDashboard from './pages/admin/AdminDashboard.jsx'
-import AdminPromotions from './pages/admin/AdminPromotions.jsx'
-import NotFound from './pages/NotFound.jsx'
+
+const Home = lazy(() => import('./pages/Home.jsx'))
+const Login = lazy(() => import('./pages/Login.jsx'))
+const Register = lazy(() => import('./pages/Register.jsx'))
+const ForgotPassword = lazy(() => import('./pages/ForgotPassword.jsx'))
+const ResetPassword = lazy(() => import('./pages/ResetPassword.jsx'))
+const Catalog = lazy(() => import('./pages/Catalog.jsx'))
+const Cart = lazy(() => import('./pages/Cart.jsx'))
+const Checkout = lazy(() => import('./pages/Checkout.jsx'))
+const MyOrders = lazy(() => import('./pages/MyOrders.jsx'))
+const OrderDetail = lazy(() => import('./pages/OrderDetail.jsx'))
+const MyAddresses = lazy(() => import('./pages/MyAddresses.jsx'))
+const Containers = lazy(() => import('./pages/Containers.jsx'))
+const MySubscriptions = lazy(() => import('./pages/MySubscriptions.jsx'))
+const Promotions = lazy(() => import('./pages/Promotions.jsx'))
+const Notifications = lazy(() => import('./pages/Notifications.jsx'))
+const DriverOrders = lazy(() => import('./pages/DriverOrders.jsx'))
+const AdminProducts = lazy(() => import('./pages/admin/AdminProducts.jsx'))
+const AdminZones = lazy(() => import('./pages/admin/AdminZones.jsx'))
+const AdminContainers = lazy(() => import('./pages/admin/AdminContainers.jsx'))
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard.jsx'))
+const AdminPromotions = lazy(() => import('./pages/admin/AdminPromotions.jsx'))
+const NotFound = lazy(() => import('./pages/NotFound.jsx'))
+
+function Page({ children }) {
+  return <Suspense fallback={<div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>Cargando…</div>}>{children}</Suspense>
+}
 
 export default function App() {
   return (
@@ -32,18 +38,18 @@ export default function App() {
       <CartProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/productos" element={<Catalog />} />
-          <Route path="/carrito" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/recuperar-password" element={<ResetPassword />} />
+          <Route path="/" element={<Page><Home /></Page>} />
+          <Route path="/productos" element={<Page><Catalog /></Page>} />
+          <Route path="/carrito" element={<Page><Cart /></Page>} />
+          <Route path="/login" element={<Page><Login /></Page>} />
+          <Route path="/register" element={<Page><Register /></Page>} />
+          <Route path="/forgot-password" element={<Page><ForgotPassword /></Page>} />
+          <Route path="/recuperar-password" element={<Page><ResetPassword /></Page>} />
           <Route
             path="/checkout"
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <Checkout />
+                <Page><Checkout /></Page>
               </ProtectedRoute>
             }
           />
@@ -51,7 +57,7 @@ export default function App() {
             path="/pedidos"
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <MyOrders />
+                <Page><MyOrders /></Page>
               </ProtectedRoute>
             }
           />
@@ -59,7 +65,7 @@ export default function App() {
             path="/pedidos/:id"
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <OrderDetail />
+                <Page><OrderDetail /></Page>
               </ProtectedRoute>
             }
           />
@@ -67,7 +73,7 @@ export default function App() {
             path="/direcciones"
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <MyAddresses />
+                <Page><MyAddresses /></Page>
               </ProtectedRoute>
             }
           />
@@ -75,7 +81,7 @@ export default function App() {
             path="/bidones"
             element={
               <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <Containers />
+                <Page><Containers /></Page>
               </ProtectedRoute>
             }
           />
@@ -83,16 +89,16 @@ export default function App() {
             path="/suscripciones"
             element={
               <ProtectedRoute roles={['CLIENT']}>
-                <MySubscriptions />
+                <Page><MySubscriptions /></Page>
               </ProtectedRoute>
             }
           />
-          <Route path="/promociones" element={<Promotions />} />
+          <Route path="/promociones" element={<Page><Promotions /></Page>} />
           <Route
             path="/notificaciones"
             element={
               <ProtectedRoute roles={['CLIENT', 'DRIVER', 'ADMIN']}>
-                <Notifications />
+                <Page><Notifications /></Page>
               </ProtectedRoute>
             }
           />
@@ -100,7 +106,7 @@ export default function App() {
             path="/repartos"
             element={
               <ProtectedRoute roles={['DRIVER']}>
-                <DriverOrders />
+                <Page><DriverOrders /></Page>
               </ProtectedRoute>
             }
           />
@@ -109,7 +115,7 @@ export default function App() {
             path="/admin/dashboard"
             element={
               <ProtectedRoute roles={['ADMIN']}>
-                <AdminDashboard />
+                <Page><AdminDashboard /></Page>
               </ProtectedRoute>
             }
           />
@@ -117,7 +123,7 @@ export default function App() {
             path="/admin/productos"
             element={
               <ProtectedRoute roles={['ADMIN']}>
-                <AdminProducts />
+                <Page><AdminProducts /></Page>
               </ProtectedRoute>
             }
           />
@@ -125,7 +131,7 @@ export default function App() {
             path="/admin/zonas"
             element={
               <ProtectedRoute roles={['ADMIN']}>
-                <AdminZones />
+                <Page><AdminZones /></Page>
               </ProtectedRoute>
             }
           />
@@ -133,7 +139,7 @@ export default function App() {
             path="/admin/bidones"
             element={
               <ProtectedRoute roles={['ADMIN']}>
-                <AdminContainers />
+                <Page><AdminContainers /></Page>
               </ProtectedRoute>
             }
           />
@@ -141,11 +147,11 @@ export default function App() {
             path="/admin/promociones"
             element={
               <ProtectedRoute roles={['ADMIN']}>
-                <AdminPromotions />
+                <Page><AdminPromotions /></Page>
               </ProtectedRoute>
             }
           />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Page><NotFound /></Page>} />
         </Routes>
       </CartProvider>
     </AuthProvider>
