@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Agua</string>
+    <string name="title_activity_main">Agua</string>
+    <string name="package_name">com.agua.app</string>
+    <string name="custom_url_scheme">com.agua.app</string>
+</resources>

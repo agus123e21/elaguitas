@@ -1,4 +1,4 @@
-import api from './api.js'
+import api, { BASE_URL } from './api.js'
 
 export async function getProducts({ token, includeInactive = false } = {}) {
   const query = includeInactive ? '?all=true' : ''
@@ -34,7 +34,7 @@ export async function deleteProduct(id, token) {
 export async function uploadProductImage(file, token) {
   const form = new FormData()
   form.append('image', file)
-  const response = await fetch(`/api/products/upload-image`, {
+  const response = await fetch(`${BASE_URL}/products/upload-image`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` },
     body: form,

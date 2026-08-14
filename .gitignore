@@ -14,10 +14,19 @@ dist/
 build/
 *.tsbuildinfo
 
-# Supabase / Capacitor
+# Supabase
 supabase/.branches
 supabase/.temp
-android/
+
+# Capacitor (build artifacts, keep the android/ project)
+android/.gradle/
+android/build/
+android/app/build/
+android/app/capacitor.build.gradle
+android/app/src/main/assets/capacitor.config.json
+android/capacitor-cordova-android-plugins/
+android/variables.gradle
+android/.idea/
 ios/
 
 # Editor / OS
