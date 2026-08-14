@@ -1,0 +1,1 @@
+{"nodes": [{"id": "readme_md", "label": "README.md", "file_type": "document", "source_file": "README.md", "rationale": "Main project documentation and architecture overview."}], "edges": [{"source": "readme_md", "target": "vercel_deployment", "relation": "conceptually_related_to", "confidence": "EXTRACTED", "confidence_score": 1.0, "source_file": "README.md"}], "hyperedges": []}

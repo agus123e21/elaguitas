@@ -1,0 +1,1 @@
+{"nodes": [{"id": "github_workflows_deploy_frontend", "label": "Deploy Frontend Workflow", "file_type": "code", "source_file": ".github/workflows/deploy-frontend.yml", "rationale": "GitHub Action for deploying the React frontend to GitHub Pages."}], "edges": [], "hyperedges": []}

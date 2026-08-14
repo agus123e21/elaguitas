@@ -39,3 +39,8 @@ export async function assignDriver(id, driverId, token) {
   const data = await api.post(`/orders/${id}/assign-driver`, { driverId }, { token })
   return data.order
 }
+
+export async function takeOrder(id, token) {
+  const data = await api.post(`/orders/${id}/take`, null, { token })
+  return data.order
+}

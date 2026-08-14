@@ -1,0 +1,1 @@
+{"nodes": [{"id": "agents_skills_source_driven_development_skill", "label": "Source-Driven Development Skill", "file_type": "document", "source_file": ".agents/skills/source-driven-development/SKILL.md", "rationale": "Grounds implementation in official documentation and requires version detection from dependency files."}], "edges": [], "hyperedges": []}
