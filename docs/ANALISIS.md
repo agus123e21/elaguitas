@@ -135,3 +135,9 @@ En cada fase:
 9. Pasar a la siguiente fase.
 
 Nunca modificar funcionalidad existente sin entender cómo está implementada.
+
+## 11. Estado de fases
+
+El progreso de las 20 fases se mantiene en el `README.md` (tabla "Estado del
+proyecto") y el detalle de despliegue en `docs/DEPLOY.md`. Al completar cada
+fase se actualiza ese estado y se commitea con el prefijo `Fase N: ...`.
