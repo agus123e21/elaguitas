@@ -19,20 +19,24 @@ export default function Promotions() {
   }, [])
 
   return (
-    <main style={{ maxWidth: 760, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page">
       <h1>Promociones</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
-      {promotions.length === 0 && !error && <p>No hay promociones activas.</p>}
-      {promotions.map((p) => (
-        <div key={p.id} style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', marginBottom: '1rem' }}>
-          <strong>{p.name}</strong>
-          {p.code && <span style={{ display: 'inline-block', marginLeft: '0.5rem', padding: '0.1rem 0.5rem', background: '#eef4ff', borderRadius: 4, fontSize: '0.8rem' }}>{p.code}</span>}
-          <p style={{ margin: '0.4rem 0', color: '#555' }}>
-            {TYPE_LABELS[p.type] ? TYPE_LABELS[p.type](p) : p.type}
-            {p.min_order_amount ? ` · desde $${p.min_order_amount}` : ''}
-          </p>
-        </div>
-      ))}
-    </main>
+      {error && <p className="alert alert--error">{error}</p>}
+      {promotions.length === 0 && !error && <p className="muted">No hay promociones activas.</p>}
+      <div className="grid grid--cards">
+        {promotions.map((p) => (
+          <div key={p.id} className="card">
+            <div className="card__title">
+              <strong>{p.name}</strong>
+              {p.code && <span className="badge badge--success">{p.code}</span>}
+            </div>
+            <p className="muted">
+              {TYPE_LABELS[p.type] ? TYPE_LABELS[p.type](p) : p.type}
+              {p.min_order_amount ? ` · desde $${p.min_order_amount}` : ''}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }

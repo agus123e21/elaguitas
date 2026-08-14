@@ -16,25 +16,46 @@ export default function Home() {
   }, [])
 
   return (
-    <main style={{ maxWidth: 640, margin: '4rem auto', padding: '0 1rem', fontFamily: 'sans-serif' }}>
-      <h1>Agua</h1>
-      <p>Plataforma de venta y reparto de agua en bidones.</p>
-
-      {user ? (
+    <div className="page">
+      <section className="hero">
+        <h1>Agua</h1>
         <p>
-          Hola, {user.name} ({user.role}).{' '}
-          {user.role === 'CLIENT' && <Link to="/cliente">Ir a mi área</Link>}
+          Plataforma de venta y reparto de agua en bidones. Pedí online y coordiná la entrega a
+          domicilio.
         </p>
-      ) : (
-        <p>
-          <Link to="/login">Ingresá</Link> o <Link to="/register">creá una cuenta</Link>
-        </p>
-      )}
+        {user ? (
+          <p>
+            Hola, {user.name} <span className="navbar__role">{user.role}</span>
+          </p>
+        ) : (
+          <p>
+            <Link className="btn btn-primary" to="/login">Ingresá</Link>{' '}
+            <Link className="btn btn-outline" to="/register">Creá una cuenta</Link>
+          </p>
+        )}
+      </section>
 
-      <section style={{ marginTop: '2rem', padding: '1rem', border: '1px solid #ccc', borderRadius: 8 }}>
-        <h2>Estado del sistema</h2>
-        {error && <p style={{ color: '#c0392b' }}>Error de conexión con el backend: {error}</p>}
-        {!error && !health && <p>Consultando API…</p>}
+      <div className="grid grid--cards">
+        <Link className="card" to="/productos">
+          <h3>Productos</h3>
+          <p className="muted">Bidones y packs disponibles para entrega a domicilio.</p>
+        </Link>
+        <Link className="card" to="/promociones">
+          <h3>Promociones</h3>
+          <p className="muted">Descuentos, packs y envío gratis por tiempo limitado.</p>
+        </Link>
+        {user && (
+          <Link className="card" to={user.role === 'CLIENT' ? '/cliente' : user.role === 'DRIVER' ? '/repartidor' : '/admin'}>
+            <h3>Mi área</h3>
+            <p className="muted">Pedidos, direcciones, suscripciones y más.</p>
+          </Link>
+        )}
+      </div>
+
+      <section className="card">
+        <h2 className="card__title">Estado del sistema</h2>
+        {error && <p className="alert alert--error">Error de conexión con el backend: {error}</p>}
+        {!error && !health && <p className="muted">Consultando API…</p>}
         {health && (
           <ul>
             <li>API: <strong>{health.status}</strong></li>
@@ -43,6 +64,6 @@ export default function Home() {
           </ul>
         )}
       </section>
-    </main>
+    </div>
   )
 }

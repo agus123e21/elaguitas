@@ -11,7 +11,7 @@ const STATUS_LABELS = {
 }
 
 function BarChart({ data }) {
-  if (!data || data.length === 0) return <p>Sin datos aún</p>
+  if (!data || data.length === 0) return <p className="muted">Sin datos aún</p>
   const max = Math.max(...data.map((d) => d.orders))
   return (
     <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 140, paddingTop: 8 }}>
@@ -21,11 +21,11 @@ function BarChart({ data }) {
             style={{
               height: `${(d.orders / max) * 100}%`,
               minHeight: 4,
-              background: '#1a73e8',
+              background: 'var(--primary)',
               borderRadius: '4px 4px 0 0',
             }}
           />
-          <div style={{ fontSize: 10, marginTop: 4 }}>{d.day.slice(5)}</div>
+          <div className="muted" style={{ fontSize: 10, marginTop: 4 }}>{d.day.slice(5)}</div>
         </div>
       ))}
     </div>
@@ -41,8 +41,8 @@ export default function AdminDashboard() {
     getDashboard(token).then(setData).catch((e) => setError(e.message))
   }, [token])
 
-  if (error) return <main style={{ padding: '1rem', fontFamily: 'sans-serif' }}>{error}</main>
-  if (!data) return <main style={{ padding: '1rem', fontFamily: 'sans-serif' }}>Cargando…</main>
+  if (error) return <div className="page"><p className="alert alert--error">{error}</p></div>
+  if (!data) return <div className="page"><p className="muted">Cargando…</p></div>
 
   const cards = [
     { label: 'Pedidos hoy', value: data.cards.ordersToday },
@@ -56,32 +56,32 @@ export default function AdminDashboard() {
   ]
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 1100 }}>
       <h1>Panel de control</h1>
 
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+      <div className="grid grid--stats">
         {cards.map((c) => (
-          <div key={c.label} style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.6rem', fontWeight: 700 }}>{c.value}</div>
-            <div style={{ color: '#555', fontSize: '0.85rem' }}>{c.label}</div>
+          <div key={c.label} className="card kpi">
+            <div className="kpi__value">{c.value}</div>
+            <div className="kpi__label">{c.label}</div>
           </div>
         ))}
-      </section>
+      </div>
 
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '1rem' }}>
-        <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem' }}>
-          <h2 style={{ fontSize: '1rem', marginTop: 0 }}>Ventas últimos 14 días</h2>
+      <div className="grid grid--halves">
+        <div className="card">
+          <h2 className="card__title">Ventas últimos 14 días</h2>
           <BarChart data={data.salesPerDay} />
         </div>
 
-        <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem' }}>
-          <h2 style={{ fontSize: '1rem', marginTop: 0 }}>Productos más vendidos</h2>
+        <div className="card">
+          <h2 className="card__title">Productos más vendidos</h2>
           {data.topProducts.length === 0 ? (
-            <p>Sin datos aún</p>
+            <p className="muted">Sin datos aún</p>
           ) : (
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {data.topProducts.map((p) => (
-                <li key={p.name} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #eee' }}>
+                <li key={p.name} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid var(--border)' }}>
                   <span>{p.name}</span>
                   <span>
                     {p.quantity} u · {fmtMoney(p.revenue)}
@@ -92,14 +92,14 @@ export default function AdminDashboard() {
           )}
         </div>
 
-        <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem' }}>
-          <h2 style={{ fontSize: '1rem', marginTop: 0 }}>Clientes frecuentes</h2>
+        <div className="card">
+          <h2 className="card__title">Clientes frecuentes</h2>
           {data.topCustomers.length === 0 ? (
-            <p>Sin datos aún</p>
+            <p className="muted">Sin datos aún</p>
           ) : (
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {data.topCustomers.map((c) => (
-                <li key={c.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #eee' }}>
+                <li key={c.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid var(--border)' }}>
                   <span>{c.name}</span>
                   <span>
                     {c.orders} pedidos · {fmtMoney(c.spent)}
@@ -110,14 +110,14 @@ export default function AdminDashboard() {
           )}
         </div>
 
-        <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem' }}>
-          <h2 style={{ fontSize: '1rem', marginTop: 0 }}>Pedidos por estado</h2>
+        <div className="card">
+          <h2 className="card__title">Pedidos por estado</h2>
           {data.ordersByStatus.length === 0 ? (
-            <p>Sin datos aún</p>
+            <p className="muted">Sin datos aún</p>
           ) : (
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {data.ordersByStatus.map((s) => (
-                <li key={s.status} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #eee' }}>
+                <li key={s.status} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid var(--border)' }}>
                   <span>{STATUS_LABELS[s.status] || s.status}</span>
                   <span>{s.count}</span>
                 </li>
@@ -126,22 +126,22 @@ export default function AdminDashboard() {
           )}
         </div>
 
-        <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem' }}>
-          <h2 style={{ fontSize: '1rem', marginTop: 0 }}>Productos con poco stock</h2>
+        <div className="card">
+          <h2 className="card__title">Productos con poco stock</h2>
           {data.lowStock.length === 0 ? (
-            <p style={{ color: '#27ae60' }}>Stock en buen estado</p>
+            <p className="text-success">Stock en buen estado</p>
           ) : (
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {data.lowStock.map((p) => (
-                <li key={p.name} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid #eee' }}>
+                <li key={p.name} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.4rem 0', borderBottom: '1px solid var(--border)' }}>
                   <span>{p.name}</span>
-                  <span style={{ color: '#c0392b', fontWeight: 700 }}>{p.stock}</span>
+                  <span className="text-danger" style={{ fontWeight: 700 }}>{p.stock}</span>
                 </li>
               ))}
             </ul>
           )}
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   )
 }

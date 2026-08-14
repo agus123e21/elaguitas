@@ -14,45 +14,41 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <main style={{ maxWidth: 640, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+      <div className="page" style={{ maxWidth: 640 }}>
         <h1>Tu carrito está vacío</h1>
-        <Link to="/productos">Ver productos</Link>
-      </main>
+        <Link className="btn btn-primary" to="/productos">Ver productos</Link>
+      </div>
     )
   }
 
   return (
-    <main style={{ maxWidth: 640, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 640 }}>
       <h1>Carrito</h1>
       {items.map((item) => (
         <div
           key={item.productId}
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            borderBottom: '1px solid #eee',
-            padding: '0.5rem 0',
-          }}
+          className="card card--flat"
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}
         >
           <div>
             <strong>{item.name}</strong>
-            <div style={{ color: '#555', fontSize: '0.9rem' }}>{formatPrice(item.price)} c/u</div>
+            <div className="muted text-sm">{formatPrice(item.price)} c/u</div>
           </div>
-          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-            <button onClick={() => updateQuantity(item.productId, item.quantity - 1)}>-</button>
+          <div className="form-inline" style={{ justifyContent: 'flex-end' }}>
+            <button className="btn btn-ghost btn-sm" onClick={() => updateQuantity(item.productId, item.quantity - 1)}>-</button>
             <span>{item.quantity}</span>
-            <button onClick={() => updateQuantity(item.productId, item.quantity + 1)}>+</button>
-            <button onClick={() => removeItem(item.productId)}>Quitar</button>
+            <button className="btn btn-ghost btn-sm" onClick={() => updateQuantity(item.productId, item.quantity + 1)}>+</button>
+            <button className="btn btn-danger btn-sm" onClick={() => removeItem(item.productId)}>Quitar</button>
           </div>
         </div>
       ))}
-      <p style={{ fontWeight: 700, marginTop: '1rem' }}>
-        Subtotal: {formatPrice(subtotal)}
-      </p>
-      <Link to="/checkout" style={{ display: 'inline-block', marginTop: '0.5rem' }}>
-        Continuar compra
-      </Link>
-    </main>
+      <div
+        className="card"
+        style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}
+      >
+        <strong>Subtotal: {formatPrice(subtotal)}</strong>
+        <Link className="btn btn-primary" to="/checkout">Continuar compra</Link>
+      </div>
+    </div>
   )
 }

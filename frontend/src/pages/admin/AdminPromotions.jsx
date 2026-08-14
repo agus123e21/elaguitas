@@ -87,20 +87,18 @@ export default function AdminPromotions() {
     updatePromotion(p.id, { active: !p.active }, token).then(load).catch((err) => setError(err.message))
   }
 
-  const inputStyle = { padding: '0.4rem', border: '1px solid #ccc', borderRadius: 4 }
-
   return (
-    <main style={{ maxWidth: 900, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 900 }}>
       <h1>Promociones</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      <form onSubmit={handleSubmit} style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', marginBottom: '1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '0.5rem' }}>
-        <h2 style={{ fontSize: '1rem', gridColumn: '1 / -1', margin: 0 }}>
+      <form onSubmit={handleSubmit} className="form card" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))' }}>
+        <h2 className="card__title" style={{ gridColumn: '1 / -1' }}>
           {editingId ? `Editar promoción #${editingId}` : 'Nueva promoción'}
         </h2>
-        <input required placeholder="Nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={inputStyle} />
-        <input placeholder="Código" value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value })} style={inputStyle} />
-        <select value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} style={inputStyle}>
+        <input className="input" required placeholder="Nombre" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+        <input className="input" placeholder="Código" value={form.code} onChange={(e) => setForm({ ...form, code: e.target.value })} />
+        <select className="select" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
           {TYPES.map((t) => (
             <option key={t} value={t}>
               {TYPE_LABELS[t]}
@@ -108,54 +106,58 @@ export default function AdminPromotions() {
           ))}
         </select>
         {form.type !== 'FREE_SHIPPING' && (
-          <input placeholder="Valor (% o $)" type="number" step="any" value={form.value} onChange={(e) => setForm({ ...form, value: e.target.value })} style={inputStyle} />
+          <input className="input" placeholder="Valor (% o $)" type="number" step="any" value={form.value} onChange={(e) => setForm({ ...form, value: e.target.value })} />
         )}
         {form.type === 'PACK' && (
-          <input placeholder="Unidades del pack" type="number" value={form.packQuantity} onChange={(e) => setForm({ ...form, packQuantity: e.target.value })} style={inputStyle} />
+          <input className="input" placeholder="Unidades del pack" type="number" value={form.packQuantity} onChange={(e) => setForm({ ...form, packQuantity: e.target.value })} />
         )}
-        <input placeholder="Cant. mínima" type="number" value={form.minQuantity} onChange={(e) => setForm({ ...form, minQuantity: e.target.value })} style={inputStyle} />
-        <input placeholder="Monto mínimo" type="number" step="any" value={form.minOrderAmount} onChange={(e) => setForm({ ...form, minOrderAmount: e.target.value })} style={inputStyle} />
-        <input placeholder="Vence (aaaa-mm-dd)" type="date" value={form.endsAt} onChange={(e) => setForm({ ...form, endsAt: e.target.value })} style={inputStyle} />
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+        <input className="input" placeholder="Cant. mínima" type="number" value={form.minQuantity} onChange={(e) => setForm({ ...form, minQuantity: e.target.value })} />
+        <input className="input" placeholder="Monto mínimo" type="number" step="any" value={form.minOrderAmount} onChange={(e) => setForm({ ...form, minOrderAmount: e.target.value })} />
+        <input className="input" placeholder="Vence (aaaa-mm-dd)" type="date" value={form.endsAt} onChange={(e) => setForm({ ...form, endsAt: e.target.value })} />
+        <label className="checkbox">
           <input type="checkbox" checked={form.active} onChange={(e) => setForm({ ...form, active: e.target.checked })} />
           Activa
         </label>
-        <button type="submit">{editingId ? 'Guardar cambios' : 'Crear'}</button>
+        <button className="btn btn-primary btn-sm" type="submit">{editingId ? 'Guardar cambios' : 'Crear'}</button>
         {editingId && (
-          <button type="button" onClick={() => { setEditingId(null); setForm(empty) }}>
+          <button className="btn btn-ghost btn-sm" type="button" onClick={() => { setEditingId(null); setForm(empty) }}>
             Cancelar
           </button>
         )}
       </form>
 
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ textAlign: 'left', borderBottom: '2px solid #ddd' }}>
-            <th>Nombre</th>
-            <th>Código</th>
-            <th>Tipo</th>
-            <th>Valor</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {promotions.map((p) => (
-            <tr key={p.id} style={{ borderBottom: '1px solid #eee' }}>
-              <td>{p.name}</td>
-              <td>{p.code || '-'}</td>
-              <td>{TYPE_LABELS[p.type] || p.type}</td>
-              <td>{p.value ?? '-'}</td>
-              <td>{p.active ? 'Activa' : 'Inactiva'}</td>
-              <td>
-                <button onClick={() => handleEdit(p)}>Editar</button>{' '}
-                <button onClick={() => handleToggleActive(p)}>{p.active ? 'Desactivar' : 'Activar'}</button>{' '}
-                <button onClick={() => handleDelete(p.id)}>Eliminar</button>
-              </td>
+      <div className="table-wrap card">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Código</th>
+              <th>Tipo</th>
+              <th>Valor</th>
+              <th>Estado</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+          </thead>
+          <tbody>
+            {promotions.map((p) => (
+              <tr key={p.id}>
+                <td>{p.name}</td>
+                <td>{p.code || '-'}</td>
+                <td>{TYPE_LABELS[p.type] || p.type}</td>
+                <td>{p.value ?? '-'}</td>
+                <td><span className={`badge ${p.active ? 'badge--success' : 'badge--inactive'}`}>{p.active ? 'Activa' : 'Inactiva'}</span></td>
+                <td>
+                  <div className="form-inline">
+                    <button className="btn btn-outline btn-sm" onClick={() => handleEdit(p)}>Editar</button>
+                    <button className="btn btn-ghost btn-sm" onClick={() => handleToggleActive(p)}>{p.active ? 'Desactivar' : 'Activar'}</button>
+                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(p.id)}>Eliminar</button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }

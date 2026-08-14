@@ -23,40 +23,40 @@ export default function Login() {
   }
 
   return (
-    <main style={pageStyle}>
+    <div className="page" style={{ maxWidth: 420 }}>
       <h1>Ingresar</h1>
-      {error && <p style={errorStyle}>{error}</p>}
-      <form onSubmit={handleSubmit} style={formStyle}>
-        <label>
-          Email
+      {error && <p className="alert alert--error">{error}</p>}
+      <form className="form card" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="form-label" htmlFor="email">Email</label>
           <input
+            className="input"
+            id="email"
             type="email"
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
-        </label>
-        <label>
-          Contraseña
+        </div>
+        <div className="form-group">
+          <label className="form-label" htmlFor="password">Contraseña</label>
           <input
+            className="input"
+            id="password"
             type="password"
             required
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
-        </label>
-        <button type="submit">Ingresar</button>
+        </div>
+        <button className="btn btn-primary btn-block" type="submit">Ingresar</button>
       </form>
-      <p>
+      <p className="muted">
         <Link to="/forgot-password">¿Olvidaste tu contraseña?</Link>
       </p>
-      <p>
+      <p className="muted">
         ¿No tenés cuenta? <Link to="/register">Registrate</Link>
       </p>
-    </main>
+    </div>
   )
 }
-
-const pageStyle = { maxWidth: 400, margin: '3rem auto', padding: '0 1rem', fontFamily: 'sans-serif' }
-const formStyle = { display: 'flex', flexDirection: 'column', gap: '1rem' }
-const errorStyle = { color: '#c0392b' }

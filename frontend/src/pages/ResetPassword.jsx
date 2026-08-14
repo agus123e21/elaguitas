@@ -24,34 +24,38 @@ export default function ResetPassword() {
 
   if (!token) {
     return (
-      <main style={pageStyle}>
-        <p>Enlace inválido. <Link to="/forgot-password">Solicitá uno nuevo</Link></p>
-      </main>
+      <div className="page" style={{ maxWidth: 420 }}>
+        <p className="muted">
+          Enlace inválido. <Link to="/forgot-password">Solicitá uno nuevo</Link>
+        </p>
+      </div>
     )
   }
 
   return (
-    <main style={pageStyle}>
+    <div className="page" style={{ maxWidth: 420 }}>
       <h1>Nueva contraseña</h1>
-      {error && <p style={errorStyle}>{error}</p>}
-      {done && <p>Contraseña actualizada. {<Link to="/login">Ingresá</Link>}</p>}
-      <form onSubmit={handleSubmit} style={formStyle}>
-        <label>
-          Nueva contraseña (mínimo 6 caracteres)
+      {error && <p className="alert alert--error">{error}</p>}
+      {done && (
+        <p className="text-success">
+          Contraseña actualizada. <Link to="/login">Ingresá</Link>
+        </p>
+      )}
+      <form className="form card" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="form-label" htmlFor="password">Nueva contraseña (mínimo 6 caracteres)</label>
           <input
+            className="input"
+            id="password"
             type="password"
             required
             minLength={6}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-        </label>
-        <button type="submit">Actualizar contraseña</button>
+        </div>
+        <button className="btn btn-primary btn-block" type="submit">Actualizar contraseña</button>
       </form>
-    </main>
+    </div>
   )
 }
-
-const pageStyle = { maxWidth: 400, margin: '3rem auto', padding: '0 1rem', fontFamily: 'sans-serif' }
-const formStyle = { display: 'flex', flexDirection: 'column', gap: '1rem' }
-const errorStyle = { color: '#c0392b' }

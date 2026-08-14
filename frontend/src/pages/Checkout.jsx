@@ -109,108 +109,121 @@ export default function Checkout() {
   const fee = preview?.deliveryFee ?? (addr ? Number(addr.zone_price) : 0)
 
   return (
-    <main style={{ maxWidth: 720, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 720 }}>
       <h1>Confirmar pedido</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      {items.map((item) => (
-        <div key={item.productId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #eee', padding: '0.4rem 0' }}>
-          <span>
-            {item.quantity} x {item.name}
-          </span>
-          <span>{formatPrice(item.price * item.quantity)}</span>
-        </div>
-      ))}
-
-      <h2 style={{ fontSize: '1.1rem' }}>Dirección de entrega</h2>
-      {addresses.length === 0 && !showNewAddress && (
-        <p>No tenés direcciones cargadas.</p>
-      )}
-      <div style={{ display: 'grid', gap: '0.5rem' }}>
-        {addresses.map((a) => (
-          <label key={a.id} style={{ border: '1px solid #ddd', borderRadius: 6, padding: '0.5rem' }}>
-            <input
-              type="radio"
-              name="address"
-              checked={Number(a.id) === Number(addressId)}
-              onChange={() => setAddressId(Number(a.id))}
-            />
-            <strong>{a.label}</strong> — {a.street}, {a.city} ({a.zone_name}: {formatPrice(a.zone_price)})
-          </label>
+      <section className="card">
+        <h2 className="card__title">Productos</h2>
+        {items.map((item) => (
+          <div key={item.productId} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', padding: '0.4rem 0' }}>
+            <span>
+              {item.quantity} x {item.name}
+            </span>
+            <span>{formatPrice(item.price * item.quantity)}</span>
+          </div>
         ))}
-      </div>
-      <button onClick={() => setShowNewAddress((v) => !v)}>
-        {showNewAddress ? 'Cancelar' : 'Agregar dirección'}
-      </button>
-      {showNewAddress && (
-        <form onSubmit={handleNewAddress} style={{ display: 'grid', gap: '0.4rem', marginTop: '0.5rem' }}>
-          <input placeholder="Etiqueta (Casa, Trabajo)" value={newAddress.label} onChange={(e) => setNewAddress({ ...newAddress, label: e.target.value })} />
-          <input placeholder="Calle y número *" required value={newAddress.street} onChange={(e) => setNewAddress({ ...newAddress, street: e.target.value })} />
-          <input placeholder="Ciudad" value={newAddress.city} onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })} />
-          <select value={newAddress.deliveryZoneId} onChange={(e) => setNewAddress({ ...newAddress, deliveryZoneId: e.target.value })}>
-            <option value="">Zona (seleccionar)</option>
-            {zones.map((z) => (
-              <option key={z.id} value={z.id}>
-                {z.name} — {formatPrice(z.price)}
-              </option>
-            ))}
-          </select>
-          <button type="submit">Guardar dirección</button>
-        </form>
-      )}
+      </section>
 
-      <h2 style={{ fontSize: '1.1rem' }}>Bidones</h2>
-      <div style={{ display: 'flex', gap: '1rem' }}>
-        <label>
-          Bidones a entregar
-          <input
-            type="number"
-            min="0"
-            value={containersDelivered}
-            onChange={(e) => setContainersDelivered(Number(e.target.value))}
-          />
-        </label>
-        <label>
-          Bidones a retirar
-          <input
-            type="number"
-            min="0"
-            value={containersReturned}
-            onChange={(e) => setContainersReturned(Number(e.target.value))}
-          />
-        </label>
-      </div>
+      <section className="card">
+        <h2 className="card__title">Dirección de entrega</h2>
+        {addresses.length === 0 && !showNewAddress && <p className="muted">No tenés direcciones cargadas.</p>}
+        <div className="grid">
+          {addresses.map((a) => (
+            <label key={a.id} className="card card--flat" style={{ display: 'flex', gap: '0.6rem', alignItems: 'flex-start' }}>
+              <input
+                type="radio"
+                name="address"
+                checked={Number(a.id) === Number(addressId)}
+                onChange={() => setAddressId(Number(a.id))}
+              />
+              <span>
+                <strong>{a.label}</strong> — {a.street}, {a.city} <span className="muted">({a.zone_name}: {formatPrice(a.zone_price)})</span>
+              </span>
+            </label>
+          ))}
+        </div>
+        <button className="btn btn-outline btn-sm mt-1" onClick={() => setShowNewAddress((v) => !v)}>
+          {showNewAddress ? 'Cancelar' : 'Agregar dirección'}
+        </button>
+        {showNewAddress && (
+          <form onSubmit={handleNewAddress} className="form mt-1">
+            <input className="input" placeholder="Etiqueta (Casa, Trabajo)" value={newAddress.label} onChange={(e) => setNewAddress({ ...newAddress, label: e.target.value })} />
+            <input className="input" placeholder="Calle y número *" required value={newAddress.street} onChange={(e) => setNewAddress({ ...newAddress, street: e.target.value })} />
+            <input className="input" placeholder="Ciudad" value={newAddress.city} onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })} />
+            <select className="select" value={newAddress.deliveryZoneId} onChange={(e) => setNewAddress({ ...newAddress, deliveryZoneId: e.target.value })}>
+              <option value="">Zona (seleccionar)</option>
+              {zones.map((z) => (
+                <option key={z.id} value={z.id}>
+                  {z.name} — {formatPrice(z.price)}
+                </option>
+              ))}
+            </select>
+            <button className="btn btn-primary btn-sm" type="submit">Guardar dirección</button>
+          </form>
+        )}
+      </section>
 
-      <h2 style={{ fontSize: '1.1rem' }}>Pago</h2>
-      <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
-        <option value="CASH">Efectivo</option>
-        <option value="CARD">Tarjeta</option>
-        <option value="TRANSFER">Transferencia</option>
-      </select>
+      <section className="card">
+        <h2 className="card__title">Bidones</h2>
+        <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))' }}>
+          <div className="form-group">
+            <label className="form-label">Bidones a entregar</label>
+            <input
+              className="input"
+              type="number"
+              min="0"
+              value={containersDelivered}
+              onChange={(e) => setContainersDelivered(Number(e.target.value))}
+            />
+          </div>
+          <div className="form-group">
+            <label className="form-label">Bidones a retirar</label>
+            <input
+              className="input"
+              type="number"
+              min="0"
+              value={containersReturned}
+              onChange={(e) => setContainersReturned(Number(e.target.value))}
+            />
+          </div>
+        </div>
+      </section>
 
-      <h2 style={{ fontSize: '1.1rem' }}>Promoción</h2>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
-        <input placeholder="Código (ej: AGUA2026)" value={promotionCode} onChange={(e) => setPromotionCode(e.target.value)} />
-        {preview?.promotion && <span style={{ color: '#2e7d32' }}>{preview.promotion.name}</span>}
-      </div>
+      <section className="card">
+        <h2 className="card__title">Pago</h2>
+        <select className="select" value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)}>
+          <option value="CASH">Efectivo</option>
+          <option value="CARD">Tarjeta</option>
+          <option value="TRANSFER">Transferencia</option>
+        </select>
+      </section>
 
-      <div style={{ marginTop: '1rem', borderTop: '1px solid #ddd', paddingTop: '0.5rem' }}>
+      <section className="card">
+        <h2 className="card__title">Promoción</h2>
+        <div className="form-inline">
+          <input className="input" style={{ flex: 1, minWidth: 180 }} placeholder="Código (ej: AGUA2026)" value={promotionCode} onChange={(e) => setPromotionCode(e.target.value)} />
+          {preview?.promotion && <span className="badge badge--success">{preview.promotion.name}</span>}
+        </div>
+      </section>
+
+      <div className="card">
         <p>Subtotal: {formatPrice(subtotal)}</p>
         <p>Envío: {formatPrice(fee)}</p>
         {preview && Number(preview.discount) > 0 && (
-          <p>Descuento: -{formatPrice(preview.discount)}</p>
+          <p className="text-success">Descuento: -{formatPrice(preview.discount)}</p>
         )}
         <p style={{ fontWeight: 700 }}>Total: {formatPrice(preview ? preview.total : subtotal + fee)}</p>
       </div>
 
       <form onSubmit={handleSubmit}>
-        <button type="submit" disabled={submitting || !addressId}>
+        <button className="btn btn-primary btn-block" type="submit" disabled={submitting || !addressId}>
           {submitting ? 'Creando pedido…' : 'Confirmar pedido'}
         </button>
       </form>
-      <p>
+      <p className="muted mt-1">
         <Link to="/carrito">Volver al carrito</Link>
       </p>
-    </main>
+    </div>
   )
 }

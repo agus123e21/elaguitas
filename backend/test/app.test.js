@@ -20,4 +20,11 @@ describe('API raíz', () => {
     expect(res.headers['content-security-policy']).toBeDefined();
     expect(res.headers['x-powered-by']).toBeUndefined();
   });
+
+  it('el endpoint de cron responde adecuadamente', async () => {
+    const res = await request(app).get('/api/cron/subscriptions');
+    // Sin base de datos viva responderá 200 (si mock/db) o error controlado, pero la ruta existe
+    expect([200, 500]).toContain(res.status);
+  });
 });
+

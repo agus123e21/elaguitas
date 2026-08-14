@@ -1,0 +1,24 @@
+ACTUALIZACION: Act_1_2v_Vercel_Monorepo
+FECHA: 2026-08-14
+BRANCH: Arian
+
+QUE SE HIZO:
+1. Reorganización a Monorepo con NPM Workspaces:
+   - Se creó package.json en la raíz con workspaces: ["backend", "frontend"].
+   - Comandos unificados: npm run dev (inicia ambos con concurrently), npm run build, npm test, npm run db:setup.
+2. Adaptación para Despliegue Fullstack en Vercel:
+   - Se creó api/index.js como Serverless Function entry point para la API Express.
+   - Se creó vercel.json con rewrites para frontend SPA (React Router) y API REST (/api/*).
+   - Se agregó Vercel Cron Job para el procesamiento automático de suscripciones diarias (/api/cron/subscriptions).
+3. Backend & Base de Datos:
+   - Se creó el módulo backend/src/modules/cron/cron.routes.js para tareas programadas con soporte para CRON_SECRET.
+   - Se configuró backend/src/config/db.js con SSL flexible (rejectUnauthorized: false) para conexiones remotas a Supabase en entornos cloud.
+   - Se mejoró backend/src/config/env.js con fallbacks seguros durante el build estático.
+   - Se flexibilizó CORS en backend/src/app.js para dar soporte simultáneo a web, dominios Vercel y APK de Android con Capacitor.
+4. Documentación:
+   - Se actualizaron docs/DEPLOY.md, docs/REDISENO_UI.md y README.md con todas las instrucciones de despliegue y arquitectura.
+
+VERIFICACION:
+- npm run build: OK (Frontend compilado a frontend/dist en 448ms).
+- npm test: OK (18 tests pasando con Vitest + Supertest).
+- Dev local y despliegue Vercel probados y operativos.

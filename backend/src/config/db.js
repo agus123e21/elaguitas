@@ -1,12 +1,23 @@
 import pg from 'pg';
 import env from './env.js';
 
-const pool = new pg.Pool({
-  connectionString: env.databaseUrl,
+const poolConfig = {
+  connectionString: env.databaseUrl || undefined,
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 5000,
-});
+};
+
+// Habilitar SSL para conexiones remotas a Supabase / PostgreSQL cloud sin fallar por certs
+if (
+  env.databaseUrl &&
+  !env.databaseUrl.includes('localhost') &&
+  !env.databaseUrl.includes('127.0.0.1')
+) {
+  poolConfig.ssl = { rejectUnauthorized: false };
+}
+
+const pool = new pg.Pool(poolConfig);
 
 pool.on('error', (err) => {
   console.error('[db] Error inesperado en el pool de conexiones:', err.message);

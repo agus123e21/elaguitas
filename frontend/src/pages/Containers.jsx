@@ -20,50 +20,52 @@ export default function Containers() {
   }, [token])
 
   return (
-    <main style={{ maxWidth: 720, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 720 }}>
       <h1>Mis bidones</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
       {summary && (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
-          <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 700 }}>{summary.delivered}</div>
-            <div>Entregados</div>
+        <div className="grid grid--stats">
+          <div className="card kpi">
+            <div className="kpi__value">{summary.delivered}</div>
+            <div className="kpi__label">Entregados</div>
           </div>
-          <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 700 }}>{summary.returned}</div>
-            <div>Devueltos</div>
+          <div className="card kpi">
+            <div className="kpi__value">{summary.returned}</div>
+            <div className="kpi__label">Devueltos</div>
           </div>
-          <div style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', textAlign: 'center' }}>
-            <div style={{ fontSize: '2rem', fontWeight: 700 }}>{summary.pending}</div>
-            <div>Pendientes</div>
+          <div className="card kpi">
+            <div className="kpi__value">{summary.pending}</div>
+            <div className="kpi__label">Pendientes</div>
           </div>
         </div>
       )}
 
-      <h2 style={{ fontSize: '1.1rem' }}>Historial</h2>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ textAlign: 'left', borderBottom: '2px solid #ddd' }}>
-            <th>Fecha</th>
-            <th>Tipo</th>
-            <th>Cantidad</th>
-            <th>Pedido</th>
-            <th>Nota</th>
-          </tr>
-        </thead>
-        <tbody>
-          {movements.map((m) => (
-            <tr key={m.id} style={{ borderBottom: '1px solid #eee' }}>
-              <td>{new Date(m.created_at).toLocaleString('es-AR')}</td>
-              <td>{TYPE_LABELS[m.type] || m.type}</td>
-              <td>{m.quantity}</td>
-              <td>{m.order_id ? `#${m.order_id}` : '-'}</td>
-              <td>{m.notes || '-'}</td>
+      <h2 className="section-title">Historial</h2>
+      <div className="table-wrap card">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Cantidad</th>
+              <th>Pedido</th>
+              <th>Nota</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </main>
+          </thead>
+          <tbody>
+            {movements.map((m) => (
+              <tr key={m.id}>
+                <td>{new Date(m.created_at).toLocaleString('es-AR')}</td>
+                <td>{TYPE_LABELS[m.type] || m.type}</td>
+                <td>{m.quantity}</td>
+                <td>{m.order_id ? `#${m.order_id}` : '-'}</td>
+                <td>{m.notes || '-'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
   )
 }

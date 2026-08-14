@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import path from 'node:path';
+import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import env from './config/env.js';
 import { notFoundHandler, errorHandler } from './middlewares/error.js';
@@ -20,6 +21,7 @@ import dashboardRoutes from './modules/dashboard/dashboard.routes.js';
 import subscriptionsRoutes from './modules/subscriptions/subscriptions.routes.js';
 import promotionsRoutes from './modules/promotions/promotions.routes.js';
 import notificationsRoutes from './modules/notifications/notifications.routes.js';
+import cronRoutes from './modules/cron/cron.routes.js';
 
 const app = express();
 
@@ -45,9 +47,21 @@ const authLimiter = rateLimit({
   message: { error: { code: 429, message: 'Demasiados intentos de acceso, intentá más tarde' } },
 });
 
+// Configuración de CORS flexible para web, Vercel preview/producción y apps móviles (Capacitor)
 app.use(
   cors({
-    origin: env.isProduction ? env.frontendUrl : true,
+    origin: (origin, callback) => {
+      if (!origin || !env.isProduction) return callback(null, true);
+      if (
+        origin === env.frontendUrl ||
+        origin.endsWith('.vercel.app') ||
+        origin.startsWith('capacitor://') ||
+        origin.startsWith('http://localhost')
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );
@@ -55,7 +69,10 @@ app.use(
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+const uploadsPath = path.join(__dirname, '../uploads');
+if (fs.existsSync(uploadsPath)) {
+  app.use('/uploads', express.static(uploadsPath));
+}
 
 if (!env.isProduction) {
   app.use(morgan('dev'));
@@ -63,6 +80,7 @@ if (!env.isProduction) {
 
 app.use('/api', apiLimiter);
 app.use('/api', healthRoutes);
+app.use('/api/cron', cronRoutes);
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/products', productsRoutes);
 app.use('/api/orders', requireAnyRole, ordersRoutes);

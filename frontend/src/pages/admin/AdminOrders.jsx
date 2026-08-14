@@ -52,51 +52,48 @@ export default function AdminOrders() {
   ]
 
   return (
-    <main style={{ maxWidth: 1100, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 1100 }}>
       <h1>Pedidos</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+      <div className="tabs">
         {tabs.map((t) => (
           <button
             key={t.label}
+            className={`tabs__btn ${filter === t.value ? 'tabs__btn--active' : ''}`}
             onClick={() => setFilter(t.value)}
-            style={
-              filter === t.value
-                ? { fontWeight: 700, background: '#1a73e8', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: 6, cursor: 'pointer' }
-                : { background: '#fff', border: '1px solid #ddd', padding: '0.5rem 1rem', borderRadius: 6, cursor: 'pointer' }
-            }
           >
             {t.label}
           </button>
         ))}
       </div>
 
-      {orders.length === 0 && <p>No hay pedidos.</p>}
+      {orders.length === 0 && <p className="muted">No hay pedidos.</p>}
 
       {orders.map((o) => (
-        <div key={o.id} style={{ border: '1px solid #ddd', borderRadius: 8, padding: '1rem', marginBottom: '1rem' }}>
+        <div key={o.id} className={`card order order--${o.status}`}>
           <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
             <strong>
               Pedido #{o.id} · {o.customer_name}
             </strong>
-            <span>{STATUS_LABELS[o.status] || o.status}</span>
+            <span className={`badge badge--${o.status}`}>{STATUS_LABELS[o.status] || o.status}</span>
           </div>
-          <p style={{ margin: '0.4rem 0' }}>
+          <p>
             {o.street}, {o.city} · {o.payment_method} · {fmtMoney(o.total)}
           </p>
-          <p style={{ margin: '0.2rem 0', color: '#555', fontSize: '0.85rem' }}>
+          <p className="muted text-sm">
             Creado {new Date(o.created_at).toLocaleString('es-AR')}
             {o.containers_delivered > 0 ? ` · +${o.containers_delivered} bidones` : ''}
             {o.containers_returned > 0 ? ` · -${o.containers_returned} bidones` : ''}
             {o.driver_name ? ` · Repartidor: ${o.driver_name}` : ''}
           </p>
-          <div style={{ marginTop: '0.5rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="form-inline">
             {o.status !== 'CANCELLED' && o.status !== 'DELIVERED' && (
               <select
+                className="select"
+                style={{ width: 'auto' }}
                 value=""
                 onChange={(e) => e.target.value && handleStatus(o.id, e.target.value)}
-                style={{ padding: '0.4rem', border: '1px solid #ccc', borderRadius: 4 }}
               >
                 <option value="">Cambiar estado…</option>
                 {STATUS_FLOW.slice(STATUS_FLOW.indexOf(o.status) + 1).map((s) => (
@@ -109,9 +106,10 @@ export default function AdminOrders() {
             )}
             {o.status !== 'CANCELLED' && o.status !== 'DELIVERED' && (
               <select
+                className="select"
+                style={{ width: 'auto' }}
                 value=""
                 onChange={(e) => e.target.value && handleAssign(o.id, e.target.value)}
-                style={{ padding: '0.4rem', border: '1px solid #ccc', borderRadius: 4 }}
               >
                 <option value="">Asignar repartidor…</option>
                 {drivers.map((d) => (
@@ -124,6 +122,6 @@ export default function AdminOrders() {
           </div>
         </div>
       ))}
-    </main>
+    </div>
   )
 }

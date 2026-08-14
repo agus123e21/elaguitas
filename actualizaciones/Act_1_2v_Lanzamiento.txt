@@ -1,0 +1,18 @@
+ACTUALIZACION: Act_1_2v_Lanzamiento
+FECHA: 2026-08-14
+
+QUE SE HIZO:
+- Se levanto la aplicacion en local para poder verla:
+  - Backend: http://localhost:4000 (API Express)
+  - Frontend: http://localhost:5173 (React + Vite)
+- Se agrego la gestion de pedidos para el admin en /admin/pedidos:
+  - Lista todos los pedidos con filtros por estado.
+  - Permite cambiar el estado del pedido.
+  - Permite asignar un repartidor a cada pedido.
+- Se agregaron submenus de administracion en la barra superior
+  (Pedidos, Productos, Zonas, Bidones, Promociones, Panel).
+
+REGLA PARA LAS PROXIMAS ACTUALIZACIONES:
+- Cada actualizacion a partir de ahora se registra en un archivo
+  con el nombre: Act_1_2v_<palabra que describa el cambio>.txt
+  dentro de la carpeta "actualizaciones".

@@ -39,27 +39,27 @@ export default function AdminZones() {
   }
 
   return (
-    <main style={{ maxWidth: 720, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 720 }}>
       <h1>Zonas de reparto</h1>
-      {error && <p style={{ color: '#c0392b' }}>{error}</p>}
+      {error && <p className="alert alert--error">{error}</p>}
 
-      <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
-        <input placeholder="Nombre (ej: Zona 4)" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-        <input placeholder="Costo de envío" type="number" required min="0" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} />
-        <button type="submit">Agregar zona</button>
+      <form onSubmit={handleSubmit} className="form-inline card">
+        <input className="input" style={{ flex: 1, minWidth: 180 }} placeholder="Nombre (ej: Zona 4)" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+        <input className="input" style={{ flex: 1, minWidth: 160 }} placeholder="Costo de envío" type="number" required min="0" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} />
+        <button className="btn btn-primary btn-sm" type="submit">Agregar zona</button>
       </form>
 
       {zones.map((z) => (
-        <div key={z.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: '1px solid #ddd', borderRadius: 8, padding: '0.75rem', marginBottom: '0.5rem' }}>
+        <div key={z.id} className="card" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
           <div>
             <strong>{z.name}</strong> — {formatPrice(z.price)}
-            <p style={{ margin: 0, fontSize: '0.85rem', color: z.active ? '#2e7d32' : '#c0392b' }}>
+            <p className={`muted text-sm ${z.active ? 'text-success' : 'text-danger'}`}>
               {z.active ? 'Activa' : 'Inactiva'}
             </p>
           </div>
-          <button onClick={() => handleToggle(z)}>{z.active ? 'Desactivar' : 'Activar'}</button>
+          <button className="btn btn-outline btn-sm" onClick={() => handleToggle(z)}>{z.active ? 'Desactivar' : 'Activar'}</button>
         </div>
       ))}
-    </main>
+    </div>
   )
 }

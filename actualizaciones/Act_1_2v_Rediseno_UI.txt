@@ -1,0 +1,27 @@
+Actualizacion: Rediseno completo de la interfaz (UI)
+
+Fecha: 13/08/2026
+Branch: Arian
+
+Resumen:
+- Se reescribio frontend/src/index.css como sistema de diseno completo con
+  variables CSS (paleta azul agua + acento), tipografia, sombras y clases
+  reutilizables: navbar, footer, botones (primario/outline/peligro/ghost),
+  tarjetas, KPIs, formularios, tablas, badges por estado, tabs, hero,
+  productos, ordenes, alertas, grid responsivo y reglas de impresion.
+- Navbar.jsx: se reemplazaron los estilos inline por clases del sistema de
+  diseno (navbar__*), con logo y rol del usuario.
+- Nuevo componente Footer.jsx montado en App.jsx (enlaces y contacto).
+- Todas las paginas convertidas de estilos inline a clases del sistema:
+  - Publicas: Home, Catalog, Cart, Login, Register, ForgotPassword,
+    ResetPassword, NotFound, Promotions.
+  - Cliente: Checkout, MyOrders, OrderDetail, MyAddresses, Containers,
+    MySubscriptions, Notifications.
+  - Driver/Admin: DriverOrders, AdminDashboard, AdminProducts, AdminZones,
+    AdminContainers, AdminPromotions, AdminOrders.
+
+Verificacion:
+- npm run build: OK (64 modulos, 242 kB bundle principal).
+- npm run lint: 0 errores (3 warnings pre-existentes en contexts/AdminOrders).
+- Dev server en localhost:5173 sirve el nuevo CSS (12.5 kB) correctamente.
+- Backend en localhost:4000, health /api/health = ok / connected.

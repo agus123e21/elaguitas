@@ -32,40 +32,48 @@ export default function OrderDetail() {
 
   if (error) {
     return (
-      <main style={{ maxWidth: 640, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
-        <p style={{ color: '#c0392b' }}>{error}</p>
-        <Link to="/pedidos">Volver a mis pedidos</Link>
-      </main>
+      <div className="page" style={{ maxWidth: 640 }}>
+        <p className="alert alert--error">{error}</p>
+        <Link className="btn btn-outline btn-sm" to="/pedidos">Volver a mis pedidos</Link>
+      </div>
     )
   }
 
   if (!order) {
-    return <p style={{ fontFamily: 'sans-serif', padding: '1rem' }}>Cargando…</p>
+    return <p className="muted" style={{ padding: '1rem' }}>Cargando…</p>
   }
 
   return (
-    <main style={{ maxWidth: 640, margin: '0 auto', padding: '1rem', fontFamily: 'sans-serif' }}>
+    <div className="page" style={{ maxWidth: 640 }}>
       <h1>Pedido #{order.id}</h1>
-      <p>Estado: <strong>{STATUS_LABELS[order.status] || order.status}</strong></p>
-      <p>Dirección: {order.street}, {order.city}</p>
-      <p>
-        Bidones: {order.containers_delivered} a entregar / {order.containers_returned} a retirar
-      </p>
-      <p>Pago: {order.payment_method}</p>
+      <div className={`card order order--${order.status}`}>
+        <p>
+          Estado: <span className={`badge badge--${order.status}`}>{STATUS_LABELS[order.status] || order.status}</span>
+        </p>
+        <p>Dirección: {order.street}, {order.city}</p>
+        <p>
+          Bidones: {order.containers_delivered} a entregar / {order.containers_returned} a retirar
+        </p>
+        <p>Pago: {order.payment_method}</p>
+      </div>
 
-      <h2 style={{ fontSize: '1.1rem' }}>Detalle</h2>
-      {order.items.map((i) => (
-        <div key={i.id} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #eee', padding: '0.4rem 0' }}>
-          <span>
-            {i.quantity} x {i.product_name}
-          </span>
-          <span>{formatPrice(i.subtotal)}</span>
-        </div>
-      ))}
-      <p>Subtotal: {formatPrice(order.subtotal)}</p>
-      <p>Envío: {formatPrice(order.delivery_fee)}</p>
-      {Number(order.discount) > 0 && <p>Descuento: -{formatPrice(order.discount)}</p>}
-      <p style={{ fontWeight: 700 }}>Total: {formatPrice(order.total)}</p>
-    </main>
+      <div className="card">
+        <h2 className="card__title">Detalle</h2>
+        {order.items.map((i) => (
+          <div key={i.id} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', padding: '0.4rem 0' }}>
+            <span>
+              {i.quantity} x {i.product_name}
+            </span>
+            <span>{formatPrice(i.subtotal)}</span>
+          </div>
+        ))}
+        <p>Subtotal: {formatPrice(order.subtotal)}</p>
+        <p>Envío: {formatPrice(order.delivery_fee)}</p>
+        {Number(order.discount) > 0 && <p className="text-success">Descuento: -{formatPrice(order.discount)}</p>}
+        <p style={{ fontWeight: 700 }}>Total: {formatPrice(order.total)}</p>
+      </div>
+
+      <Link className="btn btn-outline btn-sm" to="/pedidos">Volver a mis pedidos</Link>
+    </div>
   )
 }
