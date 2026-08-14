@@ -97,7 +97,7 @@ Sigue el plan de 20 fases definido en `docs/ANALISIS.md`.
 | 17 Testing (Vitest + Supertest) | ✅ |
 | 18 Optimización (lazy loading) | ✅ |
 | 19 Documentación | ✅ |
-| 20 Publicación y mantenimiento | ⏳ |
+| 20 Publicación y mantenimiento | ✅ |
 
 ## Scripts útiles
 
