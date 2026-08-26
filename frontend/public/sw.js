@@ -21,7 +21,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return
 
   const url = new URL(request.url)
-  if (url.pathname.startsWith('/api')) return
+  if (url.pathname.startsWith('/api') || url.pathname.includes('/api/')) return
   if (!url.href.startsWith(BASE)) return
 
   if (request.mode === 'navigate') {

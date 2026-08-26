@@ -37,7 +37,7 @@ export async function createAddress(customerId, data) {
       'SELECT COUNT(*) AS total FROM addresses WHERE customer_id = $1 AND active = TRUE',
       [customerId]
     );
-    const isPrimary = data.isPrimary ?? count.rows[0].total === 0;
+    const isPrimary = data.isPrimary ?? Number(count.rows[0].total) === 0;
 
     if (isPrimary) {
       await client.query(

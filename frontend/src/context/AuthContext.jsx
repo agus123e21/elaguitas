@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import * as authService from '../services/auth.js'
 
 const AuthContext = createContext(null)
@@ -7,6 +7,27 @@ export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => authService.getStoredToken())
   const [user, setUser] = useState(() => authService.getStoredUser())
   const [loading, setLoading] = useState(false)
+
+  // Validar y sincronizar sesión activa al iniciar la app
+  useEffect(() => {
+    const currentToken = authService.getStoredToken()
+    if (currentToken) {
+      authService
+        .fetchMe(currentToken)
+        .then((data) => {
+          if (data?.user) {
+            setUser(data.user)
+            authService.storeSession({ token: currentToken, user: data.user })
+          }
+        })
+        .catch(() => {
+          // Token inválido o expirado -> limpiar sesión para evitar errores 401 en bucle
+          authService.clearSession()
+          setToken(null)
+          setUser(null)
+        })
+    }
+  }, [])
 
   const login = useCallback(async (email, password) => {
     setLoading(true)

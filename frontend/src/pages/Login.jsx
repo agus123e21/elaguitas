@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 
 export default function Login() {
@@ -9,19 +9,24 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const { login } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
 
   async function handleSubmit(e) {
     e.preventDefault()
     setError(null)
     setLoading(true)
     try {
-      const user = await login(email, password)
-      if (user?.role === 'ADMIN') {
-        navigate('/admin')
-      } else if (user?.role === 'DRIVER') {
-        navigate('/repartos')
+      const data = await login(email, password)
+      const role = data?.user?.role || data?.role
+      const fromPath = location.state?.from?.pathname
+      if (fromPath && fromPath !== '/login' && fromPath !== '/') {
+        navigate(fromPath, { replace: true })
+      } else if (role === 'ADMIN') {
+        navigate('/admin', { replace: true })
+      } else if (role === 'DRIVER') {
+        navigate('/repartos', { replace: true })
       } else {
-        navigate('/pedidos')
+        navigate('/productos', { replace: true })
       }
     } catch (err) {
       setError(err.message || 'Error al iniciar sesión')

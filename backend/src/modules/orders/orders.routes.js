@@ -53,7 +53,7 @@ router.post(
       }
     } else if (req.user.role === 'ADMIN') {
       if (!customerId) {
-        const c = await pool.query('SELECT id FROM customers LIMIT 1');
+        const c = await query('SELECT id FROM customers LIMIT 1');
         customerId = c.rows[0]?.id;
       }
     }

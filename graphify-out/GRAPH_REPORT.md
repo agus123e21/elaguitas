@@ -1,16 +1,16 @@
-# Graph Report - elaguitas  (2026-08-14)
+# Graph Report - elaguitas  (2026-08-26)
 
 ## Corpus Check
-- 154 files · ~96,096 words
+- 154 files · ~96,420 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1113 nodes · 1682 edges · 83 communities (65 shown, 18 thin omitted)
+- 1115 nodes · 1685 edges · 85 communities (67 shown, 18 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 30 edges (avg confidence: 0.58)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8ba8d67c`
+- Built from commit: `54cd501d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,7 @@
 - Code Review and Quality
 - Frontend Mobile Framework
 - AdminProducts.jsx
-- App.jsx
+- useAuth
 - Notifications.jsx
 - auth.routes.js
 - AdminDashboard.jsx
@@ -27,7 +27,7 @@
 - AdminContainers.jsx
 - dependencies
 - Checkout.jsx
-- orders.service.js
+- orders.routes.js
 - AdminPromotions.jsx
 - MySubscriptions.jsx
 - services/auth.js
@@ -83,13 +83,15 @@
 - Catalog.jsx
 - Refinement & Evaluation Criteria
 - Ideation Frameworks Reference
-- AdminZones.jsx
+- App.jsx
 - El Agüitas - Operational & Domain Guidelines
 - React + Vite
 - rules/graphify.md
 - workflows/graphify.md
-- Containers.jsx
+- MyOrders.jsx
 - /termine Workflow
+- OrderDetail.jsx
+- Promotions.jsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 41 edges
@@ -108,12 +110,12 @@
   docs/DEPLOY.md → frontend/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
 - `Deployment Guide` --references--> `Android Splash Screen`  [INFERRED]
   docs/DEPLOY.md → frontend/android/app/src/main/res/drawable/splash.png
+- `handler()` --calls--> `app`  [EXTRACTED]
+  api/index.js → backend/src/app.js
 - `Update: UI Redesign` --conceptually_related_to--> `UI Redesign Documentation`  [INFERRED]
   actualizaciones/Act_1_2v_Rediseno_UI.txt → docs/REDISENO_UI.md
 - `Favicon` --semantically_similar_to--> `Vite Logo`  [INFERRED] [semantically similar]
   frontend/public/favicon.svg → frontend/src/assets/vite.svg
-- `Deployment Guide` --references--> `Deploy Frontend Workflow`  [EXTRACTED]
-  docs/DEPLOY.md → .github/workflows/deploy-frontend.yml
 
 ## Import Cycles
 - None detected.
@@ -124,7 +126,7 @@
 - **Android Launcher Assets** — frontend_android_app_src_main_res_mipmap_xxhdpi_ic_launcher, frontend_android_app_src_main_res_mipmap_xxhdpi_ic_launcher_foreground, frontend_android_app_src_main_res_mipmap_xxhdpi_ic_launcher_round [EXTRACTED 1.00]
 - **Social Media Icons** — frontend_public_icons_bluesky_icon, frontend_public_icons_discord_icon, frontend_public_icons_github_icon, frontend_public_icons_x_icon [INFERRED 0.90]
 
-## Communities (83 total, 18 thin omitted)
+## Communities (85 total, 18 thin omitted)
 
 ### Community 0 - "Code Review and Quality"
 Cohesion: 0.07
@@ -138,9 +140,9 @@ Nodes (35): @capacitor/android, @capacitor/cli, @capacitor/core, dependencies, @
 Cohesion: 0.23
 Nodes (13): AdminProducts, AdminProducts(), handleImage(), handleRemove(), handleSubmit(), load(), toggleActive(), emptyForm (+5 more)
 
-### Community 3 - "App.jsx"
-Cohesion: 0.10
-Nodes (21): App(), Checkout, Home, Login, NotFound, OrderDetail, Register, Footer() (+13 more)
+### Community 3 - "useAuth"
+Cohesion: 0.16
+Nodes (12): plugins, Home, Register, Navbar(), ProtectedRoute(), AuthContext, AuthProvider(), useAuth() (+4 more)
 
 ### Community 4 - "Notifications.jsx"
 Cohesion: 0.38
@@ -151,36 +153,36 @@ Cohesion: 0.20
 Nodes (16): assertValidEnv(), env, loginRules, registerRules, findUserByEmail(), findUserById(), generateResetToken(), hashToken() (+8 more)
 
 ### Community 6 - "AdminDashboard.jsx"
-Cohesion: 0.06
-Nodes (54): AdminDashboard, AdminOrders, DriverOrders, MyOrders, AdminDashboard(), handleAssignDriver(), handleClearLogs(), handleCreateOrder() (+46 more)
+Cohesion: 0.07
+Nodes (46): AdminDashboard, AdminOrders, AdminDashboard(), handleAssignDriver(), handleClearLogs(), handleCreateOrder(), handleCreateUser(), handleOrderStatus() (+38 more)
 
 ### Community 7 - "app.js"
-Cohesion: 0.13
-Nodes (15): apiLimiter, app, authLimiter, __dirname, uploadsPath, authenticate(), requireAnyRole, requireDriver (+7 more)
+Cohesion: 0.10
+Nodes (21): handler(), apiLimiter, apiRouter, app, authLimiter, __dirname, uploadsPath, authenticate() (+13 more)
 
 ### Community 8 - "dependencies"
 Cohesion: 0.04
 Nodes (44): dependencies, bcryptjs, cors, dotenv, express, express-rate-limit, helmet, jsonwebtoken (+36 more)
 
 ### Community 9 - "AdminContainers.jsx"
-Cohesion: 0.29
-Nodes (11): AdminContainers, AdminContainers(), handleAdjust(), handleRegister(), handleStatus(), load(), STATUS_LABELS, adjustContainers() (+3 more)
+Cohesion: 0.19
+Nodes (16): AdminContainers, Containers, AdminContainers(), handleAdjust(), handleRegister(), handleStatus(), load(), STATUS_LABELS (+8 more)
 
 ### Community 10 - "dependencies"
 Cohesion: 0.05
 Nodes (43): concurrently, dependencies, bcryptjs, cors, dotenv, express, express-rate-limit, helmet (+35 more)
 
 ### Community 11 - "Checkout.jsx"
-Cohesion: 0.18
-Nodes (17): MyAddresses, Checkout(), handleNewAddress(), formatPrice(), emptyForm, formatPrice(), MyAddresses(), handleDelete() (+9 more)
+Cohesion: 0.11
+Nodes (26): AdminZones, Checkout, MyAddresses, AdminZones(), handleSubmit(), handleToggle(), load(), formatPrice() (+18 more)
 
-### Community 12 - "orders.service.js"
-Cohesion: 0.19
-Nodes (19): itemRules, orderRules, assertOrderStatus(), assignDriver(), changeOrderStatus(), createOrder(), getCustomerIdByUserId(), getDriverIdByUserId() (+11 more)
+### Community 12 - "orders.routes.js"
+Cohesion: 0.18
+Nodes (20): itemRules, orderRules, router, assertOrderStatus(), assignDriver(), changeOrderStatus(), createOrder(), getCustomerIdByUserId() (+12 more)
 
 ### Community 13 - "AdminPromotions.jsx"
-Cohesion: 0.16
-Nodes (17): AdminPromotions, Promotions, AdminPromotions(), handleDelete(), handleSubmit(), handleToggleActive(), load(), empty (+9 more)
+Cohesion: 0.23
+Nodes (13): AdminPromotions, AdminPromotions(), handleDelete(), handleSubmit(), handleToggleActive(), load(), empty, TYPE_LABELS (+5 more)
 
 ### Community 14 - "MySubscriptions.jsx"
 Cohesion: 0.29
@@ -191,8 +193,8 @@ Cohesion: 0.15
 Nodes (14): ForgotPassword, ResetPassword, ForgotPassword(), handleSubmit(), ResetPassword(), handleSubmit(), clearSession(), forgotPassword() (+6 more)
 
 ### Community 16 - "db.js"
-Cohesion: 0.12
-Nodes (16): __dirname, SEEDS_DIR, checkConnection(), pool, poolConfig, query(), requireAdmin, router (+8 more)
+Cohesion: 0.15
+Nodes (12): __dirname, SEEDS_DIR, checkConnection(), pool, poolConfig, query(), requireAdmin, getDashboard() (+4 more)
 
 ### Community 17 - "products.routes.js"
 Cohesion: 0.22
@@ -203,7 +205,7 @@ Cohesion: 0.42
 Nodes (7): addressRules, router, createAddress(), deleteAddress(), getAddressById(), listCustomerAddresses(), updateAddress()
 
 ### Community 19 - "containers.routes.js"
-Cohesion: 0.21
+Cohesion: 0.22
 Nodes (11): router, createMovement(), getCustomerMovements(), getCustomerSummary(), listInventory(), registerContainers(), updateContainerStatus(), ApiError (+3 more)
 
 ### Community 20 - "runMigrations.js"
@@ -215,8 +217,8 @@ Cohesion: 0.07
 Nodes (26): 1. Commit Early, Commit Often, 2. Atomic Commits, 3. Descriptive Messages, 4. Keep Concerns Separate, 5. Size Your Changes, Branch Naming, Branching Strategy, Change Summaries (+18 more)
 
 ### Community 22 - "subscriptions.service.js"
-Cohesion: 0.29
-Nodes (9): requireClient, router, assertFrequency(), assertStatus(), createSubscription(), FREQUENCIES, listSubscriptions(), STATUSES (+1 more)
+Cohesion: 0.33
+Nodes (8): router, assertFrequency(), assertStatus(), createSubscription(), FREQUENCIES, listSubscriptions(), STATUSES, updateSubscription()
 
 ### Community 23 - "API and Interface Design"
 Cohesion: 0.08
@@ -239,8 +241,8 @@ Cohesion: 0.29
 Nodes (7): Icon Library, Bluesky Icon, Discord Icon, Documentation Icon, GitHub Icon, Social Icon, X Icon
 
 ### Community 28 - ".oxlintrc.json"
-Cohesion: 0.25
-Nodes (7): plugins, rules, react/only-export-components, react/rules-of-hooks, $schema, oxc, warn
+Cohesion: 0.33
+Nodes (5): rules, react/only-export-components, react/rules-of-hooks, $schema, warn
 
 ### Community 29 - "Browser Testing with DevTools"
 Cohesion: 0.08
@@ -338,9 +340,9 @@ Nodes (11): 1. User Value, 2. Feasibility, 3. Differentiation, Assumption Audit,
 Cohesion: 0.22
 Nodes (8): Analogous Inspiration, Constraint-Based Ideation, First Principles Thinking, How Might We (HMW), Ideation Frameworks Reference, Jobs to Be Done (JTBD), Pre-mortem, SCAMPER
 
-### Community 76 - "AdminZones.jsx"
-Cohesion: 0.31
-Nodes (8): AdminZones, AdminZones(), handleSubmit(), handleToggle(), load(), formatPrice(), createZone(), updateZone()
+### Community 76 - "App.jsx"
+Cohesion: 0.17
+Nodes (6): App(), DriverOrders, Login, NotFound, Footer(), Login()
 
 ### Community 77 - "El Agüitas - Operational & Domain Guidelines"
 Cohesion: 0.33
@@ -350,29 +352,37 @@ Nodes (5): 1. Project Architecture (Fullstack Monorepo), 2. Core User Roles & Ro
 Cohesion: 0.50
 Nodes (3): Expanding the Oxlint configuration, React Compiler, React + Vite
 
-### Community 81 - "Containers.jsx"
+### Community 81 - "MyOrders.jsx"
+Cohesion: 0.36
+Nodes (7): MyOrders, formatPrice(), MyOrders(), handleRepeat(), load(), STATUS_LABELS, repeatOrder()
+
+### Community 83 - "OrderDetail.jsx"
 Cohesion: 0.47
-Nodes (5): Containers, Containers(), TYPE_LABELS, getContainerMovements(), getContainerSummary()
+Nodes (5): OrderDetail, formatPrice(), OrderDetail(), STATUS_LABELS, getOrder()
+
+### Community 84 - "Promotions.jsx"
+Cohesion: 0.50
+Nodes (4): Promotions, Promotions(), TYPE_LABELS, getPromotions()
 
 ## Knowledge Gaps
-- **532 isolated node(s):** `idea-refine.sh script`, `__dirname`, `MIGRATIONS_DIR`, `__dirname`, `SEEDS_DIR` (+527 more)
+- **533 isolated node(s):** `idea-refine.sh script`, `__dirname`, `MIGRATIONS_DIR`, `__dirname`, `SEEDS_DIR` (+528 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useAuth()` connect `App.jsx` to `AdminProducts.jsx`, `Notifications.jsx`, `AdminDashboard.jsx`, `AdminContainers.jsx`, `Catalog.jsx`, `Checkout.jsx`, `AdminZones.jsx`, `AdminPromotions.jsx`, `MySubscriptions.jsx`, `Containers.jsx`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **Why does `react` connect `App.jsx` to `AdminProducts.jsx`, `Notifications.jsx`, `AdminDashboard.jsx`, `Catalog.jsx`, `AdminContainers.jsx`, `Checkout.jsx`, `AdminZones.jsx`, `AdminPromotions.jsx`, `MySubscriptions.jsx`, `services/auth.js`, `Containers.jsx`, `.oxlintrc.json`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `AdminProducts()` connect `AdminProducts.jsx` to `App.jsx`?**
-  _High betweenness centrality (0.004) - this node is a cross-community bridge._
+- **Why does `useAuth()` connect `useAuth` to `AdminProducts.jsx`, `Notifications.jsx`, `AdminDashboard.jsx`, `AdminContainers.jsx`, `Catalog.jsx`, `Checkout.jsx`, `App.jsx`, `AdminPromotions.jsx`, `MySubscriptions.jsx`, `MyOrders.jsx`, `OrderDetail.jsx`?**
+  _High betweenness centrality (0.019) - this node is a cross-community bridge._
+- **Why does `react` connect `useAuth` to `AdminProducts.jsx`, `Notifications.jsx`, `AdminDashboard.jsx`, `Catalog.jsx`, `AdminContainers.jsx`, `Checkout.jsx`, `App.jsx`, `AdminPromotions.jsx`, `MySubscriptions.jsx`, `services/auth.js`, `MyOrders.jsx`, `OrderDetail.jsx`, `Promotions.jsx`?**
+  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Why does `Catalog()` connect `Catalog.jsx` to `useAuth`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `idea-refine.sh script`, `__dirname`, `MIGRATIONS_DIR` to the rest of the system?**
-  _532 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _533 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Code Review and Quality` be split into smaller, more focused modules?**
   _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `Frontend Mobile Framework` be split into smaller, more focused modules?**
   _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
-- **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.10384068278805121 - nodes in this community are weakly interconnected._
+- **Should `AdminDashboard.jsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.07247223845704266 - nodes in this community are weakly interconnected._

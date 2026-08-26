@@ -26,7 +26,7 @@ export async function getDriverIdByUserId(userId) {
   let { rows } = await pool.query('SELECT id FROM delivery_drivers WHERE user_id = $1', [userId]);
   if (rows.length === 0) {
     const ins = await pool.query(
-      'INSERT INTO delivery_drivers (user_id, is_available) VALUES ($1, TRUE) ON CONFLICT (user_id) DO UPDATE SET is_available = TRUE RETURNING id',
+      'INSERT INTO delivery_drivers (user_id, active) VALUES ($1, TRUE) ON CONFLICT (user_id) DO UPDATE SET active = TRUE RETURNING id',
       [userId]
     );
     return ins.rows[0]?.id ?? null;

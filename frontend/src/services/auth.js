@@ -4,25 +4,36 @@ const TOKEN_KEY = 'agua_token'
 const USER_KEY = 'agua_user'
 
 export function getStoredToken() {
-  return localStorage.getItem(TOKEN_KEY)
+  const token = localStorage.getItem(TOKEN_KEY) || localStorage.getItem('token')
+  return token && token !== 'undefined' && token !== 'null' ? token : null
 }
 
 export function getStoredUser() {
   try {
-    return JSON.parse(localStorage.getItem(USER_KEY))
+    const userStr = localStorage.getItem(USER_KEY) || localStorage.getItem('user')
+    if (!userStr || userStr === 'undefined' || userStr === 'null') return null
+    return JSON.parse(userStr)
   } catch {
     return null
   }
 }
 
 export function storeSession({ token, user }) {
-  localStorage.setItem(TOKEN_KEY, token)
-  localStorage.setItem(USER_KEY, JSON.stringify(user))
+  if (token) {
+    localStorage.setItem(TOKEN_KEY, token)
+    localStorage.setItem('token', token)
+  }
+  if (user) {
+    localStorage.setItem(USER_KEY, JSON.stringify(user))
+    localStorage.setItem('user', JSON.stringify(user))
+  }
 }
 
 export function clearSession() {
   localStorage.removeItem(TOKEN_KEY)
   localStorage.removeItem(USER_KEY)
+  localStorage.removeItem('token')
+  localStorage.removeItem('user')
 }
 
 export async function login(email, password) {

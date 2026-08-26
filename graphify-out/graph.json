@@ -126,6 +126,66 @@
       "norm_label": "apierror"
     },
     {
+      "label": "AdminZones()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_location": "L14",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminzones_adminzones",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "adminzones()"
+    },
+    {
+      "label": "handleSubmit()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_location": "L26",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminzones_adminzones_handlesubmit",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "handlesubmit()"
+    },
+    {
+      "label": "handleToggle()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_location": "L37",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminzones_adminzones_handletoggle",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "handletoggle()"
+    },
+    {
+      "label": "load()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_location": "L20",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminzones_adminzones_load",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "load()"
+    },
+    {
+      "label": "formatPrice()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminzones_formatprice",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "formatprice()"
+    },
+    {
       "label": "Checkout()",
       "file_type": "code",
       "source_file": "frontend/src/pages/Checkout.jsx",
@@ -342,6 +402,42 @@
       "norm_label": "previeworder()"
     },
     {
+      "label": "createZone()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/zones.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_zones_createzone",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "createzone()"
+    },
+    {
+      "label": "getZones()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/zones.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_zones_getzones",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "getzones()"
+    },
+    {
+      "label": "updateZone()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/zones.js",
+      "source_location": "L13",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_zones_updatezone",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "updatezone()"
+    },
+    {
       "label": "validateItem()",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.routes.js",
@@ -350,7 +446,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_validateitem",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "validateitem()"
     },
     {
@@ -362,7 +458,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_assertorderstatus",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "assertorderstatus()"
     },
     {
@@ -374,7 +470,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_assigndriver",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "assigndriver()"
     },
     {
@@ -386,7 +482,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_changeorderstatus",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "changeorderstatus()"
     },
     {
@@ -398,7 +494,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_createorder",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "createorder()"
     },
     {
@@ -410,7 +506,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getcustomeridbyuserid",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "getcustomeridbyuserid()"
     },
     {
@@ -422,7 +518,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getdriveridbyuserid",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "getdriveridbyuserid()"
     },
     {
@@ -434,7 +530,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getorderbyid",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "getorderbyid()"
     },
     {
@@ -446,7 +542,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_getorderitems",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "getorderitems()"
     },
     {
@@ -458,7 +554,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_listorders",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "listorders()"
     },
     {
@@ -470,7 +566,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_loadaddressforcustomer",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "loadaddressforcustomer()"
     },
     {
@@ -482,7 +578,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_loadlines",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "loadlines()"
     },
     {
@@ -494,7 +590,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_previeworder",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "previeworder()"
     },
     {
@@ -506,7 +602,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_repeatorder",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "repeatorder()"
     },
     {
@@ -518,7 +614,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_promotions_promotions_service_computediscount",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "computediscount()"
     },
     {
@@ -530,7 +626,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_promotions_promotions_service_findactivepromotionbycode",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "findactivepromotionbycode()"
     },
     {
@@ -606,18 +702,6 @@
       "norm_label": "load()"
     },
     {
-      "label": "Promotions()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Promotions.jsx",
-      "source_location": "L11",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_promotions_promotions",
-      "community": 13,
-      "community_name": "AdminPromotions.jsx",
-      "norm_label": "promotions()"
-    },
-    {
       "label": "createPromotion()",
       "file_type": "code",
       "source_file": "frontend/src/services/promotions.js",
@@ -652,18 +736,6 @@
       "community": 13,
       "community_name": "AdminPromotions.jsx",
       "norm_label": "getallpromotions()"
-    },
-    {
-      "label": "getPromotions()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/promotions.js",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_promotions_getpromotions",
-      "community": 13,
-      "community_name": "AdminPromotions.jsx",
-      "norm_label": "getpromotions()"
     },
     {
       "label": "updatePromotion()",
@@ -813,7 +885,7 @@
       "label": "clearSession()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L23",
+      "source_location": "L32",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_clearsession",
@@ -825,7 +897,7 @@
       "label": "fetchMe()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L49",
+      "source_location": "L60",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_fetchme",
@@ -837,7 +909,7 @@
       "label": "forgotPassword()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L53",
+      "source_location": "L64",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_forgotpassword",
@@ -861,7 +933,7 @@
       "label": "getStoredUser()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L10",
+      "source_location": "L11",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_getstoreduser",
@@ -873,7 +945,7 @@
       "label": "login()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L28",
+      "source_location": "L39",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_login",
@@ -885,7 +957,7 @@
       "label": "logout()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L40",
+      "source_location": "L51",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_logout",
@@ -897,7 +969,7 @@
       "label": "register()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L34",
+      "source_location": "L45",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_register",
@@ -909,7 +981,7 @@
       "label": "resetPassword()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L57",
+      "source_location": "L68",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_resetpassword",
@@ -921,7 +993,7 @@
       "label": "storeSession()",
       "file_type": "code",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L18",
+      "source_location": "L21",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_services_auth_storesession",
@@ -1590,42 +1662,6 @@
       "norm_label": ".addition_iscorrect()"
     },
     {
-      "label": "App()",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L37",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_app_app",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "app()"
-    },
-    {
-      "label": "Page()",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L33",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_app_page",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "page()"
-    },
-    {
-      "label": "Footer()",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Footer.jsx",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_components_footer_footer",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "footer()"
-    },
-    {
       "label": "Navbar()",
       "file_type": "code",
       "source_file": "frontend/src/components/Navbar.jsx",
@@ -1634,7 +1670,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_navbar_navbar",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "navbar()"
     },
     {
@@ -1646,7 +1682,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_navbar_navbar_handlelogout",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "handlelogout()"
     },
     {
@@ -1658,7 +1694,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_protectedroute_protectedroute",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "protectedroute()"
     },
     {
@@ -1670,19 +1706,19 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authprovider",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "authprovider()"
     },
     {
       "label": "useAuth()",
       "file_type": "code",
       "source_file": "frontend/src/context/AuthContext.jsx",
-      "source_location": "L60",
+      "source_location": "L81",
       "_callable": true,
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_useauth",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "useauth()"
     },
     {
@@ -1694,80 +1730,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_home_home",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "home()"
-    },
-    {
-      "label": "Login()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Login.jsx",
-      "source_location": "L5",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_login_login",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "login()"
-    },
-    {
-      "label": "fillCredentials()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Login.jsx",
-      "source_location": "L33",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_login_login_fillcredentials",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "fillcredentials()"
-    },
-    {
-      "label": "handleSubmit()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Login.jsx",
-      "source_location": "L13",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_login_login_handlesubmit",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "handlesubmit()"
-    },
-    {
-      "label": "NotFound()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/NotFound.jsx",
-      "source_location": "L3",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_notfound_notfound",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "notfound()"
-    },
-    {
-      "label": "formatPrice()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_formatprice",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "formatprice()"
-    },
-    {
-      "label": "OrderDetail()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_orderdetail",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "orderdetail()"
     },
     {
       "label": "Register()",
@@ -1778,7 +1742,7 @@
       "_origin": "ast",
       "id": "frontend_src_pages_register_register",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "register()"
     },
     {
@@ -1790,20 +1754,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_register_register_handlesubmit",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "handlesubmit()"
-    },
-    {
-      "label": "getOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_getorder",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "getorder()"
     },
     {
       "label": "Notifications()",
@@ -2370,54 +2322,6 @@
       "norm_label": "fmtmoney()"
     },
     {
-      "label": "formatPrice()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L6",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_formatprice",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "formatprice()"
-    },
-    {
-      "label": "MyOrders()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L23",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_myorders",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "myorders()"
-    },
-    {
-      "label": "handleRepeat()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L34",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_myorders_handlerepeat",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "handlerepeat()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L28",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_myorders_load",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "load()"
-    },
-    {
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "frontend/src/services/api.js",
@@ -2514,18 +2418,6 @@
       "norm_label": "getordersbystatus()"
     },
     {
-      "label": "repeatOrder()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/orders.js",
-      "source_location": "L28",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_orders_repeatorder",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "repeatorder()"
-    },
-    {
       "label": "takeOrder()",
       "file_type": "code",
       "source_file": "frontend/src/services/orders.js",
@@ -2608,6 +2500,18 @@
       "community": 6,
       "community_name": "AdminDashboard.jsx",
       "norm_label": "updateuser()"
+    },
+    {
+      "label": "handler()",
+      "file_type": "code",
+      "source_file": "api/index.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "api_index_handler",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "handler()"
     },
     {
       "label": "authenticate()",
@@ -2802,136 +2706,208 @@
       "norm_label": "getproducts()"
     },
     {
-      "label": "AdminZones()",
+      "label": "App()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
-      "source_location": "L14",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L37",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminzones_adminzones",
+      "id": "frontend_src_app_app",
       "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "adminzones()"
+      "community_name": "App.jsx",
+      "norm_label": "app()"
+    },
+    {
+      "label": "Page()",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L33",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_app_page",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "page()"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Footer.jsx",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_components_footer_footer",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "footer()"
+    },
+    {
+      "label": "Login()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Login.jsx",
+      "source_location": "L5",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_login_login",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "login()"
+    },
+    {
+      "label": "fillCredentials()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Login.jsx",
+      "source_location": "L38",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_login_login_fillcredentials",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "fillcredentials()"
     },
     {
       "label": "handleSubmit()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
-      "source_location": "L26",
+      "source_file": "frontend/src/pages/Login.jsx",
+      "source_location": "L14",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminzones_adminzones_handlesubmit",
+      "id": "frontend_src_pages_login_login_handlesubmit",
       "community": 76,
-      "community_name": "AdminZones.jsx",
+      "community_name": "App.jsx",
       "norm_label": "handlesubmit()"
     },
     {
-      "label": "handleToggle()",
+      "label": "NotFound()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
-      "source_location": "L37",
+      "source_file": "frontend/src/pages/NotFound.jsx",
+      "source_location": "L3",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminzones_adminzones_handletoggle",
+      "id": "frontend_src_pages_notfound_notfound",
       "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "handletoggle()"
-    },
-    {
-      "label": "load()",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
-      "source_location": "L20",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminzones_adminzones_load",
-      "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "load()"
+      "community_name": "App.jsx",
+      "norm_label": "notfound()"
     },
     {
       "label": "formatPrice()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
       "source_location": "L6",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminzones_formatprice",
-      "community": 76,
-      "community_name": "AdminZones.jsx",
+      "id": "frontend_src_pages_myorders_formatprice",
+      "community": 81,
+      "community_name": "MyOrders.jsx",
       "norm_label": "formatprice()"
     },
     {
-      "label": "createZone()",
+      "label": "MyOrders()",
       "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L8",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L23",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_zones_createzone",
-      "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "createzone()"
+      "id": "frontend_src_pages_myorders_myorders",
+      "community": 81,
+      "community_name": "MyOrders.jsx",
+      "norm_label": "myorders()"
     },
     {
-      "label": "getZones()",
+      "label": "handleRepeat()",
       "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L3",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L34",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_zones_getzones",
-      "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "getzones()"
+      "id": "frontend_src_pages_myorders_myorders_handlerepeat",
+      "community": 81,
+      "community_name": "MyOrders.jsx",
+      "norm_label": "handlerepeat()"
     },
     {
-      "label": "updateZone()",
+      "label": "load()",
       "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
-      "source_location": "L13",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L28",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_zones_updatezone",
-      "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "updatezone()"
+      "id": "frontend_src_pages_myorders_myorders_load",
+      "community": 81,
+      "community_name": "MyOrders.jsx",
+      "norm_label": "load()"
     },
     {
-      "label": "Containers()",
+      "label": "repeatOrder()",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L28",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_repeatorder",
+      "community": 81,
+      "community_name": "MyOrders.jsx",
+      "norm_label": "repeatorder()"
+    },
+    {
+      "label": "formatPrice()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L6",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_formatprice",
+      "community": 83,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "formatprice()"
+    },
+    {
+      "label": "OrderDetail()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_orderdetail",
+      "community": 83,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "orderdetail()"
+    },
+    {
+      "label": "getOrder()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/orders.js",
+      "source_location": "L23",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_orders_getorder",
+      "community": 83,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "getorder()"
+    },
+    {
+      "label": "Promotions()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Promotions.jsx",
       "source_location": "L11",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_pages_containers_containers",
-      "community": 81,
-      "community_name": "Containers.jsx",
-      "norm_label": "containers()"
+      "id": "frontend_src_pages_promotions_promotions",
+      "community": 84,
+      "community_name": "Promotions.jsx",
+      "norm_label": "promotions()"
     },
     {
-      "label": "getContainerMovements()",
+      "label": "getPromotions()",
       "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
-      "source_location": "L8",
-      "_callable": true,
-      "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainermovements",
-      "community": 81,
-      "community_name": "Containers.jsx",
-      "norm_label": "getcontainermovements()"
-    },
-    {
-      "label": "getContainerSummary()",
-      "file_type": "code",
-      "source_file": "frontend/src/services/containers.js",
+      "source_file": "frontend/src/services/promotions.js",
       "source_location": "L3",
       "_callable": true,
       "_origin": "ast",
-      "id": "frontend_src_services_containers_getcontainersummary",
-      "community": 81,
-      "community_name": "Containers.jsx",
-      "norm_label": "getcontainersummary()"
+      "id": "frontend_src_services_promotions_getpromotions",
+      "community": 84,
+      "community_name": "Promotions.jsx",
+      "norm_label": "getpromotions()"
     },
     {
       "label": "AdminContainers()",
@@ -2994,6 +2970,18 @@
       "norm_label": "load()"
     },
     {
+      "label": "Containers()",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L11",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers_containers",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "containers()"
+    },
+    {
       "label": "adjustContainers()",
       "file_type": "code",
       "source_file": "frontend/src/services/containers.js",
@@ -3004,6 +2992,30 @@
       "community": 9,
       "community_name": "AdminContainers.jsx",
       "norm_label": "adjustcontainers()"
+    },
+    {
+      "label": "getContainerMovements()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L8",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainermovements",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "getcontainermovements()"
+    },
+    {
+      "label": "getContainerSummary()",
+      "file_type": "code",
+      "source_file": "frontend/src/services/containers.js",
+      "source_location": "L3",
+      "_callable": true,
+      "_origin": "ast",
+      "id": "frontend_src_services_containers_getcontainersummary",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "getcontainersummary()"
     },
     {
       "label": "getInventory()",
@@ -4252,6 +4264,28 @@
       "norm_label": "frontend"
     },
     {
+      "label": "AdminZones",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "frontend_src_app_adminzones",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "adminzones"
+    },
+    {
+      "label": "Checkout",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "frontend_src_app_checkout",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "checkout"
+    },
+    {
       "label": "MyAddresses",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -4261,6 +4295,17 @@
       "community": 11,
       "community_name": "Checkout.jsx",
       "norm_label": "myaddresses"
+    },
+    {
+      "label": "AdminZones.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_admin_adminzones",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "adminzones.jsx"
     },
     {
       "label": "Checkout.jsx",
@@ -4307,6 +4352,17 @@
       "norm_label": "addresses.js"
     },
     {
+      "label": "zones.js",
+      "file_type": "code",
+      "source_file": "frontend/src/services/zones.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_services_zones",
+      "community": 11,
+      "community_name": "Checkout.jsx",
+      "norm_label": "zones.js"
+    },
+    {
       "label": "orders.routes.js",
       "file_type": "code",
       "source_file": "backend/src/modules/orders/orders.routes.js",
@@ -4314,7 +4370,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "orders.routes.js"
     },
     {
@@ -4325,7 +4381,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_itemrules",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "itemrules"
     },
     {
@@ -4336,8 +4392,19 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_routes_orderrules",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "orderrules"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/orders/orders.routes.js",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "backend_src_modules_orders_orders_routes_router",
+      "community": 12,
+      "community_name": "orders.routes.js",
+      "norm_label": "router"
     },
     {
       "label": "orders.service.js",
@@ -4347,7 +4414,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "orders.service.js"
     },
     {
@@ -4358,7 +4425,7 @@
       "_origin": "ast",
       "id": "backend_src_modules_orders_orders_service_order_statuses",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "order_statuses"
     },
     {
@@ -4369,7 +4436,7 @@
       "_origin": "ast",
       "id": "backend_test_promotions_test",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "promotions.test.js"
     },
     {
@@ -4380,7 +4447,7 @@
       "_origin": "ast",
       "id": "backend_test_promotions_test_base",
       "community": 12,
-      "community_name": "orders.service.js",
+      "community_name": "orders.routes.js",
       "norm_label": "base"
     },
     {
@@ -4393,17 +4460,6 @@
       "community": 13,
       "community_name": "AdminPromotions.jsx",
       "norm_label": "adminpromotions"
-    },
-    {
-      "label": "Promotions",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "frontend_src_app_promotions",
-      "community": 13,
-      "community_name": "AdminPromotions.jsx",
-      "norm_label": "promotions"
     },
     {
       "label": "AdminPromotions.jsx",
@@ -4448,28 +4504,6 @@
       "community": 13,
       "community_name": "AdminPromotions.jsx",
       "norm_label": "types"
-    },
-    {
-      "label": "Promotions.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Promotions.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_promotions",
-      "community": 13,
-      "community_name": "AdminPromotions.jsx",
-      "norm_label": "promotions.jsx"
-    },
-    {
-      "label": "TYPE_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Promotions.jsx",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "frontend_src_pages_promotions_type_labels",
-      "community": 13,
-      "community_name": "AdminPromotions.jsx",
-      "norm_label": "type_labels"
     },
     {
       "label": "promotions.js",
@@ -4670,28 +4704,6 @@
       "norm_label": "requireadmin"
     },
     {
-      "label": "cron.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/cron/cron.routes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_cron_cron_routes",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "cron.routes.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/cron/cron.routes.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "backend_src_modules_cron_cron_routes_router",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "router"
-    },
-    {
       "label": "dashboard.routes.js",
       "file_type": "code",
       "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
@@ -4701,17 +4713,6 @@
       "community": 16,
       "community_name": "db.js",
       "norm_label": "dashboard.routes.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "backend_src_modules_dashboard_dashboard_routes_router",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "router"
     },
     {
       "label": "dashboard.service.js",
@@ -4758,37 +4759,15 @@
       "norm_label": "system.routes.js"
     },
     {
-      "label": "router",
+      "label": "zones.routes.js",
       "file_type": "code",
-      "source_file": "backend/src/modules/system/system.routes.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "backend_src_modules_system_system_routes_router",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "router"
-    },
-    {
-      "label": "users.routes.js",
-      "file_type": "code",
-      "source_file": "backend/src/modules/users/users.routes.js",
+      "source_file": "backend/src/modules/zones/zones.routes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "backend_src_modules_users_users_routes",
+      "id": "backend_src_modules_zones_zones_routes",
       "community": 16,
       "community_name": "db.js",
-      "norm_label": "users.routes.js"
-    },
-    {
-      "label": "router",
-      "file_type": "code",
-      "source_file": "backend/src/modules/users/users.routes.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "backend_src_modules_users_users_routes_router",
-      "community": 16,
-      "community_name": "db.js",
-      "norm_label": "router"
+      "norm_label": "zones.routes.js"
     },
     {
       "label": "asyncHandler.js",
@@ -5000,15 +4979,15 @@
       "norm_label": "containers.service.js"
     },
     {
-      "label": "zones.routes.js",
+      "label": "users.routes.js",
       "file_type": "code",
-      "source_file": "backend/src/modules/zones/zones.routes.js",
+      "source_file": "backend/src/modules/users/users.routes.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "backend_src_modules_zones_zones_routes",
+      "id": "backend_src_modules_users_users_routes",
       "community": 19,
       "community_name": "containers.routes.js",
-      "norm_label": "zones.routes.js"
+      "norm_label": "users.routes.js"
     },
     {
       "label": "ApiError.js",
@@ -5427,17 +5406,6 @@
       "community": 21,
       "community_name": "Git Workflow and Versioning",
       "norm_label": "working with worktrees"
-    },
-    {
-      "label": "requireClient",
-      "file_type": "code",
-      "source_file": "backend/src/middlewares/auth.js",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "backend_src_middlewares_auth_requireclient",
-      "community": 22,
-      "community_name": "subscriptions.service.js",
-      "norm_label": "requireclient"
     },
     {
       "label": "subscriptions.routes.js",
@@ -6078,17 +6046,6 @@
       "norm_label": ".oxlintrc.json"
     },
     {
-      "label": "plugins",
-      "file_type": "code",
-      "source_file": "frontend/.oxlintrc.json",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "frontend_oxlintrc_plugins",
-      "community": 28,
-      "community_name": ".oxlintrc.json",
-      "norm_label": "plugins"
-    },
-    {
       "label": "rules",
       "file_type": "code",
       "source_file": "frontend/.oxlintrc.json",
@@ -6131,17 +6088,6 @@
       "community": 28,
       "community_name": ".oxlintrc.json",
       "norm_label": "$schema"
-    },
-    {
-      "label": "oxc",
-      "file_type": "concept",
-      "source_file": "frontend/.oxlintrc.json",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "ref_oxc",
-      "community": 28,
-      "community_name": ".oxlintrc.json",
-      "norm_label": "oxc"
     },
     {
       "label": "warn",
@@ -6430,26 +6376,15 @@
       "norm_label": "writing test plans for complex ui bugs"
     },
     {
-      "label": "App.jsx",
+      "label": "plugins",
       "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L1",
+      "source_file": "frontend/.oxlintrc.json",
+      "source_location": "L3",
       "_origin": "ast",
-      "id": "frontend_src_app",
+      "id": "frontend_oxlintrc_plugins",
       "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "app.jsx"
-    },
-    {
-      "label": "Checkout",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "frontend_src_app_checkout",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "checkout"
+      "community_name": "useAuth",
+      "norm_label": "plugins"
     },
     {
       "label": "Home",
@@ -6459,41 +6394,8 @@
       "_origin": "ast",
       "id": "frontend_src_app_home",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "home"
-    },
-    {
-      "label": "Login",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "frontend_src_app_login",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "login"
-    },
-    {
-      "label": "NotFound",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "frontend_src_app_notfound",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "notfound"
-    },
-    {
-      "label": "OrderDetail",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "frontend_src_app_orderdetail",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "orderdetail"
     },
     {
       "label": "Register",
@@ -6503,19 +6405,8 @@
       "_origin": "ast",
       "id": "frontend_src_app_register",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "register"
-    },
-    {
-      "label": "Footer.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/components/Footer.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_components_footer",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "footer.jsx"
     },
     {
       "label": "Navbar.jsx",
@@ -6525,7 +6416,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_navbar",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "navbar.jsx"
     },
     {
@@ -6536,7 +6427,7 @@
       "_origin": "ast",
       "id": "frontend_src_components_protectedroute",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "protectedroute.jsx"
     },
     {
@@ -6547,7 +6438,7 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "authcontext.jsx"
     },
     {
@@ -6558,19 +6449,8 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authcontext",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "authcontext"
-    },
-    {
-      "label": "main.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/main.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_main",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "main.jsx"
     },
     {
       "label": "Home.jsx",
@@ -6580,52 +6460,8 @@
       "_origin": "ast",
       "id": "frontend_src_pages_home",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "home.jsx"
-    },
-    {
-      "label": "Login.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/Login.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_login",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "login.jsx"
-    },
-    {
-      "label": "NotFound.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/NotFound.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_notfound",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "notfound.jsx"
-    },
-    {
-      "label": "OrderDetail.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "orderdetail.jsx"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/OrderDetail.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_pages_orderdetail_status_labels",
-      "community": 3,
-      "community_name": "App.jsx",
-      "norm_label": "status_labels"
     },
     {
       "label": "Register.jsx",
@@ -6635,8 +6471,19 @@
       "_origin": "ast",
       "id": "frontend_src_pages_register",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "register.jsx"
+    },
+    {
+      "label": "oxc",
+      "file_type": "concept",
+      "source_file": "frontend/.oxlintrc.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "ref_oxc",
+      "community": 3,
+      "community_name": "useAuth",
+      "norm_label": "oxc"
     },
     {
       "label": "react",
@@ -6646,7 +6493,7 @@
       "_origin": "ast",
       "id": "ref_react",
       "community": 3,
-      "community_name": "App.jsx",
+      "community_name": "useAuth",
       "norm_label": "react"
     },
     {
@@ -7840,28 +7687,6 @@
       "norm_label": "adminorders"
     },
     {
-      "label": "DriverOrders",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "frontend_src_app_driverorders",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "driverorders"
-    },
-    {
-      "label": "MyOrders",
-      "file_type": "code",
-      "source_file": "frontend/src/App.jsx",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "frontend_src_app_myorders",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "myorders"
-    },
-    {
       "label": "AdminDashboard.jsx",
       "file_type": "code",
       "source_file": "frontend/src/pages/admin/AdminDashboard.jsx",
@@ -7950,28 +7775,6 @@
       "norm_label": "status_labels"
     },
     {
-      "label": "MyOrders.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "myorders.jsx"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/MyOrders.jsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "frontend_src_pages_myorders_status_labels",
-      "community": 6,
-      "community_name": "AdminDashboard.jsx",
-      "norm_label": "status_labels"
-    },
-    {
       "label": "api.js",
       "file_type": "code",
       "source_file": "frontend/src/services/api.js",
@@ -7986,7 +7789,7 @@
       "label": "api",
       "file_type": "code",
       "source_file": "frontend/src/services/api.js",
-      "source_location": "L55",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "frontend_src_services_api_api",
       "community": 6,
@@ -10392,6 +10195,17 @@
       "norm_label": "apilimiter"
     },
     {
+      "label": "apiRouter",
+      "file_type": "code",
+      "source_file": "backend/src/app.js",
+      "source_location": "L82",
+      "_origin": "ast",
+      "id": "backend_src_app_apirouter",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "apirouter"
+    },
+    {
       "label": "app",
       "file_type": "code",
       "source_file": "backend/src/app.js",
@@ -10458,6 +10272,17 @@
       "norm_label": "requireanyrole"
     },
     {
+      "label": "requireClient",
+      "file_type": "code",
+      "source_file": "backend/src/middlewares/auth.js",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "backend_src_middlewares_auth_requireclient",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "requireclient"
+    },
+    {
       "label": "requireDriver",
       "file_type": "code",
       "source_file": "backend/src/middlewares/auth.js",
@@ -10491,6 +10316,39 @@
       "norm_label": "router"
     },
     {
+      "label": "cron.routes.js",
+      "file_type": "code",
+      "source_file": "backend/src/modules/cron/cron.routes.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "backend_src_modules_cron_cron_routes",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "cron.routes.js"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/cron/cron.routes.js",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "backend_src_modules_cron_cron_routes_router",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/dashboard/dashboard.routes.js",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "backend_src_modules_dashboard_dashboard_routes_router",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "router"
+    },
+    {
       "label": "notifications.routes.js",
       "file_type": "code",
       "source_file": "backend/src/modules/notifications/notifications.routes.js",
@@ -10515,10 +10373,21 @@
     {
       "label": "router",
       "file_type": "code",
-      "source_file": "backend/src/modules/orders/orders.routes.js",
-      "source_location": "L18",
+      "source_file": "backend/src/modules/system/system.routes.js",
+      "source_location": "L7",
       "_origin": "ast",
-      "id": "backend_src_modules_orders_orders_routes_router",
+      "id": "backend_src_modules_system_system_routes_router",
+      "community": 7,
+      "community_name": "app.js",
+      "norm_label": "router"
+    },
+    {
+      "label": "router",
+      "file_type": "code",
+      "source_file": "backend/src/modules/users/users.routes.js",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "backend_src_modules_users_users_routes_router",
       "community": 7,
       "community_name": "app.js",
       "norm_label": "router"
@@ -11349,37 +11218,92 @@
       "norm_label": "scamper"
     },
     {
-      "label": "AdminZones",
+      "label": "App.jsx",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "frontend_src_app_adminzones",
-      "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "adminzones"
-    },
-    {
-      "label": "AdminZones.jsx",
-      "file_type": "code",
-      "source_file": "frontend/src/pages/admin/AdminZones.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_admin_adminzones",
+      "id": "frontend_src_app",
       "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "adminzones.jsx"
+      "community_name": "App.jsx",
+      "norm_label": "app.jsx"
     },
     {
-      "label": "zones.js",
+      "label": "DriverOrders",
       "file_type": "code",
-      "source_file": "frontend/src/services/zones.js",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "frontend_src_app_driverorders",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "driverorders"
+    },
+    {
+      "label": "Login",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "frontend_src_app_login",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "login"
+    },
+    {
+      "label": "NotFound",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "frontend_src_app_notfound",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "notfound"
+    },
+    {
+      "label": "Footer.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/components/Footer.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_services_zones",
+      "id": "frontend_src_components_footer",
       "community": 76,
-      "community_name": "AdminZones.jsx",
-      "norm_label": "zones.js"
+      "community_name": "App.jsx",
+      "norm_label": "footer.jsx"
+    },
+    {
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/main.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_main",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "main.jsx"
+    },
+    {
+      "label": "Login.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Login.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_login",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "login.jsx"
+    },
+    {
+      "label": "NotFound.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/NotFound.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_notfound",
+      "community": 76,
+      "community_name": "App.jsx",
+      "norm_label": "notfound.jsx"
     },
     {
       "label": "elaguitas-ops/SKILL.md",
@@ -12031,37 +11955,37 @@
       "norm_label": "workflow: graphify"
     },
     {
-      "label": "Containers",
+      "label": "MyOrders",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
-      "source_location": "L20",
+      "source_location": "L17",
       "_origin": "ast",
-      "id": "frontend_src_app_containers",
+      "id": "frontend_src_app_myorders",
       "community": 81,
-      "community_name": "Containers.jsx",
-      "norm_label": "containers"
+      "community_name": "MyOrders.jsx",
+      "norm_label": "myorders"
     },
     {
-      "label": "Containers.jsx",
+      "label": "MyOrders.jsx",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "frontend_src_pages_containers",
+      "id": "frontend_src_pages_myorders",
       "community": 81,
-      "community_name": "Containers.jsx",
-      "norm_label": "containers.jsx"
+      "community_name": "MyOrders.jsx",
+      "norm_label": "myorders.jsx"
     },
     {
-      "label": "TYPE_LABELS",
+      "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "frontend/src/pages/Containers.jsx",
-      "source_location": "L5",
+      "source_file": "frontend/src/pages/MyOrders.jsx",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "frontend_src_pages_containers_type_labels",
+      "id": "frontend_src_pages_myorders_status_labels",
       "community": 81,
-      "community_name": "Containers.jsx",
-      "norm_label": "type_labels"
+      "community_name": "MyOrders.jsx",
+      "norm_label": "status_labels"
     },
     {
       "label": "termine.md",
@@ -12097,6 +12021,72 @@
       "norm_label": "/termine workflow"
     },
     {
+      "label": "OrderDetail",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "frontend_src_app_orderdetail",
+      "community": 83,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "orderdetail"
+    },
+    {
+      "label": "OrderDetail.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail",
+      "community": 83,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "orderdetail.jsx"
+    },
+    {
+      "label": "STATUS_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/OrderDetail.jsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "frontend_src_pages_orderdetail_status_labels",
+      "community": 83,
+      "community_name": "OrderDetail.jsx",
+      "norm_label": "status_labels"
+    },
+    {
+      "label": "Promotions",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "frontend_src_app_promotions",
+      "community": 84,
+      "community_name": "Promotions.jsx",
+      "norm_label": "promotions"
+    },
+    {
+      "label": "Promotions.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Promotions.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_promotions",
+      "community": 84,
+      "community_name": "Promotions.jsx",
+      "norm_label": "promotions.jsx"
+    },
+    {
+      "label": "TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Promotions.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "frontend_src_pages_promotions_type_labels",
+      "community": 84,
+      "community_name": "Promotions.jsx",
+      "norm_label": "type_labels"
+    },
+    {
       "label": "AdminContainers",
       "file_type": "code",
       "source_file": "frontend/src/App.jsx",
@@ -12106,6 +12096,17 @@
       "community": 9,
       "community_name": "AdminContainers.jsx",
       "norm_label": "admincontainers"
+    },
+    {
+      "label": "Containers",
+      "file_type": "code",
+      "source_file": "frontend/src/App.jsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "frontend_src_app_containers",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "containers"
     },
     {
       "label": "AdminContainers.jsx",
@@ -12128,6 +12129,28 @@
       "community": 9,
       "community_name": "AdminContainers.jsx",
       "norm_label": "status_labels"
+    },
+    {
+      "label": "Containers.jsx",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "containers.jsx"
+    },
+    {
+      "label": "TYPE_LABELS",
+      "file_type": "code",
+      "source_file": "frontend/src/pages/Containers.jsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "frontend_src_pages_containers_type_labels",
+      "community": 9,
+      "community_name": "AdminContainers.jsx",
+      "norm_label": "type_labels"
     },
     {
       "label": "containers.js",
@@ -12680,6 +12703,18 @@
       "source": "frontend_android_app_src_test_java_com_getcapacitor_myapp_exampleunittest_exampleunittest_addition_iscorrect",
       "target": "org_junit_test",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "api/index.js",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "api_index_handler",
+      "target": "backend_src_app_app"
     },
     {
       "relation": "calls",
@@ -14738,7 +14773,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L30",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth_login",
@@ -14750,7 +14785,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L41",
+      "source_location": "L52",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth_logout",
@@ -14762,7 +14797,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L45",
+      "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth_logout",
@@ -14774,7 +14809,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L36",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth_register",
@@ -15122,7 +15157,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Login.jsx",
-      "source_location": "L33",
+      "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_login_login",
@@ -15199,18 +15234,6 @@
       "_origin": "ast",
       "source": "frontend_src_pages_notifications_notifications",
       "target": "frontend_src_pages_notifications_notifications_handleread",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "re_exports",
-      "context": "export",
-      "confidence": "EXTRACTED",
-      "source_file": "api/index.js",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "api_index",
-      "target": "backend_src_app",
       "confidence_score": 1.0
     },
     {
@@ -19206,6 +19229,18 @@
       "_origin": "ast",
       "source": "package_devdependencies_concurrently",
       "target": "concurrently",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "api/index.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "api_index",
+      "target": "backend_src_app",
       "confidence_score": 1.0
     },
     {
@@ -26598,6 +26633,17 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "api/index.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "api_index",
+      "target": "api_index_handler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "backend/db/runMigrations.js",
       "source_location": "L18",
       "weight": 1.0,
@@ -27077,6 +27123,17 @@
       "_origin": "ast",
       "source": "backend_src_app",
       "target": "backend_src_app_uploadspath",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "backend/src/app.js",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "backend_src_app",
+      "target": "backend_src_app_apirouter",
       "confidence_score": 1.0
     },
     {
@@ -29129,7 +29186,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/context/AuthContext.jsx",
-      "source_location": "L60",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_context_authcontext",
@@ -29701,7 +29758,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/pages/Login.jsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_pages_login_login",
@@ -30042,7 +30099,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/api.js",
-      "source_location": "L55",
+      "source_location": "L79",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_api",
@@ -30053,7 +30110,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L10",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth",
@@ -30064,7 +30121,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L18",
+      "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth",
@@ -30075,7 +30132,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L23",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth",
@@ -30086,7 +30143,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L28",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth",
@@ -30097,7 +30154,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L34",
+      "source_location": "L45",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth",
@@ -30108,44 +30165,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/services/auth.js",
-      "source_location": "L40",
+      "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_services_auth",
       "target": "frontend_src_services_auth_logout",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/services/auth.js",
-      "source_location": "L49",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_services_auth",
-      "target": "frontend_src_services_auth_fetchme",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/services/auth.js",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_services_auth",
-      "target": "frontend_src_services_auth_forgotpassword",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "frontend/src/services/auth.js",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "frontend_src_services_auth",
-      "target": "frontend_src_services_auth_resetpassword",
       "confidence_score": 1.0
     },
     {
@@ -30157,6 +30181,39 @@
       "_origin": "ast",
       "source": "frontend_src_services_auth",
       "target": "frontend_src_services_auth_getstoredtoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/auth.js",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_services_auth",
+      "target": "frontend_src_services_auth_fetchme",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/auth.js",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_services_auth",
+      "target": "frontend_src_services_auth_forgotpassword",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/services/auth.js",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "frontend_src_services_auth",
+      "target": "frontend_src_services_auth_resetpassword",
       "confidence_score": 1.0
     },
     {
@@ -31582,7 +31639,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "backend/src/app.js",
-      "source_location": "L118",
+      "source_location": "L122",
       "weight": 1.0,
       "_origin": "ast",
       "confidence_score": 0.8,
@@ -31594,7 +31651,7 @@
       "context": "argument",
       "confidence": "INFERRED",
       "source_file": "backend/src/app.js",
-      "source_location": "L119",
+      "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
       "confidence_score": 0.8,
@@ -31918,5 +31975,5 @@
       "source_file": "frontend/public/icons.svg"
     }
   ],
-  "built_at_commit": "8ba8d67c378e652d84f9c037d8d917cb57b571c3"
+  "built_at_commit": "54cd501dcaddaacf47f082674ea24b9f714bc7e9"
 }

@@ -79,35 +79,39 @@ if (!env.isProduction) {
   app.use(morgan('dev'));
 }
 
-app.use('/api', apiLimiter);
-app.use('/api', healthRoutes);
-app.use('/api/cron', cronRoutes);
-app.use('/api/auth', authLimiter, authRoutes);
-app.use('/api/products', productsRoutes);
-app.use('/api/orders', requireAnyRole, ordersRoutes);
-app.use('/api/addresses', addressesRoutes);
-app.use('/api/zones', zonesRoutes);
-app.use('/api/containers', containersRoutes);
-app.use('/api/users', usersRoutes);
-app.use('/api/dashboard', dashboardRoutes);
-app.use('/api/subscriptions', subscriptionsRoutes);
-app.use('/api/promotions', promotionsRoutes);
-app.use('/api/notifications', notificationsRoutes);
-app.use('/api/system', systemRoutes);
+const apiRouter = express.Router();
+apiRouter.use(apiLimiter);
+apiRouter.use(healthRoutes);
+apiRouter.use('/cron', cronRoutes);
+apiRouter.use('/auth', authLimiter, authRoutes);
+apiRouter.use('/products', productsRoutes);
+apiRouter.use('/orders', requireAnyRole, ordersRoutes);
+apiRouter.use('/addresses', addressesRoutes);
+apiRouter.use('/zones', zonesRoutes);
+apiRouter.use('/containers', containersRoutes);
+apiRouter.use('/users', usersRoutes);
+apiRouter.use('/dashboard', dashboardRoutes);
+apiRouter.use('/subscriptions', subscriptionsRoutes);
+apiRouter.use('/promotions', promotionsRoutes);
+apiRouter.use('/notifications', notificationsRoutes);
+apiRouter.use('/system', systemRoutes);
 
-app.use('/api/client', requireClient, (req, res) => {
+apiRouter.use('/client', requireClient, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de cliente' });
 });
 
-app.use('/api/driver', requireDriver, (req, res) => {
+apiRouter.use('/driver', requireDriver, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de repartidor' });
 });
 
-app.use('/api/admin', requireAdmin, (req, res) => {
+apiRouter.use('/admin', requireAdmin, (req, res) => {
   res.json({ role: req.user.role, message: 'Área de administrador' });
 });
 
-app.get('/', (req, res) => {
+app.use('/api', apiRouter);
+app.use('/', apiRouter);
+
+app.get(['/', '/api'], (req, res) => {
   res.json({
     service: 'agua-backend',
     message: 'API de venta y reparto de agua en bidones',
