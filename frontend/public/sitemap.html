@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Agüitas - Prototipo Visual Ultra Prime (UI Curva & Fachera)</title>
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --primary-glow: rgba(2, 132, 199, 0.35);
+      --accent: #10b981;
+      --accent-dark: #059669;
+      --accent-light: #d1fae5;
+      --warning: #f59e0b;
+      --warning-light: #fef3c7;
+      --danger: #ef4444;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 32px;
+      --radius-pill: 9999px;
+      --shadow-soft: 0 16px 36px -8px rgba(11, 125, 194, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.85);
+      --shadow-float: 0 20px 45px -10px rgba(11, 125, 194, 0.25);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+    body {
+      font-family: var(--font);
+      background: #f8fafc;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(2, 132, 199, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(2, 132, 199, 0.06) 0%, transparent 50%);
+      color: #0f172a;
+      min-height: 100vh;
+      padding: 3rem 1.5rem 6rem;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1560px;
+      margin: 0 auto;
+    }
+
+    /* Cabecera Principal */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.3rem;
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(16, 185, 129, 0.12) 100%);
+      border: 1px solid #bae6fd;
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.1);
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      color: #0f172a;
+      margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+      color: var(--slate-600);
+      font-size: 1.15rem;
+      max-width: 820px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Barra de Filtros Flotante Curva */
+    .role-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+      position: sticky;
+      top: 1.25rem;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.88);
+      padding: 0.85rem 1.15rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+    }
+
+    .nav-pill {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      color: var(--slate-700);
+      padding: 0.6rem 1.3rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-pill:hover, .nav-pill.active {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 6px 20px var(--primary-glow);
+      transform: translateY(-2px);
+    }
+
+    /* Secciones */
+    .role-section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 7rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--slate-200);
+      padding-bottom: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .section-tag {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.04em;
+    }
+
+    .tag-public { background: var(--primary-light); color: var(--primary-dark); border: 1px solid #bae6fd; }
+    .tag-auth { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+    .tag-client { background: var(--accent-light); color: var(--accent-dark); border: 1px solid #a7f3d0; }
+    .tag-driver { background: var(--warning-light); color: #92400e; border: 1px solid #fde68a; }
+    .tag-admin { background: #ffe4e6; color: #9f1239; border: 1px solid #fecdd3; }
+    .tag-util { background: var(--slate-100); color: var(--slate-700); border: 1px solid var(--slate-300); }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.025em;
+    }
+
+    .section-count {
+      color: var(--slate-500);
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    /* Grilla de Celulares */
+    .phones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 2.75rem;
+      justify-items: center;
+    }
+
+    .phone-card {
+      width: 100%;
+      max-width: 380px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .phone-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0.6rem;
+    }
+
+    .route-pill {
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      background: #ffffff;
+      border: 1px solid #bae6fd;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
+    }
+
+    .component-label {
+      font-size: 0.78rem;
+      color: var(--slate-500);
+      font-family: monospace;
+      font-weight: 700;
+    }
+
+    /* Marco del Smartphone (Curvas Orgánicas & Titanio Pulido) */
+    .mockup-frame {
+      width: 100%;
+      height: 740px;
+      background: #ffffff;
+      border-radius: 54px;
+      padding: 12px;
+      box-shadow: 
+        0 30px 70px -15px rgba(15, 23, 42, 0.15),
+        0 0 0 1px rgba(15, 23, 42, 0.06),
+        inset 0 0 0 3px #e2e8f0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+    }
+
+    .mockup-frame:hover {
+      transform: translateY(-5px);
+      box-shadow: 
+        0 40px 90px -20px rgba(2, 132, 199, 0.22),
+        0 0 0 1px rgba(2, 132, 199, 0.2),
+        inset 0 0 0 3px #cbd5e1;
+    }
+
+    .dynamic-island {
+      position: absolute;
+      top: 19px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 27px;
+      background: #0f172a;
+      border-radius: var(--radius-pill);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+
+    .di-lens { width: 9px; height: 9px; border-radius: 50%; background: #1e293b; }
+    .di-sensor { width: 7px; height: 7px; border-radius: 50%; background: #064e3b; opacity: 0.8; }
+
+    /* Pantalla Activa Móvil */
+    .viewport {
+      background: #edf2f7;
+      background-image: 
+        radial-gradient(circle at 100% 0%, rgba(186, 230, 253, 0.5) 0%, transparent 45%),
+        radial-gradient(circle at 0% 100%, rgba(209, 250, 229, 0.45) 0%, transparent 50%);
+      width: 100%;
+      height: 100%;
+      border-radius: 44px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      scrollbar-width: none;
+    }
+
+    .viewport::-webkit-scrollbar { display: none; }
+
+    .m-status-bar {
+      height: 46px;
+      padding: 14px 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #0f172a;
+      flex-shrink: 0;
+    }
+
+    .m-topbar {
+      padding: 0.45rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      margin-bottom: 0.75rem;
+    }
+
+    .m-title {
+      font-size: 0.96rem;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .m-content {
+      padding: 0.4rem 1.15rem 5.6rem;
+      flex: 1;
+    }
+
+    /* Tarjetas Orgánicas Ultra-Curvas (Cero Cuadradez) */
+    .m-card {
+      background: #ffffff;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 0.85rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .m-card.featured {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #ffffff 0%, #f0f9ff 100%);
+      border: 1px solid #bae6fd;
+    }
+
+    .m-sub {
+      font-size: 0.78rem;
+      color: var(--slate-500);
+      line-height: 1.5;
+    }
+
+    /* Botones Píldora Nativos */
+    .m-btn {
+      width: 100%;
+      height: 46px;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .m-btn:active { transform: scale(0.98); }
+
+    .m-btn-primary { 
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+      color: #fff; 
+      box-shadow: 0 8px 20px var(--primary-glow); 
+    }
+
+    .m-btn-success { 
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); 
+      color: #fff; 
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35); 
+    }
+
+    .m-btn-outline { 
+      background: #ffffff; 
+      border: 1px solid var(--slate-300); 
+      color: #334155; 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+    }
+
+    .m-input {
+      width: 100%;
+      height: 44px;
+      background: #ffffff;
+      border: 1px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      padding: 0 0.95rem;
+      font-size: 0.85rem;
+      color: #0f172a;
+      margin-bottom: 0.6rem;
+      outline: none;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .m-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .pill-blue { background: var(--primary-light); color: var(--primary-dark); }
+    .pill-green { background: var(--accent-light); color: var(--accent-dark); }
+    .pill-amber { background: var(--warning-light); color: #92400e; }
+    .pill-red { background: var(--danger-light); color: #991b1b; }
+
+    /* Barra Inferior Dock Nativo Flotante */
+    .m-dock {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      border-radius: var(--radius-pill);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 0.6rem;
+      z-index: 90;
+    }
+
+    .dock-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: #64748b;
+      gap: 3px;
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .dock-item.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+
+    .eval-note {
+      background: #ffffff;
+      border: 1px solid var(--slate-200);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .eval-keep { color: #059669; font-weight: 900; }
+    .eval-merge { color: #d97706; font-weight: 900; }
+    .eval-delete { color: #dc2626; font-weight: 900; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <div class="badge-top">
+        <span class="badge-dot"></span>
+        <span>UI Móvil Prime · Curvas Orgánicas & Cero Cuadradez</span>
+      </div>
+      <h1>El Agüitas · Galería de Pantallas Facheras</h1>
+      <p class="subtitle">
+        Diseño mobile-first fluido, tarjetas con bordes redondeados orgánicos (`24px - 32px`), botones píldora, microgradientes sutiles y arquitectura visual 100% modo claro para San Rafael.
+      </p>
+    </header>
+
+    <!-- NAVEGACIÓN STICKY POR ROLES -->
+    <nav class="role-nav">
+      <a href="#sec-public" class="nav-pill">1. Público & Catálogo (4)</a>
+      <a href="#sec-auth" class="nav-pill">2. Autenticación (4)</a>
+      <a href="#sec-client" class="nav-pill">3. Portal Cliente (7)</a>
+      <a href="#sec-driver" class="nav-pill">4. Chofer / Repartos (1)</a>
+      <a href="#sec-admin" class="nav-pill">5. Consola Admin (6)</a>
+      <a href="#sec-util" class="nav-pill">6. Utilidad / Demo (2)</a>
+    </nav>
+
+
+    <!-- ========================================================
+         SECCIÓN 1: PÚBLICO Y CATÁLOGO
+         ======================================================== -->
+    <section class="role-section" id="sec-public">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag tag-public">Acceso Libre</span>
+          <h2 class="section-title">1. Vistas Públicas y Catálogo Curvo</h2>
+        </div>
+        <span class="section-count">4 Pantallas Codificadas</span>
+      </div>
+
+      <div class="phones-grid">
+
+        <!-- 1.1: HOME (SIN CATÁLOGO VOLCADO - ULTRA FACHERA) -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/</span>
+            <span class="component-label">pages/Home.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              
+              <div class="m-topbar">
+                <span class="m-pill pill-blue">San Rafael, Mza</span>
+                <span style="font-weight:900;font-size:0.85rem;color:var(--primary);letter-spacing:-0.02em;">El Agüitas</span>
+                <div style="width:34px;height:34px;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.75rem;color:var(--primary-dark);">
+                  JO
+                </div>
+              </div>
+
+              <div class="m-content">
+                <div style="margin-bottom:0.85rem;">
+                  <h3 style="font-size:1.35rem;font-weight:900;letter-spacing:-0.03em;">Buen día, Juan</h3>
+                  <p class="m-sub">Agua pura tratada en planta San Rafael</p>
+                </div>
+
+                <!-- Tarjeta de Tracking Curva Orgánica -->
+                <div class="m-card featured" style="background:linear-gradient(135deg,#0284c7 0%,#0369a1 100%);color:#fff;border-radius:var(--radius-lg);box-shadow:0 14px 30px rgba(2,132,199,0.35);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <span style="background:rgba(255,255,255,0.25);padding:0.25rem 0.65rem;border-radius:var(--radius-pill);font-weight:800;font-size:0.7rem;">EN REPARTO</span>
+                    <span style="font-size:0.75rem;font-weight:700;opacity:0.9;">ORD-104</span>
+                  </div>
+                  <strong style="font-size:1.05rem;display:block;line-height:1.25;">Tu entrega llega en ~20 min</strong>
+                  <div style="width:100%;height:6px;background:rgba(255,255,255,0.3);border-radius:var(--radius-pill);margin:0.6rem 0 0.35rem;overflow:hidden;">
+                    <div style="width:75%;height:100%;background:#34d399;border-radius:var(--radius-pill);"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.74rem;opacity:0.9;">
+                    <span>Chofer: Carlos Gómez</span>
+                    <span style="color:#a7f3d0;font-weight:800;">2x Bidón 20L</span>
+                  </div>
+                </div>
+
+                <!-- Accesos Rápidos Táctiles 2x2 Curvos -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;margin-bottom:0.85rem;">
+                  <div class="m-card" style="border-radius:var(--radius-md);margin:0;padding:0.9rem;display:flex;flex-direction:column;justify-content:space-between;height:105px;">
+                    <div style="width:34px;height:34px;border-radius:50%;background:var(--primary-light);display:flex;align-items:center;justify-content:center;color:var(--primary);font-weight:800;font-size:0.85rem;">
+                      💧
+                    </div>
+                    <div>
+                      <strong style="font-size:0.85rem;display:block;">Pedir Agua</strong>
+                      <span class="m-sub">Ver catálogo</span>
+                    </div>
+                  </div>
+
+                  <div class="m-card" style="border-radius:var(--radius-md);margin:0;padding:0.9rem;display:flex;flex-direction:column;justify-content:space-between;height:105px;">
+                    <div style="width:34px;height:34px;border-radius:50%;background:var(--accent-light);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:0.85rem;">
+                      ↺
+                    </div>
+                    <div>
+                      <strong style="font-size:0.85rem;display:block;color:var(--accent);">Recambio</strong>
+                      <span class="m-sub">2x 20L en 1 toque</span>
+                    </div>
+                  </div>
+
+                  <div class="m-card" style="border-radius:var(--radius-md);margin:0;padding:0.9rem;display:flex;flex-direction:column;justify-content:space-between;height:105px;">
+                    <div style="width:34px;height:34px;border-radius:50%;background:#fef3c7;display:flex;align-items:center;justify-content:center;color:#b45309;font-weight:800;font-size:0.85rem;">
+                      📦
+                    </div>
+                    <div>
+                      <strong style="font-size:0.85rem;display:block;">Retiro Vacíos</strong>
+                      <span class="m-sub">Sin costo</span>
+                    </div>
+                  </div>
+
+                  <div class="m-card" style="border-radius:var(--radius-md);margin:0;padding:0.9rem;display:flex;flex-direction:column;justify-content:space-between;height:105px;">
+                    <div style="width:34px;height:34px;border-radius:50%;background:#e0e7ff;display:flex;align-items:center;justify-content:center;color:#4338ca;font-weight:800;font-size:0.85rem;">
+                      📞
+                    </div>
+                    <div>
+                      <strong style="font-size:0.85rem;display:block;">Llamar</strong>
+                      <span class="m-sub">Planta Mitre</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Resumen de Consumo Curvo -->
+                <div class="m-card" style="border-radius:var(--radius-md);background:#f8fafc;">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <strong style="font-size:0.85rem;">Tu Consumo Mensual</strong>
+                    <span class="m-pill pill-blue">4 Bidones</span>
+                  </div>
+                  <div class="m-sub">Próximo recambio sugerido para el <strong>Miércoles 22</strong>.</div>
+                </div>
+
+                <!-- Sello San Rafael -->
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <strong style="font-size:0.85rem;display:block;margin-bottom:0.2rem;">Certificación Bromatológica</strong>
+                  <p class="m-sub">Microfiltrado por ósmosis inversa y luz UV en San Rafael. Libre de sodio y BPA.</p>
+                </div>
+              </div>
+
+              <!-- Dock Curvo Estilo Cápsula Flotante -->
+              <div class="m-dock">
+                <div class="dock-item active"><span>💧</span>Inicio</div>
+                <div class="dock-item"><span>📦</span>Catálogo</div>
+                <div class="dock-item"><span>📋</span>Pedidos</div>
+                <div class="dock-item"><span>👤</span>Cuenta</div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">CONSERVAR COMO HUB PRINCIPAL</span></div>
+        </div>
+
+        <!-- 1.2: CATALOG (CURVO & ORGÁNICO) -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/productos</span>
+            <span class="component-label">pages/Catalog.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              
+              <div class="m-topbar">
+                <span class="m-title">Catálogo Oficial</span>
+                <span class="m-pill pill-blue">San Rafael</span>
+              </div>
+
+              <div class="m-content">
+                <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1.15rem;" placeholder="Buscar botellón, dispenser..." value="Bidón 20L" readonly />
+                
+                <!-- Chips Píldora -->
+                <div style="display:flex;gap:0.4rem;overflow-x:hidden;margin-bottom:0.85rem;">
+                  <span class="m-pill pill-blue" style="box-shadow:0 2px 8px var(--primary-glow);">Todos</span>
+                  <span class="m-pill" style="background:#fff;border:1px solid #cbd5e1;">20 Litros</span>
+                  <span class="m-pill" style="background:#fff;border:1px solid #cbd5e1;">12 Litros</span>
+                  <span class="m-pill" style="background:#fff;border:1px solid #cbd5e1;">Dispenser</span>
+                </div>
+
+                <!-- Producto 1: 20L (Card Curva) -->
+                <div class="m-card" style="border-radius:var(--radius-lg);border:2px solid var(--primary);box-shadow:0 12px 28px -4px rgba(2,132,199,0.2);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div>
+                      <span class="m-pill pill-blue" style="margin-bottom:0.3rem;">RETORNABLE</span>
+                      <strong style="font-size:0.95rem;display:block;">Bidón 20 Litros</strong>
+                      <div class="m-sub">Agua pura de mesa microfiltrada</div>
+                      <div style="font-weight:900;color:var(--primary);font-size:1.15rem;margin-top:0.35rem;">$3.500</div>
+                    </div>
+                    <!-- Stepper Píldora -->
+                    <div style="display:flex;align-items:center;background:var(--primary-light);padding:0.25rem;border-radius:var(--radius-pill);">
+                      <button style="width:30px;height:30px;border:none;background:#fff;border-radius:50%;font-weight:800;cursor:pointer;">-</button>
+                      <strong style="padding:0 0.55rem;color:var(--primary-dark);font-size:0.92rem;">2</strong>
+                      <button style="width:30px;height:30px;border:none;background:var(--primary);color:#fff;border-radius:50%;font-weight:800;cursor:pointer;">+</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Producto 2: 12L -->
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <div>
+                      <span class="m-pill pill-green" style="margin-bottom:0.3rem;">COMPACTO</span>
+                      <strong style="font-size:0.95rem;display:block;">Bidón 12 Litros</strong>
+                      <div class="m-sub">Liviano y fácil de manipular</div>
+                      <div style="font-weight:900;color:var(--primary);font-size:1.15rem;margin-top:0.35rem;">$2.800</div>
+                    </div>
+                    <button class="m-btn-primary" style="width:auto;height:36px;padding:0 1.15rem;font-size:0.8rem;border-radius:var(--radius-pill);">+ Agregar</button>
+                  </div>
+                </div>
+
+                <!-- Dock de compra rápida -->
+                <div class="m-card" style="background:#0f172a;color:#fff;border-radius:var(--radius-pill);display:flex;justify-content:space-between;align-items:center;padding:0.85rem 1.25rem;box-shadow:0 12px 30px rgba(0,0,0,0.35);">
+                  <div>
+                    <div style="font-size:0.7rem;opacity:0.8;text-transform:uppercase;">2 en carrito</div>
+                    <div style="font-size:1.15rem;font-weight:900;">$7.000</div>
+                  </div>
+                  <button class="m-btn-success" style="width:auto;height:36px;padding:0 1.25rem;font-size:0.82rem;border-radius:var(--radius-pill);">Confirmar →</button>
+                </div>
+              </div>
+
+              <div class="m-dock">
+                <div class="dock-item"><span>💧</span>Inicio</div>
+                <div class="dock-item active"><span>📦</span>Catálogo</div>
+                <div class="dock-item"><span>📋</span>Pedidos</div>
+                <div class="dock-item"><span>👤</span>Cuenta</div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">PANTALLA CLAVE DE COMPRA</span></div>
+        </div>
+
+        <!-- 1.3: CART -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/carrito</span>
+            <span class="component-label">pages/Cart.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Tu Carrito</span>
+                <span class="m-pill pill-blue">2 Items</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem;">
+                    <strong>2x Bidón 20 Litros</strong>
+                    <strong style="color:var(--primary);font-size:1.05rem;">$7.000</strong>
+                  </div>
+                  <div class="m-sub">Agua microfiltrada San Rafael · $3.500 c/u</div>
+                  <div style="display:flex;gap:0.4rem;margin-top:0.75rem;align-items:center;">
+                    <button class="m-btn-outline" style="width:34px;height:34px;border-radius:50%;padding:0;font-weight:800;">-</button>
+                    <span style="font-weight:900;padding:0 0.5rem;font-size:0.95rem;">2</span>
+                    <button class="m-btn-primary" style="width:34px;height:34px;border-radius:50%;padding:0;font-weight:800;">+</button>
+                  </div>
+                </div>
+
+                <!-- Cupón de descuento aplicado -->
+                <div class="m-card" style="background:#ecfdf5;border-color:#a7f3d0;border-radius:var(--radius-md);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span style="font-size:0.78rem;font-weight:800;color:var(--accent-dark);">Cupón AGUASANRAFAEL</span>
+                    <span class="m-pill pill-green">Aplicado</span>
+                  </div>
+                  <div class="m-sub" style="color:#047857;margin-top:0.25rem;">Envío a domicilio 100% bonificado en San Rafael.</div>
+                </div>
+
+                <!-- Resumen de Costos -->
+                <div class="m-card" style="margin-top:auto;border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem;font-size:0.85rem;">
+                    <span class="m-sub">Subtotal productos:</span>
+                    <strong>$7.000</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.6rem;font-size:0.85rem;">
+                    <span class="m-sub">Envío San Rafael:</span>
+                    <strong style="color:var(--accent);">Bonificado ($0)</strong>
+                  </div>
+                  <div style="border-top:1px solid #e2e8f0;padding-top:0.6rem;display:flex;justify-content:space-between;font-size:1.2rem;font-weight:900;">
+                    <span>Total Final:</span>
+                    <span style="color:var(--primary);">$7.000</span>
+                  </div>
+                  <button class="m-btn-success" style="margin-top:0.85rem;">Continuar al Checkout →</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR CON /CHECKOUT</span></div>
+        </div>
+
+        <!-- 1.4: PROMOTIONS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/promociones</span>
+            <span class="component-label">pages/Promotions.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Promociones</span>
+                <span class="m-pill pill-green">Activas</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);border-left:5px solid var(--accent);">
+                  <span class="m-pill pill-green" style="margin-bottom:0.35rem;">BIENVENIDA SAN RAFAEL</span>
+                  <strong style="font-size:1rem;display:block;">Primer Recambio Bonificado</strong>
+                  <p class="m-sub" style="margin:0.3rem 0;">Válido para nuevos clientes residenciales en todo San Rafael.</p>
+                  <div style="background:#f1f5f9;padding:0.45rem 0.85rem;border-radius:var(--radius-pill);font-family:monospace;font-size:0.82rem;margin-top:0.5rem;display:flex;justify-content:space-between;align-items:center;">
+                    <span>AGUASANRAFAEL</span>
+                    <strong style="color:var(--primary);cursor:pointer;">Copiar</strong>
+                  </div>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);border-left:5px solid var(--primary);">
+                  <span class="m-pill pill-blue" style="margin-bottom:0.35rem;">PACK EMPRESA</span>
+                  <strong style="font-size:1rem;display:block;">10% OFF en Packs de 4 Bidones</strong>
+                  <p class="m-sub" style="margin:0.3rem 0;">Para comercios y oficinas con consumo semanal programado.</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-md);background:#f8fafc;">
+                  <strong style="font-size:0.85rem;display:block;margin-bottom:0.25rem;">Recomienda a un vecino</strong>
+                  <p class="m-sub">Ambos reciben 1 recambio sin cargo al coordinar la primera entrega.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-delete">REDUCIR A MODAL EN HOME</span></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN 2: AUTENTICACIÓN
+         ======================================================== -->
+    <section class="role-section" id="sec-auth">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag tag-auth">Acceso Público</span>
+          <h2 class="section-title">2. Autenticación y Recuperación</h2>
+        </div>
+        <span class="section-count">4 Pantallas Codificadas</span>
+      </div>
+
+      <div class="phones-grid">
+
+        <!-- 2.1: LOGIN -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/login</span>
+            <span class="component-label">pages/Login.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-content" style="display:flex;flex-direction:column;justify-content:center;">
+                <div style="text-align:center;margin-bottom:1.5rem;">
+                  <div style="width:54px;height:54px;background:var(--primary-light);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.4rem;margin-bottom:0.6rem;box-shadow:0 6px 16px rgba(2,132,199,0.15);">
+                    💧
+                  </div>
+                  <h3 style="font-size:1.45rem;font-weight:900;">Iniciar Sesión</h3>
+                  <p class="m-sub">Accedé a tus pedidos y bidones en San Rafael</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);padding:1.25rem;">
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" placeholder="Correo electrónico" value="juan@cliente.com" readonly />
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" type="password" placeholder="Contraseña" value="••••••••" readonly />
+                  <button class="m-btn-primary" style="margin-top:0.4rem;">Ingresar a mi Cuenta</button>
+                  <div style="text-align:center;margin-top:0.85rem;">
+                    <span class="m-sub" style="color:var(--primary);font-weight:800;cursor:pointer;">¿Olvidaste tu contraseña?</span>
+                  </div>
+                </div>
+
+                <div class="m-card" style="background:#f8fafc;border-radius:var(--radius-md);">
+                  <div class="m-sub" style="font-weight:800;text-align:center;margin-bottom:0.45rem;text-transform:uppercase;">
+                    Acceso de Prueba en 1 Clic
+                  </div>
+                  <div style="display:grid;gap:0.4rem;">
+                    <button class="m-btn-outline" style="height:36px;font-size:0.78rem;border-radius:var(--radius-pill);justify-content:space-between;padding:0 0.85rem;">
+                      <span>Cliente Juan</span><span class="m-sub">juan@cliente.com</span>
+                    </button>
+                    <button class="m-btn-outline" style="height:36px;font-size:0.78rem;border-radius:var(--radius-pill);justify-content:space-between;padding:0 0.85rem;">
+                      <span>Chofer Carlos</span><span class="m-sub">repartidor@agua.com</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">UNIFICAR CON REGISTRO EN 1 VISTA</span></div>
+        </div>
+
+        <!-- 2.2: REGISTER -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/register</span>
+            <span class="component-label">pages/Register.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-content" style="display:flex;flex-direction:column;justify-content:center;">
+                <div style="text-align:center;margin-bottom:1rem;">
+                  <h3 style="font-size:1.35rem;font-weight:900;">Crear tu Cuenta</h3>
+                  <p class="m-sub">Entregas programadas en San Rafael</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" placeholder="Nombre y Apellido" value="Juan Pérez" readonly />
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" placeholder="Teléfono (+54 9 2604...)" value="+54 9 2604 12-3456" readonly />
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" placeholder="Correo electrónico" value="juan@nuevo.com" readonly />
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" type="password" placeholder="Crear contraseña" value="••••••••" readonly />
+                  <button class="m-btn-success" style="margin-top:0.35rem;">Completar Registro</button>
+                </div>
+
+                <div class="m-card" style="background:#f8fafc;text-align:center;border-radius:var(--radius-md);">
+                  <div class="m-sub" style="font-weight:700;">✓ Envases en comodato sin costo inicial</div>
+                  <div class="m-sub" style="font-weight:700;">✓ Repartos en el día en San Rafael</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR EN PESTAÑA CON LOGIN</span></div>
+        </div>
+
+        <!-- 2.3: FORGOT PASSWORD -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/forgot-password</span>
+            <span class="component-label">pages/ForgotPassword.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-content" style="display:flex;flex-direction:column;justify-content:center;">
+                <div style="text-align:center;margin-bottom:1.25rem;">
+                  <h3 style="font-size:1.35rem;font-weight:900;">Recuperar Clave</h3>
+                  <p class="m-sub">Te enviaremos un enlace seguro para restablecer tu acceso.</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" placeholder="Tu correo registrado" value="juan@cliente.com" readonly />
+                  <button class="m-btn-primary" style="margin-top:0.35rem;">Enviar Enlace de Recuperación</button>
+                </div>
+
+                <div class="m-card" style="background:#f8fafc;border-radius:var(--radius-md);">
+                  <strong style="font-size:0.82rem;display:block;margin-bottom:0.2rem;">¿No tienes acceso al correo?</strong>
+                  <p class="m-sub">Comunicate con la planta por WhatsApp: <strong>+54 9 2604 32-2659</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-delete">REDUCIR A MODAL SIMPLE</span></div>
+        </div>
+
+        <!-- 2.4: RESET PASSWORD -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/reset-password</span>
+            <span class="component-label">pages/ResetPassword.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-content" style="display:flex;flex-direction:column;justify-content:center;">
+                <div style="text-align:center;margin-bottom:1.25rem;">
+                  <h3 style="font-size:1.35rem;font-weight:900;">Nueva Contraseña</h3>
+                  <p class="m-sub">Ingresa tu nueva clave de acceso seguro.</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" type="password" placeholder="Nueva contraseña" value="ClaveNueva2026!" readonly />
+                  <input class="m-input" style="border-radius:var(--radius-pill);padding:0 1rem;" type="password" placeholder="Confirmar contraseña" value="ClaveNueva2026!" readonly />
+                  <button class="m-btn-success" style="margin-top:0.35rem;">Actualizar y Acceder</button>
+                </div>
+
+                <div class="m-card" style="background:#f8fafc;border-radius:var(--radius-md);font-size:0.75rem;">
+                  <div style="color:#059669;font-weight:700;">✓ Mínimo 8 caracteres</div>
+                  <div style="color:#059669;font-weight:700;">✓ Al menos 1 número o símbolo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">CONSERVAR COMO RUTA DE RETORNO</span></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN 3: PORTAL CLIENTE
+         ======================================================== -->
+    <section class="role-section" id="sec-client">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag tag-client">Protegido: CLIENT | ADMIN</span>
+          <h2 class="section-title">3. Portal de Clientes y Pedidos</h2>
+        </div>
+        <span class="section-count">7 Pantallas Codificadas</span>
+      </div>
+
+      <div class="phones-grid">
+
+        <!-- 3.1: CHECKOUT -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/checkout</span>
+            <span class="component-label">pages/Checkout.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Confirmar Pedido</span>
+                <span class="m-pill pill-blue">Paso Final</span>
+              </div>
+              <div class="m-content">
+                <!-- Balance de Envases -->
+                <div class="m-card" style="background:#f0f9ff;border-color:#bae6fd;border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                    <strong style="font-size:0.82rem;color:var(--primary-dark);">Balance de Envases</strong>
+                    <span class="m-pill pill-blue">Recambio 1:1</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.82rem;">
+                    <span>Bidones llenos que recibes:</span><strong>2</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.82rem;margin-top:0.25rem;">
+                    <span>Vacíos que entregas al chofer:</span><strong style="color:var(--accent);">2</strong>
+                  </div>
+                </div>
+
+                <!-- Domicilio Verificado -->
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <span class="m-sub" style="font-weight:800;text-transform:uppercase;">Dirección en San Rafael</span>
+                    <span style="font-size:0.75rem;color:var(--primary);font-weight:800;cursor:pointer;">Cambiar</span>
+                  </div>
+                  <strong style="font-size:0.95rem;display:block;">Av. San Martín 450</strong>
+                  <div class="m-sub">Casa · Entre Callao y Las Heras</div>
+                </div>
+
+                <!-- Método de Pago -->
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <div class="m-sub" style="font-weight:800;text-transform:uppercase;margin-bottom:0.25rem;">Forma de Pago</div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <strong style="font-size:0.9rem;">Efectivo al recibir</strong>
+                    <span class="m-pill pill-green">En mano</span>
+                  </div>
+                </div>
+
+                <!-- Resumen Financiero -->
+                <div class="m-card" style="background:#f8fafc;border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem;">
+                    <span class="m-sub">2x Bidón 20 Litros:</span><span>$7.000</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.5rem;">
+                    <span class="m-sub">Envío local:</span><span style="color:var(--accent);font-weight:800;">Gratis</span>
+                  </div>
+                  <div style="border-top:1px solid #e2e8f0;padding-top:0.5rem;display:flex;justify-content:space-between;font-size:1.15rem;font-weight:900;">
+                    <span>Total a Pagar:</span><span style="color:var(--primary);">$7.000</span>
+                  </div>
+                </div>
+
+                <button class="m-btn-success">Confirmar y Despachar Pedido</button>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">PANTALLA NÚCLEO TRANSACCIONAL</span></div>
+        </div>
+
+        <!-- 3.2: MY ORDERS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/pedidos</span>
+            <span class="component-label">pages/MyOrders.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Mis Pedidos</span>
+                <span class="m-pill pill-blue">Historial</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);border-left:5px solid var(--primary);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <strong>Pedido #104</strong>
+                    <span class="m-pill pill-blue">EN REPARTO</span>
+                  </div>
+                  <p class="m-sub">Hoy · Chofer Carlos Gómez asignado</p>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.5rem;font-size:0.9rem;">
+                    <span>2x Bidón 20L</span>
+                    <strong style="color:var(--primary);">$7.000</strong>
+                  </div>
+                  <button class="m-btn-outline" style="height:34px;font-size:0.78rem;border-radius:var(--radius-pill);margin-top:0.6rem;">Ver Seguimiento en Vivo</button>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);border-left:5px solid var(--accent);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <strong>Pedido #098</strong>
+                    <span class="m-pill pill-green">ENTREGADO</span>
+                  </div>
+                  <p class="m-sub">15 Octubre · San Rafael</p>
+                  <div style="display:flex;justify-content:space-between;margin-top:0.5rem;font-size:0.9rem;">
+                    <span>1x 20L + 1x 12L</span>
+                    <strong>$6.300</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="m-dock">
+                <div class="dock-item"><span>💧</span>Inicio</div>
+                <div class="dock-item"><span>📦</span>Catálogo</div>
+                <div class="dock-item active"><span>📋</span>Pedidos</div>
+                <div class="dock-item"><span>👤</span>Cuenta</div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">CONSERVAR COMO PESTAÑA NATIVA</span></div>
+        </div>
+
+        <!-- 3.3: ORDER DETAIL -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/pedidos/:id</span>
+            <span class="component-label">pages/OrderDetail.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Ticket ORD-104</span>
+                <span class="m-pill pill-blue">En Camino</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div class="m-sub" style="font-weight:700;">Chofer Responsable</div>
+                  <strong style="font-size:1rem;display:block;margin:0.2rem 0;">Carlos Gómez</strong>
+                  <div class="m-sub">Camioneta 02 · Salida desde Planta San Rafael</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-top:0.6rem;">
+                    <button class="m-btn-outline" style="height:36px;font-size:0.78rem;border-radius:var(--radius-pill);">Llamar</button>
+                    <button class="m-btn-success" style="height:36px;font-size:0.78rem;border-radius:var(--radius-pill);">WhatsApp</button>
+                  </div>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div class="m-sub" style="margin-bottom:0.4rem;font-weight:800;">Items del Pedido</div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem;">
+                    <span>2x Bidón 20 Litros</span>
+                    <strong>$7.000</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem;">
+                    <span>Retiro de vacíos pactado</span>
+                    <strong style="color:var(--accent);">-2 vacíos</strong>
+                  </div>
+                  <div style="border-top:1px solid #e2e8f0;padding-top:0.5rem;display:flex;justify-content:space-between;font-weight:900;font-size:1rem;">
+                    <span>Total Abonado</span>
+                    <span style="color:var(--primary);">$7.000 (Efectivo)</span>
+                  </div>
+                </div>
+
+                <div class="m-card" style="background:#f8fafc;border-radius:var(--radius-md);">
+                  <div class="m-sub">Entregar en:</div>
+                  <strong style="font-size:0.88rem;">Av. San Martín 450, San Rafael</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">DETALLE ESPECÍFICO DE COMPRA</span></div>
+        </div>
+
+        <!-- 3.4: MY ADDRESSES -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/direcciones</span>
+            <span class="component-label">pages/MyAddresses.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Mis Domicilios</span>
+                <span class="m-pill pill-blue">+ Nueva</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border:2px solid var(--primary);border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Casa (Predeterminada)</strong>
+                    <span class="m-pill pill-blue">ACTIVA</span>
+                  </div>
+                  <p class="m-sub" style="margin:0.25rem 0;">Av. San Martín 450, San Rafael</p>
+                  <span class="m-sub" style="color:var(--accent);font-weight:800;">Reparto Local San Rafael (Envío Gratis)</span>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Oficina / Comercio</strong>
+                    <span class="m-sub">Secundaria</span>
+                  </div>
+                  <p class="m-sub" style="margin:0.25rem 0;">Av. Mitre 1220, San Rafael</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Quinta / Fin de Semana</strong>
+                    <span class="m-sub">Ocasional</span>
+                  </div>
+                  <p class="m-sub" style="margin:0.25rem 0;">Calle Los Filtros 850, Las Paredes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">INTEGRAR EN PERFIL O DRAWER</span></div>
+        </div>
+
+        <!-- 3.5: CONTAINERS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/bidones</span>
+            <span class="component-label">pages/Containers.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Control de Envases</span>
+                <span class="m-pill pill-green">Al Día</span>
+              </div>
+              <div class="m-content">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:0.85rem;">
+                  <div class="m-card" style="text-align:center;margin:0;border-radius:var(--radius-md);">
+                    <div class="m-sub">En Custodia</div>
+                    <strong style="font-size:1.6rem;color:var(--primary);">4</strong>
+                    <div class="m-sub">Bidones 20L</div>
+                  </div>
+                  <div class="m-card" style="text-align:center;margin:0;border-radius:var(--radius-md);">
+                    <div class="m-sub">Saldo Deudor</div>
+                    <strong style="font-size:1.6rem;color:var(--accent);">$0</strong>
+                    <div class="m-sub">Sin multas</div>
+                  </div>
+                </div>
+
+                <button class="m-btn-primary" style="margin-bottom:0.85rem;">Solicitar Retiro de Vacíos</button>
+
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <strong style="font-size:0.85rem;display:block;margin-bottom:0.35rem;">Últimos Movimientos</strong>
+                  <div style="font-size:0.78rem;padding:0.3rem 0;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;">
+                    <span>15/10: Entregó 2 vacíos</span><span style="color:var(--accent);font-weight:800;">+2 balance</span>
+                  </div>
+                  <div style="font-size:0.78rem;padding:0.3rem 0;display:flex;justify-content:space-between;">
+                    <span>01/10: Entregó 2 vacíos</span><span style="color:var(--accent);font-weight:800;">+2 balance</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">INTEGRAR EN PERFIL DEL CLIENTE</span></div>
+        </div>
+
+        <!-- 3.6: MY SUBSCRIPTIONS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/suscripciones</span>
+            <span class="component-label">pages/MySubscriptions.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Suscripciones</span>
+                <span class="m-pill pill-green">Activa</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border:2px solid var(--accent);border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.35rem;">
+                    <strong>Plan Familiar 4x 20L</strong>
+                    <strong style="color:var(--primary);font-size:1.05rem;">$12.500/m</strong>
+                  </div>
+                  <p class="m-sub">Entregas semanales programadas cada Miércoles.</p>
+                  <div style="background:#f8fafc;padding:0.5rem 0.75rem;border-radius:var(--radius-sm);font-size:0.78rem;margin:0.6rem 0;">
+                    Próxima llegada: <strong>Miércoles 22 (09:00 - 12:00)</strong>
+                  </div>
+                  <div style="display:flex;gap:0.4rem;">
+                    <button class="m-btn-outline" style="height:34px;font-size:0.75rem;border-radius:var(--radius-pill);">Pausar</button>
+                    <button class="m-btn-primary" style="height:34px;font-size:0.75rem;border-radius:var(--radius-pill);">Cambiar Día</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-delete">REDUCIR A SECCIÓN EN PERFIL</span></div>
+        </div>
+
+        <!-- 3.7: NOTIFICATIONS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/notificaciones</span>
+            <span class="component-label">pages/Notifications.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Notificaciones</span>
+                <span class="m-pill pill-blue">3 Nuevas</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-md);border-left:5px solid var(--primary);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Tu chofer está a 4 cuadras</strong>
+                    <span class="m-sub">Ahora</span>
+                  </div>
+                  <p class="m-sub">Carlos Gómez está en camino a tu domicilio en San Rafael.</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-md);border-left:5px solid var(--accent);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Pedido #104 Registrado</strong>
+                    <span class="m-sub">10:30 hs</span>
+                  </div>
+                  <p class="m-sub">El pedido fue cargado en la camioneta de reparto.</p>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-md);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Nuevo Descuento en San Rafael</strong>
+                    <span class="m-sub">Ayer</span>
+                  </div>
+                  <p class="m-sub">Tenés un 10% adicional en botellones compactos de 12L.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">INTEGRAR EN DRAWER LATERAL</span></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN 4: CHOFER / REPARTO (100% MODO CLARO & CURVO)
+         ======================================================== -->
+    <section class="role-section" id="sec-driver">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag tag-driver">Protegido: DRIVER | ADMIN</span>
+          <h2 class="section-title">4. Portal de Chofer y Reparto (Curvo & Fachero)</h2>
+        </div>
+        <span class="section-count">1 Pantalla Móvil Especializada</span>
+      </div>
+
+      <div class="phones-grid">
+
+        <!-- 4.1: DRIVER ORDERS (100% CLARO & REDONDEADO) -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/repartos</span>
+            <span class="component-label">pages/DriverOrders.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>11:30</span><span>GPS SAN RAFAEL</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Hoja de Ruta Chofer</span>
+                <span class="m-pill pill-amber">Camioneta 02</span>
+              </div>
+              <div class="m-content">
+                <!-- Métricas de la Camioneta Curvas -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:0.85rem;">
+                  <div class="m-card" style="text-align:center;margin:0;border-radius:var(--radius-md);">
+                    <div class="m-sub" style="font-weight:700;">Entregas Hechas</div>
+                    <strong style="font-size:1.4rem;color:var(--primary);">8 / 12</strong>
+                  </div>
+                  <div class="m-card" style="text-align:center;margin:0;border-radius:var(--radius-md);">
+                    <div class="m-sub" style="font-weight:700;">Vacíos en Caja</div>
+                    <strong style="font-size:1.4rem;color:var(--accent);">16 u.</strong>
+                  </div>
+                </div>
+
+                <!-- Parada Actual en Curso (Card Orgánica) -->
+                <div class="m-card" style="border-radius:var(--radius-lg);border:2px solid var(--primary);box-shadow:0 10px 25px rgba(2,132,199,0.18);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <span style="color:var(--primary);font-weight:900;font-size:0.76rem;">PARADA 1 · PRÓXIMA</span>
+                    <span class="m-pill pill-blue">ORD-104</span>
+                  </div>
+                  <h4 style="font-size:1.15rem;font-weight:900;margin-bottom:0.2rem;">Juan Cliente</h4>
+                  <p class="m-sub" style="margin-bottom:0.5rem;font-weight:700;">Av. Mitre 840, San Rafael</p>
+                  
+                  <div style="background:#f8fafc;padding:0.6rem 0.85rem;border-radius:var(--radius-sm);font-size:0.8rem;margin-bottom:0.75rem;border:1px solid #e2e8f0;">
+                    Entregar: <strong style="color:var(--primary);">2x Bidón 20L</strong> · Retirar: <strong style="color:var(--accent);">2 vacíos</strong>
+                  </div>
+
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;margin-bottom:0.6rem;">
+                    <button class="m-btn-outline" style="height:40px;font-weight:800;border-radius:var(--radius-pill);">Llamar</button>
+                    <button class="m-btn-success" style="height:40px;font-weight:800;border-radius:var(--radius-pill);">WhatsApp</button>
+                  </div>
+                  <button class="m-btn-primary" style="height:46px;font-weight:900;">Cobrar $7.000 y Entregar</button>
+                </div>
+
+                <!-- Próxima Parada -->
+                <div class="m-card" style="border-radius:var(--radius-md);opacity:0.85;">
+                  <div style="display:flex;justify-content:space-between;">
+                    <span class="m-sub" style="font-weight:800;">PARADA 2</span>
+                    <span class="m-sub">ORD-105</span>
+                  </div>
+                  <strong>María Gómez · San Martín 120</strong>
+                  <div class="m-sub">1x Bidón 12L ($2.800)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">NÚCLEO VITAL DEL NEGOCIO</span></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN 5: ADMINISTRADOR (100% MODO CLARO & CURVO)
+         ======================================================== -->
+    <section class="role-section" id="sec-admin">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag tag-admin">Protegido: ADMIN</span>
+          <h2 class="section-title">5. Consola Central de Administración (Modo Claro)</h2>
+        </div>
+        <span class="section-count">6 Pantallas Codificadas</span>
+      </div>
+
+      <div class="phones-grid">
+
+        <!-- 5.1: ADMIN DASHBOARD (100% CLARO & FACHERO) -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/admin</span>
+            <span class="component-label">pages/admin/AdminDashboard.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>12:00</span><span>ADMIN ROOT</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Consola Admin</span>
+                <span class="m-pill pill-green">DB Conectada</span>
+              </div>
+              <div class="m-content">
+                <!-- KPIs en Modo Claro Curvos -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-bottom:0.75rem;">
+                  <div class="m-card" style="text-align:center;padding:0.75rem 0.5rem;margin:0;border-radius:var(--radius-md);">
+                    <div class="m-sub" style="font-weight:700;">Pedidos Hoy</div>
+                    <strong style="font-size:1.45rem;color:var(--primary);letter-spacing:-0.02em;">18</strong>
+                  </div>
+                  <div class="m-card" style="text-align:center;padding:0.75rem 0.5rem;margin:0;border-radius:var(--radius-md);">
+                    <div class="m-sub" style="font-weight:700;">Facturación</div>
+                    <strong style="font-size:1.25rem;color:var(--accent);letter-spacing:-0.02em;">$124.500</strong>
+                  </div>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+                    <strong style="font-size:0.85rem;">Despacho Inmediato</strong>
+                    <span class="m-pill pill-amber">2 Sin Chofer</span>
+                  </div>
+                  <div style="font-size:0.78rem;padding:0.35rem 0;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;">
+                    <span>ORD-104 (Mitre 840)</span>
+                    <span style="color:var(--primary);font-weight:800;">Carlos G.</span>
+                  </div>
+                  <div style="font-size:0.78rem;padding:0.35rem 0;display:flex;justify-content:space-between;">
+                    <span>ORD-105 (San Martín 120)</span>
+                    <span style="color:#dc2626;font-weight:800;">Sin Asignar</span>
+                  </div>
+                </div>
+
+                <!-- Estado de Choferes -->
+                <div class="m-card" style="background:#f8fafc;border-radius:var(--radius-md);">
+                  <div class="m-sub" style="font-weight:800;margin-bottom:0.35rem;">Choferes en Calle</div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.78rem;">
+                    <span>Camioneta 01 (Lucas M.)</span><span style="color:var(--accent);font-weight:800;">4 paradas</span>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;font-size:0.78rem;margin-top:0.25rem;">
+                    <span>Camioneta 02 (Carlos G.)</span><span style="color:var(--accent);font-weight:800;">3 paradas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">UNIFICAR TODAS LAS PANTALLAS ADMIN AQUÍ</span></div>
+        </div>
+
+        <!-- 5.2: ADMIN ORDERS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/admin/pedidos</span>
+            <span class="component-label">pages/admin/AdminOrders.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>12:00</span><span>ADMIN</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Gestión de Pedidos</span>
+                <span class="m-pill pill-blue">18 Total</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <strong>#105 · María Gómez</strong>
+                    <span class="m-pill pill-amber">PENDIENTE</span>
+                  </div>
+                  <p class="m-sub" style="margin:0.25rem 0;">San Martín 120 · 2x 20L</p>
+                  <select class="m-input" style="height:38px;border-radius:var(--radius-pill);margin-top:0.5rem;font-size:0.78rem;">
+                    <option>Seleccionar Chofer para Despachar...</option>
+                    <option>Carlos Gómez (Camioneta 02)</option>
+                    <option>Lucas Martínez (Camioneta 01)</option>
+                  </select>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;margin-bottom:0.25rem;">
+                    <strong>#104 · Juan Cliente</strong>
+                    <span class="m-pill pill-blue">EN REPARTO</span>
+                  </div>
+                  <p class="m-sub">Av. Mitre 840 · Chofer: Carlos Gómez</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR COMO TAB EN DASHBOARD</span></div>
+        </div>
+
+        <!-- 5.3: ADMIN PRODUCTS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/admin/productos</span>
+            <span class="component-label">pages/admin/AdminProducts.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>12:00</span><span>ADMIN</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Inventario & Precios</span>
+                <span class="m-pill pill-blue">+ Nuevo</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Bidón 20 Litros</strong>
+                    <span style="color:var(--primary);font-weight:900;">$3.500</span>
+                  </div>
+                  <div class="m-sub">Stock disponible en planta: 140 unidades</div>
+                  <div style="display:flex;gap:0.4rem;margin-top:0.5rem;">
+                    <button class="m-btn-outline" style="height:32px;font-size:0.75rem;border-radius:var(--radius-pill);">Editar Precio</button>
+                    <button class="m-btn-primary" style="height:32px;font-size:0.75rem;border-radius:var(--radius-pill);">+ Stock</button>
+                  </div>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Bidón 12 Litros</strong>
+                    <span style="color:var(--primary);font-weight:900;">$2.800</span>
+                  </div>
+                  <div class="m-sub">Stock disponible en planta: 65 unidades</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR COMO TAB EN DASHBOARD</span></div>
+        </div>
+
+        <!-- 5.4: ADMIN ZONES -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/admin/zonas</span>
+            <span class="component-label">pages/admin/AdminZones.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>12:00</span><span>ADMIN</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Zonas San Rafael</span>
+                <span class="m-pill pill-blue">Tarifas</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Zona 1: San Rafael Centro</strong>
+                    <span style="color:var(--accent);font-weight:900;">Envío $0</span>
+                  </div>
+                  <div class="m-sub">Radio de 5 km alrededor de Planta Mitre.</div>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>Zona 2: Cuadro Nacional</strong>
+                    <span style="color:var(--primary);font-weight:900;">Envío $1.000</span>
+                  </div>
+                  <div class="m-sub">Entregas los días Martes y Jueves.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR COMO TAB EN DASHBOARD</span></div>
+        </div>
+
+        <!-- 5.5: ADMIN CONTAINERS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/admin/bidones</span>
+            <span class="component-label">pages/admin/AdminContainers.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>12:00</span><span>ADMIN</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Auditoría de Envases</span>
+                <span class="m-pill pill-amber">Flota Total</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div class="m-sub">Parque Total de Envases</div>
+                  <strong style="font-size:1.5rem;color:var(--primary);display:block;margin:0.25rem 0;">1.200 bidones</strong>
+                  
+                  <div style="margin-top:0.6rem;font-size:0.78rem;">
+                    <div style="display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:1px solid #e2e8f0;">
+                      <span>En Planta San Rafael:</span><strong>450</strong>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:1px solid #e2e8f0;">
+                      <span>En Domicilios de Clientes:</span><strong>710</strong>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;padding:0.3rem 0;">
+                      <span>En Mantenimiento / Baja:</span><strong style="color:var(--danger);">40</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR COMO TAB EN DASHBOARD</span></div>
+        </div>
+
+        <!-- 5.6: ADMIN PROMOTIONS -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/admin/promociones</span>
+            <span class="component-label">pages/admin/AdminPromotions.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>12:00</span><span>ADMIN</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Cupones y Descuentos</span>
+                <span class="m-pill pill-blue">+ Cupón</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>AGUASANRAFAEL</strong>
+                    <span class="m-pill pill-green">ACTIVO</span>
+                  </div>
+                  <p class="m-sub" style="margin:0.3rem 0;">100% de descuento en el primer recambio.</p>
+                  <div class="m-sub">Usos totales: <strong>45 veces</strong></div>
+                </div>
+
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <div style="display:flex;justify-content:space-between;">
+                    <strong>PACKEMPRESA</strong>
+                    <span class="m-pill pill-green">ACTIVO</span>
+                  </div>
+                  <p class="m-sub" style="margin:0.3rem 0;">10% en pedidos de más de 4 botellones.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-merge">FUSIONAR COMO TAB EN DASHBOARD</span></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN 6: UTILIDAD Y DEMO
+         ======================================================== -->
+    <section class="role-section" id="sec-util">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-tag tag-util">Entorno de Demostración</span>
+          <h2 class="section-title">6. Pantallas de Demostración y Errores</h2>
+        </div>
+        <span class="section-count">2 Pantallas Codificadas</span>
+      </div>
+
+      <div class="phones-grid">
+
+        <!-- 6.1: DEMO -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">/demo</span>
+            <span class="component-label">pages/DemoPage.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-topbar">
+                <span class="m-title">Control Demo</span>
+                <span class="m-pill pill-blue">1-Click</span>
+              </div>
+              <div class="m-content">
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <strong style="font-size:0.95rem;">Juan Cliente</strong>
+                  <div class="m-sub">juan@cliente.com</div>
+                  <button class="m-btn-primary" style="margin-top:0.5rem;height:38px;font-size:0.78rem;border-radius:var(--radius-pill);">Iniciar como Cliente</button>
+                </div>
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <strong style="font-size:0.95rem;">Chofer Repartidor</strong>
+                  <div class="m-sub">repartidor@agua.com</div>
+                  <button class="m-btn-success" style="margin-top:0.5rem;height:38px;font-size:0.78rem;border-radius:var(--radius-pill);">Iniciar como Chofer</button>
+                </div>
+                <div class="m-card" style="border-radius:var(--radius-lg);">
+                  <strong style="font-size:0.95rem;">Administrador</strong>
+                  <div class="m-sub">admin@agua.com</div>
+                  <button class="m-btn-outline" style="margin-top:0.5rem;height:38px;font-size:0.78rem;border-radius:var(--radius-pill);font-weight:800;">Iniciar como Admin</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">CONSERVAR PARA EVALUADOR</span></div>
+        </div>
+
+        <!-- 6.2: NOT FOUND -->
+        <div class="phone-card">
+          <div class="phone-info-bar">
+            <span class="route-pill">*</span>
+            <span class="component-label">pages/NotFound.jsx</span>
+          </div>
+          <div class="mockup-frame">
+            <div class="dynamic-island"><div class="di-lens"></div><div class="di-sensor"></div></div>
+            <div class="viewport" style="justify-content:center;">
+              <div class="m-status-bar"><span>9:41</span><span>5G · 100%</span></div>
+              <div class="m-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+                <div style="font-size:2.8rem;font-weight:900;color:var(--primary);margin-bottom:0.25rem;">404</div>
+                <h3 style="font-size:1.25rem;font-weight:900;margin-bottom:0.35rem;">Página no encontrada</h3>
+                <p class="m-sub" style="margin-bottom:1.25rem;max-width:240px;">La ruta ingresada no existe en el sistema de El Agüitas.</p>
+                <button class="m-btn-primary" style="width:auto;padding:0 1.75rem;border-radius:var(--radius-pill);">Volver al Inicio</button>
+              </div>
+            </div>
+          </div>
+          <div class="eval-note"><span>Diagnóstico:</span><span class="eval-keep">MANEJO DE ERRORES GLOBAL</span></div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
