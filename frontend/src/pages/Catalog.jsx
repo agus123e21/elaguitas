@@ -1,10 +1,31 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { getProducts } from '../services/products.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
-import { Link } from 'react-router-dom'
+import {
+  SearchIcon,
+  CartIcon,
+  CheckIcon,
+  PlusIcon,
+  MinusIcon,
+  ChevronRightIcon,
+  ProductVisual,
+  PackageIcon,
+  AlertCircleIcon,
+  SlidersIcon,
+} from '../components/Icons.jsx'
 
-const fmtMoney = (value) => `$${Number(value).toLocaleString('es-AR', { maximumFractionDigits: 0 })}`
+const fmtMoney = (value) => `$${Number(value || 0).toLocaleString('es-AR', { maximumFractionDigits: 0 })}`
+
+function getVisualType(name = '') {
+  const n = name.toLowerCase()
+  if (n.includes('dispenser')) return 'dispenser'
+  if (n.includes('pack')) return 'pack'
+  if (n.includes('12l') || n.includes('12 l')) return 'bottle12'
+  if (n.includes('6l') || n.includes('6 l')) return 'bottle6'
+  return 'bottle20'
+}
 
 export default function Catalog() {
   const { token } = useAuth()
@@ -12,298 +33,409 @@ export default function Catalog() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const [toastMessage, setToastMessage] = useState(null)
-  const [activeTab, setActiveTab] = useState('ALL') // 'ALL', 'BIDONES', 'ACCESORIOS'
+  const [toastState, setToastState] = useState({ message: null, type: 'success' })
+  const [selectedCategory, setSelectedCategory] = useState('ALL')
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     setLoading(true)
     getProducts({ token })
-      .then(setProducts)
+      .then((data) => setProducts(Array.isArray(data) ? data : []))
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
   }, [token])
 
-  function showToast(msg) {
-    setToastMessage(msg)
-    setTimeout(() => setToastMessage(null), 2500)
+  function showToast(msg, type = 'success') {
+    setToastState({ message: msg, type })
+    setTimeout(() => setToastState({ message: null, type: 'success' }), 2400)
   }
 
-  function handleAdd(product) {
-    addItem(product, 1)
-    showToast(`💧 ¡Agregaste 1x ${product.name}!`)
+  function handleAdd(product, qty = 1) {
+    const currentItem = items.find((i) => i.productId === product.id)
+    const currentQty = currentItem ? currentItem.quantity : 0
+    const max = typeof product.stock === 'number' ? product.stock : 999
+
+    if (currentQty + qty > max) {
+      showToast(`Stock máximo: ${max} unidades`, 'warning')
+      return
+    }
+
+    addItem(product, qty)
+    showToast(`Agregaste ${product.name}`, 'success')
   }
 
   function getItemInCart(productId) {
     return items.find((i) => i.productId === productId)
   }
 
-  const filteredProducts = products.filter((p) => {
-    if (activeTab === 'BIDONES') return p.volume_liters || p.name.toLowerCase().includes('bidón')
-    if (activeTab === 'ACCESORIOS') return !p.volume_liters && !p.name.toLowerCase().includes('bidón')
-    return true
-  })
+  // Desduplicación garantizada: Sólo productos activos y sin nombres repetidos
+  const filteredProducts = useMemo(() => {
+    const seenNames = new Set()
+    return products.filter((p) => {
+      if (p.active === false) return false
+
+      const cleanName = p.name.trim().toLowerCase()
+      if (seenNames.has(cleanName)) return false
+      seenNames.add(cleanName)
+
+      const matchSearch =
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (p.description && p.description.toLowerCase().includes(searchQuery.toLowerCase()))
+
+      if (!matchSearch) return false
+
+      if (selectedCategory === '20L') return p.name.includes('20')
+      if (selectedCategory === '12L') return p.name.includes('12')
+      if (selectedCategory === 'DISPENSER') return p.name.toLowerCase().includes('dispenser')
+      if (selectedCategory === 'PACKS') return p.name.toLowerCase().includes('pack')
+      return true
+    })
+  }, [products, searchQuery, selectedCategory])
 
   return (
-    <div className="page">
-      {/* Toast Feedback Flotante Superior con Animación */}
-      {toastMessage && (
+    <div className="page" style={{ maxWidth: '1040px', margin: '0 auto', paddingBottom: '7.5rem' }}>
+      {/* Toast Feedback Táctil */}
+      {toastState.message && (
         <div
+          role="status"
           style={{
             position: 'fixed',
             top: '64px',
             left: '1rem',
             right: '1rem',
-            maxWidth: '440px',
+            maxWidth: '360px',
             margin: '0 auto',
-            zIndex: 100,
-            background: 'linear-gradient(135deg, #0b7dc2 0%, #10b981 100%)',
+            zIndex: 9999,
+            background:
+              toastState.type === 'warning'
+                ? '#b45309'
+                : 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
             color: '#fff',
-            padding: '0.75rem 1.25rem',
+            padding: '0.65rem 1.15rem',
             borderRadius: 'var(--radius-pill)',
-            boxShadow: '0 8px 20px rgba(11, 125, 194, 0.35)',
-            textAlign: 'center',
-            fontSize: '0.92rem',
-            fontWeight: 700,
-            animation: 'slideDown 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+            boxShadow: '0 10px 25px rgba(2, 132, 199, 0.35)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.45rem',
+            fontSize: '0.86rem',
+            fontWeight: 800,
+            animation: 'slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
-          {toastMessage}
+          {toastState.type === 'warning' ? (
+            <AlertCircleIcon size={16} color="#ffffff" />
+          ) : (
+            <CheckIcon size={16} color="#ffffff" />
+          )}
+          <span>{toastState.message}</span>
         </div>
       )}
 
       {/* Header del Catálogo */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
         <div>
-          <span style={{ fontSize: '0.76rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-            TIENDA DE AGUA PURIFICADA
+          <span style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            SAN RAFAEL
           </span>
-          <h1 style={{ fontSize: '1.65rem', margin: '0.1rem 0 0' }}>Catálogo Oficial</h1>
+          <h1 style={{ fontSize: '1.6rem', fontWeight: 900, margin: '0.1rem 0 0', letterSpacing: '-0.02em', color: 'var(--text)' }}>
+            Catálogo
+          </h1>
         </div>
 
         <Link
           to="/carrito"
-          className="btn btn-outline btn-sm"
           style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.4rem',
             borderRadius: 'var(--radius-pill)',
-            fontWeight: 700,
-            borderColor: cartTotalItems > 0 ? 'var(--primary)' : '#cbd5e1',
+            fontWeight: 800,
+            fontSize: '0.82rem',
+            border: '1px solid var(--border)',
             background: cartTotalItems > 0 ? 'var(--primary-light)' : '#ffffff',
+            color: cartTotalItems > 0 ? 'var(--primary-dark)' : 'var(--text)',
+            padding: '0.45rem 0.95rem',
+            textDecoration: 'none',
+            boxShadow: 'var(--shadow-xs)',
           }}
         >
-          🛒 Mi Pedido {cartTotalItems > 0 && <span style={{ color: 'var(--primary-dark)', marginLeft: '3px' }}>({cartTotalItems})</span>}
+          <CartIcon size={16} color={cartTotalItems > 0 ? 'var(--primary-dark)' : 'var(--text)'} />
+          <span>Carrito</span>
+          {cartTotalItems > 0 && (
+            <span
+              style={{
+                background: 'var(--primary)',
+                color: '#ffffff',
+                borderRadius: '50%',
+                width: 18,
+                height: 18,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.68rem',
+                fontWeight: 900,
+              }}
+            >
+              {cartTotalItems}
+            </span>
+          )}
         </Link>
       </div>
 
-      {/* Selector de Categorías en Píldoras */}
-      <div className="tabs" style={{ marginBottom: '1.15rem' }}>
-        <button
-          className={`tabs__btn ${activeTab === 'ALL' ? 'tabs__btn--active' : ''}`}
-          onClick={() => setActiveTab('ALL')}
-        >
-          💧 Todos ({products.length})
-        </button>
-        <button
-          className={`tabs__btn ${activeTab === 'BIDONES' ? 'tabs__btn--active' : ''}`}
-          onClick={() => setActiveTab('BIDONES')}
-        >
-          🧴 Bidones y Packs
-        </button>
-        <button
-          className={`tabs__btn ${activeTab === 'ACCESORIOS' ? 'tabs__btn--active' : ''}`}
-          onClick={() => setActiveTab('ACCESORIOS')}
-        >
-          🚰 Dispensadores
-        </button>
+      {/* Buscador Píldora */}
+      <div style={{ position: 'relative', marginBottom: '1rem' }}>
+        <div style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--muted)' }}>
+          <SearchIcon size={18} />
+        </div>
+        <input
+          type="text"
+          placeholder="Buscar producto…"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{
+            width: '100%',
+            height: '46px',
+            padding: '0 1rem 0 2.85rem',
+            borderRadius: 'var(--radius-pill)',
+            border: '1px solid var(--border)',
+            background: '#ffffff',
+            fontSize: '0.88rem',
+            color: 'var(--text)',
+            outline: 'none',
+            boxShadow: 'var(--shadow-xs)',
+          }}
+        />
+      </div>
+
+      {/* Chips Píldora de Categorías */}
+      <div style={{ display: 'flex', gap: '0.45rem', overflowX: 'auto', paddingBottom: '0.4rem', marginBottom: '1.25rem', scrollbarWidth: 'none' }}>
+        {[
+          { id: 'ALL', label: 'Todos' },
+          { id: '20L', label: 'Bidón 20L' },
+          { id: '12L', label: '12L' },
+          { id: 'DISPENSER', label: 'Dispensadores' },
+          { id: 'PACKS', label: 'Packs' },
+        ].map((cat) => {
+          const active = selectedCategory === cat.id
+          return (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              style={{
+                whiteSpace: 'nowrap',
+                padding: '0.45rem 1rem',
+                borderRadius: 'var(--radius-pill)',
+                border: active ? '1px solid var(--primary)' : '1px solid var(--border)',
+                background: active ? 'var(--primary)' : '#ffffff',
+                color: active ? '#ffffff' : 'var(--text)',
+                fontSize: '0.82rem',
+                fontWeight: active ? 800 : 600,
+                cursor: 'pointer',
+                boxShadow: active ? '0 4px 12px var(--primary-glow)' : 'none',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              {cat.label}
+            </button>
+          )
+        })}
       </div>
 
       {error && (
-        <div className="alert alert--error" style={{ marginBottom: '1.25rem' }}>
-          <span>⚠️ {error}</span>
+        <div className="alert alert--error" style={{ marginBottom: '1.25rem', borderRadius: 'var(--radius-md)' }}>
+          <span>{error}</span>
         </div>
       )}
 
       {loading && (
-        <div className="card" style={{ textAlign: 'center', padding: '3.5rem 1rem' }}>
-          <div style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>⏳</div>
-          <p className="muted" style={{ margin: 0, fontWeight: 600 }}>Cargando catálogo en tiempo real…</p>
+        <div className="card" style={{ textAlign: 'center', padding: '3.5rem 1rem', borderRadius: 'var(--radius-lg)' }}>
+          <p className="muted" style={{ margin: 0, fontWeight: 700 }}>Cargando productos…</p>
         </div>
       )}
 
-      {/* Cuadrícula Mobile de 2 Columnas */}
+      {/* Cuadrícula Curva 2 Columnas */}
       {!loading && (
-        <div className="grid--products-2col">
+        <div className="catalog-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.85rem' }}>
           {filteredProducts.map((p) => {
             const inStock = p.stock > 0
             const cartItem = getItemInCart(p.id)
             const qtyInCart = cartItem ? cartItem.quantity : 0
+            const visualType = getVisualType(p.name)
 
             return (
               <article
                 key={p.id}
-                className="product-card-2col"
                 style={{
-                  border: qtyInCart > 0 ? '2px solid var(--primary)' : '1px solid var(--border)',
-                  background: qtyInCart > 0 ? '#faffff' : '#ffffff',
+                  background: '#ffffff',
+                  borderRadius: '26px',
+                  padding: '1rem 0.9rem',
+                  border: qtyInCart > 0 ? '2px solid var(--primary)' : '1px solid rgba(226, 232, 240, 0.95)',
+                  boxShadow: qtyInCart > 0 ? '0 12px 28px -4px rgba(2, 132, 199, 0.22)' : 'var(--shadow-card)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  transition: 'transform 0.15s ease, box-shadow 0.15s ease',
                 }}
               >
                 <div>
-                  {/* Visual del Producto */}
-                  <div className="product-card-2col__img-wrap">
-                    {p.image ? (
-                      <img
-                        src={p.image}
-                        alt={p.name}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
-                    ) : (
-                      <div className="product-card-2col__icon">
-                        {p.volume_liters ? '💧' : '🚰'}
-                      </div>
-                    )}
-
-                    {/* Badge de Stock o Badge de "En tu pedido" */}
-                    <span
-                      style={{
-                        position: 'absolute',
-                        top: '6px',
-                        left: '6px',
-                        fontSize: '0.68rem',
-                        fontWeight: 800,
-                        padding: '0.2rem 0.5rem',
-                        borderRadius: '6px',
-                        background: qtyInCart > 0
-                          ? 'var(--primary)'
-                          : inStock
-                          ? 'rgba(220, 252, 231, 0.95)'
-                          : 'rgba(254, 226, 226, 0.95)',
-                        color: qtyInCart > 0 ? '#ffffff' : inStock ? '#15803d' : '#b91c1c',
-                        backdropFilter: 'blur(4px)',
-                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                      }}
-                    >
-                      {qtyInCart > 0 ? `✓ En pedido (${qtyInCart})` : inStock ? 'En stock' : 'Sin stock'}
-                    </span>
+                  {/* Pod Circular */}
+                  <div
+                    style={{
+                      height: '96px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: '#f8fafc',
+                      borderRadius: '20px',
+                      marginBottom: '0.65rem',
+                    }}
+                  >
+                    <ProductVisual type={visualType} size={72} />
                   </div>
 
-                  {/* Nombre y Descripción */}
-                  <h3 className="product-card-2col__name" title={p.name}>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--muted)', fontWeight: 700, textTransform: 'uppercase' }}>
+                    {p.name.includes('20') ? '20 Litros' : p.name.includes('12') ? '12 Litros' : 'Accesorio'}
+                  </span>
+                  <h3 style={{ fontSize: '0.94rem', fontWeight: 800, margin: '0.15rem 0', color: '#0f172a', lineHeight: 1.25 }}>
                     {p.name}
                   </h3>
-                  <p className="product-card-2col__desc" title={p.description}>
-                    {p.description || 'Agua purificada y envasada con control de calidad.'}
-                  </p>
-                </div>
-
-                {/* Precio y Selector Táctil */}
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: '0.2rem' }}>
-                    <span className="product-card-2col__price">{fmtMoney(p.price)}</span>
-                    {p.volume_liters && (
-                      <span className="muted" style={{ fontSize: '0.74rem', fontWeight: 700 }}>
-                        {p.volume_liters}L
-                      </span>
-                    )}
+                  <div style={{ fontSize: '1.15rem', fontWeight: 900, color: 'var(--primary)', margin: '0.25rem 0 0.65rem' }}>
+                    {fmtMoney(p.price)}
                   </div>
-
-                  {/* Si ya está en el carrito, mostrar control de cantidad (+ / -); si no, botón Agregar */}
-                  {qtyInCart > 0 ? (
-                    <div
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: '36px 1fr 36px',
-                        alignItems: 'center',
-                        gap: '0.25rem',
-                        marginTop: '0.5rem',
-                        background: 'var(--primary-light)',
-                        padding: '0.2rem',
-                        borderRadius: 'var(--radius-sm)',
-                        border: '1px solid #bae6fd',
-                      }}
-                    >
-                      <button
-                        type="button"
-                        className="btn btn-outline btn-sm"
-                        style={{ minHeight: '34px', padding: 0, fontWeight: 800, fontSize: '1rem', background: '#fff' }}
-                        onClick={() => updateQuantity(p.id, qtyInCart - 1)}
-                      >
-                        -
-                      </button>
-                      <span style={{ textAlign: 'center', fontWeight: 800, color: 'var(--primary-dark)', fontSize: '0.95rem' }}>
-                        {qtyInCart}
-                      </span>
-                      <button
-                        type="button"
-                        className="btn btn-primary btn-sm"
-                        style={{ minHeight: '34px', padding: 0, fontWeight: 800, fontSize: '1rem' }}
-                        disabled={qtyInCart >= p.stock}
-                        onClick={() => handleAdd(p)}
-                      >
-                        +
-                      </button>
-                    </div>
-                  ) : (
-                    <button
-                      className="btn btn-primary product-card-2col__btn"
-                      disabled={!inStock}
-                      onClick={() => handleAdd(p)}
-                    >
-                      {inStock ? '+ Agregar' : 'Agotado'}
-                    </button>
-                  )}
                 </div>
+
+                {/* Control Táctil de Cantidades */}
+                {qtyInCart > 0 ? (
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '32px 1fr 32px',
+                      alignItems: 'center',
+                      background: 'var(--primary-light)',
+                      borderRadius: 'var(--radius-pill)',
+                      padding: '0.2rem',
+                    }}
+                  >
+                    <button
+                      type="button"
+                      style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: '50%',
+                        border: 'none',
+                        background: '#ffffff',
+                        fontWeight: 900,
+                        cursor: 'pointer',
+                        color: 'var(--primary-dark)',
+                      }}
+                      onClick={() => updateQuantity(p.id, qtyInCart - 1)}
+                    >
+                      -
+                    </button>
+                    <span style={{ textAlign: 'center', fontWeight: 900, color: 'var(--primary-dark)', fontSize: '0.92rem' }}>
+                      {qtyInCart}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={qtyInCart >= p.stock}
+                      style={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: '50%',
+                        border: 'none',
+                        background: qtyInCart >= p.stock ? '#cbd5e1' : 'var(--primary)',
+                        color: '#ffffff',
+                        fontWeight: 900,
+                        cursor: qtyInCart >= p.stock ? 'not-allowed' : 'pointer',
+                      }}
+                      onClick={() => handleAdd(p, 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    disabled={!inStock}
+                    style={{
+                      width: '100%',
+                      height: '40px',
+                      borderRadius: 'var(--radius-pill)',
+                      border: 'none',
+                      background: inStock ? 'var(--primary)' : '#cbd5e1',
+                      color: '#ffffff',
+                      fontSize: '0.84rem',
+                      fontWeight: 800,
+                      cursor: inStock ? 'pointer' : 'not-allowed',
+                      boxShadow: inStock ? '0 4px 12px var(--primary-glow)' : 'none',
+                    }}
+                    onClick={() => handleAdd(p, 1)}
+                  >
+                    {inStock ? '+ Agregar' : 'Agotado'}
+                  </button>
+                )}
               </article>
             )
           })}
         </div>
       )}
 
-      {/* Dock Flotante de Resumen de Pedido */}
+      {/* Dock Inferior Flotante en Modo Claro Luminoso */}
       {cartTotalItems > 0 && (
-        <div
+        <aside
           style={{
             position: 'fixed',
-            bottom: '72px',
+            bottom: '76px',
             left: '1rem',
             right: '1rem',
-            maxWidth: '520px',
+            maxWidth: '480px',
             margin: '0 auto',
             zIndex: 80,
-            background: 'linear-gradient(135deg, #0b7dc2 0%, #075a8c 100%)',
-            color: '#fff',
-            padding: '0.85rem 1.15rem',
-            borderRadius: 'var(--radius)',
-            boxShadow: '0 10px 28px rgba(11, 125, 194, 0.4)',
+            background: 'rgba(255, 255, 255, 0.96)',
+            backdropFilter: 'blur(16px)',
+            color: 'var(--text)',
+            padding: '0.75rem 1.15rem',
+            borderRadius: 'var(--radius-pill)',
+            border: '1px solid rgba(16, 185, 129, 0.35)',
+            boxShadow: '0 14px 35px rgba(0,0,0,0.12)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            animation: 'slideUp 0.25s ease-out',
+            animation: 'slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
           }}
         >
           <div>
-            <div style={{ fontSize: '0.82rem', opacity: 0.95 }}>
-              📦 <strong>{cartTotalItems} {cartTotalItems === 1 ? 'producto' : 'productos'}</strong> en tu pedido
+            <div style={{ fontSize: '0.72rem', color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.04em', fontWeight: 800 }}>
+              {cartTotalItems} {cartTotalItems === 1 ? 'producto' : 'productos'}
             </div>
-            <div style={{ fontSize: '1.25rem', fontWeight: 800, fontVariantNumeric: 'tabular-nums' }}>
+            <div style={{ fontSize: '1.2rem', fontWeight: 900, color: 'var(--text)', fontVariantNumeric: 'tabular-nums' }}>
               {fmtMoney(cartSubtotal)}
             </div>
           </div>
 
           <Link
             to="/checkout"
-            className="btn"
             style={{
-              background: '#ffffff',
-              color: 'var(--primary-dark)',
-              fontWeight: 800,
-              minHeight: '42px',
-              padding: '0.5rem 1.1rem',
-              fontSize: '0.92rem',
-              boxShadow: '0 3px 8px rgba(0,0,0,0.2)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+              color: '#ffffff',
+              fontWeight: 900,
+              height: '42px',
+              padding: '0 1.35rem',
+              fontSize: '0.88rem',
+              borderRadius: 'var(--radius-pill)',
+              boxShadow: '0 6px 18px rgba(16, 185, 129, 0.35)',
+              textDecoration: 'none',
             }}
           >
-            Confirmar Pedido ➔
+            <span>Pedir</span>
+            <ChevronRightIcon size={14} color="#ffffff" />
           </Link>
-        </div>
+        </aside>
       )}
     </div>
   )
