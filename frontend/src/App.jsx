@@ -3,10 +3,12 @@ import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext.jsx'
 import { CartProvider } from './context/CartContext.jsx'
 import Navbar from './components/Navbar.jsx'
+import NetworkStatusBanner from './components/NetworkStatusBanner.jsx'
 import Footer from './components/Footer.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 
 const Home = lazy(() => import('./pages/Home.jsx'))
+const DemoPage = lazy(() => import('./pages/DemoPage.jsx'))
 const Login = lazy(() => import('./pages/Login.jsx'))
 const Register = lazy(() => import('./pages/Register.jsx'))
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword.jsx'))
@@ -14,6 +16,7 @@ const ResetPassword = lazy(() => import('./pages/ResetPassword.jsx'))
 const Catalog = lazy(() => import('./pages/Catalog.jsx'))
 const Cart = lazy(() => import('./pages/Cart.jsx'))
 const Checkout = lazy(() => import('./pages/Checkout.jsx'))
+const Account = lazy(() => import('./pages/Account.jsx'))
 const MyOrders = lazy(() => import('./pages/MyOrders.jsx'))
 const OrderDetail = lazy(() => import('./pages/OrderDetail.jsx'))
 const MyAddresses = lazy(() => import('./pages/MyAddresses.jsx'))
@@ -38,8 +41,10 @@ export default function App() {
   return (
     <AuthProvider>
       <CartProvider>
+        <NetworkStatusBanner />
         <Navbar />
         <Routes>          <Route path="/" element={<Page><Home /></Page>} />
+          <Route path="/demo" element={<Page><DemoPage /></Page>} />
           <Route path="/productos" element={<Page><Catalog /></Page>} />
           <Route path="/carrito" element={<Page><Cart /></Page>} />
           <Route path="/login" element={<Page><Login /></Page>} />
@@ -57,14 +62,9 @@ export default function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/pedidos"
-            element={
-              <ProtectedRoute roles={['CLIENT', 'ADMIN']}>
-                <Page><MyOrders /></Page>
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/cuenta" element={<Page><Account /></Page>} />
+          <Route path="/perfil" element={<Page><Account /></Page>} />
+          <Route path="/pedidos" element={<Page><MyOrders /></Page>} />
           <Route
             path="/pedidos/:id"
             element={
