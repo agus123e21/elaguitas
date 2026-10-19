@@ -10,9 +10,9 @@
   --primary-light: #eaf4fb;
   --accent: #10b981;
   --accent-light: #ecfdf5;
-  --bg: #f8fafc;
+  --bg: #edf2f7;
   --surface: #ffffff;
-  --surface-raised: #f1f5f9;
+  --surface-raised: #f8fafc;
   --text: #0f172a;
   --text-muted: #64748b;
   --muted: #64748b;
@@ -28,17 +28,24 @@
   /* Sistema de radios (8-pt scale) */
   --radius-xs: 6px;
   --radius-sm: 8px;
-  --radius: 14px;
+  --radius: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
   --radius-lg: 20px;
   --radius-pill: 9999px;
   
-  /* Sombras tintadas suaves */
-  --shadow-xs: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 4px 0 rgba(15, 23, 42, 0.06);
-  --shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 10px 20px -3px rgba(15, 23, 42, 0.09), 0 4px 8px -4px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 20px 30px -6px rgba(15, 23, 42, 0.12), 0 8px 12px -6px rgba(15, 23, 42, 0.06);
-  --shadow-hover: 0 12px 28px -4px rgba(11, 125, 194, 0.16), 0 6px 10px -4px rgba(11, 125, 194, 0.08);
+  /* Sombras tintadas suaves con profundidad multicapa */
+  --shadow-xs: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 6px 0 rgba(15, 23, 42, 0.06);
+  --shadow: 0 4px 14px -2px rgba(11, 125, 194, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 12px 28px -6px rgba(11, 125, 194, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.95);
+  --shadow-soft: 0 16px 36px -8px rgba(11, 125, 194, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.85);
+  --shadow-float: 0 20px 45px -10px rgba(11, 125, 194, 0.25);
+  --primary-glow: rgba(11, 125, 194, 0.35);
+  --shadow-raised: 0 16px 36px -6px rgba(11, 125, 194, 0.15), 0 6px 14px -3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 12px 24px -4px rgba(11, 125, 194, 0.11), 0 4px 8px -4px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 22px 35px -6px rgba(11, 125, 194, 0.16), 0 8px 16px -6px rgba(15, 23, 42, 0.07);
+  --shadow-hover: 0 14px 30px -4px rgba(11, 125, 194, 0.2), 0 6px 12px -4px rgba(11, 125, 194, 0.1);
 
   /* Tipografía */
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, system-ui, sans-serif;
@@ -55,10 +62,57 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: var(--bg);
+  background-color: #f1f6fa;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Fondo con Patrón Geométrico de Micro-rejilla y Puntos de Agua */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: 
+    radial-gradient(rgba(11, 125, 194, 0.12) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(11, 125, 194, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 125, 194, 0.025) 1px, transparent 1px);
+  background-size: 28px 28px, 56px 56px, 56px 56px;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* Orbes semi-animados de luz ambiental en tonos azul agua y menta */
+body::after {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 20% 25%, rgba(11, 125, 194, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 80% 75%, rgba(16, 185, 129, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 75% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 25% 85%, rgba(2, 132, 199, 0.07) 0%, transparent 45%);
+  filter: blur(50px);
+  animation: ambientWaterDrift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+@keyframes ambientWaterDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-3%, 2%) scale(1.04);
+  }
+  100% {
+    transform: translate(3%, -2%) scale(0.98);
+  }
 }
 
 /* ---------- Layout Mobile-First ---------- */
@@ -732,5 +786,116 @@ img {
 @media print {
   .navbar, .footer, .mobile-bottom-nav {
     display: none;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* ============================================================
+   Adaptación Integral para PC / Desktop (>= 768px)
+   ============================================================ */
+
+.navbar__desktop-menu {
+  display: none;
+}
+
+.navbar__mobile-toggle {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .page {
+    padding: 2rem 2rem 3.5rem !important;
+  }
+
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+
+  .navbar__mobile-toggle {
+    display: none !important;
+  }
+
+  .navbar__desktop-menu {
+    display: flex !important;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footer {
+    display: block !important;
+  }
+
+  /* Grilla responsive del catálogo en PC */
+  .catalog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)) !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Layout 2 columnas de Home en PC */
+  .home-desktop-layout {
+    display: grid !important;
+    grid-template-columns: 1.15fr 0.85fr !important;
+    gap: 1.5rem !important;
+    align-items: start;
+  }
+
+  /* Layout 2 columnas de Checkout en PC */
+  .checkout-desktop-layout {
+    display: grid !important;
+    grid-template-columns: 1.3fr 0.8fr !important;
+    gap: 1.75rem !important;
+    align-items: start;
+  }
+
+  .checkout-sidebar {
+    position: sticky !important;
+    top: 84px !important;
+  }
+
+  /* Orders en 2 columnas en PC */
+  .orders-grid-desktop {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)) !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Dashboard Admin en PC */
+  .admin-grid-desktop {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)) !important;
+    gap: 1.25rem !important;
   }
 }
