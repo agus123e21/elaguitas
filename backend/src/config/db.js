@@ -8,6 +8,8 @@ const poolConfig = {
   max: 10,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 10000,
+  keepAlive: true,
+  statement_timeout: 10000,
 };
 
 // Habilitar SSL para conexiones remotas a Supabase / PostgreSQL cloud sin fallar por certs
