@@ -21,7 +21,8 @@
     "db:setup": "npm run db:setup --workspace=backend"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "concurrently": "^9.1.2",
+    "puppeteer": "^25.15.0"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
