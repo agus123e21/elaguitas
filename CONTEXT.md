@@ -96,6 +96,63 @@
 4. **`408 Network Error en Service Worker`**: Resuelto reemplazando respuestas sintéticas 408 en `sw.js` por fallbacks limpios al App Shell en caché.
 5. **Constraint violation en seeds SQL**: Corregido haciendo idempotentes todas las consultas de inserción de pedidos y entregas de prueba.
 
+### Sesión: 2026-10-20 — Rediseño Integral Mobile-First "Green-to-Green" (100% Modo Claro, Curvas Orgánicas, Cero Emojis)
+- **Autor / Desarrollador Principal:** `HugoAleOlguin`
+- **Asistente AI:** Antigravity (Google DeepMind)
+- **Estado del Build:** 100% en verde (`built in ~480ms`). Grafo `graphify` actualizado a 1.156 nodos y 84 comunidades.
+
+#### 🚀 Componentes y Pantallas Rediseñadas:
+1. **Tokens y Curvas Globales ([`frontend/src/index.css`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/index.css)):**
+   - Incorporación de variables de diseño orgánicas: `--radius-md: 24px`, `--radius-lg: 32px`, `--radius-pill: 9999px`, sombras ambientales `--shadow-soft` y `--shadow-float`.
+   - Eliminación total de bordes cuadrados o rígidos en toda la aplicación.
+2. **Floating Bottom Dock & Navbar Cápsula ([`frontend/src/components/Navbar.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/components/Navbar.jsx)):**
+   - Dock inferior flotante con curvatura de píldora y efecto glassmorphism backdrop blur.
+   - Píldoras activas con gradiente azul `#0b7dc2`, íconos SVG blancos y microinteracción táctil.
+3. **Nueva Landing Home ([`frontend/src/pages/Home.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Home.jsx)):**
+   - Se eliminó el catálogo invasivo en la landing page.
+   - Rediseñada como Hub Operativo con:
+     - Card de Seguimiento de Entrega en Vivo (con chofer asignado y enlace a Google Maps).
+     - Cuadrícula táctil 2x2 (*Pedir Agua*, *Recambio Rápido*, *Retiro de Vacíos*, *Llamar*).
+     - Widget de consumo mensual e histórico.
+     - Sello de control bromatológico de San Rafael.
+4. **Catálogo Especializado Dedicado ([`frontend/src/pages/Catalog.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Catalog.jsx)):**
+   - Buscador de productos con cápsula curvada.
+   - Filtros por volumen en píldoras horizontales (*Todos, 20L Retornable, 12L Compacto, Dispensadores*).
+   - Tarjetas de producto ultra curvas (`border-radius: 28px`), pods visuales circulares, selectores de cantidad stepper flotantes y cápsula de checkout flotante cuando hay items en el carrito.
+5. **Checkout Táctil en 1 Paso ([`frontend/src/pages/Checkout.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Checkout.jsx)):**
+   - Tarjetas de 32px de curvatura con bordes suaves.
+   - Panel de Envases y Retiro de Vacíos con cápsulas (*Te Entregamos* vs *Nos Llevamos*) y checkbox interactivo de primera compra.
+   - Selector táctil de direcciones guardadas y validación de calle y altura en San Rafael.
+   - Botón CTA de confirmación flotante con gradiente esmeralda (`#10b981`), altura 56px y curvatura de píldora.
+6. **Hoja de Ruta Chofer en Modo Claro ([`frontend/src/pages/DriverOrders.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/DriverOrders.jsx)):**
+   - 100% modo claro luminoso (cero fondos oscuros).
+   - Botones touch mínimos de 48px para Google Maps y WhatsApp directo al cliente de San Rafael.
+   - Modal Bottom Sheet con curvatura de 36px para arqueo de envases retirados y cobro en efectivo / transferencia.
+7. **Consola Administrativa Unificada ([`frontend/src/pages/admin/AdminDashboard.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/admin/AdminDashboard.jsx)):**
+   - Pestañas en cápsulas redondeadas (*Despacho, Usuarios, Monitor Supabase*).
+   - KPI cards redondeadas con bordes luminosos.
+   - Visor de logs en memoria 100% en modo claro con chips de color para `[INFO]`, `[WARN]` y `[ERROR]`.
+8. **Autenticación Rápida ([`frontend/src/pages/Login.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Login.jsx) & [`Register.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Register.jsx)):**
+   - Tarjetas con 32px de curvatura y ambient shadows.
+   - Botones rápidos de demo con 1 clic para Admin, Repartidor y Cliente con avatares circulares e íconos SVG.
+   - Cero emojis en toda la plataforma.
+
+9. **Desduplicación del Catálogo y Simplificación de Textos:**
+   - Desactivados 19 productos duplicados en Supabase (`active = false`), quedando únicamente los 6 productos oficiales únicos (IDs 1 al 6).
+   - Desduplicación defensiva en el cliente dentro de `Catalog.jsx` (ignora duplicados por nombre normalizado).
+   - Reemplazo y limpieza de textos genéricos/robóticos ("Camioneta San Rafael", "en planta", frases largas) por copys directos y claros.
+   - Nueva vista de usuario y perfil en [`frontend/src/pages/Account.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Account.jsx).
+
+10. **Adaptación Responsiva a PC (Desktop) y Fondo Semi-Animado con Patrones:**
+   - **Fondo Semi-Animado:** Capa fija con patrón de micro-rejilla y micro-puntos de agua (`radial-gradient`), combinada con orbes ambientales tenues en tonos azul agua y menta animados suavemente en loop de 22s (`@keyframes ambientWaterDrift`), acelerados por hardware sin consumo de CPU.
+   - **Top Navbar de Escritorio:** Menú horizontal integrado para PC con píldoras de navegación (*Inicio, Catálogo, Pedidos, Mi Cuenta* / *Consola Admin*), logo de marca y selector de San Rafael.
+   - **Ocultamiento del Bottom Dock en PC:** `@media (min-width: 768px) { .mobile-bottom-nav { display: none !important; } }`.
+   - **Layouts Expandidos en PC:**
+     - `Home.jsx`: Grid de 2 columnas (`1.15fr 0.85fr`) con accesos rápidos y métricas a la par.
+     - `Catalog.jsx`: Grid auto-fill de 4 columnas en desktop (`max-width: 1040px`).
+     - `Checkout.jsx`: Grid de 2 columnas con panel de resumen financiero sticky a la derecha.
+     - `DriverOrders.jsx` y `MyOrders.jsx`: Grid de 2 columnas de pedidos para visualización espaciosa en monitores.
+
 ---
 
 ## 🔮 6. Próximos Pasos Recomendados
