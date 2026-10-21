@@ -87,7 +87,10 @@ export default function Catalog() {
 
       if (selectedCategory === '20L') return p.name.includes('20')
       if (selectedCategory === '12L') return p.name.includes('12')
-      if (selectedCategory === 'DISPENSER') return p.name.toLowerCase().includes('dispenser')
+      if (selectedCategory === 'DISPENSER') {
+        const ln = p.name.toLowerCase()
+        return ln.includes('dispenser') || ln.includes('bomba') || ln.includes('soporte')
+      }
       if (selectedCategory === 'PACKS') return p.name.toLowerCase().includes('pack')
       return true
     })
