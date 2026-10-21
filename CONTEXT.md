@@ -68,11 +68,26 @@
   - [`frontend/src/pages/Catalog.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Catalog.jsx): Catálogo 2-col, steppers reactivos por producto, toast superior y floating cart dock.
   - [`frontend/src/pages/Checkout.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Checkout.jsx): Cálculo automático de bidones a retirar, selector de direcciones inline, acceso rápido si no hay sesión y remoción de cupón de descuento.
   - [`frontend/src/pages/DriverOrders.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/DriverOrders.jsx): Vista de pedidos generales, botón `Tomar Pedido`, Maps, WhatsApp y modal bottom-sheet para registrar envases.
+
+11. **Video Comercial B2B / Promocional Oficial ([promo-video-b2b/el-aguitas-promo.mp4](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/promo-video-b2b/el-aguitas-promo.mp4)):**
+   - **Metodologia:** Pipeline identico a SwipeClean (HyperFrames + GSAP 3D + Headless Chrome + Edge-TTS + FFmpeg).
+   - **Especificaciones:** 1080x1920 vertical (9:16), 30 FPS, 42.0 segundos, H.264/AAC.
+   - **Identidad Visual:** Clean mode, paleta oficial (#0b7dc2, #10b981), curvas de 28-36px, sin emojis.
+   - **Escenas Animadas:** Caos de WhatsApp inicial -> Hub El Aguitas -> Catalogo interactivo y stepper -> Hoja de ruta chofer GPS -> Circuito 3D de envases retornables -> Outro de marca.
+   - **Audio:** Locucion neural es-MX-JorgeNeural con audio ducking y musica corporativa.
+   - **Atribucion:** HugoAleOlguin & Asistente IA Antigravity.
   - [`frontend/src/pages/Login.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/Login.jsx): Diseño mobile con avatar de gota, 1-click test fill chips y campos táctiles de 46px.
   - [`frontend/src/pages/admin/AdminDashboard.jsx`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/pages/admin/AdminDashboard.jsx): Consola de despacho, gestión de usuarios, monitor de Supabase y logs en vivo.
   - [`frontend/src/services/api.js`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/services/api.js): Interceptor con fallback automático a `'agua_token'` y prevención de error de serialización de cuerpo `null`.
   - [`frontend/src/services/orders.js`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/src/services/orders.js): Añadida función `takeOrder(id, token)`.
   - [`frontend/public/sw.js`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/frontend/public/sw.js): Eliminación de error sintético 408 por fallback limpio a cache.
+
+12. **Video Promocional Horizontal Widescreen B2B ([promo-horizontal/el-aguitas-presentacion-horizontal.mp4](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/promo-horizontal/el-aguitas-presentacion-horizontal.mp4)):**
+   - **Metodologia:** Pipeline HyperFrames + GSAP 3D + Headless Chrome + FFmpeg.
+   - **Especificaciones:** 1920x1080 horizontal (16:9 widescreen), 30 FPS progresivo, 50.0 segundos, 1.500 frames continuos, H.264/AAC Stereo 48kHz (23.4 MB).
+   - **Diseno y UX:** 100% capturas reales 1:1 de la aplicacion en alta resolucion (2x DPR), layout de 2 columnas con telefono grande 3D (840px de altura) en flotacion continua + tarjetas de bullet points y badges dinamicos.
+   - **Audio:** Pista musical moderna de 50s con fade-in y fade-out, sin locucion vocal.
+   - **Atribucion:** HugoAleOlguin & Asistente IA Antigravity.
 
 - **Backend & Base de Datos:**
   - [`backend/src/modules/orders/orders.routes.js`](file:///C:/Users/HuGOD777/proyectos%20practica/elaguitas/backend/src/modules/orders/orders.routes.js): Permisos `requireAnyRole`, endpoint `/api/orders/:id/take`, visualización de pedidos para repartidores y transiciones de estado ampliadas.

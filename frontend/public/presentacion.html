@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Agüitas - Pure Glacier Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Paleta Glaciar, Nieve & Cristal de Agua */
+      --ice-white: #ffffff;
+      --snow-mist: #f0fdfa;
+      --frost-cyan: #38bdf8;
+      --glacier-core: #0284c7;
+      --deep-abyss: #031024;
+      --aurora-teal: #06b6d4;
+      --arctic-glow: #a5f3fc;
+      --pure-crystal: rgba(255, 255, 255, 0.07);
+      --crystal-border: rgba(165, 243, 252, 0.22);
+      --crystal-border-hover: rgba(56, 189, 248, 0.55);
+      
+      --gradient-glacier: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 45%, #0284c7 100%);
+      --gradient-snow-glow: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, #bae6fd 60%, #38bdf8 100%);
+      --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(2, 132, 199, 0.04) 100%);
+      --shadow-frost: 0 12px 36px -8px rgba(2, 132, 199, 0.35);
+      --shadow-aurora: 0 0 50px rgba(6, 182, 212, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #020916;
+      color: #f1f5f9;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      user-select: none;
+      position: relative;
+    }
+
+    h1, h2, h3, .brand-font {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Partículas de nieve / cristal: menoz brillante y sutil */
+    .snow-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.45;
+    }
+
+    /* Luces de Aurora Boreal & Hielo de fondo */
+    .aurora-bg {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .ice-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.45;
+      animation: glacierDrift 22s infinite alternate ease-in-out;
+    }
+    .glow-1 {
+      width: 650px;
+      height: 650px;
+      background: radial-gradient(circle, #0284c7 0%, #0369a1 70%);
+      top: -200px;
+      left: -150px;
+    }
+    .glow-2 {
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, #06b6d4 0%, #0891b2 60%);
+      bottom: -220px;
+      right: -150px;
+      animation-delay: -8s;
+    }
+    .glow-3 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #38bdf8 0%, rgba(2,132,199,0) 70%);
+      top: 35%;
+      left: 40%;
+      opacity: 0.2;
+      animation-delay: -4s;
+    }
+
+    @keyframes glacierDrift {
+      0% { transform: translateY(0px) scale(1) rotate(0deg); }
+      50% { transform: translateY(40px) scale(1.08) rotate(15deg); }
+      100% { transform: translateY(-30px) scale(0.95) rotate(-10deg); }
+    }
+
+    /* Deck Layout */
+    .deck-container {
+      position: relative;
+      z-index: 10;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Glaciar con Glassmorphism de Escarcha */
+    header {
+      padding: 20px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 9, 22, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(165, 243, 252, 0.12);
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      font-size: 1.45rem;
+      letter-spacing: -0.5px;
+    }
+    .glacier-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-glacier);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+    .tagline-badge {
+      font-size: 0.75rem;
+      padding: 5px 14px;
+      border-radius: 30px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(165, 243, 252, 0.35);
+      color: var(--arctic-glow);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.15);
+    }
+
+    /* Viewport Diapositivas */
+    .viewport {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 64px;
+    }
+
+    .slide {
+      position: absolute;
+      width: 90%;
+      max-width: 1260px;
+      height: 84%;
+      opacity: 0;
+      transform: scale(0.97) translateY(24px);
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .slide.active {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Tipografías Nieve y Agua */
+    .slide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: fit-content;
+      color: var(--arctic-glow);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      text-shadow: 0 0 16px rgba(165, 243, 252, 0.4);
+    }
+    .slide-title {
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -1.2px;
+    }
+    .snow-text {
+      background: var(--gradient-snow-glow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 14px rgba(56, 189, 248, 0.35));
+    }
+    .slide-desc {
+      font-size: 1.18rem;
+      color: #94a3b8;
+      max-width: 820px;
+      line-height: 1.6;
+      margin-bottom: 34px;
+      font-weight: 400;
+    }
+
+    /* Layout Diapositiva 1: Con Mockup 3D a un costado despejado */
+    .slide-1-row {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Cristales Glaciares (Cards con Glassmorphism) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .crystal-card {
+      background: var(--gradient-card);
+      border: 1px solid var(--crystal-border);
+      border-radius: 22px;
+      padding: 26px 24px;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .crystal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(165, 243, 252, 0.6), transparent);
+    }
+    .crystal-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--crystal-border-hover);
+      box-shadow: var(--shadow-frost), var(--shadow-aurora);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(2, 132, 199, 0.08) 100%);
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+    .card-p {
+      color: #94a3b8;
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .frost-pill {
+      margin-top: 16px;
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--arctic-glow);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      letter-spacing: 0.3px;
+    }
+
+    /* MOCKUP 3D DESPEJADO A UN COSTADO (SIN QUEDAR DEBAJO DE NADA) */
+    .mockup-side-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      perspective: 1000px;
+    }
+    .phone-mockup-3d {
+      width: 250px;
+      height: 500px;
+      background: #020617;
+      border-radius: 40px;
+      padding: 9px;
+      border: 2px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 
+        0 25px 60px -10px rgba(0, 0, 0, 0.85),
+        0 0 35px rgba(2, 132, 199, 0.3);
+      transform: rotateY(-14deg) rotateX(4deg);
+      transition: transform 0.4s ease;
+      position: relative;
+    }
+    .phone-mockup-3d:hover {
+      transform: rotateY(-6deg) rotateX(2deg) scale(1.02);
+    }
+    .phone-mockup-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      background: #0f172a;
+    }
+    .phone-mockup-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .phone-mockup-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65px;
+      height: 12px;
+      background: #020617;
+      border-radius: 10px;
+      z-index: 5;
+    }
+    .phone-mockup-3d::after {
+      content: '';
+      position: absolute;
+      inset: 9px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
+      pointer-events: none;
+    }
+
+    /* Métricas Congeladas */
+    .metric-number {
+      font-size: 3.2rem;
+      font-weight: 900;
+      font-family: 'Outfit', sans-serif;
+      background: var(--gradient-snow-glow);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+    }
+
+    .tech-crystal {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(165, 243, 252, 0.18);
+      padding: 12px 22px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #e0f2fe;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+    .tech-crystal:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(165, 243, 252, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* Footer / Controles de Navegación */
+    footer {
+      padding: 20px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(2, 9, 22, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(165, 243, 252, 0.12);
+    }
+    .deck-progress {
+      display: flex;
+      gap: 10px;
+    }
+    .dot {
+      width: 34px;
+      height: 5px;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .dot.active {
+      background: var(--gradient-glacier);
+      width: 58px;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.8);
+    }
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+    }
+    .btn {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 12px 26px;
+      border-radius: 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #e0f2fe;
+      border: 1px solid rgba(165, 243, 252, 0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(165, 243, 252, 0.4);
+      transform: translateY(-2px);
+    }
+    .btn-primary {
+      background: var(--gradient-glacier);
+      color: #031024;
+      font-weight: 800;
+      box-shadow: 0 4px 22px rgba(56, 189, 248, 0.45);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.7);
+      filter: brightness(1.1);
+    }
+    .key-hint {
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.25);
+      color: #031024;
+      font-weight: 800;
+    }
+    .key-hint-sec {
+      background: rgba(255, 255, 255, 0.15);
+      color: #e0f2fe;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lienzo de Nieve: Suave y menoz brillante -->
+  <canvas id="snowCanvas" class="snow-canvas"></canvas>
+
+  <!-- Resplandores Glaciares / Aurora -->
+  <div class="aurora-bg">
+    <div class="ice-glow glow-1"></div>
+    <div class="ice-glow glow-2"></div>
+    <div class="ice-glow glow-3"></div>
+  </div>
+
+  <div class="deck-container">
+    <header>
+      <div class="brand-logo">
+        <div class="glacier-icon">💧</div>
+        <span>El Agüitas</span>
+        <span class="tagline-badge">Agua Glaciar & Pureza Operativa</span>
+      </div>
+      <div style="display: flex; gap: 14px; align-items: center;">
+        <span style="font-size: 0.88rem; color: #94a3b8;">Desarrollado por: <strong style="color: #ffffff;">Los Serieitos</strong></span>
+      </div>
+    </header>
+
+    <main class="viewport">
+
+      <!-- SLIDE 1: Portada Comercial Glaciar con Mockup 3D Despejado a un Costado -->
+      <section class="slide active" id="slide-0">
+        <div class="slide-1-row">
+          
+          <!-- Lado Izquierdo: Textos y los 3 Bloques Originales Despejados -->
+          <div>
+            <span class="slide-badge">TECNOLOGÍA PURA COMO EL HIELO</span>
+            <h1 class="slide-title" style="font-size: 2.6rem;">La pureza del agua de montaña, <br>con la <span class="snow-text">velocidad y precisión de un glaciar.</span></h1>
+            <p class="slide-desc" style="font-size: 1.05rem; margin-bottom: 22px;">Digitalizamos todo el ciclo de distribución de agua purificada: pedidos en 3 toques, rescate y rotación inteligente de envases vacíos, geolocalización GPS y cero pérdidas operativas.</p>
+            
+            <div class="cards-grid">
+              <div class="crystal-card">
+                <div class="card-title">Mobile-First Crystal</div>
+                <p class="card-p">Experiencia de compra instantánea en 2 columnas, steppers reactivos y canje automático de envases retornables.</p>
+                <span class="frost-pill">+40% Conversión Web</span>
+              </div>
+              <div class="crystal-card">
+                <div class="card-title">Ruta Viva de Reparto</div>
+                <p class="card-p">Hoja de ruta ágil con botón directo "Tomar Pedido", apertura 1-tap en Google Maps GPS y chat rápido por WhatsApp.</p>
+                <span class="frost-pill">-35% Tiempo de Despacho</span>
+              </div>
+              <div class="crystal-card">
+                <div class="card-title">Control Cero Fugas</div>
+                <p class="card-p">Trazabilidad contable en tiempo real del parque de bidones en poder del cliente. Cada envase cuenta.</p>
+                <span class="frost-pill">100% Retornabilidad</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Mockup 3D Completo Despejado (Cero superposición) -->
+          <div class="mockup-side-col">
+            <div class="phone-mockup-3d">
+              <div class="phone-mockup-notch"></div>
+              <div class="phone-mockup-screen">
+                <img src="promo-horizontal/screens/03_catalog.png" alt="El Agüitas App Real">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SLIDE 2: El Deshielo Operativo vs Solución Glaciar (Original Exacto) -->
+      <section class="slide" id="slide-1">
+        <span class="slide-badge">PROBLEMA & OPORTUNIDAD</span>
+        <h2 class="slide-title">El negocio tradicional de agua <span class="snow-text">se derrite en costos ocultos.</span></h2>
+        <p class="slide-desc">Las distribuidoras pierden cientos de bidones cada mes y sufren desorganización logística. El Agüitas congela las pérdidas.</p>
+        
+        <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 26px;">
+          <div class="crystal-card" style="border-top: 3px solid #f43f5e; padding: 30px;">
+            <div class="card-title" style="color: #fda4af;">El Deshielo Tradicional</div>
+            <p class="card-p" style="margin-bottom: 12px;">• Pérdida constante de bidones retornables sin saber qué cliente los retiene.</p>
+            <p class="card-p" style="margin-bottom: 12px;">• Choferes coordinando por llamadas mientras manejan y anotando en papel.</p>
+            <p class="card-p">• Clientes que compran a la competencia porque no recuerdan pedir a tiempo.</p>
+          </div>
+          <div class="crystal-card" style="border-top: 3px solid var(--frost-cyan); padding: 30px;">
+            <div class="card-title" style="color: var(--arctic-glow);">El Ecosistema El Agüitas</div>
+            <p class="card-p" style="margin-bottom: 12px;">• <strong>Libro Mayor de Envases:</strong> Auditoría digital in situ de cada entrega y devolución.</p>
+            <p class="card-p" style="margin-bottom: 12px;">• <strong>Despacho Autónomo:</strong> Chofer toma el pedido, abre GPS y confirma el cobro en un clic.</p>
+            <p class="card-p">• <strong>Suscripciones Automáticas:</strong> Reposición periódica programada cada 3, 7, 15 o 30 días.</p>
+          </div>
+          <div class="crystal-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; background: rgba(56, 189, 248, 0.08); padding: 30px;">
+            <div class="metric-number">99.4%</div>
+            <div class="card-title">Retención de Envases</div>
+            <p class="card-p">Elimina compras forzosas de envases nuevos gracias al arqueo físico obligatorio en cada viaje.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: Tres Experiencias Cristalinas (Original Exacto) -->
+      <section class="slide" id="slide-2">
+        <span class="slide-badge">ROLES PERFECTAMENTE SINCRONIZADOS</span>
+        <h2 class="slide-title">Una arquitectura clara, <span class="snow-text">tres interfaces transparentes.</span></h2>
+        <p class="slide-desc">Diseño con ergonomía de alta gama: áreas de contacto amplias (48px) y barra dock inferior flotante con escarcha visual.</p>
+        
+        <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 26px;">
+          <div class="crystal-card" style="padding: 30px;">
+            <div class="card-title">1. El Cliente</div>
+            <p class="card-p">• Catálogo táctil con ajuste reactivo [ - ] [ X ] [ + ].</p>
+            <p class="card-p">• Cálculo y bonificación automática al declarar envases vacíos.</p>
+            <p class="card-p">• Múltiples direcciones geolocalizadas (Casa, Oficina, Obra).</p>
+            <span class="frost-pill">Efectivo / Transferencia / Tarjeta</span>
+          </div>
+          <div class="crystal-card" style="padding: 30px;">
+            <div class="card-title">2. El Chofer</div>
+            <p class="card-p">• Hoja de ruta móvil sin planillas de papel.</p>
+            <p class="card-p">• Botón ágil <em>"Tomar Pedido"</em> para autoasignación rápida.</p>
+            <p class="card-p">• Enlace directo a Google Maps y chat de WhatsApp.</p>
+            <span class="frost-pill">Rendición de Envases en Puerta</span>
+          </div>
+          <div class="crystal-card" style="padding: 30px;">
+            <div class="card-title">3. El Administrador</div>
+            <p class="card-p">• Centro de comando y despacho de pedidos en vivo.</p>
+            <p class="card-p">• Creación de zonas de entrega mediante polígonos tarifados.</p>
+            <p class="card-p">• Auditoría de comodatos y monitoreo en tiempo real de BD.</p>
+            <span class="frost-pill">Consola de Control Total</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: El Núcleo Tecnológico Glaciar (Original Exacto) -->
+      <section class="slide" id="slide-3">
+        <span class="slide-badge">SOLIDEZ BAJO CERO</span>
+        <h2 class="slide-title">Ingeniería Serverless con <span class="snow-text">PostgreSQL en Supabase.</span></h2>
+        <p class="slide-desc">Desarrollado para tolerar picos intensos de demanda con disponibilidad ininterrumpida y sin servidores costosos.</p>
+        
+        <div class="cards-grid-4" style="margin-bottom: 24px;">
+          <div class="crystal-card" style="padding: 22px;">
+            <div class="card-title" style="font-size:1.15rem;">React 19 + Vite</div>
+            <p class="card-p" style="font-size:0.88rem;">Carga en &lt; 1.2s. Modo PWA y compilación nativa APK Android con Capacitor.</p>
+          </div>
+          <div class="crystal-card" style="padding: 22px;">
+            <div class="card-title" style="font-size:1.15rem;">Vercel Serverless</div>
+            <p class="card-p" style="font-size:0.88rem;">Arquitectura Monorepo escalable con backend Express montado en micro-funciones.</p>
+          </div>
+          <div class="crystal-card" style="padding: 22px;">
+            <div class="card-title" style="font-size:1.15rem;">Supabase Pooler</div>
+            <p class="card-p" style="font-size:0.88rem;">PostgreSQL con Transaction Pooler en puerto 6543 que elimina caídas por concurrencia.</p>
+          </div>
+          <div class="crystal-card" style="padding: 22px;">
+            <div class="card-title" style="font-size:1.15rem;">14 Tablas SQL</div>
+            <p class="card-p" style="font-size:0.88rem;">Migraciones idempotentes 001-007, triggers automáticos y claves foráneas estrictas.</p>
+          </div>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--crystal-border); border-radius: 18px; padding: 18px 26px; display: flex; justify-content: space-around; align-items: center;">
+          <span class="tech-crystal">Tokens JWT Criptográficos</span>
+          <span class="tech-crystal">Tareas Cron de Suscripciones</span>
+          <span class="tech-crystal">Zonas Poligonales JSONB</span>
+          <span class="tech-crystal">Indexación Semántica Graphify</span>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Rentabilidad y Retorno de Inversión (Original Exacto) -->
+      <section class="slide" id="slide-4">
+        <span class="slide-badge">IMPACTO ECONÓMICO DIRECTO</span>
+        <h2 class="slide-title">Costos mínimos en la nube, <span class="snow-text">máxima liquidez operativa.</span></h2>
+        <p class="slide-desc">El modelo serverless asegura que tu infraestructura solo consuma recursos cuando se concretan ventas reales.</p>
+        
+        <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 26px;">
+          <div class="crystal-card" style="padding: 30px;">
+            <div class="card-title">Costo Tecnológico Base</div>
+            <div class="metric-number" style="color: var(--arctic-glow);">~$0 - $45</div>
+            <p class="card-p" style="margin-bottom: 14px;">Dólares mensuales de infraestructura fija en la nube (Vercel Serverless + Supabase Cloud + SSL).</p>
+            <p class="card-p">Ahorro superior al 80% frente a servidores dedicados convencionales.</p>
+          </div>
+          <div class="crystal-card" style="padding: 30px;">
+            <div class="card-title">Crecimiento en Pedidos</div>
+            <div class="metric-number" style="color: var(--frost-cyan);">+28%</div>
+            <p class="card-p" style="margin-bottom: 14px;">Incremento de ventas recurrentes mediante el motor automático de Suscripciones Periódicas.</p>
+            <p class="card-p">Fidelización permanente de hogares, oficinas y empresas sin esfuerzo manual.</p>
+          </div>
+          <div class="crystal-card" style="padding: 30px;">
+            <div class="card-title">Ahorro en Reposición</div>
+            <div class="metric-number" style="color: #67e8f9;">~$1,200</div>
+            <p class="card-p" style="margin-bottom: 14px;">Dólares al mes ahorrados en recompra de envases gracias al control in situ de bidones vacíos.</p>
+            <p class="card-p">Blindaje patrimonial garantizado en cada viaje del chofer.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Cierre Comercial (Original Exacto) -->
+      <section class="slide" id="slide-5">
+        <span class="slide-badge">IMPLEMENTACIÓN INMEDIATA</span>
+        <h2 class="slide-title">Lleva tu distribuidora al siguiente nivel con <span class="snow-text">El Agüitas.</span></h2>
+        <p class="slide-desc">El sistema se encuentra probado con datos reales, optimizado en producción y listo para desplegarse con la marca de tu empresa.</p>
+        
+        <div class="crystal-card" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(2, 132, 199, 0.25) 100%); border-color: rgba(165, 243, 252, 0.5); padding: 44px; text-align: center;">
+          <h3 style="font-size: 2.2rem; margin-bottom: 16px; color: #ffffff;">Despliegue Llave en Mano & Soporte Continuo</h3>
+          <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 26px; font-size: 1.15rem; line-height: 1.6;">
+            Propuesta elaborada con orgullo por el equipo <strong>Los Serieitos</strong>. Entregamos la plataforma personalizada con tu catálogo, tarifas zonales y capacitación para tus repartidores.
+          </p>
+          <div style="display: flex; gap: 18px; justify-content: center;">
+            <button class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 36px;" onclick="goToSlide(0)">Reiniciar Presentación</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="deck-progress" id="progress-dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+        <div class="dot" onclick="goToSlide(3)"></div>
+        <div class="dot" onclick="goToSlide(4)"></div>
+        <div class="dot" onclick="goToSlide(5)"></div>
+      </div>
+
+      <div style="font-size: 0.92rem; color: #94a3b8;">
+        Diapositiva <span id="current-slide-num" style="color: var(--arctic-glow); font-weight: 700;">1</span> de 6
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="prevSlide()">
+          Anterior <span class="key-hint key-hint-sec">◄</span>
+        </button>
+        <button class="btn btn-primary" onclick="nextSlide()">
+          Siguiente <span class="key-hint">►</span>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Script de Nieve Glaciar y Navegación -->
+  <script>
+    // 1. Control de Diapositivas
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const slideNumLabel = document.getElementById('current-slide-num');
+
+    function updateDeck() {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === currentSlide);
+      });
+      dots.forEach((d, idx) => {
+        d.classList.toggle('active', idx === currentSlide);
+      });
+      slideNumLabel.textContent = currentSlide + 1;
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        updateDeck();
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateDeck();
+      }
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < slides.length) {
+        currentSlide = index;
+        updateDeck();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      } else if (e.key === 'Home') {
+        goToSlide(0);
+      } else if (e.key === 'End') {
+        goToSlide(slides.length - 1);
+      }
+    });
+
+    // 2. Efecto de Nieve & Partículas (Canvas menos brillante, opacidad 0.35)
+    const canvas = document.getElementById('snowCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const flakes = [];
+    const flakeCount = 55;
+
+    for (let i = 0; i < flakeCount; i++) {
+      flakes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 2.2 + 0.8,
+        d: Math.random() * flakeCount,
+        alpha: Math.random() * 0.4 + 0.15,
+        speed: Math.random() * 0.6 + 0.25
+      });
+    }
+
+    function drawSnow() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < flakeCount; i++) {
+        const f = flakes[i];
+        ctx.fillStyle = `rgba(186, 230, 253, ${f.alpha})`;
+        ctx.beginPath();
+        ctx.moveTo(f.x, f.y);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+        ctx.fill();
+      }
+      updateSnow();
+      requestAnimationFrame(drawSnow);
+    }
+
+    let angle = 0;
+    function updateSnow() {
+      angle += 0.008;
+      for (let i = 0; i < flakeCount; i++) {
+        const f = flakes[i];
+        f.y += f.speed;
+        f.x += Math.sin(angle) * 0.4;
+
+        if (f.y > height) {
+          flakes[i] = {
+            x: Math.random() * width,
+            y: 0,
+            r: f.r,
+            d: f.d,
+            alpha: f.alpha,
+            speed: f.speed
+          };
+        }
+      }
+    }
+
+    drawSnow();
+  </script>
+</body>
+</html>
