@@ -15,6 +15,7 @@ import {
   PhoneIcon,
   WhatsAppIcon,
   LogOutIcon,
+  RefreshCwIcon,
 } from './Icons.jsx'
 
 export default function Navbar() {
