@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
+import { useCart } from '../context/CartContext.jsx'
 import {
   UserIcon,
   TruckIcon,
@@ -17,9 +18,11 @@ import {
 
 export default function Account() {
   const { user, logout } = useAuth()
+  const { clearCart } = useCart()
   const navigate = useNavigate()
 
   function handleLogout() {
+    clearCart()
     logout()
     navigate('/login')
   }

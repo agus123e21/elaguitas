@@ -22,7 +22,7 @@ import {
 
 export default function Navbar() {
   const { user, logout } = useAuth()
-  const { count: cartCount } = useCart()
+  const { count: cartCount, clearCart } = useCart()
   const location = useLocation()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -60,6 +60,7 @@ export default function Navbar() {
   const currentPath = location.pathname
 
   function handleLogout() {
+    clearCart()
     logout()
     setMenuOpen(false)
     navigate('/login')

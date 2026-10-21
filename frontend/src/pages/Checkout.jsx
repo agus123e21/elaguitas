@@ -18,6 +18,7 @@ import {
   LockIcon,
   ChevronRightIcon,
   ClockIcon,
+  TrashIcon,
 } from '../components/Icons.jsx'
 
 function formatPrice(value) {
@@ -30,7 +31,7 @@ function formatPrice(value) {
 
 export default function Checkout() {
   const { user, token } = useAuth()
-  const { items, subtotal, clearCart } = useCart()
+  const { items, subtotal, clearCart, updateQuantity, removeItem } = useCart()
   const navigate = useNavigate()
 
   const [addresses, setAddresses] = useState([])
@@ -762,9 +763,30 @@ export default function Checkout() {
                     </span>
                     <span style={{ color: 'var(--text)', fontWeight: 600 }}>{item.name}</span>
                   </div>
-                  <span style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>
-                    {formatPrice(item.price * item.quantity)}
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                    <span style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>
+                      {formatPrice(item.price * item.quantity)}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => removeItem(item.productId)}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        color: 'var(--danger)',
+                        cursor: 'pointer',
+                        padding: '4px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        opacity: 0.8,
+                      }}
+                      title={`Quitar ${item.name} del carrito`}
+                      aria-label={`Quitar ${item.name}`}
+                    >
+                      <TrashIcon size={15} />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

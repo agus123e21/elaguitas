@@ -34,6 +34,7 @@ export function clearSession() {
   localStorage.removeItem(USER_KEY)
   localStorage.removeItem('token')
   localStorage.removeItem('user')
+  localStorage.removeItem('agua_cart')
 }
 
 export async function login(email, password) {

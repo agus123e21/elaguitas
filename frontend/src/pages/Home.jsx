@@ -28,7 +28,10 @@ export default function Home() {
   const [toastMessage, setToastMessage] = useState(null)
 
   useEffect(() => {
-    if (!token) return
+    if (!token) {
+      setActiveOrder(null)
+      return
+    }
     setLoadingOrder(true)
     getMyOrders(token)
       .then((orders) => {

@@ -54,7 +54,13 @@ export function AuthProvider({ children }) {
   }, [])
 
   const logout = useCallback(async () => {
-    await authService.logout()
+    try {
+      await authService.logout()
+    } catch {
+      // continuar limpieza local aunque falle la red
+    }
+    authService.clearSession()
+    localStorage.removeItem('agua_cart')
     setToken(null)
     setUser(null)
   }, [])
