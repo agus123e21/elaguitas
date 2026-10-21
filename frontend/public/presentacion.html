@@ -3,53 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Agüitas - Pure Glacier Pitch Deck</title>
+  <title>El Agüitas - Presentación Completa (Glaciar & App Real)</title>
+  <!-- Google Fonts: Outfit, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- GSAP 3.12.5 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
   <style>
     :root {
-      /* Paleta Glaciar, Nieve & Cristal de Agua */
+      /* PALETA DE TU AMIGO (Activa en Sección 1: Glaciar) */
       --ice-white: #ffffff;
       --snow-mist: #f0fdfa;
       --frost-cyan: #38bdf8;
       --glacier-core: #0284c7;
-      --deep-abyss: #031024;
-      --aurora-teal: #06b6d4;
       --arctic-glow: #a5f3fc;
       --pure-crystal: rgba(255, 255, 255, 0.07);
       --crystal-border: rgba(165, 243, 252, 0.22);
       --crystal-border-hover: rgba(56, 189, 248, 0.55);
-      
       --gradient-glacier: linear-gradient(135deg, #a5f3fc 0%, #38bdf8 45%, #0284c7 100%);
       --gradient-snow-glow: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, #bae6fd 60%, #38bdf8 100%);
       --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(2, 132, 199, 0.04) 100%);
       --shadow-frost: 0 12px 36px -8px rgba(2, 132, 199, 0.35);
-      --shadow-aurora: 0 0 50px rgba(6, 182, 212, 0.25);
+
+      /* TU PALETA PROFESIONAL (Activa en Sección 2: App Real) */
+      --brand-ocean: #0b7dc2;
+      --brand-emerald: #10b981;
+      --brand-coral: #e11d48;
+      --brand-amber: #d97706;
+      --surface-card: rgba(255, 255, 255, 0.045);
+      --border-card: rgba(255, 255, 255, 0.1);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background: #020916;
-      color: #f1f5f9;
-      overflow: hidden;
-      height: 100vh;
       width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #020916;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #f1f5f9;
       user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: none;
+    }
+    body.show-cursor {
+      cursor: default;
+    }
+
+    /* 16:9 Stage Frame */
+    #deck-stage {
+      width: 1920px;
+      height: 1080px;
+      max-width: 100vw;
+      max-height: 100vh;
+      aspect-ratio: 16 / 9;
       position: relative;
+      overflow: hidden;
+      transform-origin: center center;
+      transition: background 0.6s ease;
     }
 
-    h1, h2, h3, .brand-font {
-      font-family: 'Outfit', sans-serif;
+    /* FONDOS DINÁMICOS POR SECCIÓN */
+    #deck-stage.mode-glacier {
+      background: radial-gradient(circle at 18% 25%, #052640 0%, #031424 55%, #020916 100%);
+    }
+    #deck-stage.mode-app {
+      background: radial-gradient(circle at 20% 20%, #061c2e 0%, #04101d 55%, #02060d 100%);
     }
 
-    /* Partículas de nieve / cristal: menoz brillante y sutil */
+    /* Lienzo de nieve (SÓLO visible en Sección Glaciar) */
     .snow-canvas {
       position: absolute;
       top: 0;
@@ -58,159 +90,233 @@
       height: 100%;
       pointer-events: none;
       z-index: 1;
-      opacity: 0.45;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    #deck-stage.mode-app .snow-canvas {
+      opacity: 0 !important;
     }
 
-    /* Luces de Aurora Boreal & Hielo de fondo */
+    /* Resplandores Glaciares de tu amigo */
     .aurora-bg {
       position: absolute;
-      width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      z-index: 0;
+      inset: 0;
       pointer-events: none;
+      z-index: 2;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
     .ice-glow {
       position: absolute;
       border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.45;
-      animation: glacierDrift 22s infinite alternate ease-in-out;
+      filter: blur(140px);
+      opacity: 0.35;
+      animation: glacierDrift 20s infinite alternate ease-in-out;
     }
-    .glow-1 {
-      width: 650px;
-      height: 650px;
-      background: radial-gradient(circle, #0284c7 0%, #0369a1 70%);
-      top: -200px;
-      left: -150px;
-    }
-    .glow-2 {
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, #06b6d4 0%, #0891b2 60%);
-      bottom: -220px;
-      right: -150px;
-      animation-delay: -8s;
-    }
-    .glow-3 {
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, #38bdf8 0%, rgba(2,132,199,0) 70%);
-      top: 35%;
-      left: 40%;
-      opacity: 0.2;
-      animation-delay: -4s;
-    }
-
+    .glow-1 { width: 700px; height: 700px; background: #0284c7; top: -150px; left: -100px; }
+    .glow-2 { width: 750px; height: 750px; background: #0d9488; bottom: -200px; right: -120px; }
+    .glow-3 { width: 550px; height: 550px; background: #06b6d4; top: 350px; left: 820px; opacity: 0.2; }
     @keyframes glacierDrift {
-      0% { transform: translateY(0px) scale(1) rotate(0deg); }
-      50% { transform: translateY(40px) scale(1.08) rotate(15deg); }
-      100% { transform: translateY(-30px) scale(0.95) rotate(-10deg); }
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, -30px) scale(1.08); }
+    }
+    #deck-stage.mode-app .aurora-bg {
+      opacity: 0.25;
     }
 
-    /* Deck Layout */
-    .deck-container {
-      position: relative;
-      z-index: 10;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
+    /* Micro-malla sobria de la App */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(rgba(11, 125, 194, 0.12) 1px, transparent 1px),
+        linear-gradient(rgba(11, 125, 194, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11, 125, 194, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px, 80px 80px, 80px 80px;
+      pointer-events: none;
+      z-index: 3;
     }
 
-    /* Header Glaciar con Glassmorphism de Escarcha */
-    header {
-      padding: 20px 52px;
+    /* Marca permanente */
+    .clean-watermark {
+      position: absolute;
+      top: 48px;
+      left: 70px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: rgba(2, 9, 22, 0.65);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(165, 243, 252, 0.12);
+      gap: 16px;
+      z-index: 40;
     }
-    .brand-logo {
+    .clean-watermark-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--brand-ocean), var(--brand-emerald));
+      border-radius: 14px;
       display: flex;
       align-items: center;
-      gap: 14px;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(11, 125, 194, 0.4);
+    }
+    .clean-watermark-text {
+      font-family: 'Outfit', sans-serif;
+      color: #ffffff;
+      font-size: 24px;
       font-weight: 800;
-      font-size: 1.45rem;
       letter-spacing: -0.5px;
     }
-    .glacier-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--gradient-glacier);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-    .tagline-badge {
-      font-size: 0.75rem;
-      padding: 5px 14px;
-      border-radius: 30px;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(165, 243, 252, 0.35);
-      color: var(--arctic-glow);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      box-shadow: 0 0 14px rgba(56, 189, 248, 0.15);
-    }
 
-    /* Viewport Diapositivas */
-    .viewport {
-      flex: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 64px;
+    /* SLIDES WRAPPER */
+    .slides-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      z-index: 10;
     }
 
     .slide {
       position: absolute;
-      width: 90%;
-      max-width: 1260px;
-      height: 84%;
-      opacity: 0;
-      transform: scale(0.97) translateY(24px);
-      pointer-events: none;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      padding: 100px 90px 60px 90px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
     .slide.active {
       opacity: 1;
-      transform: scale(1) translateY(0);
-      pointer-events: auto;
+      visibility: visible;
+      pointer-events: all;
     }
 
-    /* Tipografías Nieve y Agua */
-    .slide-badge {
-      display: inline-flex;
+    /* ========================================================= */
+    /* PANTALLAS DE INTRO Y TRANSICIÓN                           */
+    /* ========================================================= */
+    .title-screen-center {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 6px;
-      width: fit-content;
-      color: var(--arctic-glow);
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      text-shadow: 0 0 16px rgba(165, 243, 252, 0.4);
+      justify-content: center;
+      text-align: center;
+      gap: 32px;
+      margin: 0 auto;
     }
-    .slide-title {
-      font-size: 3rem;
+    .title-logo-box {
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(135deg, var(--brand-ocean) 0%, var(--brand-emerald) 100%);
+      border-radius: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 80px rgba(11, 125, 194, 0.5);
+      animation: pulseTitle 3s ease-in-out infinite alternate;
+    }
+    @keyframes pulseTitle {
+      0% { transform: scale(1); box-shadow: 0 20px 60px rgba(11, 125, 194, 0.45); }
+      100% { transform: scale(1.06); box-shadow: 0 30px 90px rgba(16, 185, 129, 0.55); }
+    }
+    .title-big-h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 88px;
       font-weight: 900;
-      line-height: 1.15;
+      color: #ffffff;
+      letter-spacing: -3.5px;
+      line-height: 1;
+    }
+    .title-lead-p {
+      font-size: 28px;
+      color: #94a3b8;
+      max-width: 900px;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    .title-pill-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .title-pill-tag {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(165, 243, 252, 0.3);
+      color: var(--arctic-glow);
+      padding: 12px 26px;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .transition-screen-center {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 30px;
+      margin: 0 auto;
+    }
+    .transition-icon-wrap {
+      width: 110px;
+      height: 110px;
+      background: rgba(11, 125, 194, 0.16);
+      border: 2px solid rgba(56, 189, 248, 0.45);
+      border-radius: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(11, 125, 194, 0.35);
+    }
+    .transition-h1 {
+      font-size: 72px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -2.5px;
+      line-height: 1.05;
+    }
+    .transition-sub {
+      font-size: 26px;
+      color: #94a3b8;
+      max-width: 860px;
+      line-height: 1.5;
+    }
+
+    /* ========================================================= */
+    /* SECCIÓN 1: ESTILO GLACIAR ORIGINAL DE TU AMIGO            */
+    /* ========================================================= */
+    .glacier-center {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+    .slide-badge-glacier {
+      font-family: 'Outfit', sans-serif;
+      color: var(--arctic-glow);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
       margin-bottom: 16px;
-      letter-spacing: -1.2px;
+      text-shadow: 0 0 16px rgba(165, 243, 252, 0.4);
+      display: inline-block;
+    }
+    .glacier-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      letter-spacing: -1.5px;
+      color: #ffffff;
     }
     .snow-text {
       background: var(--gradient-snow-glow);
@@ -218,47 +324,31 @@
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 2px 14px rgba(56, 189, 248, 0.35));
     }
-    .slide-desc {
-      font-size: 1.18rem;
+    .glacier-desc {
+      font-size: 23px;
       color: #94a3b8;
-      max-width: 820px;
-      line-height: 1.6;
-      margin-bottom: 34px;
-      font-weight: 400;
+      max-width: 980px;
+      line-height: 1.55;
+      margin-bottom: 38px;
     }
 
-    /* Layout Diapositiva 1: Con Mockup 3D a un costado despejado */
-    .slide-1-row {
-      display: grid;
-      grid-template-columns: 1fr 280px;
-      gap: 40px;
-      align-items: center;
-      width: 100%;
-    }
-
-    /* Cristales Glaciares (Cards con Glassmorphism) */
-    .cards-grid {
+    .cards-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 32px;
     }
-    .cards-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 26px;
-    }
-
     .crystal-card {
       background: var(--gradient-card);
       border: 1px solid var(--crystal-border);
-      border-radius: 22px;
-      padding: 26px 24px;
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 26px;
+      padding: 34px;
+      backdrop-filter: blur(24px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
     .crystal-card::before {
       content: '';
@@ -269,552 +359,1055 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(165, 243, 252, 0.6), transparent);
     }
-    .crystal-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--crystal-border-hover);
-      box-shadow: var(--shadow-frost), var(--shadow-aurora);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(2, 132, 199, 0.08) 100%);
-    }
-    .card-title {
-      font-size: 1.25rem;
+    .crystal-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
       font-weight: 800;
-      margin-bottom: 10px;
       color: #ffffff;
-      letter-spacing: -0.3px;
     }
-    .card-p {
+    .crystal-card-p {
       color: #94a3b8;
-      font-size: 0.92rem;
-      line-height: 1.55;
+      font-size: 17px;
+      line-height: 1.6;
     }
     .frost-pill {
-      margin-top: 16px;
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 5px 12px;
+      align-self: flex-start;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 6px 14px;
       border-radius: 20px;
-      background: rgba(56, 189, 248, 0.14);
+      background: rgba(56, 189, 248, 0.16);
       color: var(--arctic-glow);
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      letter-spacing: 0.3px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .metric-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 54px;
+      font-weight: 900;
+      color: var(--arctic-glow);
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    /* MOCKUP 3D DESPEJADO A UN COSTADO (SIN QUEDAR DEBAJO DE NADA) */
-    .mockup-side-col {
+    /* ========================================================= */
+    /* SECCIÓN 2: TU PARTE SOBRIA Y PROFESIONAL (APP REAL 1:1)   */
+    /* ========================================================= */
+    .slide-grid {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .slide-grid.reversed {
+      grid-template-columns: 0.95fr 1.05fr;
+    }
+
+    .content-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      max-width: 880px;
+    }
+    .pill-tag {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .pill-coral { background: rgba(225, 29, 72, 0.18); border: 1px solid rgba(225, 29, 72, 0.4); color: #fda4af; }
+    .pill-ocean { background: rgba(11, 125, 194, 0.22); border: 1px solid rgba(11, 125, 194, 0.45); color: #bae6fd; }
+    .pill-emerald { background: rgba(16, 185, 129, 0.22); border: 1px solid rgba(16, 185, 129, 0.45); color: #a7f3d0; }
+    .pill-amber { background: rgba(217, 119, 6, 0.22); border: 1px solid rgba(217, 119, 6, 0.45); color: #fde68a; }
+
+    .slide-heading {
+      font-size: 64px;
+      line-height: 1.08;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -2px;
+    }
+    .slide-heading span.ocean { color: #38bdf8; }
+    .slide-heading span.emerald { color: #34d399; }
+    .slide-heading span.coral { color: #fb7185; }
+
+    .slide-lead {
+      font-size: 23px;
+      line-height: 1.45;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .action-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .action-card {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      background: var(--surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 18px 28px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+    .num-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 900;
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      perspective: 1000px;
+      flex-shrink: 0;
     }
-    .phone-mockup-3d {
-      width: 250px;
-      height: 500px;
-      background: #020617;
-      border-radius: 40px;
-      padding: 9px;
-      border: 2px solid rgba(56, 189, 248, 0.45);
-      box-shadow: 
-        0 25px 60px -10px rgba(0, 0, 0, 0.85),
-        0 0 35px rgba(2, 132, 199, 0.3);
-      transform: rotateY(-14deg) rotateX(4deg);
-      transition: transform 0.4s ease;
+    .num-coral { background: rgba(225, 29, 72, 0.2); color: #fda4af; border: 1px solid rgba(225, 29, 72, 0.35); }
+    .num-ocean { background: rgba(11, 125, 194, 0.22); color: #7dd3fc; border: 1px solid rgba(11, 125, 194, 0.35); }
+    .num-emerald { background: rgba(16, 185, 129, 0.22); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .num-amber { background: rgba(217, 119, 6, 0.22); color: #fde68a; border: 1px solid rgba(217, 119, 6, 0.35); }
+
+    .action-text-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .action-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.4px;
+    }
+    .action-sub {
+      font-size: 16px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* PHONE MOCKUP (Clean, Zero Notch) */
+    .hero-visual-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      perspective: 1400px;
+      height: 100%;
     }
-    .phone-mockup-3d:hover {
-      transform: rotateY(-6deg) rotateX(2deg) scale(1.02);
+    .hero-phone {
+      width: 440px;
+      height: 900px;
+      background: #000000;
+      border-radius: 56px;
+      padding: 10px;
+      box-shadow: 
+        0 40px 100px rgba(0, 0, 0, 0.8),
+        0 0 0 3px #1e293b,
+        0 0 0 8px #09121d,
+        0 0 80px rgba(11, 125, 194, 0.25);
+      position: relative;
+      transform-style: preserve-3d;
+      will-change: transform;
     }
-    .phone-mockup-screen {
+    .phone-speaker-bar {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: #202b38;
+      border-radius: 10px;
+      z-index: 40;
+    }
+    .phone-screen {
       width: 100%;
       height: 100%;
-      border-radius: 32px;
+      border-radius: 46px;
       overflow: hidden;
+      background: #ffffff;
       position: relative;
-      background: #0f172a;
     }
-    .phone-mockup-screen img {
+    .phone-screen img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
       display: block;
     }
-    .phone-mockup-notch {
+
+    .float-chip {
       position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 65px;
-      height: 12px;
-      background: #020617;
-      border-radius: 10px;
-      z-index: 5;
-    }
-    .phone-mockup-3d::after {
-      content: '';
-      position: absolute;
-      inset: 9px;
-      border-radius: 32px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 50%);
-      pointer-events: none;
-    }
-
-    /* Métricas Congeladas */
-    .metric-number {
-      font-size: 3.2rem;
-      font-weight: 900;
-      font-family: 'Outfit', sans-serif;
-      background: var(--gradient-snow-glow);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-      margin-bottom: 8px;
-      filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
-    }
-
-    .tech-crystal {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(165, 243, 252, 0.18);
-      padding: 12px 22px;
-      border-radius: 16px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #e0f2fe;
-      backdrop-filter: blur(12px);
-      transition: all 0.25s ease;
-    }
-    .tech-crystal:hover {
-      background: rgba(56, 189, 248, 0.12);
-      border-color: rgba(165, 243, 252, 0.45);
-      transform: translateY(-2px);
-    }
-
-    /* Footer / Controles de Navegación */
-    footer {
-      padding: 20px 52px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(2, 9, 22, 0.8);
+      background: rgba(8, 20, 36, 0.92);
       backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid rgba(165, 243, 252, 0.12);
-    }
-    .deck-progress {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 16px 24px;
       display: flex;
-      gap: 10px;
-    }
-    .dot {
-      width: 34px;
-      height: 5px;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0.15);
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .dot.active {
-      background: var(--gradient-glacier);
-      width: 58px;
-      box-shadow: 0 0 14px rgba(56, 189, 248, 0.8);
-    }
-    .nav-buttons {
-      display: flex;
+      align-items: center;
       gap: 16px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+      z-index: 50;
+      animation: floatBadge 4s ease-in-out infinite alternate;
     }
-    .btn {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 12px 26px;
-      border-radius: 14px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
+    @keyframes floatBadge {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-12px); }
+    }
+    .chip-tr { top: 90px; right: -40px; }
+    .chip-bl { bottom: 120px; left: -50px; }
+    .chip-val { font-size: 22px; font-weight: 900; color: #ffffff; }
+    .chip-label { font-size: 14px; color: #94a3b8; font-weight: 600; }
+
+    /* DESKTOP SCREEN */
+    .hero-desktop {
+      width: 980px;
+      height: 590px;
+      background: #09121d;
+      border-radius: 28px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 45px 120px rgba(0, 0, 0, 0.85), 0 0 100px rgba(16, 185, 129, 0.2);
+      position: relative;
+    }
+    .desktop-top-bar {
+      height: 34px;
+      display: flex;
       align-items: center;
       gap: 10px;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-left: 14px;
+      margin-bottom: 10px;
     }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: #e0f2fe;
-      border: 1px solid rgba(165, 243, 252, 0.2);
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .desktop-frame {
+      width: 100%;
+      height: calc(100% - 44px);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f8fafc;
     }
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(165, 243, 252, 0.4);
-      transform: translateY(-2px);
+    .desktop-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
     }
-    .btn-primary {
-      background: var(--gradient-glacier);
-      color: #031024;
+
+    /* WHATSAPP CLEAN CHAT */
+    .wa-chat-box {
+      width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .wa-msg {
+      background: #111d27;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 20px 24px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .wa-name { color: #10b981; font-size: 17px; font-weight: 800; }
+    .wa-time { font-size: 13px; color: #8696a0; }
+    .wa-body { color: #e2e8f0; font-size: 18px; line-height: 1.4; font-weight: 500; }
+    .wa-alert-tag {
+      align-self: flex-start;
+      font-size: 13px;
       font-weight: 800;
-      box-shadow: 0 4px 22px rgba(56, 189, 248, 0.45);
+      padding: 4px 12px;
+      border-radius: 8px;
+      background: rgba(225, 29, 72, 0.2);
+      color: #fda4af;
+      border: 1px solid rgba(225, 29, 72, 0.35);
     }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.7);
-      filter: brightness(1.1);
+
+    /* OUTRO SOBRIO */
+    .outro-center {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 36px;
     }
+    .outro-water-logo {
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(135deg, var(--brand-ocean) 0%, var(--brand-emerald) 100%);
+      border-radius: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 80px rgba(11, 125, 194, 0.5);
+    }
+    .outro-h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 76px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -3px;
+      line-height: 1.05;
+    }
+    .outro-p {
+      font-size: 28px;
+      color: #94a3b8;
+      max-width: 940px;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    .outro-features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin-top: 10px;
+    }
+    .outro-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 26px 28px;
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-align: left;
+    }
+    .outro-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .outro-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(11, 125, 194, 0.2);
+      color: #38bdf8;
+    }
+    .outro-card-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+    .outro-card-sub {
+      font-size: 16px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
     .key-hint {
-      font-size: 0.7rem;
-      padding: 2px 7px;
-      border-radius: 5px;
-      background: rgba(0, 0, 0, 0.25);
-      color: #031024;
-      font-weight: 800;
-    }
-    .key-hint-sec {
-      background: rgba(255, 255, 255, 0.15);
-      color: #e0f2fe;
+      position: absolute;
+      bottom: 24px;
+      right: 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      pointer-events: none;
+      transition: opacity 1s ease;
+      z-index: 99;
     }
   </style>
 </head>
 <body>
 
-  <!-- Lienzo de Nieve: Suave y menoz brillante -->
-  <canvas id="snowCanvas" class="snow-canvas"></canvas>
+  <div id="deck-stage" class="mode-glacier">
+    <!-- Lienzo de Nieve (Solo Parte 1 Glaciar) -->
+    <canvas id="snowCanvas" class="snow-canvas"></canvas>
 
-  <!-- Resplandores Glaciares / Aurora -->
-  <div class="aurora-bg">
-    <div class="ice-glow glow-1"></div>
-    <div class="ice-glow glow-2"></div>
-    <div class="ice-glow glow-3"></div>
-  </div>
+    <!-- Resplandores Glaciares / Aurora -->
+    <div class="aurora-bg">
+      <div class="ice-glow glow-1"></div>
+      <div class="ice-glow glow-2"></div>
+      <div class="ice-glow glow-3"></div>
+    </div>
+    <div class="grid-bg"></div>
 
-  <div class="deck-container">
-    <header>
-      <div class="brand-logo">
-        <div class="glacier-icon">💧</div>
-        <span>El Agüitas</span>
-        <span class="tagline-badge">Agua Glaciar & Pureza Operativa</span>
+    <!-- Permanent Discreet Brand Watermark -->
+    <div class="clean-watermark">
+      <div class="clean-watermark-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+        </svg>
       </div>
-      <div style="display: flex; gap: 14px; align-items: center;">
-        <span style="font-size: 0.88rem; color: #94a3b8;">Desarrollado por: <strong style="color: #ffffff;">Los Serieitos</strong></span>
-      </div>
-    </header>
+      <div class="clean-watermark-text">El Agüitas</div>
+    </div>
 
-    <main class="viewport">
+    <!-- SLIDES WRAPPER -->
+    <div class="slides-wrapper">
 
-      <!-- SLIDE 1: Portada Comercial Glaciar con Mockup 3D Despejado a un Costado -->
-      <section class="slide active" id="slide-0">
-        <div class="slide-1-row">
-          
-          <!-- Lado Izquierdo: Textos y los 3 Bloques Originales Despejados -->
-          <div>
-            <span class="slide-badge">TECNOLOGÍA PURA COMO EL HIELO</span>
-            <h1 class="slide-title" style="font-size: 2.6rem;">La pureza del agua de montaña, <br>con la <span class="snow-text">velocidad y precisión de un glaciar.</span></h1>
-            <p class="slide-desc" style="font-size: 1.05rem; margin-bottom: 22px;">Digitalizamos todo el ciclo de distribución de agua purificada: pedidos en 3 toques, rescate y rotación inteligente de envases vacíos, geolocalización GPS y cero pérdidas operativas.</p>
-            
-            <div class="cards-grid">
-              <div class="crystal-card">
-                <div class="card-title">Mobile-First Crystal</div>
-                <p class="card-p">Experiencia de compra instantánea en 2 columnas, steppers reactivos y canje automático de envases retornables.</p>
-                <span class="frost-pill">+40% Conversión Web</span>
-              </div>
-              <div class="crystal-card">
-                <div class="card-title">Ruta Viva de Reparto</div>
-                <p class="card-p">Hoja de ruta ágil con botón directo "Tomar Pedido", apertura 1-tap en Google Maps GPS y chat rápido por WhatsApp.</p>
-                <span class="frost-pill">-35% Tiempo de Despacho</span>
-              </div>
-              <div class="crystal-card">
-                <div class="card-title">Control Cero Fugas</div>
-                <p class="card-p">Trazabilidad contable en tiempo real del parque de bidones en poder del cliente. Cada envase cuenta.</p>
-                <span class="frost-pill">100% Retornabilidad</span>
-              </div>
-            </div>
+      <!-- ==============================================================
+           SLIDE 0: PRIMERA DIAPOSITIVA DE PRESENTACIÓN GENERAL
+           ============================================================== -->
+      <div class="slide active" id="slide-0" data-mode="glacier">
+        <div class="title-screen-center">
+          <div class="title-logo-box">
+            <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            </svg>
           </div>
-
-          <!-- Lado Derecho: Mockup 3D Completo Despejado (Cero superposición) -->
-          <div class="mockup-side-col">
-            <div class="phone-mockup-3d">
-              <div class="phone-mockup-notch"></div>
-              <div class="phone-mockup-screen">
-                <img src="promo-horizontal/screens/03_catalog.png" alt="El Agüitas App Real">
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- SLIDE 2: El Deshielo Operativo vs Solución Glaciar (Original Exacto) -->
-      <section class="slide" id="slide-1">
-        <span class="slide-badge">PROBLEMA & OPORTUNIDAD</span>
-        <h2 class="slide-title">El negocio tradicional de agua <span class="snow-text">se derrite en costos ocultos.</span></h2>
-        <p class="slide-desc">Las distribuidoras pierden cientos de bidones cada mes y sufren desorganización logística. El Agüitas congela las pérdidas.</p>
-        
-        <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 26px;">
-          <div class="crystal-card" style="border-top: 3px solid #f43f5e; padding: 30px;">
-            <div class="card-title" style="color: #fda4af;">El Deshielo Tradicional</div>
-            <p class="card-p" style="margin-bottom: 12px;">• Pérdida constante de bidones retornables sin saber qué cliente los retiene.</p>
-            <p class="card-p" style="margin-bottom: 12px;">• Choferes coordinando por llamadas mientras manejan y anotando en papel.</p>
-            <p class="card-p">• Clientes que compran a la competencia porque no recuerdan pedir a tiempo.</p>
-          </div>
-          <div class="crystal-card" style="border-top: 3px solid var(--frost-cyan); padding: 30px;">
-            <div class="card-title" style="color: var(--arctic-glow);">El Ecosistema El Agüitas</div>
-            <p class="card-p" style="margin-bottom: 12px;">• <strong>Libro Mayor de Envases:</strong> Auditoría digital in situ de cada entrega y devolución.</p>
-            <p class="card-p" style="margin-bottom: 12px;">• <strong>Despacho Autónomo:</strong> Chofer toma el pedido, abre GPS y confirma el cobro en un clic.</p>
-            <p class="card-p">• <strong>Suscripciones Automáticas:</strong> Reposición periódica programada cada 3, 7, 15 o 30 días.</p>
-          </div>
-          <div class="crystal-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; background: rgba(56, 189, 248, 0.08); padding: 30px;">
-            <div class="metric-number">99.4%</div>
-            <div class="card-title">Retención de Envases</div>
-            <p class="card-p">Elimina compras forzosas de envases nuevos gracias al arqueo físico obligatorio en cada viaje.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 3: Tres Experiencias Cristalinas (Original Exacto) -->
-      <section class="slide" id="slide-2">
-        <span class="slide-badge">ROLES PERFECTAMENTE SINCRONIZADOS</span>
-        <h2 class="slide-title">Una arquitectura clara, <span class="snow-text">tres interfaces transparentes.</span></h2>
-        <p class="slide-desc">Diseño con ergonomía de alta gama: áreas de contacto amplias (48px) y barra dock inferior flotante con escarcha visual.</p>
-        
-        <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 26px;">
-          <div class="crystal-card" style="padding: 30px;">
-            <div class="card-title">1. El Cliente</div>
-            <p class="card-p">• Catálogo táctil con ajuste reactivo [ - ] [ X ] [ + ].</p>
-            <p class="card-p">• Cálculo y bonificación automática al declarar envases vacíos.</p>
-            <p class="card-p">• Múltiples direcciones geolocalizadas (Casa, Oficina, Obra).</p>
-            <span class="frost-pill">Efectivo / Transferencia / Tarjeta</span>
-          </div>
-          <div class="crystal-card" style="padding: 30px;">
-            <div class="card-title">2. El Chofer</div>
-            <p class="card-p">• Hoja de ruta móvil sin planillas de papel.</p>
-            <p class="card-p">• Botón ágil <em>"Tomar Pedido"</em> para autoasignación rápida.</p>
-            <p class="card-p">• Enlace directo a Google Maps y chat de WhatsApp.</p>
-            <span class="frost-pill">Rendición de Envases en Puerta</span>
-          </div>
-          <div class="crystal-card" style="padding: 30px;">
-            <div class="card-title">3. El Administrador</div>
-            <p class="card-p">• Centro de comando y despacho de pedidos en vivo.</p>
-            <p class="card-p">• Creación de zonas de entrega mediante polígonos tarifados.</p>
-            <p class="card-p">• Auditoría de comodatos y monitoreo en tiempo real de BD.</p>
-            <span class="frost-pill">Consola de Control Total</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 4: El Núcleo Tecnológico Glaciar (Original Exacto) -->
-      <section class="slide" id="slide-3">
-        <span class="slide-badge">SOLIDEZ BAJO CERO</span>
-        <h2 class="slide-title">Ingeniería Serverless con <span class="snow-text">PostgreSQL en Supabase.</span></h2>
-        <p class="slide-desc">Desarrollado para tolerar picos intensos de demanda con disponibilidad ininterrumpida y sin servidores costosos.</p>
-        
-        <div class="cards-grid-4" style="margin-bottom: 24px;">
-          <div class="crystal-card" style="padding: 22px;">
-            <div class="card-title" style="font-size:1.15rem;">React 19 + Vite</div>
-            <p class="card-p" style="font-size:0.88rem;">Carga en &lt; 1.2s. Modo PWA y compilación nativa APK Android con Capacitor.</p>
-          </div>
-          <div class="crystal-card" style="padding: 22px;">
-            <div class="card-title" style="font-size:1.15rem;">Vercel Serverless</div>
-            <p class="card-p" style="font-size:0.88rem;">Arquitectura Monorepo escalable con backend Express montado en micro-funciones.</p>
-          </div>
-          <div class="crystal-card" style="padding: 22px;">
-            <div class="card-title" style="font-size:1.15rem;">Supabase Pooler</div>
-            <p class="card-p" style="font-size:0.88rem;">PostgreSQL con Transaction Pooler en puerto 6543 que elimina caídas por concurrencia.</p>
-          </div>
-          <div class="crystal-card" style="padding: 22px;">
-            <div class="card-title" style="font-size:1.15rem;">14 Tablas SQL</div>
-            <p class="card-p" style="font-size:0.88rem;">Migraciones idempotentes 001-007, triggers automáticos y claves foráneas estrictas.</p>
-          </div>
-        </div>
-
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--crystal-border); border-radius: 18px; padding: 18px 26px; display: flex; justify-content: space-around; align-items: center;">
-          <span class="tech-crystal">Tokens JWT Criptográficos</span>
-          <span class="tech-crystal">Tareas Cron de Suscripciones</span>
-          <span class="tech-crystal">Zonas Poligonales JSONB</span>
-          <span class="tech-crystal">Indexación Semántica Graphify</span>
-        </div>
-      </section>
-
-      <!-- SLIDE 5: Rentabilidad y Retorno de Inversión (Original Exacto) -->
-      <section class="slide" id="slide-4">
-        <span class="slide-badge">IMPACTO ECONÓMICO DIRECTO</span>
-        <h2 class="slide-title">Costos mínimos en la nube, <span class="snow-text">máxima liquidez operativa.</span></h2>
-        <p class="slide-desc">El modelo serverless asegura que tu infraestructura solo consuma recursos cuando se concretan ventas reales.</p>
-        
-        <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr); gap: 26px;">
-          <div class="crystal-card" style="padding: 30px;">
-            <div class="card-title">Costo Tecnológico Base</div>
-            <div class="metric-number" style="color: var(--arctic-glow);">~$0 - $45</div>
-            <p class="card-p" style="margin-bottom: 14px;">Dólares mensuales de infraestructura fija en la nube (Vercel Serverless + Supabase Cloud + SSL).</p>
-            <p class="card-p">Ahorro superior al 80% frente a servidores dedicados convencionales.</p>
-          </div>
-          <div class="crystal-card" style="padding: 30px;">
-            <div class="card-title">Crecimiento en Pedidos</div>
-            <div class="metric-number" style="color: var(--frost-cyan);">+28%</div>
-            <p class="card-p" style="margin-bottom: 14px;">Incremento de ventas recurrentes mediante el motor automático de Suscripciones Periódicas.</p>
-            <p class="card-p">Fidelización permanente de hogares, oficinas y empresas sin esfuerzo manual.</p>
-          </div>
-          <div class="crystal-card" style="padding: 30px;">
-            <div class="card-title">Ahorro en Reposición</div>
-            <div class="metric-number" style="color: #67e8f9;">~$1,200</div>
-            <p class="card-p" style="margin-bottom: 14px;">Dólares al mes ahorrados en recompra de envases gracias al control in situ de bidones vacíos.</p>
-            <p class="card-p">Blindaje patrimonial garantizado en cada viaje del chofer.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SLIDE 6: Cierre Comercial (Original Exacto) -->
-      <section class="slide" id="slide-5">
-        <span class="slide-badge">IMPLEMENTACIÓN INMEDIATA</span>
-        <h2 class="slide-title">Lleva tu distribuidora al siguiente nivel con <span class="snow-text">El Agüitas.</span></h2>
-        <p class="slide-desc">El sistema se encuentra probado con datos reales, optimizado en producción y listo para desplegarse con la marca de tu empresa.</p>
-        
-        <div class="crystal-card" style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.15) 0%, rgba(2, 132, 199, 0.25) 100%); border-color: rgba(165, 243, 252, 0.5); padding: 44px; text-align: center;">
-          <h3 style="font-size: 2.2rem; margin-bottom: 16px; color: #ffffff;">Despliegue Llave en Mano & Soporte Continuo</h3>
-          <p style="color: #cbd5e1; max-width: 680px; margin: 0 auto 26px; font-size: 1.15rem; line-height: 1.6;">
-            Propuesta elaborada con orgullo por el equipo <strong>Los Serieitos</strong>. Entregamos la plataforma personalizada con tu catálogo, tarifas zonales y capacitación para tus repartidores.
+          <h1 class="title-big-h1">
+            El Agüitas
+          </h1>
+          <p class="title-lead-p">
+            Solución integral para distribuidoras y flotas de reparto de agua potable.
           </p>
-          <div style="display: flex; gap: 18px; justify-content: center;">
-            <button class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 36px;" onclick="goToSlide(0)">Reiniciar Presentación</button>
+          <div class="title-pill-row">
+            <span class="title-pill-tag">Plataforma Operativa</span>
+            <span class="title-pill-tag">Despacho en Vivo</span>
+            <span class="title-pill-tag">Logística GPS</span>
           </div>
         </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div class="deck-progress" id="progress-dots">
-        <div class="dot active" onclick="goToSlide(0)"></div>
-        <div class="dot" onclick="goToSlide(1)"></div>
-        <div class="dot" onclick="goToSlide(2)"></div>
-        <div class="dot" onclick="goToSlide(3)"></div>
-        <div class="dot" onclick="goToSlide(4)"></div>
-        <div class="dot" onclick="goToSlide(5)"></div>
       </div>
 
-      <div style="font-size: 0.92rem; color: #94a3b8;">
-        Diapositiva <span id="current-slide-num" style="color: var(--arctic-glow); font-weight: 700;">1</span> de 6
+      <!-- ==============================================================
+           PARTE 1: PRESENTACIÓN GLACIAR DE TU AMIGO (Sin tecnologías)
+           ============================================================== -->
+
+      <!-- SLIDE 1: Portada Comercial Glaciar -->
+      <div class="slide" id="slide-1" data-mode="glacier">
+        <div class="glacier-center">
+          <span class="slide-badge-glacier">AGUA GLACIAR & PUREZA OPERATIVA</span>
+          <h1 class="glacier-title">
+            La pureza del agua de montaña, <br>con la <span class="snow-text">velocidad y precisión de un glaciar.</span>
+          </h1>
+          <p class="glacier-desc">
+            Digitalizamos todo el ciclo de distribución de agua purificada: pedidos en 3 toques, rotación inteligente de envases vacíos, geolocalización GPS y cero pérdidas operativas.
+          </p>
+          
+          <div class="cards-grid-3">
+            <div class="crystal-card">
+              <div class="crystal-card-title">Mobile-First Crystal</div>
+              <p class="crystal-card-p">Experiencia de compra instantánea en 2 columnas, steppers reactivos y canje automático de envases retornables.</p>
+              <span class="frost-pill">+40% Conversión Web</span>
+            </div>
+            <div class="crystal-card">
+              <div class="crystal-card-title">Ruta Viva de Reparto</div>
+              <p class="crystal-card-p">Hoja de ruta ágil con botón directo "Tomar Pedido", apertura 1-tap en Google Maps GPS y chat rápido por WhatsApp.</p>
+              <span class="frost-pill">-35% Tiempo de Despacho</span>
+            </div>
+            <div class="crystal-card">
+              <div class="crystal-card-title">Control Cero Fugas</div>
+              <p class="crystal-card-p">Trazabilidad contable en tiempo real del parque de bidones en poder del cliente. Cada envase cuenta.</p>
+              <span class="frost-pill">100% Retornabilidad</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="nav-buttons">
-        <button class="btn btn-secondary" onclick="prevSlide()">
-          Anterior <span class="key-hint key-hint-sec">◄</span>
-        </button>
-        <button class="btn btn-primary" onclick="nextSlide()">
-          Siguiente <span class="key-hint">►</span>
-        </button>
+      <!-- SLIDE 2: Problema Glaciar -->
+      <div class="slide" id="slide-2" data-mode="glacier">
+        <div class="glacier-center">
+          <span class="slide-badge-glacier">PROBLEMA & OPORTUNIDAD</span>
+          <h1 class="glacier-title">
+            El negocio tradicional de agua <span class="snow-text">se derrite en costos ocultos.</span>
+          </h1>
+          <p class="glacier-desc">
+            Las distribuidoras pierden cientos de bidones cada mes y sufren desorganización logística. El Agüitas congela las pérdidas.
+          </p>
+          
+          <div class="cards-grid-3">
+            <div class="crystal-card" style="border-top: 3px solid #f43f5e;">
+              <div class="crystal-card-title" style="color: #fda4af;">El Deshielo Tradicional</div>
+              <p class="crystal-card-p">• Pérdida constante de bidones retornables sin saber qué cliente los retiene.</p>
+              <p class="crystal-card-p">• Choferes coordinando por llamadas mientras manejan y anotando en papel.</p>
+              <p class="crystal-card-p">• Clientes que compran a la competencia porque no recuerdan pedir a tiempo.</p>
+            </div>
+            <div class="crystal-card" style="border-top: 3px solid var(--frost-cyan);">
+              <div class="crystal-card-title" style="color: var(--arctic-glow);">El Ecosistema El Agüitas</div>
+              <p class="crystal-card-p">• <strong>Control de Envases:</strong> Auditoría in situ de cada entrega y devolución de vacíos.</p>
+              <p class="crystal-card-p">• <strong>Despacho Autónomo:</strong> Chofer toma el pedido, abre GPS y confirma en un clic.</p>
+              <p class="crystal-card-p">• <strong>Suscripciones Automáticas:</strong> Reposición periódica programada cada 3, 7, 15 o 30 días.</p>
+            </div>
+            <div class="crystal-card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; background: rgba(56, 189, 248, 0.08);">
+              <div class="metric-number">99.4%</div>
+              <div class="crystal-card-title">Retención de Envases</div>
+              <p class="crystal-card-p">Elimina compras forzosas de envases nuevos gracias al arqueo físico obligatorio en cada viaje.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+
+      <!-- SLIDE 3: Tres Experiencias Cristalinas -->
+      <div class="slide" id="slide-3" data-mode="glacier">
+        <div class="glacier-center">
+          <span class="slide-badge-glacier">ROLES PERFECTAMENTE SINCRONIZADOS</span>
+          <h1 class="glacier-title">
+            Una plataforma clara, <span class="snow-text">tres interfaces transparentes.</span>
+          </h1>
+          <p class="glacier-desc">
+            Diseño ergonómico para operar en movimiento: áreas de contacto amplias (48px) y barra de navegación inferior flotante.
+          </p>
+          
+          <div class="cards-grid-3">
+            <div class="crystal-card">
+              <div class="crystal-card-title">1. El Cliente</div>
+              <p class="crystal-card-p">• Catálogo táctil con ajuste reactivo [ - ] [ X ] [ + ].</p>
+              <p class="crystal-card-p">• Cálculo automático al declarar envases vacíos.</p>
+              <p class="crystal-card-p">• Múltiples direcciones guardadas (Casa, Oficina, Obra).</p>
+              <span class="frost-pill">Efectivo / Transferencia</span>
+            </div>
+            <div class="crystal-card">
+              <div class="crystal-card-title">2. El Chofer</div>
+              <p class="crystal-card-p">• Hoja de ruta móvil sin planillas de papel.</p>
+              <p class="crystal-card-p">• Botón ágil "Tomar Pedido" para autoasignación rápida.</p>
+              <p class="crystal-card-p">• Enlace directo a Google Maps y chat de WhatsApp.</p>
+              <span class="frost-pill">Rendición en Puerta</span>
+            </div>
+            <div class="crystal-card">
+              <div class="crystal-card-title">3. El Administrador</div>
+              <p class="crystal-card-p">• Centro de comando y despacho de pedidos en vivo.</p>
+              <p class="crystal-card-p">• Creación de zonas de entrega mediante polígonos tarifados.</p>
+              <p class="crystal-card-p">• Auditoría de comodatos y monitoreo en tiempo real.</p>
+              <span class="frost-pill">Consola Central</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           SLIDE 4: TRANSICIÓN A LA PRESENTACIÓN DE LA APP REAL
+           ============================================================== -->
+      <div class="slide" id="slide-4" data-mode="app">
+        <div class="transition-screen-center">
+          <div class="transition-icon-wrap">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <h1 class="transition-h1">
+            Presentación de la App
+          </h1>
+          <p class="transition-sub">
+            Mirá la plataforma en acción: pedidos en 10 segundos, rutas con GPS para los choferes y despacho en tiempo real.
+          </p>
+        </div>
+      </div>
+
+      <!-- ==============================================================
+           PARTE 2: TU SECCIÓN SOBRIA Y PROFESIONAL (EXPLICANDO LA APP REAL)
+           Cero nieve, fondo limpio y oscuro, mockups reales 1:1
+           ============================================================== -->
+
+      <!-- SLIDE 5: EL CAOS DE WHATSAPP -->
+      <div class="slide" id="slide-5" data-mode="app">
+        <div class="slide-grid">
+          <div class="content-box">
+            <div class="pill-tag pill-coral">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Operación Tradicional
+            </div>
+            <h1 class="slide-heading">
+              ¿Seguís anotando bidones en <span class="coral">papeles y WhatsApp?</span>
+            </h1>
+            <p class="slide-lead">
+              Mensajes que se pierden en el día, clientes esperando sin saber cuándo llegan y cierres de caja que nunca cuadran.
+            </p>
+            <div class="action-cards">
+              <div class="action-card">
+                <div class="num-badge num-coral">01</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Pedidos perdidos en el chat</div>
+                  <div class="action-sub">Audios largos y textos anotados a mano que nadie pasa a la camioneta.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-coral">02</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Choferes dando vueltas sin ruta</div>
+                  <div class="action-sub">Repartidores llamando a cada rato preguntando por direcciones y calles.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-coral">03</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Fugas de dinero al final del día</div>
+                  <div class="action-sub">Cero control entre lo que se cargó en planta y la plata que ingresó.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-col">
+            <div class="wa-chat-box">
+              <div class="wa-msg">
+                <div style="display:flex; justify-content:space-between;">
+                  <span class="wa-name">Marta - San Rafael</span>
+                  <span class="wa-time">10:14 AM</span>
+                </div>
+                <div class="wa-body">"Hola!! ¿Pasan hoy? Les pedí 2 bidones ayer a la tarde y todavía no vino nadie..."</div>
+                <span class="wa-alert-tag">Sin asignar al camión</span>
+              </div>
+              <div class="wa-msg">
+                <div style="display:flex; justify-content:space-between;">
+                  <span class="wa-name">Panadería El Sol</span>
+                  <span class="wa-time">10:22 AM</span>
+                </div>
+                <div class="wa-body">"Che me cobraron de más, me dejaron 4 botellones llenos y no me anotaron los vacíos!"</div>
+                <span class="wa-alert-tag">Diferencia en caja</span>
+              </div>
+              <div class="wa-msg">
+                <div style="display:flex; justify-content:space-between;">
+                  <span class="wa-name">Chofer Camioneta 2</span>
+                  <span class="wa-time">10:35 AM</span>
+                </div>
+                <div class="wa-body">"No encuentro el portón en Mitre al 800, no tengo el número de la clienta."</div>
+                <span class="wa-alert-tag">Ruta demorada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: CATÁLOGO TÁCTIL (PANTALLA REAL 1:1) -->
+      <div class="slide" id="slide-6" data-mode="app">
+        <div class="slide-grid">
+          <div class="content-box">
+            <div class="pill-tag pill-ocean">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              Experiencia del Cliente
+            </div>
+            <h1 class="slide-heading">
+              Tu cliente entra, elige y <span class="ocean">pide en 10 segundos</span>
+            </h1>
+            <p class="slide-lead">
+              Catálogo visual optimizado para celular: toca [+] y suma sus botellones de 20L o 12L con stock en tiempo real.
+            </p>
+            <div class="action-cards">
+              <div class="action-card">
+                <div class="num-badge num-ocean">01</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Steppers rápidos [+] y [-]</div>
+                  <div class="action-sub">Selección táctil ultra fluida sin formularios aburridos.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-ocean">02</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Precios transparentes y stock en planta</div>
+                  <div class="action-sub">El cliente siempre sabe exactamente cuánto va a pagar.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-ocean">03</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Abierto 24/7 sin esperas</div>
+                  <div class="action-sub">Los pedidos entran solos mientras tu equipo descansa.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-col">
+            <div class="hero-phone" id="phone-deck-1">
+              <div class="phone-speaker-bar"></div>
+              <div class="phone-screen">
+                <img src="screens/03_catalog.png" alt="Catálogo">
+              </div>
+              <div class="float-chip chip-tr">
+                <div class="num-badge num-ocean" style="width:42px; height:42px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="chip-val">Stock en Vivo</div>
+                  <div class="chip-label">San Rafael Central</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: CHECKOUT (PANTALLA REAL 1:1 CON CARRITO CARGADO) -->
+      <div class="slide" id="slide-7" data-mode="app">
+        <div class="slide-grid reversed">
+          <div class="hero-visual-col">
+            <div class="hero-phone" id="phone-deck-2">
+              <div class="phone-speaker-bar"></div>
+              <div class="phone-screen">
+                <img src="screens/05_checkout.png" alt="Checkout">
+              </div>
+              <div class="float-chip chip-bl">
+                <div class="num-badge num-emerald" style="width:42px; height:42px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div>
+                  <div class="chip-val">Cobro Inmediato</div>
+                  <div class="chip-label">Efectivo o Transferencia</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-box">
+            <div class="pill-tag pill-emerald">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Checkout Táctil en 1 Paso
+            </div>
+            <h1 class="slide-heading">
+              Confirmación en 1 toque con <span class="emerald">dirección guardada</span>
+            </h1>
+            <p class="slide-lead">
+              El cliente elige su domicilio pregrabado, selecciona cómo paga y el pedido se despacha directo al camión.
+            </p>
+            <div class="action-cards">
+              <div class="action-card">
+                <div class="num-badge num-emerald">01</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Domicilio geolocalizado al instante</div>
+                  <div class="action-sub">Coordenadas exactas para que el chofer no tenga que adivinar.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-emerald">02</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Balance automático de envases</div>
+                  <div class="action-sub">El cliente declara cuántos vacíos entrega y el sistema descuenta.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-emerald">03</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Notificación instantánea de despacho</div>
+                  <div class="action-sub">Aviso automático de que el agua ya está en camino.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 8: CHOFERES EN RUTA GPS (PANTALLA REAL 1:1) -->
+      <div class="slide" id="slide-8" data-mode="app">
+        <div class="slide-grid">
+          <div class="content-box">
+            <div class="pill-tag pill-amber">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              App de Choferes
+            </div>
+            <h1 class="slide-heading">
+              Tus repartidores van <span class="ocean">directo a la puerta</span>
+            </h1>
+            <p class="slide-lead">
+              Hoja de ruta digital en el celular del chofer: Google Maps en 1 toque y WhatsApp directo para avisar que llegó.
+            </p>
+            <div class="action-cards">
+              <div class="action-card">
+                <div class="num-badge num-amber">01</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Navegación GPS con Google Maps</div>
+                  <div class="action-sub">Un clic abre la ruta guiada con la dirección y altura exacta.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-amber">02</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Aviso de llegada en 1 toque</div>
+                  <div class="action-sub">Mensaje preformateado directo al chat del cliente sin tipear.</div>
+                </div>
+              </div>
+              <div class="action-card">
+                <div class="num-badge num-amber">03</div>
+                <div class="action-text-wrap">
+                  <div class="action-title">Arqueo de entrega sin papeles</div>
+                  <div class="action-sub">Confirma el cobro en efectivo y los envases retirados al instante.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual-col">
+            <div class="hero-phone" id="phone-deck-3">
+              <div class="phone-speaker-bar"></div>
+              <div class="phone-screen">
+                <img src="screens/06_driver.png" alt="Chofer">
+              </div>
+              <div class="float-chip chip-tr">
+                <div class="num-badge num-amber" style="width:42px; height:42px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                </div>
+                <div>
+                  <div class="chip-val">Ruta Guiada</div>
+                  <div class="chip-label">San Rafael Activo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 9: CONSOLA DE DESPACHO DESKTOP (PANTALLA REAL 1:1) -->
+      <div class="slide" id="slide-9" data-mode="app">
+        <div class="outro-center">
+          <div class="pill-tag pill-emerald">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Consola Central de Despacho
+          </div>
+          <h1 class="slide-heading">
+            Toda tu flota en <span class="emerald">una sola pantalla</span>
+          </h1>
+          <p class="slide-lead" style="max-width: 900px;">
+            Asignación de camionetas, clientes activos, estado de stock y control de cobros en tiempo real.
+          </p>
+
+          <div class="hero-desktop">
+            <div class="desktop-top-bar">
+              <div class="dot" style="background:#e11d48;"></div>
+              <div class="dot" style="background:#d97706;"></div>
+              <div class="dot" style="background:#10b981;"></div>
+            </div>
+            <div class="desktop-frame">
+              <img src="screens/07_admin_desktop.png" alt="Consola Admin">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 10: CIERRE COMERCIAL SOBRIO -->
+      <div class="slide" id="slide-10" data-mode="app">
+        <div class="outro-center">
+          <div class="outro-water-logo">
+            <svg width="74" height="74" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+            </svg>
+          </div>
+          <h1 class="outro-h1">
+            Tu distribución de agua, <span class="emerald">simple y en control.</span>
+          </h1>
+          <p class="outro-p">
+            La solución que tu reparto necesita para escalar, ahorrar combustible y fidelizar clientes.
+          </p>
+          <div class="outro-features-grid">
+            <div class="outro-card">
+              <div class="outro-card-header">
+                <div class="outro-card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="outro-card-title">Cero Demoras</div>
+              </div>
+              <div class="outro-card-sub">Pedidos directos sin intermediarios ni audios eternos.</div>
+            </div>
+            <div class="outro-card">
+              <div class="outro-card-header">
+                <div class="outro-card-icon" style="background:rgba(16,185,129,0.2); color:#34d399;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                </div>
+                <div class="outro-card-title">Rutas Eficientes</div>
+              </div>
+              <div class="outro-card-sub">Menos consumo de nafta y más bidones entregados por hora.</div>
+            </div>
+            <div class="outro-card">
+              <div class="outro-card-header">
+                <div class="outro-card-icon" style="background:rgba(217,119,6,0.2); color:#fbbf24;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div class="outro-card-title">Cajas Claras</div>
+              </div>
+              <div class="outro-card-sub">Cobros registrados al segundo con total transparencia.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Minimalist Key Help Hint -->
+    <div class="key-hint" id="key-hint">[F: Pantalla Completa • Espacio / Flechas: Avanzar]</div>
+
   </div>
 
-  <!-- Script de Nieve Glaciar y Navegación -->
   <script>
-    // 1. Control de Diapositivas
     let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const slideNumLabel = document.getElementById('current-slide-num');
+    const totalSlides = 11; // 0 (Intro), 1-3 (Glaciar amigo), 4 (Transición), 5-10 (Tu parte App)
 
-    function updateDeck() {
-      slides.forEach((s, idx) => {
-        s.classList.toggle('active', idx === currentSlide);
+    // Auto-fit responsive scale
+    function fitStage() {
+      const stage = document.getElementById('deck-stage');
+      const scaleX = window.innerWidth / 1920;
+      const scaleY = window.innerHeight / 1080;
+      const scale = Math.min(scaleX, scaleY, 1);
+      stage.style.transform = `scale(${scale})`;
+    }
+    window.addEventListener('resize', fitStage);
+    fitStage();
+
+    // 1. Motor de Nieve Interactiva Glaciar (SOLO corre/dibuja en la parte de tu amigo)
+    const canvas = document.getElementById('snowCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = 1920;
+    let height = canvas.height = 1080;
+
+    const snowflakes = [];
+    const count = 75;
+
+    for (let i = 0; i < count; i++) {
+      snowflakes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 2.2 + 0.6,
+        density: Math.random() * 1.5,
+        alpha: Math.random() * 0.5 + 0.2
       });
-      dots.forEach((d, idx) => {
-        d.classList.toggle('active', idx === currentSlide);
+    }
+
+    function renderSnow() {
+      if (currentSlide >= 1 && currentSlide <= 3) {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < count; i++) {
+          const flake = snowflakes[i];
+          ctx.beginPath();
+          ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(165, 243, 252, ${flake.alpha})`;
+          ctx.shadowBlur = 8;
+          ctx.shadowColor = '#38bdf8';
+          ctx.fill();
+
+          flake.y += Math.cos(flake.density) + 0.7 + flake.radius / 2;
+          flake.x += Math.sin(flake.density) * 0.4;
+
+          if (flake.y > height) {
+            flake.y = -10;
+            flake.x = Math.random() * width;
+          }
+        }
+      } else {
+        ctx.clearRect(0, 0, width, height);
+      }
+      requestAnimationFrame(renderSnow);
+    }
+    renderSnow();
+
+    // GSAP Continuous 3D Mockup Floating para tu parte
+    document.querySelectorAll('.hero-phone').forEach(phone => {
+      gsap.to(phone, {
+        rotationY: 7,
+        rotationX: -4,
+        y: -14,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
       });
-      slideNumLabel.textContent = currentSlide + 1;
+    });
+
+    function goToSlide(index) {
+      if (index === currentSlide) return;
+      const prev = currentSlide;
+      currentSlide = (index + totalSlides) % totalSlides;
+
+      const prevEl = document.getElementById(`slide-${prev}`);
+      const nextEl = document.getElementById(`slide-${currentSlide}`);
+      const stage = document.getElementById('deck-stage');
+
+      // Cambiar de estilo Glaciar -> Estilo Sobrio App Real
+      const mode = nextEl.getAttribute('data-mode');
+      if (mode === 'glacier') {
+        stage.classList.remove('mode-app');
+        stage.classList.add('mode-glacier');
+      } else {
+        stage.classList.remove('mode-glacier');
+        stage.classList.add('mode-app');
+      }
+
+      gsap.to(prevEl, {
+        opacity: 0,
+        y: -30,
+        scale: 0.98,
+        duration: 0.45,
+        ease: "power2.in",
+        onComplete: () => {
+          prevEl.classList.remove('active');
+        }
+      });
+
+      nextEl.classList.add('active');
+      gsap.fromTo(nextEl, 
+        { opacity: 0, y: 40, scale: 0.98 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "power3.out", delay: 0.15 }
+      );
+
+      const cards = nextEl.querySelectorAll('.action-card, .crystal-card, .outro-card');
+      if (cards.length > 0) {
+        gsap.fromTo(cards, 
+          { opacity: 0, x: -30 },
+          { opacity: 1, x: 0, duration: 0.5, stagger: 0.1, ease: "back.out(1.2)", delay: 0.25 }
+        );
+      }
     }
 
     function nextSlide() {
-      if (currentSlide < slides.length - 1) {
-        currentSlide++;
-        updateDeck();
-      }
+      goToSlide(currentSlide + 1);
     }
 
     function prevSlide() {
-      if (currentSlide > 0) {
-        currentSlide--;
-        updateDeck();
-      }
+      goToSlide(currentSlide - 1);
     }
 
-    function goToSlide(index) {
-      if (index >= 0 && index < slides.length) {
-        currentSlide = index;
-        updateDeck();
-      }
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-        nextSlide();
-      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        prevSlide();
-      } else if (e.key === 'Home') {
-        goToSlide(0);
-      } else if (e.key === 'End') {
-        goToSlide(slides.length - 1);
-      }
-    });
-
-    // 2. Efecto de Nieve & Partículas (Canvas menos brillante, opacidad 0.35)
-    const canvas = document.getElementById('snowCanvas');
-    const ctx = canvas.getContext('2d');
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const flakes = [];
-    const flakeCount = 55;
-
-    for (let i = 0; i < flakeCount; i++) {
-      flakes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        r: Math.random() * 2.2 + 0.8,
-        d: Math.random() * flakeCount,
-        alpha: Math.random() * 0.4 + 0.15,
-        speed: Math.random() * 0.6 + 0.25
-      });
-    }
-
-    function drawSnow() {
-      ctx.clearRect(0, 0, width, height);
-      for (let i = 0; i < flakeCount; i++) {
-        const f = flakes[i];
-        ctx.fillStyle = `rgba(186, 230, 253, ${f.alpha})`;
-        ctx.beginPath();
-        ctx.moveTo(f.x, f.y);
-        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
-        ctx.fill();
-      }
-      updateSnow();
-      requestAnimationFrame(drawSnow);
-    }
-
-    let angle = 0;
-    function updateSnow() {
-      angle += 0.008;
-      for (let i = 0; i < flakeCount; i++) {
-        const f = flakes[i];
-        f.y += f.speed;
-        f.x += Math.sin(angle) * 0.4;
-
-        if (f.y > height) {
-          flakes[i] = {
-            x: Math.random() * width,
-            y: 0,
-            r: f.r,
-            d: f.d,
-            alpha: f.alpha,
-            speed: f.speed
-          };
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
         }
       }
     }
 
-    drawSnow();
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      } else if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
+        prevSlide();
+      }
+    });
+
+    setTimeout(() => {
+      const hint = document.getElementById('key-hint');
+      if (hint) hint.style.opacity = '0';
+    }, 4500);
+
+    document.getElementById('deck-stage').addEventListener('click', () => {
+      nextSlide();
+    });
+
+    let cursorTimeout;
+    window.addEventListener('mousemove', () => {
+      document.body.classList.add('show-cursor');
+      clearTimeout(cursorTimeout);
+      cursorTimeout = setTimeout(() => {
+        document.body.classList.remove('show-cursor');
+      }, 2500);
+    });
   </script>
 </body>
 </html>
