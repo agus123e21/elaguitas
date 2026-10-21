@@ -28,12 +28,12 @@
       --shadow-frost: 0 12px 36px -8px rgba(2, 132, 199, 0.35);
 
       /* TU PALETA PROFESIONAL (Activa en Sección 2: App Real) */
-      --brand-ocean: #00d2ff;
+      --brand-ocean: #38bdf8;
       --brand-emerald: #10b981;
       --brand-coral: #f43f5e;
       --brand-amber: #f59e0b;
-      --surface-card: rgba(18, 18, 24, 0.75);
-      --border-card: rgba(255, 255, 255, 0.08);
+      --surface-card: rgba(15, 23, 42, 0.68);
+      --border-card: rgba(255, 255, 255, 0.09);
     }
 
     * {
@@ -78,7 +78,7 @@
       background: radial-gradient(circle at 18% 25%, #052640 0%, #031424 55%, #020916 100%);
     }
     #deck-stage.mode-app {
-      background: radial-gradient(circle at 50% 30%, #0d1117 0%, #05070a 60%, #000000 100%);
+      background: radial-gradient(circle at 35% 25%, #0a192f 0%, #06111f 50%, #020712 100%);
     }
 
     /* Lienzo de nieve (SÓLO visible en Sección Glaciar) */
@@ -121,7 +121,7 @@
       100% { transform: translate(40px, -30px) scale(1.08); }
     }
     #deck-stage.mode-app .aurora-bg {
-      opacity: 0;
+      opacity: 0.12;
     }
 
     /* Micro-malla sobria de la App */
@@ -129,7 +129,7 @@
       position: absolute;
       inset: 0;
       background-image: 
-        radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
         linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
       background-size: 40px 40px, 80px 80px, 80px 80px;
@@ -512,14 +512,14 @@
     .hero-phone {
       width: 440px;
       height: 900px;
-      background: #000000;
+      background: #020617;
       border-radius: 56px;
       padding: 10px;
       box-shadow: 
-        0 40px 100px rgba(0, 0, 0, 0.95),
-        0 0 0 2px rgba(255, 255, 255, 0.12),
-        0 0 0 8px #080a0f,
-        0 0 60px rgba(0, 0, 0, 0.9);
+        0 40px 100px rgba(0, 0, 0, 0.9),
+        0 0 0 2px rgba(56, 189, 248, 0.25),
+        0 0 0 8px #0b1524,
+        0 0 60px rgba(2, 132, 199, 0.2);
       position: relative;
       transform-style: preserve-3d;
       will-change: transform;
@@ -553,15 +553,15 @@
 
     .float-chip {
       position: absolute;
-      background: rgba(12, 14, 20, 0.94);
+      background: rgba(11, 20, 34, 0.94);
       backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
       border-radius: 20px;
       padding: 16px 24px;
       display: flex;
       align-items: center;
       gap: 16px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
       z-index: 50;
       animation: floatBadge 4s ease-in-out infinite alternate;
     }
@@ -578,11 +578,11 @@
     .hero-desktop {
       width: 980px;
       height: 590px;
-      background: #080a0f;
+      background: #091322;
       border-radius: 28px;
       padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 45px 120px rgba(0, 0, 0, 0.95), 0 0 60px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      box-shadow: 0 45px 120px rgba(0, 0, 0, 0.9), 0 0 70px rgba(2, 132, 199, 0.15);
       position: relative;
     }
     .desktop-top-bar {
@@ -617,11 +617,11 @@
       gap: 18px;
     }
     .wa-msg {
-      background: #0f1218;
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: #0f1c2c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 22px;
       padding: 20px 24px;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
       display: flex;
       flex-direction: column;
       gap: 8px;
