@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
-import { DropletIcon, ShieldIcon, TruckIcon, UserIcon, AlertCircleIcon, LockIcon } from '../components/Icons.jsx'
+import { DropletIcon, AlertCircleIcon, LockIcon } from '../components/Icons.jsx'
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -36,11 +36,6 @@ export default function Login() {
     }
   }
 
-  function fillCredentials(mail, pass) {
-    setEmail(mail)
-    setPassword(pass)
-  }
-
   return (
     <div
       className="page"
@@ -58,43 +53,56 @@ export default function Login() {
       <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
         <div
           style={{
+            width: 64,
+            height: 64,
+            borderRadius: '24px',
+            background: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            width: 72,
-            height: 72,
-            borderRadius: '9999px',
-            background: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
+            color: '#fff',
             boxShadow: '0 12px 28px rgba(11, 125, 194, 0.3)',
             marginBottom: '1rem',
           }}
         >
-          <DropletIcon size={36} color="#ffffff" />
+          <DropletIcon size={32} />
         </div>
-        <h1 style={{ fontSize: '1.9rem', margin: 0, fontWeight: 900, color: 'var(--text)', letterSpacing: '-0.02em' }}>
+        <h1 style={{ fontSize: '1.65rem', fontWeight: 900, color: '#0f172a', margin: '0 0 0.35rem', letterSpacing: '-0.025em' }}>
           El Agüitas
         </h1>
-        <p className="muted" style={{ margin: '0.35rem 0 0', fontSize: '0.94rem' }}>
-          Plataforma de reparto oficial en San Rafael
+        <p className="muted" style={{ margin: 0, fontSize: '0.92rem' }}>
+          Agua pura envasada en San Rafael, Mendoza
         </p>
       </div>
 
       <div
-        className="card"
         style={{
-          padding: '1.85rem',
-          borderRadius: '32px',
-          border: '1px solid rgba(11, 125, 194, 0.12)',
-          boxShadow: 'var(--shadow-soft)',
           background: '#ffffff',
+          borderRadius: 'var(--radius-lg)',
+          padding: '1.75rem 1.5rem',
+          boxShadow: 'var(--shadow-card)',
+          border: '1px solid rgba(226, 232, 240, 0.9)',
         }}
       >
         {error && (
-          <div className="alert alert--error" style={{ marginBottom: '1.25rem', borderRadius: '18px' }}>
-            <span style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              <AlertCircleIcon size={18} />
-              <span>{error}</span>
-            </span>
+          <div
+            className="alert alert-danger"
+            role="alert"
+            style={{
+              borderRadius: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.85rem 1rem',
+              marginBottom: '1.25rem',
+              fontSize: '0.88rem',
+              background: '#fef2f2',
+              border: '1px solid #fecaca',
+              color: '#991b1b',
+            }}
+          >
+            <AlertCircleIcon size={18} color="#dc2626" />
+            <span>{error}</span>
           </div>
         )}
 
@@ -147,94 +155,6 @@ export default function Login() {
             {loading ? 'Validando…' : 'Ingresar a mi Cuenta'}
           </button>
         </form>
-
-        {/* Cuentas de Acceso Rápido para Demostración */}
-        <div style={{ marginTop: '1.75rem', paddingTop: '1.35rem', borderTop: '1px solid #f1f5f9' }}>
-          <p
-            style={{
-              fontSize: '0.74rem',
-              fontWeight: 800,
-              color: 'var(--primary)',
-              textTransform: 'uppercase',
-              textAlign: 'center',
-              margin: '0 0 0.85rem',
-              letterSpacing: '0.04em',
-            }}
-          >
-            Acceso Rápido con 1 Clic
-          </p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.65rem' }}>
-            <button
-              type="button"
-              className="btn btn-outline"
-              style={{
-                minHeight: '48px',
-                fontSize: '0.88rem',
-                justifyContent: 'space-between',
-                background: '#fffdf5',
-                borderColor: '#fef08a',
-                borderRadius: '18px',
-                padding: '0.7rem 1.1rem',
-              }}
-              onClick={() => fillCredentials('admin@agua.com', '123456')}
-            >
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#fef3c7', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <ShieldIcon size={15} color="#92400e" />
-                </div>
-                <strong style={{ color: '#92400e' }}>Admin / Dirección</strong>
-              </span>
-              <span className="muted" style={{ fontSize: '0.76rem' }}>admin@agua.com</span>
-            </button>
-
-            <button
-              type="button"
-              className="btn btn-outline"
-              style={{
-                minHeight: '48px',
-                fontSize: '0.88rem',
-                justifyContent: 'space-between',
-                background: '#f0f9ff',
-                borderColor: '#bae6fd',
-                borderRadius: '18px',
-                padding: '0.7rem 1.1rem',
-              }}
-              onClick={() => fillCredentials('repartidor@agua.com', '123456')}
-            >
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                <div style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <TruckIcon size={15} color="var(--primary)" />
-                </div>
-                <strong style={{ color: 'var(--primary)' }}>Repartidor Chofer</strong>
-              </span>
-              <span className="muted" style={{ fontSize: '0.76rem' }}>repartidor@agua.com</span>
-            </button>
-
-            <button
-              type="button"
-              className="btn btn-outline"
-              style={{
-                minHeight: '48px',
-                fontSize: '0.88rem',
-                justifyContent: 'space-between',
-                background: '#f8fafc',
-                borderColor: '#e2e8f0',
-                borderRadius: '18px',
-                padding: '0.7rem 1.1rem',
-              }}
-              onClick={() => fillCredentials('juan@cliente.com', '123456')}
-            >
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
-                <div style={{ width: 28, height: 28, borderRadius: '50%', background: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <UserIcon size={15} color="#334155" />
-                </div>
-                <strong style={{ color: '#334155' }}>Juan Cliente</strong>
-              </span>
-              <span className="muted" style={{ fontSize: '0.76rem' }}>juan@cliente.com</span>
-            </button>
-          </div>
-        </div>
       </div>
 
       <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.92rem' }}>

@@ -72,7 +72,7 @@ export default function Home() {
   const firstName = user?.name ? user.name.split(' ')[0] : 'vecino'
 
   return (
-    <div className="page" style={{ maxWidth: '520px', margin: '0 auto', padding: '0.5rem 1rem 6rem' }}>
+    <div className="page page--home">
       {/* Toast Feedback Táctil */}
       {toastMessage && (
         <div
