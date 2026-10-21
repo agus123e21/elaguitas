@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 import { getAddresses, createAddress, getZones } from '../services/addresses.js'
 import { previewOrder, createOrder } from '../services/orders.js'
+import { getProductPhoto } from '../utils/productImages.js'
 import {
   PackageIcon,
   RefreshCwIcon,
@@ -748,20 +749,45 @@ export default function Checkout() {
                     fontSize: '0.9rem',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                    <div
                       style={{
-                        background: 'var(--primary-light)',
-                        color: 'var(--primary)',
-                        fontWeight: 800,
-                        fontSize: '0.78rem',
-                        padding: '0.15rem 0.45rem',
-                        borderRadius: '6px',
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '10px',
+                        background: 'var(--surface-raised)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        overflow: 'hidden',
+                        flexShrink: 0,
+                        border: '1px solid var(--border)',
+                        padding: '2px',
                       }}
                     >
-                      {item.quantity}x
-                    </span>
-                    <span style={{ color: 'var(--text)', fontWeight: 600 }}>{item.name}</span>
+                      <img
+                        src={getProductPhoto(item)}
+                        alt={item.name}
+                        style={{ maxHeight: '34px', maxWidth: '100%', objectFit: 'contain' }}
+                      />
+                    </div>
+                    <div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <span
+                          style={{
+                            background: 'var(--primary-light)',
+                            color: 'var(--primary)',
+                            fontWeight: 800,
+                            fontSize: '0.74rem',
+                            padding: '0.1rem 0.4rem',
+                            borderRadius: '4px',
+                          }}
+                        >
+                          {item.quantity}x
+                        </span>
+                        <span style={{ color: 'var(--text)', fontWeight: 700, fontSize: '0.88rem' }}>{item.name}</span>
+                      </div>
+                    </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                     <span style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>
