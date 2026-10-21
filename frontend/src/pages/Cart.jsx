@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext.jsx'
+import { getProductPhoto } from '../utils/productImages.js'
 import {
   ShoppingBagIcon,
   TrashIcon,
@@ -114,14 +115,37 @@ export default function Cart() {
               gap: '0.85rem',
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <strong style={{ fontSize: '1.02rem', fontWeight: 800, color: 'var(--text)', display: 'block' }}>
-                  {item.name}
-                </strong>
-                <span className="muted" style={{ fontSize: '0.82rem' }}>
-                  {formatPrice(item.price)} por unidad
-                </span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '14px',
+                    background: 'var(--surface-raised)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    overflow: 'hidden',
+                    flexShrink: 0,
+                    padding: '4px',
+                    border: '1px solid var(--border)',
+                  }}
+                >
+                  <img
+                    src={getProductPhoto(item)}
+                    alt={item.name}
+                    style={{ maxHeight: '50px', maxWidth: '100%', objectFit: 'contain' }}
+                  />
+                </div>
+                <div>
+                  <strong style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text)', display: 'block' }}>
+                    {item.name}
+                  </strong>
+                  <span className="muted" style={{ fontSize: '0.8rem' }}>
+                    {formatPrice(item.price)} por unidad
+                  </span>
+                </div>
               </div>
 
               {/* Botón directo de eliminar producto */}

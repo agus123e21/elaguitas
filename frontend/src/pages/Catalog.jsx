@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { getProducts } from '../services/products.js'
+import { getProductPhoto } from '../utils/productImages.js'
 import { useCart } from '../context/CartContext.jsx'
 import { useAuth } from '../context/AuthContext.jsx'
 import {
@@ -267,10 +268,10 @@ export default function Catalog() {
               <article
                 key={p.id}
                 style={{
-                  background: '#ffffff',
+                  background: 'var(--surface)',
                   borderRadius: '26px',
                   padding: '1rem 0.9rem',
-                  border: qtyInCart > 0 ? '2px solid var(--primary)' : '1px solid rgba(226, 232, 240, 0.95)',
+                  border: qtyInCart > 0 ? '2px solid var(--primary)' : '1px solid var(--border)',
                   boxShadow: qtyInCart > 0 ? '0 12px 28px -4px rgba(2, 132, 199, 0.22)' : 'var(--shadow-card)',
                   display: 'flex',
                   flexDirection: 'column',
@@ -280,25 +281,42 @@ export default function Catalog() {
                 }}
               >
                 <div>
-                  {/* Pod Circular */}
+                  {/* Pod con Foto Real del Producto */}
                   <div
                     style={{
-                      height: '96px',
+                      height: '116px',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      background: '#f8fafc',
+                      background: 'var(--surface-raised)',
                       borderRadius: '20px',
                       marginBottom: '0.65rem',
+                      overflow: 'hidden',
+                      padding: '0.5rem',
                     }}
                   >
-                    <ProductVisual type={visualType} size={72} />
+                    <img
+                      src={getProductPhoto(p)}
+                      alt={p.name}
+                      loading="lazy"
+                      style={{
+                        maxHeight: '106px',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.12))',
+                        transition: 'transform 0.2s ease',
+                      }}
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = '/images/products/bidon-20l.jpg';
+                      }}
+                    />
                   </div>
 
                   <span style={{ fontSize: '0.7rem', color: 'var(--muted)', fontWeight: 700, textTransform: 'uppercase' }}>
                     {p.name.includes('20') ? '20 Litros' : p.name.includes('12') ? '12 Litros' : 'Accesorio'}
                   </span>
-                  <h3 style={{ fontSize: '0.94rem', fontWeight: 800, margin: '0.15rem 0', color: '#0f172a', lineHeight: 1.25 }}>
+                  <h3 style={{ fontSize: '0.94rem', fontWeight: 800, margin: '0.15rem 0', color: 'var(--text)', lineHeight: 1.25 }}>
                     {p.name}
                   </h3>
                   <div style={{ fontSize: '1.15rem', fontWeight: 900, color: 'var(--primary)', margin: '0.25rem 0 0.65rem' }}>
