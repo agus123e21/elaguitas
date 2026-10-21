@@ -20,6 +20,42 @@ Plataforma digital para venta y reparto de agua purificada en bidones. Resuelve 
 
 ---
 
+## Arquitectura del Sistema
+
+Explicación clara y directa de cómo se conecta cada parte:
+
+```
+  DISPOSITIVOS                  INFRAESTRUCTURA (Vercel)               BASE DE DATOS (Supabase)
+ 
+ ┌───────────────┐              ┌────────────────────────┐            ┌────────────────────────┐
+ │   CLIENTES    │              │   FRONTEND ESTÁTICO    │            │                        │
+ │  (Mobile Web) │─────────────►│   React 19 + Vite      │            │       POSTGRESQL       │
+ └───────────────┘  HTTPS       │   (Carga rápida < 1s)  │            │      EN LA NUBE        │
+                                └────────────────────────┘            │                        │
+ ┌───────────────┐                                                    │  • 14 Tablas SQL       │
+ │   CHOFERES    │              ┌────────────────────────┐   Pooler   │  • Control de envases  │
+ │  (GPS / Maps) │─────────────►│   BACKEND SERVERLESS   │  Puerto    │  • Stock de bidones    │
+ └───────────────┘  API REST    │   Node.js + Express    │───────────►│  • Clientes y zonas    │
+                                │   (Tokens JWT seguros) │    6543    │  • Backups automáticos │
+ ┌───────────────┐              └────────────────────────┘            │                        │
+ │ ADMINISTRADOR │                           ▲                        │                        │
+ │ (Consola Web) │───────────────────────────┘                        │                        │
+ └───────────────┘                                                    └────────────────────────┘
+```
+
+### 3 Capas Principales:
+1. **Frontend (React 19 + Vite):**
+   - Interfaz ultra rápida y táctil pensada para celulares.
+   - PWA instalable con soporte offline y compilación nativa para Android.
+2. **Backend Serverless (Node.js + Express en Vercel):**
+   - Funciones serverless que solo consumen recursos cuando entra un pedido.
+   - Seguridad con tokens JWT y tareas automáticas Cron a medianoche para suscripciones periódicas.
+3. **Base de Datos (PostgreSQL en Supabase):**
+   - 14 tablas relacionales conectadas mediante Transaction Pooler (puerto 6543 con SSL).
+   - Registra cada movimiento de bidones para que ningún envase quede sin auditar.
+
+---
+
 ## Vistas principales
 
 ### 1. Clientes: Catálogo táctil y Checkout sin fricciones
