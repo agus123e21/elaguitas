@@ -120,9 +120,12 @@ export default function Register() {
             <input
               className="input"
               id="phone"
-              placeholder="+54 9 2604 12-3456"
+              type="tel"
+              inputMode="numeric"
+              pattern="[0-9]*"
+              placeholder="ej: 2604123456"
               value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              onChange={(e) => setForm({ ...form, phone: e.target.value.replace(/\D/g, '') })}
               style={{ borderRadius: '16px', padding: '0.85rem 1rem' }}
             />
           </div>

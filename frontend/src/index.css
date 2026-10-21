@@ -25,6 +25,9 @@
   --warning: #f59e0b;
   --warning-light: #fffbeb;
   
+  --navbar-bg: rgba(255, 255, 255, 0.94);
+  --dock-bg: rgba(255, 255, 255, 0.95);
+  
   /* Sistema de radios (8-pt scale) */
   --radius-xs: 6px;
   --radius-sm: 8px;
@@ -52,37 +55,146 @@
   line-height: 1.5;
   color-scheme: light;
 }
+/* ============================================================
+   Modo Oscuro Glaciar Fachero
+   ============================================================ */
+
+[data-theme="dark"] {
+  --primary: #38bdf8;
+  --primary-dark: #0284c7;
+  --primary-light: rgba(56, 189, 248, 0.15);
+  --accent: #34d399;
+  --accent-light: rgba(52, 211, 153, 0.15);
+  --bg: #090e17;
+  --surface: #111a28;
+  --surface-raised: #182335;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --muted: #94a3b8;
+  --border: #1e2e42;
+  --border-focus: #38bdf8;
+  --navbar-bg: rgba(17, 26, 40, 0.94);
+  --dock-bg: rgba(17, 26, 40, 0.95);
+  --danger: #f87171;
+  --danger-light: rgba(239, 68, 68, 0.15);
+  --success: #34d399;
+  --success-light: rgba(52, 211, 153, 0.15);
+  --warning: #fbbf24;
+  --warning-light: rgba(245, 158, 11, 0.15);
+  --shadow-xs: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.45);
+  --shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 12px 28px -6px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-float: 0 20px 45px -10px rgba(0, 0, 0, 0.75);
+  --shadow-raised: 0 16px 36px -6px rgba(0, 0, 0, 0.65);
+  --shadow-md: 0 12px 24px -4px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 22px 35px -6px rgba(0, 0, 0, 0.75);
+  color-scheme: dark;
+}
+
 
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  font-size: 16px !important;
+  -webkit-text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: #f1f6fa;
+  background-color: #eaf1f7;
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-text-size-adjust: 100% !important;
+  -moz-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
 }
 
-/* Fondo con Patrón Geométrico de Micro-rejilla y Puntos de Agua */
+/* Fondo con Patrón Geométrico Notorio: Micro-rejilla Glaciar y Gotas */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -2;
   background-image: 
-    radial-gradient(rgba(11, 125, 194, 0.12) 1.5px, transparent 1.5px),
-    linear-gradient(to right, rgba(11, 125, 194, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 125, 194, 0.025) 1px, transparent 1px);
-  background-size: 28px 28px, 56px 56px, 56px 56px;
-  opacity: 0.9;
+    radial-gradient(rgba(11, 125, 194, 0.22) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(11, 125, 194, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 125, 194, 0.065) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  opacity: 1;
   pointer-events: none;
+  transition: background-image 0.25s ease;
+}
+
+[data-theme="dark"] body {
+  background-color: #090e17;
+}
+
+[data-theme="dark"] body::before {
+  background-image: 
+    radial-gradient(rgba(56, 189, 248, 0.26) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  opacity: 1;
+}
+
+[data-theme="dark"] body::after {
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(14, 165, 233, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 85% 70%, rgba(16, 185, 129, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 70% 15%, rgba(2, 132, 199, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 25% 85%, rgba(30, 58, 138, 0.22) 0%, transparent 50%);
+}
+
+[data-theme="dark"] .card {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .kpi {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .btn-outline {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+[data-theme="dark"] .btn-outline:hover {
+  background: var(--surface-raised);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+[data-theme="dark"] .badge--neutral {
+  background: var(--surface-raised);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .table th {
+  background: var(--surface-raised);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .table td {
+  border-bottom-color: var(--border);
 }
 
 /* Orbes semi-animados de luz ambiental en tonos azul agua y menta */
@@ -877,12 +989,10 @@ img {
     gap: 1.25rem !important;
   }
 
-  /* Layout 2 columnas de Home en PC */
+  /* Layout Home en PC */
   .home-desktop-layout {
-    display: grid !important;
-    grid-template-columns: 1.15fr 0.85fr !important;
-    gap: 1.5rem !important;
-    align-items: start;
+    max-width: 680px !important;
+    margin: 0 auto !important;
   }
 
   /* Layout 2 columnas de Checkout en PC */

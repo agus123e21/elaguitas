@@ -236,8 +236,8 @@ export default function Home() {
           <Link
             to="/productos"
             style={{
-              background: '#ffffff',
-              border: '1px solid rgba(226, 232, 240, 0.95)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
               borderRadius: 'var(--radius-md)',
               padding: '1rem',
               boxShadow: 'var(--shadow-card)',
@@ -276,8 +276,8 @@ export default function Home() {
           <div
             onClick={handleQuickReorder}
             style={{
-              background: '#ffffff',
-              border: '1px solid rgba(226, 232, 240, 0.95)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
               borderRadius: 'var(--radius-md)',
               padding: '1rem',
               boxShadow: 'var(--shadow-card)',
@@ -317,8 +317,8 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              background: '#ffffff',
-              border: '1px solid rgba(226, 232, 240, 0.95)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
               borderRadius: 'var(--radius-md)',
               padding: '1rem',
               boxShadow: 'var(--shadow-card)',
@@ -357,8 +357,8 @@ export default function Home() {
           <a
             href="tel:+5492604322659"
             style={{
-              background: '#ffffff',
-              border: '1px solid rgba(226, 232, 240, 0.95)',
+              background: 'var(--surface)',
+              border: '1px solid var(--border)',
               borderRadius: 'var(--radius-md)',
               padding: '1rem',
               boxShadow: 'var(--shadow-card)',
@@ -395,71 +395,80 @@ export default function Home() {
         </div>
       </section>
 
-      </div>
-        <div>
-          {/* Tarjeta de Consumo Mensual Curva */}
-          <section
-        style={{
-          background: '#ffffff',
-          borderRadius: 'var(--radius-md)',
-          padding: '1.15rem',
-          border: '1px solid rgba(226, 232, 240, 0.95)',
-          boxShadow: 'var(--shadow-card)',
-          marginBottom: '1.25rem',
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
-          <strong style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0f172a' }}>
-            Consumo Estimado
-          </strong>
-          <span
-            style={{
-              background: 'var(--primary-light)',
-              color: 'var(--primary-dark)',
-              padding: '0.2rem 0.65rem',
-              borderRadius: 'var(--radius-pill)',
-              fontSize: '0.72rem',
-              fontWeight: 800,
-            }}
-          >
-            4 Bidones / Mes
-          </span>
-        </div>
-        <p className="muted" style={{ margin: 0, fontSize: '0.8rem', lineHeight: 1.45 }}>
-          Sugerido: 1 pedido cada 10 días para mantener tu dispenser lleno.
-        </p>
-      </section>
-
-      {/* Certificación Bromatológica Municipal San Rafael */}
+      {/* Sello Oficial de Pureza Certificada */}
       <section
         style={{
-          background: '#ffffff',
+          background: 'var(--surface)',
           borderRadius: 'var(--radius-md)',
-          padding: '1.15rem',
-          border: '1px solid rgba(226, 232, 240, 0.95)',
+          padding: '1.25rem',
+          border: '1px solid var(--border)',
           boxShadow: 'var(--shadow-card)',
-          marginBottom: '1.25rem',
+          marginBottom: '1.5rem',
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.35rem' }}>
-          <ShieldIcon size={18} color="var(--primary)" />
-          <strong style={{ fontSize: '0.88rem', fontWeight: 800, color: '#0f172a' }}>
-            Pureza Certificada
-          </strong>
-        </div>
-        <p className="muted" style={{ margin: '0 0 0.65rem', fontSize: '0.8rem', lineHeight: 1.45 }}>
-          Purificada por ósmosis inversa, ozono y luz UV. Libre de cloro y baja en sodio.
-        </p>
-        <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, background: '#f8fafc', border: '1px solid #e2e8f0', padding: '0.2rem 0.55rem', borderRadius: '6px' }}>
-            0% Sodio
-          </span>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, background: '#f8fafc', border: '1px solid #e2e8f0', padding: '0.2rem 0.55rem', borderRadius: '6px' }}>
-            Ósmosis Inversa
-          </span>
-          <span style={{ fontSize: '0.72rem', fontWeight: 700, background: '#f8fafc', border: '1px solid #e2e8f0', padding: '0.2rem 0.55rem', borderRadius: '6px' }}>
-            Bromatología OK
-          </span>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.85rem' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+              <ShieldIcon size={20} color="var(--primary)" />
+              <strong style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text)' }}>
+                Pureza Certificada
+              </strong>
+            </div>
+            <p className="muted" style={{ margin: '0 0 0.85rem', fontSize: '0.82rem', lineHeight: 1.5, maxWidth: '420px' }}>
+              Agua purificada bajo normas bromatológicas de San Rafael: ósmosis inversa, ozono y desinfección UV. 100% libre de cloro y 0% sodio.
+            </p>
+            <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+              <span style={{ fontSize: '0.74rem', fontWeight: 700, background: 'var(--surface-raised)', border: '1px solid var(--border)', padding: '0.25rem 0.6rem', borderRadius: '8px', color: 'var(--text)' }}>
+                ✓ 0% Sodio
+              </span>
+              <span style={{ fontSize: '0.74rem', fontWeight: 700, background: 'var(--surface-raised)', border: '1px solid var(--border)', padding: '0.25rem 0.6rem', borderRadius: '8px', color: 'var(--text)' }}>
+                ✓ Ósmosis Inversa
+              </span>
+              <span style={{ fontSize: '0.74rem', fontWeight: 700, background: 'var(--surface-raised)', border: '1px solid var(--border)', padding: '0.25rem 0.6rem', borderRadius: '8px', color: 'var(--text)' }}>
+                ✓ Bromatología San Rafael
+              </span>
+            </div>
+          </div>
+
+          {/* Sellito Gráfico de Garantía */}
+          <div
+            style={{
+              flexShrink: 0,
+              width: '68px',
+              height: '68px',
+              borderRadius: '50%',
+              border: '2px dashed var(--primary)',
+              background: 'radial-gradient(circle, var(--primary-light) 0%, transparent 75%)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              textAlign: 'center',
+              padding: '4px',
+              boxShadow: '0 4px 14px rgba(11, 125, 194, 0.15)',
+              transform: 'rotate(-6deg)',
+            }}
+          >
+            <ShieldIcon size={18} color="var(--primary)" />
+            <span
+              style={{
+                fontSize: '0.52rem',
+                fontWeight: 900,
+                color: 'var(--primary)',
+                lineHeight: 1.1,
+                marginTop: '2px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+              }}
+            >
+              SELLO CALIDAD
+            </span>
+            <span style={{ fontSize: '0.46rem', fontWeight: 700, color: 'var(--text-muted)' }}>
+              100% PURA
+            </span>
+          </div>
         </div>
       </section>
 

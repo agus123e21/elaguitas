@@ -570,8 +570,7 @@ export default function Checkout() {
             <div style={{ display: 'grid', gap: '0.65rem' }}>
               {[
                 { id: 'CASH', title: 'Efectivo', desc: 'En billetes al repartidor' },
-                { id: 'TRANSFER', title: 'Transferencia Bancaria o QR', desc: 'Mercado Pago o banco al recibir' },
-                { id: 'CARD', title: 'Tarjeta Débito / Crédito', desc: 'Con posnet al repartidor' },
+                { id: 'TRANSFER', title: 'Transferencia Bancaria o QR', desc: 'Mercado Pago o transferencia al recibir' },
               ].map((m) => {
                 const isSelected = paymentMethod === m.id
                 return (

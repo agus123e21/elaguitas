@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { useCart } from '../context/CartContext.jsx'
@@ -16,6 +16,8 @@ import {
   WhatsAppIcon,
   LogOutIcon,
   RefreshCwIcon,
+  MoonIcon,
+  SunIcon,
 } from './Icons.jsx'
 
 export default function Navbar() {
@@ -24,6 +26,36 @@ export default function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.getAttribute('data-theme') === 'dark' ||
+        localStorage.getItem('elaguitas-theme') === 'dark'
+    }
+    return false
+  })
+
+  useEffect(() => {
+    const saved = localStorage.getItem('elaguitas-theme')
+    if (saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark')
+      setIsDarkMode(true)
+    } else if (saved === 'light') {
+      document.documentElement.removeAttribute('data-theme')
+      setIsDarkMode(false)
+    }
+  }, [])
+
+  function toggleTheme() {
+    const next = !isDarkMode
+    setIsDarkMode(next)
+    if (next) {
+      document.documentElement.setAttribute('data-theme', 'dark')
+      localStorage.setItem('elaguitas-theme', 'dark')
+    } else {
+      document.documentElement.removeAttribute('data-theme')
+      localStorage.setItem('elaguitas-theme', 'light')
+    }
+  }
 
   const currentPath = location.pathname
 
@@ -45,7 +77,7 @@ export default function Navbar() {
           position: 'sticky',
           top: 0,
           zIndex: 90,
-          background: 'rgba(255, 255, 255, 0.94)',
+          background: 'var(--navbar-bg)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
           borderBottom: '1px solid var(--border)',
@@ -83,20 +115,20 @@ export default function Navbar() {
           >
             <div
               style={{
-                width: 36,
-                height: 36,
-                borderRadius: '12px',
+                width: 30,
+                height: 30,
+                borderRadius: '9px',
                 background: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#ffffff',
-                boxShadow: '0 4px 12px rgba(11, 125, 194, 0.28)',
+                boxShadow: '0 3px 10px rgba(11, 125, 194, 0.24)',
               }}
             >
-              <DropletIcon size={20} />
+              <DropletIcon size={16} />
             </div>
-            <span style={{ fontSize: '1.2rem', fontWeight: 900, letterSpacing: '-0.02em', color: 'var(--text)' }}>
+            <span style={{ fontSize: '1rem', fontWeight: 800, letterSpacing: '-0.01em', color: 'var(--text)' }}>
               El Agüitas
             </span>
           </Link>
@@ -294,7 +326,7 @@ export default function Navbar() {
               width: '80%',
               maxWidth: 320,
               height: '100%',
-              background: '#ffffff',
+              background: 'var(--surface)',
               padding: '1.5rem',
               display: 'flex',
               flexDirection: 'column',
@@ -418,6 +450,62 @@ export default function Navbar() {
                 )}
               </nav>
 
+              {/* Selector de Modo Oscuro Simple */}
+              <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    padding: '0.65rem 0.85rem',
+                    borderRadius: '14px',
+                    background: 'var(--bg)',
+                    border: '1px solid var(--border)',
+                    color: 'var(--text)',
+                    cursor: 'pointer',
+                    fontWeight: 700,
+                    fontSize: '0.88rem',
+                    transition: 'all 0.2s ease',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+                    {isDarkMode ? (
+                      <SunIcon size={18} color="#fbbf24" />
+                    ) : (
+                      <MoonIcon size={18} color="var(--primary)" />
+                    )}
+                    <span>{isDarkMode ? 'Modo Claro' : 'Modo Oscuro'}</span>
+                  </div>
+                  <div
+                    style={{
+                      width: '38px',
+                      height: '22px',
+                      borderRadius: '9999px',
+                      background: isDarkMode ? 'var(--primary)' : '#cbd5e1',
+                      position: 'relative',
+                      transition: 'background 0.2s ease',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '18px',
+                        height: '18px',
+                        borderRadius: '50%',
+                        background: '#ffffff',
+                        position: 'absolute',
+                        top: '2px',
+                        left: isDarkMode ? '18px' : '2px',
+                        transition: 'left 0.2s ease',
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.25)',
+                      }}
+                    />
+                  </div>
+                </button>
+              </div>
+
               {/* Atención en San Rafael */}
               <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid var(--border)' }}>
                 <span style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'block', marginBottom: '0.65rem' }}>
@@ -474,7 +562,7 @@ export default function Navbar() {
           maxWidth: '460px',
           margin: '0 auto',
           zIndex: 95,
-          background: 'rgba(255, 255, 255, 0.95)',
+          background: 'var(--dock-bg)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderRadius: '9999px',
