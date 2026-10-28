@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
   <!-- Google Fonts: Outfit, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <!-- GSAP 3.12.5 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
@@ -49,6 +52,7 @@
       justify-content: center;
       cursor: none;
     }
+
     body.show-cursor {
       cursor: default;
     }
@@ -75,25 +79,54 @@
       z-index: 2;
       opacity: 0.28;
     }
+
     .ice-glow {
       position: absolute;
       border-radius: 50%;
       filter: blur(140px);
       animation: driftAurora 22s infinite alternate ease-in-out;
     }
-    .glow-1 { width: 750px; height: 750px; background: #0284c7; top: -140px; left: -100px; }
-    .glow-2 { width: 800px; height: 800px; background: #0d9488; bottom: -180px; right: -100px; }
-    .glow-3 { width: 550px; height: 550px; background: #38bdf8; top: 320px; left: 820px; opacity: 0.16; }
+
+    .glow-1 {
+      width: 750px;
+      height: 750px;
+      background: #0284c7;
+      top: -140px;
+      left: -100px;
+    }
+
+    .glow-2 {
+      width: 800px;
+      height: 800px;
+      background: #0d9488;
+      bottom: -180px;
+      right: -100px;
+    }
+
+    .glow-3 {
+      width: 550px;
+      height: 550px;
+      background: #38bdf8;
+      top: 320px;
+      left: 820px;
+      opacity: 0.16;
+    }
+
     @keyframes driftAurora {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(35px, -25px) scale(1.06); }
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(35px, -25px) scale(1.06);
+      }
     }
 
     /* Malla técnica sobria */
     .grid-bg {
       position: absolute;
       inset: 0;
-      background-image: 
+      background-image:
         radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px),
         linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -112,6 +145,7 @@
       gap: 16px;
       z-index: 40;
     }
+
     .clean-watermark-icon {
       width: 46px;
       height: 46px;
@@ -122,11 +156,13 @@
       justify-content: center;
       box-shadow: 0 8px 24px rgba(11, 125, 194, 0.45);
     }
+
     .clean-watermark-title {
       display: flex;
       flex-direction: column;
       gap: 2px;
     }
+
     .clean-watermark-text {
       font-family: 'Outfit', sans-serif;
       color: #ffffff;
@@ -135,6 +171,7 @@
       letter-spacing: -0.5px;
       line-height: 1;
     }
+
     .clean-watermark-sub {
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
@@ -163,6 +200,7 @@
       z-index: 40;
       backdrop-filter: blur(12px);
     }
+
     .slide-counter-badge span.current {
       color: var(--brand-ocean-bright);
       font-weight: 900;
@@ -190,6 +228,7 @@
       visibility: hidden;
       pointer-events: none;
     }
+
     .slide.active {
       opacity: 1;
       visibility: visible;
@@ -205,6 +244,7 @@
       gap: 65px;
       align-items: center;
     }
+
     .slide-grid.reversed {
       grid-template-columns: 0.95fr 1.05fr;
     }
@@ -242,10 +282,30 @@
       letter-spacing: 1.2px;
       font-family: 'JetBrains Mono', monospace;
     }
-    .pill-ocean { background: rgba(11, 125, 194, 0.25); border: 1px solid rgba(56, 189, 248, 0.5); color: #7dd3fc; }
-    .pill-emerald { background: rgba(16, 185, 129, 0.25); border: 1px solid rgba(16, 185, 129, 0.5); color: #6ee7b7; }
-    .pill-amber { background: rgba(217, 119, 6, 0.25); border: 1px solid rgba(217, 119, 6, 0.5); color: #fde68a; }
-    .pill-coral { background: rgba(225, 29, 72, 0.22); border: 1px solid rgba(244, 63, 94, 0.5); color: #fda4af; }
+
+    .pill-ocean {
+      background: rgba(11, 125, 194, 0.25);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #7dd3fc;
+    }
+
+    .pill-emerald {
+      background: rgba(16, 185, 129, 0.25);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #6ee7b7;
+    }
+
+    .pill-amber {
+      background: rgba(217, 119, 6, 0.25);
+      border: 1px solid rgba(217, 119, 6, 0.5);
+      color: #fde68a;
+    }
+
+    .pill-coral {
+      background: rgba(225, 29, 72, 0.22);
+      border: 1px solid rgba(244, 63, 94, 0.5);
+      color: #fda4af;
+    }
 
     /* Encabezados GRANDES y claros */
     .slide-heading {
@@ -256,10 +316,22 @@
       color: #ffffff;
       letter-spacing: -2px;
     }
-    .slide-heading span.ocean { color: var(--brand-ocean-bright); }
-    .slide-heading span.emerald { color: var(--brand-emerald-bright); }
-    .slide-heading span.amber { color: var(--brand-amber-bright); }
-    .slide-heading span.coral { color: var(--brand-coral-bright); }
+
+    .slide-heading span.ocean {
+      color: var(--brand-ocean-bright);
+    }
+
+    .slide-heading span.emerald {
+      color: var(--brand-emerald-bright);
+    }
+
+    .slide-heading span.amber {
+      color: var(--brand-amber-bright);
+    }
+
+    .slide-heading span.coral {
+      color: var(--brand-coral-bright);
+    }
 
     .slide-lead {
       font-size: 24px;
@@ -269,10 +341,25 @@
     }
 
     /* Resaltados de palabras clave */
-    .hl-ocean { color: #38bdf8; font-weight: 700; }
-    .hl-emerald { color: #34d399; font-weight: 700; }
-    .hl-amber { color: #fbbf24; font-weight: 700; }
-    .hl-white { color: #ffffff; font-weight: 700; }
+    .hl-ocean {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .hl-emerald {
+      color: #34d399;
+      font-weight: 700;
+    }
+
+    .hl-amber {
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    .hl-white {
+      color: #ffffff;
+      font-weight: 700;
+    }
 
     /* Tarjetas de acción */
     .action-cards {
@@ -281,6 +368,7 @@
       gap: 16px;
       margin-top: 6px;
     }
+
     .action-card {
       display: flex;
       align-items: center;
@@ -292,6 +380,7 @@
       backdrop-filter: blur(20px);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     }
+
     .num-badge {
       font-family: 'JetBrains Mono', monospace;
       font-size: 21px;
@@ -304,21 +393,38 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .num-ocean { background: rgba(11, 125, 194, 0.3); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.5); }
-    .num-emerald { background: rgba(16, 185, 129, 0.3); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.5); }
-    .num-amber { background: rgba(217, 119, 6, 0.3); color: #fde68a; border: 1px solid rgba(217, 119, 6, 0.5); }
+
+    .num-ocean {
+      background: rgba(11, 125, 194, 0.3);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+    }
+
+    .num-emerald {
+      background: rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.5);
+    }
+
+    .num-amber {
+      background: rgba(217, 119, 6, 0.3);
+      color: #fde68a;
+      border: 1px solid rgba(217, 119, 6, 0.5);
+    }
 
     .action-text-wrap {
       display: flex;
       flex-direction: column;
       gap: 4px;
     }
+
     .action-title {
       font-size: 23px;
       font-weight: 800;
       color: #ffffff;
       letter-spacing: -0.3px;
     }
+
     .action-sub {
       font-size: 17px;
       color: var(--text-sub);
@@ -333,6 +439,7 @@
       gap: 26px;
       width: 100%;
     }
+
     .cards-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -353,6 +460,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .tech-card::before {
       content: '';
       position: absolute;
@@ -362,11 +470,13 @@
       height: 4px;
       background: linear-gradient(90deg, transparent, var(--card-accent, #38bdf8), transparent);
     }
+
     .tech-card-header {
       display: flex;
       align-items: center;
       gap: 14px;
     }
+
     .tech-card-icon {
       width: 48px;
       height: 48px;
@@ -379,6 +489,7 @@
       color: var(--card-accent, #38bdf8);
       flex-shrink: 0;
     }
+
     .tech-card-title {
       font-family: 'Outfit', sans-serif;
       font-size: 25px;
@@ -386,11 +497,13 @@
       color: #ffffff;
       letter-spacing: -0.3px;
     }
+
     .tech-card-p {
       color: var(--text-sub);
       font-size: 17px;
       line-height: 1.55;
     }
+
     .tech-spec-list {
       list-style: none;
       display: flex;
@@ -398,6 +511,7 @@
       gap: 9px;
       margin-top: 4px;
     }
+
     .tech-spec-list li {
       font-size: 16px;
       color: var(--text-sub);
@@ -406,6 +520,7 @@
       gap: 10px;
       line-height: 1.45;
     }
+
     .tech-spec-list li svg {
       flex-shrink: 0;
       margin-top: 3px;
@@ -423,14 +538,28 @@
       flex-direction: column;
       gap: 7px;
     }
+
     .sql-field {
       display: flex;
       justify-content: space-between;
       color: #f1f5f9;
     }
-    .sql-name { color: #ffffff; font-weight: 700; }
-    .sql-type { color: #38bdf8; font-weight: 800; }
-    .sql-key { color: #fbbf24; font-size: 12px; font-weight: 800; }
+
+    .sql-name {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .sql-type {
+      color: #38bdf8;
+      font-weight: 800;
+    }
+
+    .sql-key {
+      color: #fbbf24;
+      font-size: 12px;
+      font-weight: 800;
+    }
 
     /* Caja de comando directo */
     .sql-query-chip {
@@ -444,8 +573,16 @@
       margin-top: 6px;
       line-height: 1.4;
     }
-    .sql-query-chip span.kw { color: #38bdf8; font-weight: 800; }
-    .sql-query-chip span.fn { color: #fb7185; font-weight: 700; }
+
+    .sql-query-chip span.kw {
+      color: #38bdf8;
+      font-weight: 800;
+    }
+
+    .sql-query-chip span.fn {
+      color: #fb7185;
+      font-weight: 700;
+    }
 
     /* Tags simples */
     .tag-pill {
@@ -469,13 +606,14 @@
       perspective: 1400px;
       height: 100%;
     }
+
     .hero-phone {
       width: 420px;
       height: 850px;
       background: #020617;
       border-radius: 54px;
       padding: 10px;
-      box-shadow: 
+      box-shadow:
         0 40px 100px rgba(0, 0, 0, 0.95),
         0 0 0 2px rgba(56, 189, 248, 0.35),
         0 0 0 8px #0b1524,
@@ -484,6 +622,7 @@
       transform-style: preserve-3d;
       will-change: transform;
     }
+
     .phone-speaker-bar {
       position: absolute;
       top: 6px;
@@ -495,6 +634,7 @@
       border-radius: 10px;
       z-index: 40;
     }
+
     .phone-screen {
       width: 100%;
       height: 100%;
@@ -503,6 +643,7 @@
       background: #000000;
       position: relative;
     }
+
     .phone-screen img {
       width: 100%;
       height: 100%;
@@ -526,14 +667,38 @@
       z-index: 50;
       animation: floatBadge 4s ease-in-out infinite alternate;
     }
+
     @keyframes floatBadge {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-12px); }
+      0% {
+        transform: translateY(0px);
+      }
+
+      100% {
+        transform: translateY(-12px);
+      }
     }
-    .chip-tr { top: 80px; right: -40px; }
-    .chip-bl { bottom: 90px; left: -45px; }
-    .chip-val { font-size: 20px; font-weight: 900; color: #ffffff; }
-    .chip-label { font-size: 13.5px; color: var(--text-muted); font-weight: 600; }
+
+    .chip-tr {
+      top: 80px;
+      right: -40px;
+    }
+
+    .chip-bl {
+      bottom: 90px;
+      left: -45px;
+    }
+
+    .chip-val {
+      font-size: 20px;
+      font-weight: 900;
+      color: #ffffff;
+    }
+
+    .chip-label {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
 
     /* MOCKUP DESKTOP */
     .hero-desktop {
@@ -547,6 +712,7 @@
       position: relative;
       margin: 0 auto;
     }
+
     .desktop-top-bar {
       height: 32px;
       display: flex;
@@ -555,7 +721,13 @@
       padding-left: 12px;
       margin-bottom: 8px;
     }
-    .dot { width: 11px; height: 11px; border-radius: 50%; }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+
     .desktop-frame {
       width: 100%;
       height: calc(100% - 40px);
@@ -563,6 +735,7 @@
       overflow: hidden;
       background: #f8fafc;
     }
+
     .desktop-frame img {
       width: 100%;
       height: 100%;
@@ -578,6 +751,7 @@
       gap: 14px;
       margin-top: 8px;
     }
+
     .team-pill {
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid var(--border-card);
@@ -591,6 +765,7 @@
       color: #ffffff;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
+
     .team-dot {
       width: 10px;
       height: 10px;
@@ -607,11 +782,13 @@
       align-items: center;
       width: 100%;
     }
+
     .final-check-list {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
+
     .final-check-item {
       display: flex;
       align-items: center;
@@ -622,6 +799,7 @@
       padding: 18px 24px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
+
     .check-icon-circle {
       width: 42px;
       height: 42px;
@@ -653,6 +831,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div id="deck-stage">
@@ -667,8 +846,9 @@
     <!-- Marca superior permanente -->
     <div class="clean-watermark">
       <div class="clean-watermark-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
         </svg>
       </div>
       <div class="clean-watermark-title">
@@ -694,17 +874,19 @@
             <div class="pill-tag pill-ocean">
               Programación III · Segundo Examen Parcial
             </div>
-            
+
             <h1 class="slide-heading" style="font-size: 84px; letter-spacing: -3.5px; line-height: 1.05;">
               El Agüitas
             </h1>
-            
+
             <p class="slide-lead" style="font-size: 26px; max-width: 780px; line-height: 1.45;">
-              Sistema web integral para <span class="hl-ocean">pedidos a domicilio</span>, <span class="hl-amber">rutas de reparto</span> y <span class="hl-emerald">control de envases retornables</span>.
+              Sistema web integral para <span class="hl-ocean">pedidos a domicilio</span>, <span class="hl-amber">rutas
+                de reparto</span> y <span class="hl-emerald">control de envases retornables</span>.
             </p>
 
             <div style="margin-top: 6px;">
-              <div style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 12px;">
+              <div
+                style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 12px;">
                 Integrantes del Grupo de Desarrollo:
               </div>
               <div class="team-clean-row">
@@ -730,7 +912,10 @@
               </div>
               <div class="float-chip chip-tr">
                 <div class="num-badge num-ocean">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">Ingreso por Rol</div>
@@ -739,7 +924,9 @@
               </div>
               <div class="float-chip chip-bl">
                 <div class="num-badge num-emerald">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">En Línea</div>
@@ -760,13 +947,14 @@
             <div class="pill-tag pill-amber">
               El Problema Real
             </div>
-            
+
             <h1 class="slide-heading">
               ¿Qué problema resuelve <span class="ocean">El Agüitas?</span>
             </h1>
-            
+
             <p class="slide-lead">
-              En las distribuidoras de agua, el mayor problema es que <strong class="hl-white">los bidones vacíos se pierden</strong>. La empresa no sabe quién los tiene y pierde dinero comprando envases nuevos.
+              En las distribuidoras de agua, el mayor problema es que <strong class="hl-white">los bidones vacíos se
+                pierden</strong>. La empresa no sabe quién los tiene y pierde dinero comprando envases nuevos.
             </p>
 
             <div class="action-cards">
@@ -774,7 +962,8 @@
                 <div class="num-badge num-amber">01</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Control de Envases Retornables</div>
-                  <div class="action-sub">Registrar con exactitud <span class="hl-white">cuántos bidones vacíos devuelve el cliente</span> y cuántos llenos se lleva en cada compra.</div>
+                  <div class="action-sub">Registrar con exactitud <span class="hl-white">cuántos bidones vacíos devuelve
+                      el cliente</span> y cuántos llenos se lleva en cada compra.</div>
                 </div>
               </div>
 
@@ -782,7 +971,8 @@
                 <div class="num-badge num-amber">02</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Ruta Clara para el Chofer</div>
-                  <div class="action-sub">El repartidor tiene su <span class="hl-white">hoja de ruta en el celular</span> con dirección exacta y botón directo al GPS.</div>
+                  <div class="action-sub">El repartidor tiene su <span class="hl-white">hoja de ruta en el
+                      celular</span> con dirección exacta y botón directo al GPS.</div>
                 </div>
               </div>
 
@@ -790,7 +980,8 @@
                 <div class="num-badge num-amber">03</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Cuentas Claras sin Papeles</div>
-                  <div class="action-sub">El <span class="hl-white">stock de agua en planta</span> y las cobranzas del día se actualizan en el momento, sin planillas manuales.</div>
+                  <div class="action-sub">El <span class="hl-white">stock de agua en planta</span> y las cobranzas del
+                    día se actualizan en el momento, sin planillas manuales.</div>
                 </div>
               </div>
             </div>
@@ -804,7 +995,9 @@
               </div>
               <div class="float-chip chip-tr">
                 <div class="num-badge num-ocean">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">Control de Vacíos</div>
@@ -813,7 +1006,9 @@
               </div>
               <div class="float-chip chip-bl">
                 <div class="num-badge num-amber">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">En Ruta</div>
@@ -838,7 +1033,8 @@
               Cómo se conectan <span class="ocean">las partes del sistema</span>
             </h1>
             <p class="slide-lead">
-              El sistema respeta el modelo <span class="hl-white">Cliente - Servidor</span> separando claramente la pantalla, el servidor y la base de datos:
+              El sistema respeta el modelo <span class="hl-white">Cliente - Servidor</span> separando claramente la
+              pantalla, el servidor y la base de datos:
             </p>
           </div>
 
@@ -847,7 +1043,13 @@
             <div class="tech-card" style="--card-accent: #38bdf8;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #38bdf8;">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m4.93 4.93 4.24 4.24" />
+                    <path d="m14.83 9.17 4.24-4.24" />
+                    <path d="m14.83 14.83 4.24 4.24" />
+                    <path d="m9.17 14.83-4.24 4.24" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">1. La Pantalla (Frontend)</div>
@@ -858,9 +1060,15 @@
                 La interfaz visual que usa el cliente, el chofer o el administrador desde su teléfono o PC.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Rápida e interactiva:</strong> no recarga la página.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Diseño Mobile-First:</strong> optimizada para celulares.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Validación visual:</strong> evita campos vacíos o errores.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Rápida e interactiva:</strong> no recarga la página.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Diseño Mobile-First:</strong> optimizada para celulares.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Validación visual:</strong> evita campos vacíos o errores.</li>
               </ul>
             </div>
 
@@ -868,7 +1076,12 @@
             <div class="tech-card" style="--card-accent: #10b981;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #10b981;">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                    <rect x="9" y="9" width="6" height="6" />
+                    <line x1="9" y1="1" x2="9" y2="4" />
+                    <line x1="15" y1="1" x2="15" y2="4" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">2. El Servidor (Backend)</div>
@@ -879,9 +1092,15 @@
                 El "cerebro" del sistema. Recibe los pedidos, calcula los precios y aplica las reglas del negocio.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Verificación de acceso:</strong> controla usuarios y claves.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Lógica de stock:</strong> descuenta el agua vendida.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Balance de envases:</strong> computa los vacíos devueltos.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Verificación de acceso:</strong> controla usuarios y claves.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Lógica de stock:</strong> descuenta el agua vendida.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Balance de envases:</strong> computa los vacíos devueltos.</li>
               </ul>
             </div>
 
@@ -889,7 +1108,11 @@
             <div class="tech-card" style="--card-accent: #f59e0b;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #f59e0b;">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">3. La Base de Datos</div>
@@ -900,9 +1123,17 @@
                 Donde se almacena toda la información de forma permanente en tablas relacionadas.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Tablas relacionadas:</strong> con claves <code class="sql-type">PRIMARY KEY</code> y <code class="sql-type">FOREIGN KEY</code>.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Consultas protegidas:</strong> seguras contra inyecciones SQL.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Conexión en la nube:</strong> base PostgreSQL hosteada en Supabase.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Tablas relacionadas:</strong> con claves <code
+                    class="sql-type">PRIMARY KEY</code> y <code class="sql-type">FOREIGN KEY</code>.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Consultas protegidas:</strong> seguras contra inyecciones SQL.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Conexión en la nube:</strong> base PostgreSQL hosteada en Supabase.
+                </li>
               </ul>
             </div>
           </div>
@@ -936,7 +1167,8 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                El usuario aprieta un botón (por ejemplo, confirmar pedido) y el navegador arma un paquete de datos en formato <strong class="hl-white">JSON</strong>.
+                El usuario aprieta un botón (por ejemplo, confirmar pedido) y el navegador arma un paquete de datos en
+                formato <strong class="hl-white">JSON</strong>.
               </p>
               <div class="sql-query-chip" style="font-size:12.5px;">
                 <span class="kw">POST</span> /api/pedidos { id_cliente: 4, items: [...] }
@@ -952,7 +1184,8 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                El servidor recibe el pedido, comprueba la identidad del usuario, valida que haya stock y prepara la consulta hacia la base de datos.
+                El servidor recibe el pedido, comprueba la identidad del usuario, valida que haya stock y prepara la
+                consulta hacia la base de datos.
               </p>
               <div class="sql-query-chip" style="font-size:12.5px;">
                 <span class="kw">pool.query</span>(<span class="fn">'UPDATE stock...'</span>)
@@ -968,7 +1201,8 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                La base de datos ejecuta la operación mediante un <strong class="hl-white">pool de conexiones</strong> seguro y devuelve la respuesta confirmada.
+                La base de datos ejecuta la operación mediante un <strong class="hl-white">pool de conexiones</strong>
+                seguro y devuelve la respuesta confirmada.
               </p>
               <div class="sql-query-chip" style="font-size:12.5px;">
                 <span class="kw">HTTP 201</span> { mensaje: "Pedido creado con éxito" }
@@ -976,9 +1210,16 @@
             </div>
           </div>
 
-          <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 18px; padding: 16px 26px; display: flex; align-items: center; gap: 16px; font-size: 18px; color: #bae6fd;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-            <span><strong class="hl-white">Desacoplamiento total:</strong> Si mañana se crea una aplicación móvil o se cambia el diseño visual, el servidor y la base de datos siguen funcionando exactamente igual sin modificarse.</span>
+          <div
+            style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 18px; padding: 16px 26px; display: flex; align-items: center; gap: 16px; font-size: 18px; color: #bae6fd;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            <span><strong class="hl-white">Desacoplamiento total:</strong> Si mañana se crea una aplicación móvil o se
+              cambia el diseño visual, el servidor y la base de datos siguen funcionando exactamente igual sin
+              modificarse.</span>
           </div>
         </div>
       </div>
@@ -1005,25 +1246,34 @@
             <div class="tech-card" style="--card-accent: #38bdf8;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #38bdf8;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">1. Tabla `usuarios`</div>
                   <span class="tag-pill">Clientes, Choferes y Admin</span>
                 </div>
               </div>
-              
+
               <div class="sql-table-box">
-                <div class="sql-field"><span class="sql-name">id</span> <span class="sql-type">INT PRIMARY KEY</span></div>
-                <div class="sql-field"><span class="sql-name">nombre</span> <span class="sql-type">VARCHAR(100)</span></div>
-                <div class="sql-field"><span class="sql-name">email</span> <span class="sql-type">VARCHAR(120) UNIQUE</span></div>
-                <div class="sql-field"><span class="sql-name">password</span> <span class="sql-type">VARCHAR(255)</span></div>
+                <div class="sql-field"><span class="sql-name">id</span> <span class="sql-type">INT PRIMARY KEY</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">nombre</span> <span class="sql-type">VARCHAR(100)</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">email</span> <span class="sql-type">VARCHAR(120)
+                    UNIQUE</span></div>
+                <div class="sql-field"><span class="sql-name">password</span> <span class="sql-type">VARCHAR(255)</span>
+                </div>
                 <div class="sql-field"><span class="sql-name">rol</span> <span class="sql-type">VARCHAR(20)</span></div>
-                <div class="sql-field"><span class="sql-name">saldo_envases</span> <span class="sql-type">INT DEFAULT 0</span></div>
+                <div class="sql-field"><span class="sql-name">saldo_envases</span> <span class="sql-type">INT DEFAULT
+                    0</span></div>
               </div>
 
               <div class="sql-query-chip">
-                <span class="kw">SELECT</span> * <span class="kw">FROM</span> usuarios <span class="kw">WHERE</span> email = $1;
+                <span class="kw">SELECT</span> * <span class="kw">FROM</span> usuarios <span class="kw">WHERE</span>
+                email = $1;
               </div>
             </div>
 
@@ -1031,7 +1281,11 @@
             <div class="tech-card" style="--card-accent: #10b981;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #10b981;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">2. Tabla `productos`</div>
@@ -1040,15 +1294,21 @@
               </div>
 
               <div class="sql-table-box">
-                <div class="sql-field"><span class="sql-name">id</span> <span class="sql-type">INT PRIMARY KEY</span></div>
-                <div class="sql-field"><span class="sql-name">nombre</span> <span class="sql-type">VARCHAR(100)</span></div>
-                <div class="sql-field"><span class="sql-name">precio</span> <span class="sql-type">DECIMAL(10,2)</span></div>
-                <div class="sql-field"><span class="sql-name">stock</span> <span class="sql-type">INT CHECK >= 0</span></div>
-                <div class="sql-field"><span class="sql-name">es_retornable</span> <span class="sql-type">BOOLEAN</span></div>
+                <div class="sql-field"><span class="sql-name">id</span> <span class="sql-type">INT PRIMARY KEY</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">nombre</span> <span class="sql-type">VARCHAR(100)</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">precio</span> <span class="sql-type">DECIMAL(10,2)</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">stock</span> <span class="sql-type">INT CHECK >= 0</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">es_retornable</span> <span class="sql-type">BOOLEAN</span>
+                </div>
               </div>
 
               <div class="sql-query-chip">
-                <span class="kw">UPDATE</span> productos <span class="kw">SET</span> stock = stock - 2 <span class="kw">WHERE</span> id = 1;
+                <span class="kw">UPDATE</span> productos <span class="kw">SET</span> stock = stock - 2 <span
+                  class="kw">WHERE</span> id = 1;
               </div>
             </div>
 
@@ -1056,7 +1316,10 @@
             <div class="tech-card" style="--card-accent: #f59e0b;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #f59e0b;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">3. Tabla `pedidos`</div>
@@ -1065,16 +1328,23 @@
               </div>
 
               <div class="sql-table-box">
-                <div class="sql-field"><span class="sql-name">id</span> <span class="sql-type">INT PRIMARY KEY</span></div>
-                <div class="sql-field"><span class="sql-name">id_cliente</span> <span class="sql-key">FOREIGN KEY (usuarios)</span></div>
-                <div class="sql-field"><span class="sql-name">id_chofer</span> <span class="sql-key">FOREIGN KEY (usuarios)</span></div>
-                <div class="sql-field"><span class="sql-name">estado</span> <span class="sql-type">VARCHAR(20)</span></div>
-                <div class="sql-field"><span class="sql-name">total</span> <span class="sql-type">DECIMAL(10,2)</span></div>
-                <div class="sql-field"><span class="sql-name">envases_retirados</span> <span class="sql-type">INT</span></div>
+                <div class="sql-field"><span class="sql-name">id</span> <span class="sql-type">INT PRIMARY KEY</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">id_cliente</span> <span class="sql-key">FOREIGN KEY
+                    (usuarios)</span></div>
+                <div class="sql-field"><span class="sql-name">id_chofer</span> <span class="sql-key">FOREIGN KEY
+                    (usuarios)</span></div>
+                <div class="sql-field"><span class="sql-name">estado</span> <span class="sql-type">VARCHAR(20)</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">total</span> <span class="sql-type">DECIMAL(10,2)</span>
+                </div>
+                <div class="sql-field"><span class="sql-name">envases_retirados</span> <span class="sql-type">INT</span>
+                </div>
               </div>
 
               <div class="sql-query-chip">
-                <span class="kw">INSERT INTO</span> pedidos (id_cliente, total, estado) <span class="kw">VALUES</span> (...);
+                <span class="kw">INSERT INTO</span> pedidos (id_cliente, total, estado) <span class="kw">VALUES</span>
+                (...);
               </div>
             </div>
           </div>
@@ -1103,7 +1373,11 @@
             <div class="tech-card" style="--card-accent: #38bdf8;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #38bdf8;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">1. PostgreSQL en Supabase</div>
@@ -1111,11 +1385,16 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                Instancia de base de datos activa las 24 horas, con panel de administración visual para consultar tablas y registros.
+                Instancia de base de datos activa las 24 horas, con panel de administración visual para consultar tablas
+                y registros.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Soporta múltiples conexiones simultáneas.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Acceso en vivo a los registros reales del sistema.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Soporta múltiples conexiones simultáneas.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Acceso en vivo a los registros reales del sistema.</li>
               </ul>
             </div>
 
@@ -1123,7 +1402,9 @@
             <div class="tech-card" style="--card-accent: #10b981;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #10b981;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">2. Datos de Prueba Listos</div>
@@ -1131,11 +1412,16 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                El sistema ya cuenta con usuarios de prueba precargados para cada rol (<span class="hl-white">admin, chofer y cliente</span>) y productos con stock.
+                El sistema ya cuenta con usuarios de prueba precargados para cada rol (<span class="hl-white">admin,
+                  chofer y cliente</span>) y productos con stock.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Permite probar todas las pantallas en la mesa de examen.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Contraseñas listas para ingresar de inmediato.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Permite probar todas las pantallas en la mesa de examen.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Contraseñas listas para ingresar de inmediato.</li>
               </ul>
             </div>
 
@@ -1143,7 +1429,11 @@
             <div class="tech-card" style="--card-accent: #f59e0b;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #f59e0b;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">3. Copia de Seguridad</div>
@@ -1151,11 +1441,16 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                Cumpliendo el requisito obligatorio de la consigna, la base de datos se exporta en un archivo <code class="sql-type">.sql</code> estándar.
+                Cumpliendo el requisito obligatorio de la consigna, la base de datos se exporta en un archivo <code
+                  class="sql-type">.sql</code> estándar.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Incluye la estructura de tablas y todos los datos.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Se puede restaurar en cualquier computadora en minutos.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Incluye la estructura de tablas y todos los datos.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Se puede restaurar en cualquier computadora en minutos.</li>
               </ul>
             </div>
           </div>
@@ -1175,7 +1470,8 @@
               ¿Cómo procesa el sistema <span class="emerald">un nuevo pedido?</span>
             </h1>
             <p class="slide-lead">
-              El módulo integrador cruza las <span class="hl-white">3 tablas principales</span>: comprueba stock en planta, descuenta unidades, calcula envases vacíos y guarda el registro:
+              El módulo integrador cruza las <span class="hl-white">3 tablas principales</span>: comprueba stock en
+              planta, descuenta unidades, calcula envases vacíos y guarda el registro:
             </p>
           </div>
 
@@ -1245,9 +1541,13 @@
             </div>
           </div>
 
-          <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 18px; padding: 16px 26px; display: flex; align-items: center; gap: 16px; font-size: 18px; color: #a7f3d0;">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span><strong class="hl-white">Consistencia garantizada:</strong> Si un pedido se cancela, el stock y los envases vuelven automáticamente a su estado original en la base de datos.</span>
+          <div
+            style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 18px; padding: 16px 26px; display: flex; align-items: center; gap: 16px; font-size: 18px; color: #a7f3d0;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span><strong class="hl-white">Consistencia garantizada:</strong> Si un pedido se cancela, el stock y los
+              envases vuelven automáticamente a su estado original en la base de datos.</span>
           </div>
         </div>
       </div>
@@ -1265,7 +1565,8 @@
               Seguridad, contraseñas <span class="coral">y permisos por rol</span>
             </h1>
             <p class="slide-lead">
-              El sistema protege la información confidencial y asegura que cada usuario solo acceda a sus funciones permitidas:
+              El sistema protege la información confidencial y asegura que cada usuario solo acceda a sus funciones
+              permitidas:
             </p>
           </div>
 
@@ -1274,7 +1575,10 @@
             <div class="tech-card" style="--card-accent: #f43f5e;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #f43f5e;">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">1. Claves Encriptadas</div>
@@ -1282,11 +1586,16 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                Las contraseñas <span class="hl-white">nunca se guardan en texto plano</span>. Se transforman en un código hash seguro e irreversible.
+                Las contraseñas <span class="hl-white">nunca se guardan en texto plano</span>. Se transforman en un
+                código hash seguro e irreversible.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Nadie puede leer las claves en la base de datos.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Se verifican de forma matemática al iniciar sesión.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Nadie puede leer las claves en la base de datos.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Se verifican de forma matemática al iniciar sesión.</li>
               </ul>
             </div>
 
@@ -1294,7 +1603,9 @@
             <div class="tech-card" style="--card-accent: #38bdf8;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #38bdf8;">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">2. Sesión Segura</div>
@@ -1302,11 +1613,16 @@
                 </div>
               </div>
               <p class="tech-card-p">
-                Al iniciar sesión correctamente, el sistema entrega una <span class="hl-white">llave digital de acceso</span> temporal.
+                Al iniciar sesión correctamente, el sistema entrega una <span class="hl-white">llave digital de
+                  acceso</span> temporal.
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Identifica al usuario sin pedir la contraseña a cada rato.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Vence automáticamente al cerrar sesión o por tiempo.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Identifica al usuario sin pedir la contraseña a cada rato.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> Vence automáticamente al cerrar sesión o por tiempo.</li>
               </ul>
             </div>
 
@@ -1314,7 +1630,10 @@
             <div class="tech-card" style="--card-accent: #10b981;">
               <div class="tech-card-header">
                 <div class="tech-card-icon" style="color: #10b981;">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="8.5" cy="7" r="4" />
+                  </svg>
                 </div>
                 <div>
                   <div class="tech-card-title">3. Permisos por Rol</div>
@@ -1325,9 +1644,15 @@
                 Cada sección privada está restringida según el rol de la persona:
               </p>
               <ul class="tech-spec-list">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Cliente:</strong> Solo pide agua y ve sus compras.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Chofer:</strong> Solo ve los pedidos asignados en su ruta.</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <strong class="hl-white">Admin:</strong> Controla precios, usuarios y despacho.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Cliente:</strong> Solo pide agua y ve sus compras.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Chofer:</strong> Solo ve los pedidos asignados en su ruta.</li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg> <strong class="hl-white">Admin:</strong> Controla precios, usuarios y despacho.</li>
               </ul>
             </div>
           </div>
@@ -1343,13 +1668,14 @@
             <div class="pill-tag pill-ocean">
               Experiencia del Cliente
             </div>
-            
+
             <h1 class="slide-heading">
               Catálogo simple pensado <span class="ocean">para el celular</span>
             </h1>
-            
+
             <p class="slide-lead">
-              El cliente entra y puede hacer su pedido en <span class="hl-white">10 segundos</span>, de manera visual y sin pasos molestos.
+              El cliente entra y puede hacer su pedido en <span class="hl-white">10 segundos</span>, de manera visual y
+              sin pasos molestos.
             </p>
 
             <div class="action-cards">
@@ -1357,7 +1683,8 @@
                 <div class="num-badge num-ocean">01</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Botones Táctiles [+] y [-]</div>
-                  <div class="action-sub">Suma o resta bidones de 20L o 12L con <span class="hl-white">respuesta instantánea en pantalla</span>.</div>
+                  <div class="action-sub">Suma o resta bidones de 20L o 12L con <span class="hl-white">respuesta
+                      instantánea en pantalla</span>.</div>
                 </div>
               </div>
 
@@ -1365,7 +1692,8 @@
                 <div class="num-badge num-ocean">02</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Stock en Tiempo Real</div>
-                  <div class="action-sub">El sistema solo permite elegir lo que realmente hay en depósito: <code class="sql-type">WHERE stock &gt; 0</code>.</div>
+                  <div class="action-sub">El sistema solo permite elegir lo que realmente hay en depósito: <code
+                      class="sql-type">WHERE stock &gt; 0</code>.</div>
                 </div>
               </div>
 
@@ -1373,7 +1701,8 @@
                 <div class="num-badge num-ocean">03</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Cálculo de Total al Instante</div>
-                  <div class="action-sub">El cliente siempre sabe exactamente cuánto va a pagar antes de confirmar.</div>
+                  <div class="action-sub">El cliente siempre sabe exactamente cuánto va a pagar antes de confirmar.
+                  </div>
                 </div>
               </div>
             </div>
@@ -1387,7 +1716,9 @@
               </div>
               <div class="float-chip chip-tr">
                 <div class="num-badge num-ocean">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">Stock en Vivo</div>
@@ -1396,7 +1727,9 @@
               </div>
               <div class="float-chip chip-bl">
                 <div class="num-badge num-emerald">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">Carrito Activo</div>
@@ -1421,7 +1754,9 @@
               </div>
               <div class="float-chip chip-bl">
                 <div class="num-badge num-emerald">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">Confirmación</div>
@@ -1430,7 +1765,9 @@
               </div>
               <div class="float-chip chip-tr">
                 <div class="num-badge num-amber">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">Recambio</div>
@@ -1444,13 +1781,14 @@
             <div class="pill-tag pill-emerald">
               Confirmación del Pedido
             </div>
-            
+
             <h1 class="slide-heading">
               Declaración de envases y <span class="emerald">entrega en 1 toque</span>
             </h1>
-            
+
             <p class="slide-lead">
-              El paso donde el cliente confirma su domicilio y avisa <span class="hl-white">cuántos bidones vacíos</span> tiene listos para entregar.
+              El paso donde el cliente confirma su domicilio y avisa <span class="hl-white">cuántos bidones
+                vacíos</span> tiene listos para entregar.
             </p>
 
             <div class="action-cards">
@@ -1458,7 +1796,8 @@
                 <div class="num-badge num-emerald">01</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Dirección Guardada</div>
-                  <div class="action-sub">Elige su domicilio habitual (casa u oficina) sin tener que escribirlo de nuevo.</div>
+                  <div class="action-sub">Elige su domicilio habitual (casa u oficina) sin tener que escribirlo de
+                    nuevo.</div>
                 </div>
               </div>
 
@@ -1466,7 +1805,8 @@
                 <div class="num-badge num-emerald">02</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Cálculo de Recambio</div>
-                  <div class="action-sub">Si entrega todos los vacíos correspondientes, <span class="hl-white">no se cobra costo de envase</span>.</div>
+                  <div class="action-sub">Si entrega todos los vacíos correspondientes, <span class="hl-white">no se
+                      cobra costo de envase</span>.</div>
                 </div>
               </div>
 
@@ -1491,13 +1831,14 @@
             <div class="pill-tag pill-amber">
               Aplicación para el Chofer
             </div>
-            
+
             <h1 class="slide-heading">
               Hoja de ruta ágil <span class="amber">directo en la calle</span>
             </h1>
-            
+
             <p class="slide-lead">
-              El chofer trabaja con su celular <span class="hl-white">sin planillas de papel</span> ni llamadas peligrosas mientras maneja.
+              El chofer trabaja con su celular <span class="hl-white">sin planillas de papel</span> ni llamadas
+              peligrosas mientras maneja.
             </p>
 
             <div class="action-cards">
@@ -1505,7 +1846,8 @@
                 <div class="num-badge num-amber">01</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Lista de Repartos del Día</div>
-                  <div class="action-sub">Ve los pedidos pendientes y puede autoasignarse uno con el botón <span class="hl-white">"Tomar Pedido"</span>.</div>
+                  <div class="action-sub">Ve los pedidos pendientes y puede autoasignarse uno con el botón <span
+                      class="hl-white">"Tomar Pedido"</span>.</div>
                 </div>
               </div>
 
@@ -1513,7 +1855,8 @@
                 <div class="num-badge num-amber">02</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Botón Directo a Google Maps</div>
-                  <div class="action-sub">Toca un botón y se abre el GPS con la <span class="hl-white">ubicación y altura exacta del cliente</span>.</div>
+                  <div class="action-sub">Toca un botón y se abre el GPS con la <span class="hl-white">ubicación y
+                      altura exacta del cliente</span>.</div>
                 </div>
               </div>
 
@@ -1521,7 +1864,8 @@
                 <div class="num-badge num-amber">03</div>
                 <div class="action-text-wrap">
                   <div class="action-title">Arqueo en la Puerta</div>
-                  <div class="action-sub">Confirma cuántos vacíos recibió y registra el cobro en efectivo al instante.</div>
+                  <div class="action-sub">Confirma cuántos vacíos recibió y registra el cobro en efectivo al instante.
+                  </div>
                 </div>
               </div>
             </div>
@@ -1535,7 +1879,9 @@
               </div>
               <div class="float-chip chip-tr">
                 <div class="num-badge num-amber">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">GPS Directo</div>
@@ -1544,7 +1890,10 @@
               </div>
               <div class="float-chip chip-bl">
                 <div class="num-badge num-ocean">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
                 </div>
                 <div>
                   <div class="chip-val">En Reparto</div>
@@ -1566,11 +1915,8 @@
               Cierre y Demostración en Vivo
             </div>
             <h1 class="slide-heading" style="font-size: 56px;">
-              El Agüitas · <span class="emerald">Listo para la defensa oral</span>
+              El Agüitas
             </h1>
-            <p class="slide-lead" style="font-size: 22px;">
-              El sistema cumple con todos los puntos requeridos por la cátedra y está listo para ser probado en vivo:
-            </p>
           </div>
 
           <div class="final-clean-grid">
@@ -1578,58 +1924,77 @@
             <div class="final-check-list">
               <div class="final-check-item">
                 <div class="check-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
                   <div style="font-size: 21px; font-weight: 800; color: #ffffff;">Operaciones CRUD Completas</div>
-                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Alta, baja, modificación, búsqueda y listado en las <span class="hl-white">3 tablas maestras</span>.</div>
+                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Alta, baja, modificación,
+                    búsqueda y listado en las <span class="hl-white">3 tablas maestras</span>.</div>
                 </div>
               </div>
 
               <div class="final-check-item">
                 <div class="check-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
                   <div style="font-size: 21px; font-weight: 800; color: #ffffff;">Módulo Integrador Funcionando</div>
-                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Descuento automático de stock en planta y balance de envases retornables.</div>
+                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Descuento automático de stock
+                    en planta y balance de envases retornables.</div>
                 </div>
               </div>
 
               <div class="final-check-item">
                 <div class="check-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
                   <div style="font-size: 21px; font-weight: 800; color: #ffffff;">Seguridad y Control de Acceso</div>
-                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Contraseñas encriptadas con <span class="hl-white">Bcrypt</span> y permisos según el tipo de usuario.</div>
+                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Contraseñas encriptadas con
+                    <span class="hl-white">Bcrypt</span> y permisos según el tipo de usuario.</div>
                 </div>
               </div>
 
               <div class="final-check-item">
                 <div class="check-icon-circle">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
                 </div>
                 <div>
-                  <div style="font-size: 21px; font-weight: 800; color: #ffffff;">Base de Datos Relacional y Respaldo</div>
-                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Tablas relacionadas en Supabase, datos de prueba y copia de seguridad <code class="sql-type">.sql</code>.</div>
+                  <div style="font-size: 21px; font-weight: 800; color: #ffffff;">Base de Datos Relacional y Respaldo
+                  </div>
+                  <div style="font-size: 15.5px; color: var(--text-sub); margin-top: 2px;">Tablas relacionadas en
+                    Supabase, datos de prueba y copia de seguridad <code class="sql-type">.sql</code>.</div>
                 </div>
               </div>
             </div>
 
             <!-- Columna Derecha: Tarjeta compacta del QR y acceso en vivo -->
-            <div style="background: var(--surface-card); border: 2px solid rgba(56, 189, 248, 0.45); border-radius: 28px; padding: 26px 28px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; backdrop-filter: blur(24px); box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75);">
-              <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.45); color: #34d399; padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 800; text-transform: uppercase;">
-                <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+            <div
+              style="background: var(--surface-card); border: 2px solid rgba(56, 189, 248, 0.45); border-radius: 28px; padding: 26px 28px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; backdrop-filter: blur(24px); box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75);">
+              <div
+                style="display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.45); color: #34d399; padding: 6px 16px; border-radius: 100px; font-size: 13px; font-weight: 800; text-transform: uppercase;">
+                <span
+                  style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 8px #10b981;"></span>
                 <span>PROBALO EN VIVO AHORA</span>
               </div>
 
-              <div style="background: #ffffff; padding: 12px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
-                <img src="qr-produccion.png" alt="Código QR El Agüitas" style="width: 175px; height: 175px; display: block; border-radius: 10px;" />
+              <div
+                style="background: #ffffff; padding: 12px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);">
+                <img src="qr-produccion.png" alt="Código QR El Agüitas"
+                  style="width: 175px; height: 175px; display: block; border-radius: 10px;" />
               </div>
 
               <div>
-                <div style="font-family: 'JetBrains Mono', monospace; font-size: 21px; font-weight: 800; color: #38bdf8;">
+                <div
+                  style="font-family: 'JetBrains Mono', monospace; font-size: 21px; font-weight: 800; color: #38bdf8;">
                   elaguitas.vercel.app
                 </div>
                 <div style="font-size: 14px; color: var(--text-muted); margin-top: 3px;">
@@ -1710,14 +2075,14 @@
       });
 
       nextEl.classList.add('active');
-      gsap.fromTo(nextEl, 
+      gsap.fromTo(nextEl,
         { opacity: 0, y: 35, scale: 0.985 },
         { opacity: 1, y: 0, scale: 1, duration: 0.55, ease: "power3.out", delay: 0.1 }
       );
 
       const cards = nextEl.querySelectorAll('.action-card, .tech-card, .final-check-item');
       if (cards.length > 0) {
-        gsap.fromTo(cards, 
+        gsap.fromTo(cards,
           { opacity: 0, x: -20 },
           { opacity: 1, x: 0, duration: 0.45, stagger: 0.08, ease: "back.out(1.2)", delay: 0.2 }
         );
@@ -1734,7 +2099,7 @@
 
     function toggleFullscreen() {
       if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
+        document.documentElement.requestFullscreen().catch(() => { });
       } else {
         if (document.exitFullscreen) {
           document.exitFullscreen();
@@ -1771,4 +2136,5 @@
     });
   </script>
 </body>
+
 </html>
