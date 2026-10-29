@@ -108,19 +108,26 @@ export default function Home() {
       )}
 
       {/* Saludo y Ubicación en San Rafael */}
-      <div style={{ marginBottom: '1.15rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.25rem' }}>
-          <MapPinIcon size={14} color="var(--primary)" />
-          <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary-dark)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-            San Rafael, Mendoza
-          </span>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', marginBottom: '1.15rem' }}>
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.25rem' }}>
+            <MapPinIcon size={14} color="var(--primary)" />
+            <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary-dark)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              San Rafael, Mendoza
+            </span>
+          </div>
+          <h1 style={{ fontSize: '1.45rem', fontWeight: 900, margin: '0 0 0.15rem', color: '#0f172a', letterSpacing: '-0.025em' }}>
+            Buen día, {firstName}
+          </h1>
+          <p className="muted" style={{ margin: 0, fontSize: '0.84rem' }}>
+            Agua pura microfiltrada en planta San Rafael
+          </p>
         </div>
-        <h1 style={{ fontSize: '1.45rem', fontWeight: 900, margin: '0 0 0.15rem', color: '#0f172a', letterSpacing: '-0.025em' }}>
-          Buen día, {firstName}
-        </h1>
-        <p className="muted" style={{ margin: 0, fontSize: '0.84rem' }}>
-          Agua pura microfiltrada en planta San Rafael
-        </p>
+        <img
+          src="https://i.imgur.com/7nA63YT.png"
+          alt="Escudo de Boca Juniors"
+          style={{ width: 72, height: 72, flexShrink: 0, objectFit: 'contain' }}
+        />
       </div>
 
       <div className="home-desktop-layout">
